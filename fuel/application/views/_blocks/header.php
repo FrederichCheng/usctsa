@@ -7,7 +7,7 @@
         <meta name="keywords" content="<?php echo fuel_var('meta_keywords') ?>">
         <meta name="description" content="<?php echo fuel_var('meta_description') ?>">
         <link rel="stylesheet" type="text/css" href="<?= assets_path('css/style.css') ?>">
-        <link rel="stylesheet" type="text/css" href="<?= assets_path('css/newstudents.css') ?>">
+        <link rel="stylesheet" type="text/css" href="<?= assets_path('js/engine1/style.css') ?>">
         <link rel="stylesheet" type="text/css" href="<?= assets_path('js/jquery-ui/css/custom-theme/jquery-ui-1.10.4.custom.min.css') ?>">
         <script type="text/javascript" src="<?= assets_path('js/jquery.js') ?>"></script>
         <script type="text/javascript" src="<?= assets_path('js/main.js') ?>"></script>

@@ -1,27 +1,4 @@
-<!DOCTYPE html> <!-- HTML5 declaration -->
-<html>
-
-    <head>
-        <meta charset="UTF-8">
-        <title><?=fuel_var('page_title')?></title>
-        
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/index.css">
-        <link rel="stylesheet" type="text/css" href="assets/js/engine1/style.css" media="screen" /> <!-- for WOWSlider -->
-        
-        <script type="text/javascript" src="assets/js/jquery.js"></script>
-        <script type="text/javascript" src="assets/js/main.js"></script>
-    </head>
-
-
-    <body>
-    
-		<!-- top nav template -->
-		<div id="nav"></div> <!-- using javascript to load nav.html --> 
-        
-        <!-- Wrapper -->
-        <div id="wrapper">
-
+<?php $this->load->view('_blocks/header') ?>
 
             <!-- Cover Photo -->
             <div class="pagewidth">
@@ -68,17 +45,4 @@
          		</div>
 				<?php } ?>
             </div>
-            
-
-            <!-- footer -->
-            <footer>
-                <div class="footer">
-                    <p>
-                    	<?=fuel_var('page_footer')?>
-                    </p>
-                </div>
-            </footer>
-
-        </div>        
-    </body>
-</html>
+<?php $this->load->view('_blocks/footer') ?>
