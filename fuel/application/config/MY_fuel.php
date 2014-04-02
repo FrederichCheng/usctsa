@@ -56,7 +56,7 @@ $config['assets_upload_max_height']  = 768;
 // text editor settings  (options are markitup or ckeditor)
 // markitup: allows you to visualize the code in its raw format - not wysiwyg (http://markitup.jaysalvat.com/)
 // ckeditor: suitable for clients; shows what the output will look like in the page (http://ckeditor.com/)
-$config['text_editor'] = 'markitup';
+$config['text_editor'] = 'ckeditor';
 
 // ck editor specific settings... if you use a PHP array, it will use json_encode
 $config['ck_editor_settings'] = "{

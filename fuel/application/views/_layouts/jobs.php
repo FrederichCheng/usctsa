@@ -1,31 +1,7 @@
-<!DOCTYPE html> <!-- HTML5 declaration -->
+<?php $this->load->view('_blocks/header') ?>
 
-<html>
 
-	<head>
-        <meta charset="UTF-8">
-        <title>USC TSA</title>
-        
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/jobs.css">
-        
-        <script type="text/javascript" src="assets/js/jquery.js"></script>
-        <script type="text/javascript" src="assets/js/main.js"></script>
-		<script type="text/javascript" src="assets/js/jquery.pagescroller.lite.js"></script><!-- link pagescroller lite js file -->
-
-		<script type="text/javascript">
-			$(document).ready(function(){
-				// initiate page scroller plugin
-				$('body').pageScroller({
-					navigation: '#navscroll'
-				});
-			});
-		</script>
-	</head>
-	
-	<body>
-		<!-- top nav template -->
-		<div id="nav"></div> <!-- using javascript to load nav.html -->   		
+		<link rel="stylesheet" type="text/css" href="assets/css/jobs.css">  		
 		
 		<!-- nav scroll -->
 		<div id="navscroll" class="pageScrollerNav standardNav right dark">
@@ -81,14 +57,4 @@
 			</div><!-- [END] #main -->
 			
 			
-            <!-- footer -->
-            <footer>
-                <div class="footer">
-                    <p> Copyright &copy; 2014 The University of Southern California Taiwanese Student Association </p>
-                </div>
-            </footer>			
-			
-		</div><!-- [END] #wrapper -->
-		
-	</body>
-</html>
+<?php $this->load->view('_blocks/footer') ?>

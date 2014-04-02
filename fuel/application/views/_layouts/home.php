@@ -1,5 +1,7 @@
 <?php $this->load->view('_blocks/header') ?>
 
+		<!-- nav content -->
+		<div id="wrapper">
             <!-- Cover Photo -->
             <div class="pagewidth">
 
@@ -45,4 +47,7 @@
          		</div>
 				<?php } ?>
             </div>
+	</div>
+
+
 <?php $this->load->view('_blocks/footer') ?>

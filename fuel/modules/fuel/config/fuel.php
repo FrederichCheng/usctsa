@@ -98,7 +98,7 @@ $config['dashboards'] = array('fuel');
 $config['dashboard_rss'] = 'http://www.getfuelcms.com/blog/feed/rss';
 
 // text editor settings... options are markitup or ckeditor
-$config['text_editor'] = 'markitup';
+$config['text_editor'] = 'ckeditor';
 
 // ck editor specific settings
 $config['ck_editor_settings'] = array(
