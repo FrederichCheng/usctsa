@@ -13,7 +13,7 @@
         <script type="text/javascript" src="<?= assets_path('js/main.js') ?>"></script>
         <script type="text/javascript" src="<?= assets_path('js/json2.js') ?>"></script>
         <script type="text/javascript" src="<?= assets_path('js/jquery-ui/js/jquery-ui-1.10.4.custom.min.js') ?>"></script>
-        <script type="text/javascript" src="<?= assets_path('js/jquery.pagescroller.lite.js') ?>"></script>
+
     </head>
     <body>
         <header>
