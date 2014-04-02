@@ -1,0 +1,74 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 26, 2014, 5:20:10 PM
+    Author     : po-yilee
+*/
+
+.car{   
+    
+    height:400px;
+    /* now let table be in center*/
+    margin-left:auto;   
+    margin-right:auto;  
+    
+}
+
+.car_pic{
+    width:400px;
+    height:300px;
+  
+}
+
+.car_descript{
+    width:260px;
+    height:300px;
+    text-align:justify;
+}
+
+
+        
+
+	#imgList{
+            overflow:auto;
+        }
+
+        #list{
+            width:400px; 
+            float:left;      
+            overflow:auto;
+        }
+        
+        
+	#list img{
+            width:40px; 
+            height:40px;
+        }
+	
+        #list ul{	
+            padding:0; 
+            list-style-type: none; 
+            float:left;
+        }	
+	
+        #list ul li{
+		display: inline; /* 水平排列 */
+		padding:4px; 
+		border:solid 1px #eee;       
+		float:left;
+	}
+	
+
+ 
+	/* 秀大圖 */
+	#imgB{
+          //    border: solid 10px #FFF; 
+              height: 300px; 
+              width: 400px; 
+            
+        }
+	
+        

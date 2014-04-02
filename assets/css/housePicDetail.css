@@ -1,0 +1,65 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 13, 2014, 5:03:00 PM
+    Author     : po-yilee
+*/
+// This is the css for slide pictures
+
+body{font-family:Arial, Helvetica, sans-serif;}	
+	ul ,li{	margin:0; padding:0; list-style-type: none; float:left;}	
+ 
+	#showbox{
+            float:left; 
+            width: 370px; 
+            border: solid 1px #eee;
+            
+        }
+        #description{
+            float:left;
+            width:300px;
+            text-align:justify;
+        }
+        
+	#showImg , #showImg table{ 
+            width: 370px;  
+            height:350px;
+            
+        }
+ 
+	#imgList{
+            margin-top:10px; 
+            margin-left:3px; 
+            padding-bottom:10px; 
+            overflow:auto;
+        }
+	#imgList span{float:left; display:block; width:22px;  margin:2px; line-height:50px;}
+ 
+	#list{position:relative; float:left; width:350px; height:60px;}	
+	#list img{width:40px; height:40px;}
+	#list{width:300px; float:left; margin:0 2px; overflow:hidden;}
+	#list ul{ position:absolute; left:0; top:0; white-space: nowrap;/* 不斷行 */}
+	#list ul li{
+		display: inline; /* 水平排列 */
+		margin:0 4px;
+		padding:5px; 
+		border:solid 1px #eee;
+	}
+	#list ul li.on{border:solid 2px #ccc;}	
+	#list ul li img {display: inline-block;	/* 水平內顯示為區塊 */}
+ 
+	/* 秀大圖 */
+	#imgB{border: solid 10px #FFF; 
+              height: 300; 
+              width: 350px; 
+              align:center;}
+	/* 滑入顯示圖片區塊 */
+	#overImg{position:absolute; top:-99999; left:-99999; display:none; z-index:100; 
+                 border:solid 5px #666; padding:5px; background:#fff;}
+
+        #price{
+            color:#FF0000;
+        }

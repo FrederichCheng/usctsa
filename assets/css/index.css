@@ -1,0 +1,14 @@
+.pagewidth
+{
+	width: 960px;
+	margin: 0px auto 10px;
+	position: relative;
+	text-align: center; /* make the navigation bar be at the center */
+	
+	/*border: 1px solid red;*/
+}
+
+.container
+{
+	min-height: 300px;
+}
