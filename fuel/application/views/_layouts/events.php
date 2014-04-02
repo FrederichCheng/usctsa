@@ -1,5 +1,5 @@
 <?php $this->load->view('_blocks/header') ?>
-
+<div id="wrapper">
 <?php 
     require_once(FUEL_FOLDER.'/FacebookSDK/facebook.php');
     $APP_ID = '258287400999278';
@@ -580,5 +580,6 @@
         </table>
     </div>
 </div>	
+</div>
  <script src="http://connect.facebook.net/en_US/all.js"></script>
 <?php $this->load->view('_blocks/footer') ?>

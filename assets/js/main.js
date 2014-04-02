@@ -34,13 +34,6 @@
                 });
             });
             
-            
-			$(document).ready(function(){
-				// initiate page scroller plugin
-				$('body').pageScroller({
-					navigation: '#navscroll'
-				});
-			});
               
         }
 )(jQuery);

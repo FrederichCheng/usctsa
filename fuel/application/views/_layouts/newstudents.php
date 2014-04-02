@@ -1,5 +1,5 @@
 <?php $this->load->view('_blocks/header') ?>
-
+<div id="wrapper">
 
 		<link rel="stylesheet" type="text/css" href="assets/css/newstudents.css">
 		
@@ -584,6 +584,12 @@
 				
 				
 			</div><!-- [END] #main -->
-			
+	</div>
+			<script type="text/javascript">
+			$(document).ready(function(){
+				$('body').pageScroller({navigation: '#navscroll'});
+			});
+				
+			</script>
 			
 <?php $this->load->view('_blocks/footer') ?>
