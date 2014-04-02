@@ -1,5 +1,4 @@
 <?php $this->load->view('_blocks/header') ?>
-<div id="wrapper">
 
 		<link rel="stylesheet" type="text/css" href="assets/css/newstudents.css">
 		

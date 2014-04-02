@@ -82,11 +82,11 @@ $home_sections = array(
 	'cover_photo_3' => array('label'=>'Cover photo 3', 'type'=>'asset'),
 	'cover_photo_4' => array('label'=>'Cover photo 4', 'type'=>'asset'),
 	'heading' => array('label' => lang('layout_field_heading')),
-	"sections" => array('display_label' => FALSE, 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 900px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
+	"sections" => array('display_label' => FALSE, 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
                                             'fields' => array(
                                                 'sections' => array('type' => 'section', 'label' => '{__title__}'),
-                                                'title' => array('style' => 'width: 800px'),
-                                                'content' => array('type' => 'textarea', 'style' => 'width: 800px; height: 300px;'),
+                                                'title' => array('style' => 'width: 850px'),
+                                                'content' => array('type' => 'textarea', 'style' => 'width: 850px; height: 300px;'),
                                             ))
 );
 

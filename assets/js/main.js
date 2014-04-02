@@ -24,12 +24,12 @@
 	            	if ($(this).siblings().is(":hidden"))
 	            	{
 	              		$(this).siblings().slideToggle(250);
-	              	   	$(this).children().css("background", "url(images/accordion-minus.png) no-repeat right 55%");
+	              	   	$(this).children().css("background", "url(assets/images/accordion-minus.png) no-repeat right 55%");
 	              	} 
 	            	else 
 	            	{
 	              		$(this).siblings().slideToggle(250);
-	              	 	$(this).children().css("background", "url(images/accordion-plus.png) no-repeat right 55%");
+	              	 	$(this).children().css("background", "url(assets/images/accordion-plus.png) no-repeat right 55%");
 	              	}
                 });
             });

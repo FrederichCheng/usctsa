@@ -25,7 +25,7 @@
                 <div id="title">
                     <!-- Logo -->
                     <div id="logo">
-                        <a href="index.html"><img src="<?=  assets_path('images/usc_logo.png') ?>" alt="USC Logo" width="130" height="130" /></a>
+                        <a href="http://www.usc.edu/" title="Go to USC"><img src="<?=  assets_path('images/usc_logo.png') ?>" alt="USC Logo" width="130" height="130" /></a>
                         <div id="tagline">USC Taiwanese Student Association<br>南加大台灣同學會</div>
                     </div>
 
