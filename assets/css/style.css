@@ -6,7 +6,7 @@ body
 	background: url(../images/wallpaper1.jpg);
         
 	background-attachment: fixed;
-	font: 12px Arial, sans-serif;
+	font: 14px Arial, sans-serif;
 	
 	/*-webkit-font-smoothing: antialiased;
 	-webkit-text-size-adjust: 100%;
@@ -267,6 +267,31 @@ nav ul ul li a:hover
 
 
 
+/*         Page Scroller
+====================================*/
+#navscroll ul
+{
+	background: rgb(153,29,32);	
+}
+
+#navscroll ul li a
+{
+	background: rgb(153,29,32);	
+	color: rgb(255,204,68);
+	text-decoration: none;
+	/*font: 12px Arial, sans-serif;*/
+	font: 12px;
+}	
+
+#navscroll ul li a:hover
+{
+	background: rgb(255,204,68);
+	color: rgb(255,255,255);
+	font: 18px Arial, sans-serif;
+}
+
+
+
 
 /*           Accordion
 ====================================*/
@@ -340,4 +365,5 @@ nav ul ul li a:hover
     border-top: 1px solid #ccc;
     margin-top: 50px;
     padding: 10px 0px 0px 0px;	
+    font: 12px Arial, sans-serif;
 }

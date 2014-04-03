@@ -56,5 +56,11 @@
 			
 			</div><!-- [END] #main -->
 			
+
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('body').pageScroller({navigation: '#navscroll'});
+				});	
+			</script>			
 			
 <?php $this->load->view('_blocks/footer') ?>
