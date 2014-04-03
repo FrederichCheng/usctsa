@@ -5,130 +5,92 @@
 		<!-- nav scroll -->
 		<div id="navscroll" class="pageScrollerNav standardNav right dark">
 			<ul>
-				<li><a href="#">Top</a></li>
-				<li><a href="#">Taiwan Office</a></li>
-				<li><a href="#">Materials Receiving</a></li>
-				<li><a href="#">Important Notes</a></li>
-				<li><a href="#">Experience Sharing</a></li>
-				<li><a href="#">Useful Websites</a></li>
+				<li><a href="#"><?=fuel_var('top_scroller', 'Top')?></a></li>
+				<li><a href="#"><?=fuel_var('tw_office_scroller', 'Taiwan Office')?></a></li>
+				<li><a href="#"><?=fuel_var('recv_scroller', 'Materials Receiving')?></a></li>
+				<li><a href="#"><?=fuel_var('important_scroller', 'Important Notes')?></a></li>
+				<li><a href="#"><?=fuel_var('experience_scroller', 'Experience Sharing')?></a></li>
+				<li><a href="#"><?=fuel_var('links_scroller', 'Useful Websites')?></a></li>
 			</ul>
 		</div>
 	
 		<!-- nav content -->
 		<div id="wrapper">
 			<div id="main">
-
+				
 				<!-- Top -->
 				<div class="section">
-		        	<h1>
-		        		<?=fuel_var('top_heading', 'Top')?>
-		        	</h1>
-				
-					<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
-						<span lang="EN-US" style="font-size: 10.0pt; font-family: 微軟正黑體,sans-serif">
-							<?=fuel_var('top_sections')?>
-						</span>
-					</p>
-				</div>
+		        	<h1><?=fuel_var('top_heading', 'Top')?></h1>
+		        	<p><?=fuel_var('top_description', '')?></p>
+					<p><?=fuel_var('top_sections')?></p>
+				</div> <!-- End of section -->
 				
 				
 				<!--  USC Taiwan Office -->				
 				<div class="section">
-		        	<h1>
-		        		<?=fuel_var('tw_office_heading', 'USC Taiwan Office')?>
-		        	</h1>
-					<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
-						<span lang="EN-US" style="font-size: 10.0pt; font-family: 微軟正黑體,sans-serif">
-							<?=fuel_var('tw_office_sections')?>
-						</span>
-					</p>
-					
-
-				</div>				
+		        	<h1><?=fuel_var('tw_office_heading', 'USC Taiwan Office')?></h1>
+		        	<p><?=fuel_var('tw_office_description', '')?></p>
+					<p><?=fuel_var('tw_office_sections')?></p>
+				</div> <!-- End of section -->			
 				
 				
 				<!-- Materials You Will Receive -->
 				<div class="section">
-					
-					<!-- Headline -->
-			        <div class="headline"><h1><?=fuel_var('recv_heading', 'Materials You Will Receive')?></h1></div>
-					
-					<p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
-					<span style="font-size: 10.0pt; font-family: 微軟正黑體,sans-serif">
-					正常的情況下，你應該會陸續收到：</span>
+			        <h1><?=fuel_var('recv_heading', 'Materials You Will Receive')?></h1>
+					<p><?=fuel_var('recv_description', '')?></p>
 			
 			        <!-- Accordion -->
 			        <?php foreach($recv_sections as $section){ ?>
 			        <div class="acc-container">
 			        	<span class="acc-trigger"><a href="#" onClick="return false;"><?=$section['title']?></a></span>
 			            <div class="content">
-			                <p>
-								<?= $section['content'] ?>
-			                </p>
+			                <p><?= $section['content'] ?></p>
 			            </div>
 			 		</div>
-					<?php } ?>			
-				
-				</div>				
+					<?php } ?>
+				</div> <!-- End of section -->				
 				
 				
 				<!-- Important Notes -->
 				<div class="section">
-				
-					<!-- Headline -->
-			        <div class="headline"><h1><?=fuel_var('recv_heading', 'Important Notes')?></h1></div>
+			        <h1><?=fuel_var('important_heading', 'Important Notes')?></h1>
+			        <p><?=fuel_var('important_description', '')?></p>
 			
 			        <!-- Accordion -->
 			        <?php foreach($important_sections as $section){ ?>
 			        <div class="acc-container">
 			        	<span class="acc-trigger"><a href="#" onClick="return false;"><?=$section['title']?></a></span>
 			            <div class="content">
-			                <p>
-								<?= $section['content'] ?>
-			                </p>
+			                <p><?= $section['content'] ?></p>
 			            </div>
 			 		</div>
 					<?php } ?>					
-				
 				</div> <!-- End of section -->
 				
 				
 				<!-- Experience Sharing -->
 				<div class="section">
-				
-					<!-- Headline -->
-			        <div class="headline"><h1><?=fuel_var('experience_heading', 'Experience Sharing')?></h1></div>
-					<p>
-						在你開始聯絡其他學長姐,&nbsp;詢問各種你關心的問題之前,&nbsp;有些寶貴的前人經驗,&nbsp;與你分享一下&nbsp;
-						讓赴美之旅更順暢﹗除了截至目前為止,&nbsp;多位新生們針對大家憂心的議題提供個人經驗與心得外,&nbsp;
-						下方辦事處也集結了一些重點供大家參考!!
-					</p>			
+			        <h1><?=fuel_var('experience_heading', 'Experience Sharing')?></h1>
+			        <p><?=fuel_var('experience_description', '')?></p>			
 			
 			        <!-- Accordion -->
 			        <?php foreach($experience_sections as $section){ ?>
 			        <div class="acc-container">
 			        	<span class="acc-trigger"><a href="#" onClick="return false;"><?=$section['title']?></a></span>
 			            <div class="content">
-			                <p>
-								<?= $section['content'] ?>
-			                </p>
+			                <p><?= $section['content'] ?></p>
 			            </div>
 			 		</div>
 					<?php } ?>						
-					
-				</div>				
+				</div> <!-- End of section -->	
+							
 				
 				<!-- Useful Websites -->
 				<div class="section">
-					<h1>
-		        		<?=fuel_var('links_heading', 'Useful Websites')?>
-		        	</h1>
-				
-					<ul>
-						<?=fuel_var('links_sections')?>
-					</ul>
-				</div>				
-				
+					<h1><?=fuel_var('useful_heading', 'Useful Websites')?></h1>
+					<p><?=fuel_var('useful_description', '')?></p>
+					<p><?=fuel_var('useful_sections')?></p>
+				</div> <!-- End of section -->
 				
 			</div><!-- [END] #main -->
 			
