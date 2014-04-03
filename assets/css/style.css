@@ -267,6 +267,30 @@ nav ul ul li a:hover
 
 
 
+/*         Page Scroller
+====================================*/
+#navscroll ul
+{
+	background: rgb(153,29,32);	
+}
+
+#navscroll ul li a
+{
+	background: rgb(153,29,32);	
+	color: rgb(255,204,68);
+	text-decoration: none;
+	font: 12px Arial, sans-serif;
+}	
+
+#navscroll ul li a:hover
+{
+	background: rgb(255,204,68);
+	color: rgb(255,255,255);
+	font: 18px Arial, sans-serif;
+}
+
+
+
 
 /*           Accordion
 ====================================*/

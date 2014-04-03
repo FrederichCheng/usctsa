@@ -17,7 +17,6 @@ $config['layouts']['main'] = array(
 	// 'filepath' => 'libraries',
 	// 'filename' => 'Main_layout.php',
 	
-	
 	'fields'	=> array(
 		'Header' => array('type' => 'fieldset', 'label' => 'Header', 'class' => 'tab'),
 		'page_title' => array('label' => lang('layout_field_page_title')),
@@ -57,6 +56,13 @@ $config['layouts']['events'] = array(
             )
 );
 
+
+
+
+
+/* ----------- setting variables for home, newstudents and jobs (Sky)   ---------- */
+/* ------------------------------------------------------------------------------- */
+
 $common_meta = array(
     'Meta' => array('type' => 'fieldset', 'label' => 'Meta', 'class' => 'tab'),
     'meta_section' => array('type' => 'copy', 'label' => 'The following fields control the meta information found in the head of the HTML.'),
@@ -95,10 +101,31 @@ $newstudents_sections = array(
 	'top_sections' => array('label' => 'Top Sections', 'type' => 'textarea'),
 	'tw_office_heading' => array('label' => 'Taiwan Office Heading'),
 	'tw_office_sections' => array('label' => 'Taiwan Office Sections', 'type' => 'textarea'),
+	'recv_heading' => array('label' => 'Materials Receiving Heading'),
+	"recv_sections" => array('display_label' => FALSE, 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
+                                            'fields' => array(
+                                                'sections' => array('type' => 'section', 'label' => '{__title__}'),
+                                                'title' => array('style' => 'width: 850px'),
+                                                'content' => array('type' => 'textarea', 'style' => 'width: 850px; height: 300px;'),
+                                            )),
+	'important_heading' => array('label' => 'Important Notes Heading'),
+	"important_sections" => array('display_label' => FALSE, 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
+                                            'fields' => array(
+                                                'sections' => array('type' => 'section', 'label' => '{__title__}'),
+                                                'title' => array('style' => 'width: 850px'),
+                                                'content' => array('type' => 'textarea', 'style' => 'width: 850px; height: 300px;'),
+                                            )),
+	'experience_heading' => array('label' => 'Experience Sharing Heading'),
+	"experience_sections" => array('display_label' => FALSE, 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
+                                            'fields' => array(
+                                                'sections' => array('type' => 'section', 'label' => '{__title__}'),
+                                                'title' => array('style' => 'width: 850px'),
+                                                'content' => array('type' => 'textarea', 'style' => 'width: 850px; height: 300px;'),
+                                            )),
+	'links_heading' => array('label' => 'Useful Website Heading'),
+	'links_sections' => array('label' => 'Top Sections', 'type' => 'textarea'),
 );
-
-
-
+/* ------------------------------------------------------------------------------- */
 
 
 /* ------------------------------    Home  Layout   ------------------------------ */
@@ -126,9 +153,6 @@ $home_layout->add_field('sections', array('display_label' => FALSE, 'add_extra' 
 /* ------------------------------------------------------------------------------- */
 
 
-
-
-
 /* ---------------------------    Newstudents  Layout   -------------------------- */
 /* ------------------------------------------------------------------------------- */
 
@@ -142,6 +166,9 @@ $newstudents_layout->add_fields($common_footer);
 $config['layouts']['newstudents'] = $newstudents_layout; // !!! IMPORTANT ... NOW ASSIGN THIS TO THE newstudents "layouts"
 
 /* ------------------------------------------------------------------------------- */
+
+
+
 
 /* End of file MY_fuel_layouts.php */
 /* Location: ./application/config/MY_fuel_layouts.php */
