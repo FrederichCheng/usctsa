@@ -10,7 +10,7 @@
 				<li><a href="#"><?=fuel_var('recv_scroller', 'Materials Receiving')?></a></li>
 				<li><a href="#"><?=fuel_var('important_scroller', 'Important Notes')?></a></li>
 				<li><a href="#"><?=fuel_var('experience_scroller', 'Experience Sharing')?></a></li>
-				<li><a href="#"><?=fuel_var('links_scroller', 'Useful Websites')?></a></li>
+				<li><a href="#"><?=fuel_var('useful_scroller', 'Useful Websites')?></a></li>
 			</ul>
 		</div>
 	

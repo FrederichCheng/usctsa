@@ -18,7 +18,7 @@ body{ margin: 0; font-family: arial, sans-serif; background: #eee;}
 
 .section
 { 
-	min-height: 400px;
+	min-height: 500px;
 	padding: 40px;
 }
 
@@ -111,12 +111,12 @@ body{ margin: 0; font-family: arial, sans-serif; background: #eee;}
 
 /*           Cover  Photo
 ====================================*/
-.cover_photo
+/*.cover_photo
 {
 	min-height: 300px;
 	width: auto;
 	background: url(../images/career_seminar.jpg) no-repeat;
 	background-position:center; 
 		
-	/* border: 1px solid green; */
-}
+	border: 1px solid green;
+}*/

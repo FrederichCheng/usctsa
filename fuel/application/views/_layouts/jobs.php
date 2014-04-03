@@ -6,10 +6,10 @@
 		<!-- nav scroll -->
 		<div id="navscroll" class="pageScrollerNav standardNav right dark">
 			<ul>
-				<li><a href="#">Top</a></li>
-				<li><a href="#">Job Opportunity</a></li>
-				<li><a href="#">Experience Sharing</a></li>
-				<li><a href="#">Useful Websites</a></li>
+				<li><a href="#"><?=fuel_var('top_scroller', 'Top')?></a></li>
+				<li><a href="#"><?=fuel_var('opportunity_scroller', 'Job Opportunity')?></a></li>
+				<li><a href="#"><?=fuel_var('experience_scroller', 'Experience Sharing')?></a></li>
+				<li><a href="#"><?=fuel_var('useful_scroller', 'Useful Websites')?></a></li>
 			</ul>
 		</div>
 	
@@ -19,40 +19,42 @@
 			
 				<!-- Top -->
 				<div class="section">
-					<div class="cover_photo">
-						
-					</div>
+		        	<h1><?=fuel_var('top_heading', 'Top')?></h1>
+		        	<p><?=fuel_var('top_description', '')?></p>
+					<p><?=fuel_var('top_sections')?></p>
 				</div>
 
+				
 				<!-- Job Opportunity -->
 				<div class="section">
-					<h1>Jop Opportunity</h1>
+			        <h1><?=fuel_var('opportunity_heading', 'Job Opportunity')?></h1>
+			        <p><?=fuel_var('opportunity_description', '')?></p>	
 				</div>
 			
+				
 				<!-- Experience Sharing -->
 				<div class="section">
-					<h1>Experience Sharing</h1>
-				</div>
+			        <h1><?=fuel_var('experience_heading', 'Experience Sharing')?></h1>
+			        <p><?=fuel_var('experience_description', '')?></p>			
+			
+			        <!-- Accordion -->
+			        <?php foreach($experience_sections as $section){ ?>
+			        <div class="acc-container">
+			        	<span class="acc-trigger"><a href="#" onClick="return false;"><?=$section['title']?></a></span>
+			            <div class="content">
+			                <p><?= $section['content'] ?></p>
+			            </div>
+			 		</div>
+					<?php } ?>						
+				</div> <!-- End of section -->	
+				
 				
 				<!-- Useful Websites -->
 				<div class="section">
-					<h1>Useful Websites</h1>
-					<ul>
-						<li><a href="http://www.usc.edu/student-affairs/OIS/" target="_blank">Office of International Services</a></li>
-						
-						<li><a href="http://itservices.usc.edu" target="_blank">Information Technology Services</a></li>
-						
-						<li><a href="http://dornsife.usc.edu/ali/" target="_blank">American Language Institute</a></li>
-						
-						<li><a href="http://transportation.usc.edu" target="_blank">USC Transportation</a></li>
-						
-						<li><a href="http://web-app.usc.edu/maps/" target="_blank">USC Maps</a></li>
-						
-						<li><a href="http://dailytrojan.com/" target="_blank">Daily Trojan</a></li>
-					
-						<li><a href="http://scampus.usc.edu/" target="_blank">SCampus</a></li>
-					</ul>
-				</div>
+					<h1><?=fuel_var('useful_heading', 'Useful Websites')?></h1>
+					<p><?=fuel_var('useful_description', '')?></p>
+					<p><?=fuel_var('useful_sections')?></p>
+				</div> <!-- End of section -->
 			
 			</div><!-- [END] #main -->
 			
@@ -62,5 +64,6 @@
 					$('body').pageScroller({navigation: '#navscroll'});
 				});	
 			</script>			
+		
 			
 <?php $this->load->view('_blocks/footer') ?>

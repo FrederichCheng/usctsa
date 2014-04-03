@@ -155,6 +155,48 @@ $newstudents_sections = array(
 	'useful_description' => array('style' => 'width: 520px', 'label' => 'Useful Website Section Description'),
 	'useful_sections' => array('label' => 'Useful Website Section Content', 'type' => 'textarea'),
 );
+
+$jobs_sections = array(
+	
+	/* ----- Top Section ----- */
+	'top_title' => array('type' => 'copy', 'label' => 'Top Section Setting'),
+	'top_scroller' => array('label' => 'Top Section Pagescroller'),
+	'top_heading' => array('label' => 'Top Section Heading'),
+	'top_description' => array('style' => 'width: 520px', 'label' => 'Top Section Description'),
+	'top_sections' => array('label' => 'Top Section Content', 'type' => 'textarea'),
+                                            
+    /* ------ Job Opportunity Section ------ */                    
+    'opportunity_title' => array('type' => 'copy', 'label' => 'Job Opportunity Section Setting'),
+    'opportunity_scroller' => array('label' => 'Job Opportunity Section Pagescroller'),                                      
+	'opportunity_heading' => array('label' => 'Job Opportunity Section Heading'),
+	'opportunity_description' => array('style' => 'width: 520px', 'label' => 'Job Opportunity Section Description'),
+	"opportunity_sections" => array('display_label' => FALSE, 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
+                                            'fields' => array(
+                                                'sections' => array('type' => 'section', 'label' => '{__title__}'),
+                                                'title' => array('style' => 'width: 850px'),
+                                                'content' => array('type' => 'textarea', 'style' => 'width: 850px; height: 300px;'),
+                                            )),
+                                            
+	/* ------ Experience Sharing Section ------ */  
+	'experience_title' => array('type' => 'copy', 'label' => 'Experience Sharing Section Setting'),
+    'experience_scroller' => array('label' => 'Experience Sharing Section Pagescroller'),                                        
+	'experience_heading' => array('label' => 'Experience Sharing Section Heading'),
+	'experience_description' => array('style' => 'width: 520px', 'label' => 'Experience Sharing Section Description'),
+	"experience_sections" => array('display_label' => FALSE, 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
+                                            'fields' => array(
+                                                'sections' => array('type' => 'section', 'label' => '{__title__}'),
+                                                'title' => array('style' => 'width: 850px'),
+                                                'content' => array('type' => 'textarea', 'style' => 'width: 850px; height: 300px;'),
+                                            )),
+                                            
+    /* ------ Useful Website Section ------ */  
+    'useful_title' => array('type' => 'copy', 'label' => 'Useful Website Section Setting'),
+    'useful_scroller' => array('label' => 'Useful Website Section Pagescroller'),                                        
+	'useful_heading' => array('label' => 'Useful Website Section Heading'),
+	'useful_description' => array('style' => 'width: 520px', 'label' => 'Useful Website Section Description'),
+	'useful_sections' => array('label' => 'Useful Website Section Content', 'type' => 'textarea'),
+);
+
 /* ------------------------------------------------------------------------------- */
 
 
@@ -197,6 +239,20 @@ $config['layouts']['newstudents'] = $newstudents_layout; // !!! IMPORTANT ... NO
 
 /* ------------------------------------------------------------------------------- */
 
+
+/* ------------------------------    Jobs  Layout   ------------------------------ */
+/* ------------------------------------------------------------------------------- */
+
+$jobs_layout = new Fuel_layout('jobs');
+$jobs_layout->set_description('This is the jobs layout used for the jobs page.');
+$jobs_layout->set_label('jobs');
+$jobs_layout->add_fields($common_meta);
+$jobs_layout->add_fields($common_sections);
+$jobs_layout->add_fields($jobs_sections);
+$jobs_layout->add_fields($common_footer);
+$config['layouts']['jobs'] = $jobs_layout; // !!! IMPORTANT ... NOW ASSIGN THIS TO THE jobs "layouts"
+
+/* ------------------------------------------------------------------------------- */
 
 
 
