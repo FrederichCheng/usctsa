@@ -42,6 +42,50 @@ $config['layouts']['test'] = array(
 	)
 );
 
+$config['layouts']['about'] = array(
+	//'file' 		=> $config['layouts_path'].'main',
+	// 'class'		=> 'Main_layout',
+	// 'filepath' => 'libraries',
+	// 'filename' => 'Main_layout.php',
+	
+	
+	'fields'	=> array(
+		'Header' => array('type' => 'fieldset', 'label' => 'Header', 'class' => 'tab'),
+		'page_title' => array('label' => lang('layout_field_page_title')),
+		'meta_description' => array('label' => lang('layout_field_meta_description')),
+		'meta_keywords' => array('label' => lang('layout_field_meta_keywords')),
+		'Body' => array('type' => 'fieldset', 'label' => 'Body', 'class' => 'tab'),
+		'heading' => array('label' => lang('layout_field_heading')),
+		'body' => array('label' => lang('layout_field_body'), 'type' => 'textarea', 'description' => lang('layout_field_body_description')),
+		'body_class' => array('label' => lang('layout_field_body_class')),
+                'content' => array('type' => 'textarea', 'label' => 'Content of About'),
+                //'president_img' => array('label' => 'president'),
+                'president_img' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'president'),
+            
+            //$fields['file_example'] = array('type' => 'file', 'overwrite' => TRUE, 'display_overwrite' => TRUE, 'multiple' => FALSE, 'file_name' => 'my_file_{id}');
+                'president_name' => array('label' => 'president name'),
+                'president_major' => array('label' => 'president major'),
+                'president_email' => array('label' => 'president email'),
+                'president_intro' => array('type' => 'textarea','label' => 'president intro'),
+                'vice_president_img' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;','label' => 'vice president'),
+                'vice_president_name' => array('label' => 'vice president name'),
+                'vice_president_major' => array('label' => 'vice president major'),
+                'vice_president_email' => array('label' => 'vice president email'),
+                'vice_president_intro' => array('type' => 'textarea','label' => 'vice president intro'),
+                'public_relation_img' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;','label' => 'public relation'),
+                'public_relation_name' => array('label' => 'public relation name'),
+                'public_relation_major' => array('label' => 'public relation major'),
+                'public_relation_email' => array('label' => 'public relation email'),
+                'public_relation_intro' => array('type' => 'textarea','label' => 'public relation intro'),
+                'web_technician_img' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;','label' => 'web technician'),
+                'web_technician_name' => array('label' => 'web technician name'),
+                'web_technician_major' => array('label' => 'web technician major'),
+                'web_technician_email' => array('label' => 'web technician email'),
+                'web_technician_intro' => array('type' => 'textarea','label' => 'web technician intro'),
+	)
+    
+);
+
 $config['layouts']['events'] = array(
 	//'file' 		=> $config['layouts_path'].'main',
 	// 'class'		=> 'Main_layout',
