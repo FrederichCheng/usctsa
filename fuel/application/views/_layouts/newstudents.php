@@ -1,6 +1,9 @@
+<!-- last modified date: Apr 3, 2014 by sky -->
+
 <?php $this->load->view('_blocks/header') ?>
 
-		<link rel="stylesheet" type="text/css" href="assets/css/newstudents.css">
+
+		<link rel="stylesheet" type="text/css" href="<?= assets_path('css/newstudents.css') ?>">
 		
 		<!-- nav scroll -->
 		<div id="navscroll" class="pageScrollerNav standardNav right dark">
@@ -99,5 +102,6 @@
 					$('body').pageScroller({navigation: '#navscroll'});
 				});	
 			</script>
+	
 			
 <?php $this->load->view('_blocks/footer') ?>
