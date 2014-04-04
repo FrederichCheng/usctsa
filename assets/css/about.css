@@ -4,7 +4,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : Mar 10, 2014, 6:10:55 PM
+    Created on : Mar 23, 2014, 12:55:35 AM
     Author     : po-yilee
 */
 
@@ -110,35 +110,35 @@ and open the template in the editor.
     font-family: sans-serif;
     font-size: 16px;
 }
+
 .member_frame{
     width:900px; 
-    height: 280px;
+    height: 300px;
     border-width:2px;
 }
 
 .member{
     width:450px;
-    height:280px;
+    height:300px;
    
 }
 
 .member_img{
-    width:225px;
-    height:280px;
+    
+}
+
+.profile_pic{
+  width:225px;
+  height:300px;   
 }
 
 .member_des{
     width:225px;
-    height:280px;
+    height:300px;
 }
 
 .des{
     vertical-align: top;
-}
-
-.profile_pic{
-    height:280px;
-    width: 220px;
 }
 
 .self_intro{

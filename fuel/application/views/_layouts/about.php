@@ -32,12 +32,10 @@
                             <table class="member">  
                                 <tr>
                                     <td>
-                                        <table class="member_img">
+                                        <table >
                                             <tr>
                                                 <td><img src="assets/images/<?=fuel_var('president_img')?>" alt="President's image" class="profile_pic"></td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center" valign="top"><p>TSA President</p></td>
+                                                  
                                             </tr>
                                         </table>
                                     </td>
@@ -45,7 +43,8 @@
                                         <table class="member_des">
                                             <tr>
                                                 <td class="des">
-
+                                                    <h3><?=fuel_var('title_left')?></h3>
+                                                    
                                                     <h4>Name: <?=fuel_var('president_name')?></h4>   
 
                                                     <h4>Major: <?=fuel_var('president_major')?></h4> 
@@ -65,18 +64,18 @@
                             <table class="member">  
                                 <tr>
                                     <td>
-                                        <table class="member_img">
+                                        <table>
                                             <tr>
                                                 <td><img src="assets/images/<?=fuel_var('vice_president_img')?>" alt="Vice President's image" class="profile_pic"></td>
                                             </tr>
-                                            <tr>
-                                                <td align="center" valign="top"><p>TSA Vice President</p></td>
-                                            </tr>
+     
                                         </table>
                                     </td>
                                     <td>
                                         <table class="member_des">
                                             <td class="des">
+                                                <h3><?=fuel_var('title_right')?></h3>
+                                                
                                                 <h4>Name:<?=fuel_var('vice_president_name')?></h4>   
 
                                                 <h4>Major:<?=fuel_var('vice_president_major')?></h4>  
@@ -101,7 +100,7 @@
                             <table class="member">  
                                 <tr>
                                     <td>
-                                        <table class="member_img">
+                                        <table>
                                             <tr>
                                                 <td><img src="assets/images/<?=fuel_var('public_relation_img')?>" alt="Public Relation's image" class="profile_pic"></td>
                                             </tr>
@@ -134,7 +133,7 @@
                             <table class="member">  
                                 <tr>
                                     <td>
-                                        <table class="member_img">
+                                        <table>
                                             <tr>
                                                 <td><img src="assets/images/<?=fuel_var('web_technician_img')?>" alt="Web Tech's image" class="profile_pic"></td>
                                             </tr>

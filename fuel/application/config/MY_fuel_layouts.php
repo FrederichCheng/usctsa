@@ -60,13 +60,17 @@ $config['layouts']['about'] = array(
 		'body_class' => array('label' => lang('layout_field_body_class')),
                 'content' => array('type' => 'textarea', 'label' => 'Content of About'),
                 //'president_img' => array('label' => 'president'),
-                'president_img' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'president'),
+                
             
             //$fields['file_example'] = array('type' => 'file', 'overwrite' => TRUE, 'display_overwrite' => TRUE, 'multiple' => FALSE, 'file_name' => 'my_file_{id}');
+                'title_left' => array('label' => 'title_left'), 
+                'president_img' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'president'),
                 'president_name' => array('label' => 'president name'),
                 'president_major' => array('label' => 'president major'),
                 'president_email' => array('label' => 'president email'),
                 'president_intro' => array('type' => 'textarea','label' => 'president intro'),
+                
+                'title_right' => array('label' => 'title_right'),
                 'vice_president_img' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;','label' => 'vice president'),
                 'vice_president_name' => array('label' => 'vice president name'),
                 'vice_president_major' => array('label' => 'vice president major'),
