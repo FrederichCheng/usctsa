@@ -1,0 +1,19 @@
+
+
+/*          Basic Layout
+====================================*/
+
+#main
+{ 
+	width: 960px;
+	margin: 0 auto;
+	background: #fff;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc; 
+}
+
+.section
+{ 
+	min-height: 500px;
+	padding: 40px;
+}

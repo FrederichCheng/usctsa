@@ -341,6 +341,20 @@ $config['layouts']['jobs'] = $jobs_layout; // !!! IMPORTANT ... NOW ASSIGN THIS 
 /* ------------------------------------------------------------------------------- */
 
 
+/* ------------------------------    Contact  Layout   ------------------------------ */
+/* ------------------------------------------------------------------------------- */
+
+$contact_layout = new Fuel_layout('contact');
+$contact_layout->set_description('This is the contact layout used for the contact page.');
+$contact_layout->set_label('contact');
+$contact_layout->add_fields($common_meta);
+$contact_layout->add_fields($common_sections);
+/*$contact_layout->add_fields($contact_sections);*/
+$contact_layout->add_fields($common_footer);
+$config['layouts']['contact'] = $contact_layout; // !!! IMPORTANT ... NOW ASSIGN THIS TO THE contact "layouts"
+
+/* ------------------------------------------------------------------------------- */
+
 
 /* End of file MY_fuel_layouts.php */
 /* Location: ./application/config/MY_fuel_layouts.php */
