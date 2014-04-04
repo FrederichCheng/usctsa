@@ -1,9 +1,9 @@
-<!-- last modified date: Apr 2, 2014 by sky -->
+<!-- last modified date: Apr 3, 2014 by sky -->
 
 <?php $this->load->view('_blocks/header') ?>
 
 
-	<link rel="stylesheet" type="text/css" href="<?= assets_path('css/index.css"') ?>">
+	<link rel="stylesheet" type="text/css" href="<?= assets_path('css/home.css"') ?>">
 
 
 	<div id="wrapper">
@@ -35,24 +35,25 @@
 	
 	    </div>
 	
-	
-	    <!-- Announcements -->
-	    <div class="container">
-			<!-- Headline -->
-	        <div class="headline"><h2><?=fuel_var('heading', 'Announcements')?></h2></div>
-	
-	        <!-- Accordion -->
-	        <?php foreach($sections as $section){ ?>
-	        <div class="acc-container">
-	        	<span class="acc-trigger"><a href="#" onClick="return false;"><?=$section['title']?></a></span>
-	            <div class="content">
-	                <p>
-						<?= $section['content'] ?>
-	                </p>
-	            </div>
-	 		</div>
-			<?php } ?>
-	    </div>
+		<div id="main">
+		
+		    <!-- Announcements -->
+		    <div class="section">
+				<!-- Headline -->
+		        <h1><?=fuel_var('heading', 'Announcements')?></h1>
+		
+		        <!-- Accordion -->
+		        <?php foreach($sections as $section){ ?>
+		        <div class="acc-container">
+		        	<span class="acc-trigger"><a href="#" onClick="return false;"><?=$section['title']?></a></span>
+		            <div class="content">
+		                <p><?= $section['content'] ?></p>
+		            </div>
+		 		</div>
+				<?php } ?>
+		    </div>
+		    
+		</div><!-- [END] #main -->
 
 
 <?php $this->load->view('_blocks/footer') ?>

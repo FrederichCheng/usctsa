@@ -1,3 +1,5 @@
+<!-- last modified date: Apr 3, 2014 by sky -->
+
 <?php $this->load->view('_blocks/header') ?>
 
 
@@ -15,6 +17,7 @@
 	
 		<!-- nav content -->
 		<div id="wrapper">
+		
 			<div id="main">
 			
 				<!-- Top -->
