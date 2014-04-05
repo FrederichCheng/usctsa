@@ -74,6 +74,46 @@ $about_layout->add_fields($about_sections);
 $about_layout->add_fields($common_footer);
 
 $config['layouts']['about'] = $about_layout;
+
+$cars_sections = array(
+	
+       
+	'heading' => array('label' => lang('layout_field_heading')),
+	'sections' => array( 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
+           'fields' => array(
+                'sections' => array('type' => 'section', 'label' => 'Car Information'),
+               
+                'car_BigImg' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Car Big Image'),
+                'model' => array('label' => 'Car Model'), 
+                'year' => array('label' => 'Year'),
+                'miles' => array('label' => 'Miles'), 
+                'location' => array('label' => 'Location'), 
+                'saler' => array('label' => 'Saler'), 
+                'mobile' => array('label' => 'Mobile'),  
+                'email' => array('label' => 'Email'), 
+                'price' => array('label' => 'Price'), 
+                'description' => array('type' => 'textarea','label' => 'Description'),
+                'sImg_1' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Small Image 1'),
+                'sImg_2' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Small Image 2'),
+                'sImg_3' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Small Image 3'),
+                'sImg_4' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Small Image 4'),
+                'sImg_5' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Small Image 5'),
+                'sImg_6' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Small Image 6'),
+                'sImg_7' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Small Image 7'),
+                'sImg_8' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Small Image 8'),
+               
+                ))
+);
+
+$cars_layout = new Fuel_layout('cars');
+$cars_layout->set_description('This is the cars layout');
+$cars_layout->set_label('cars');
+$cars_layout->add_fields($common_meta);
+$cars_layout->add_fields($common_sections);
+$cars_layout->add_fields($cars_sections);
+$cars_layout->add_fields($common_footer);
+
+$config['layouts']['cars'] = $cars_layout;
 //$config['layouts']['about'] = array(
 //	//'file' 		=> $config['layouts_path'].'main',
 //	// 'class'		=> 'Main_layout',
