@@ -108,6 +108,130 @@ body{ margin: 0; font-family: arial, sans-serif; background: #eee;}
 
 
 
+/*        Scroll Bar
+====================================*/
+
+.scrollbar{
+width:880px;
+height:340px;
+background-color:white;
+margin: 0 auto;
+overflow-y:scroll;
+border-top: 2px solid #ccc; 
+border-bottom: 2px solid #ccc; 
+}
+
+.content{
+/* height:600px; */
+} 
+
+/* Let's get this party started */
+#ex3::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+/* Track */
+#ex3::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+#ex3::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(192,192,192,0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+#ex3::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(192,192,192,0.4); 
+}
+
+
+
+
+/*        Job Opportunity
+====================================*/
+#job_table
+{
+	padding: 15px;
+}
+
+#job_table .first_head
+{
+	width: 400px;
+	padding: 5px;
+	font: 20px arial, sans-serif;
+}
+
+#job_table .second_head
+{
+	width: 300px;
+	padding: 5px;
+	font: 20px arial, sans-serif;
+}
+
+#job_table .third_head
+{
+	width: 100px;
+	padding: 5px;
+	font: 20px arial, sans-serif;
+}
+
+
+#job_table .first_col
+{
+	width: 400px;
+	padding: 20px 10px 20px 10px;
+}
+
+#job_table .first_col .job_title a
+{
+	font: 20px arial, sans-serif;
+}
+
+#job_table .first_col .job_type
+{
+	font-weight: bold;
+}
+
+#job_table .first_col .job_description
+{
+	font: 14px arial, sans-serif;
+	font-style:italic
+}
+
+#job_table .first_col .job_description a
+{
+	font: 14px arial, sans-serif;
+	font-style:italic
+}
+
+#job_table .second_col
+{
+	width: 300px;
+	padding: 10px;
+	text-align: center;
+	font: 18px arial, sans-serif;
+}
+
+#job_table .third_col
+{
+	width: 100px;
+	padding: 10px;
+	text-align: center;
+	font: 13px arial, sans-serif;
+}
+
+#job_table .divider
+{
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+}
+
+
+
 
 /*           Cover  Photo
 ====================================*/

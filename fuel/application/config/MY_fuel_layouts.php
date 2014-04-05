@@ -292,11 +292,15 @@ $jobs_sections = array(
     'opportunity_scroller' => array('label' => 'Job Opportunity Section Pagescroller'),                                      
 	'opportunity_heading' => array('label' => 'Job Opportunity Section Heading'),
 	'opportunity_description' => array('style' => 'width: 520px', 'label' => 'Job Opportunity Section Description'),
-	"opportunity_sections" => array('display_label' => FALSE, 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
+	"opportunity_sections" => array('display_label' => FALSE, 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 700px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
                                             'fields' => array(
                                                 'sections' => array('type' => 'section', 'label' => '{__title__}'),
-                                                'title' => array('style' => 'width: 850px'),
-                                                'content' => array('type' => 'textarea', 'style' => 'width: 850px; height: 300px;'),
+                                                'title' => array('style' => 'width: 500px'),
+                                                'link' => array('style' => 'width: 500px'),
+                                                'job_type' => array('style' => 'width: 500px'),
+                                                'job_description' => array('style' => 'width: 500px'),
+                                                'company' => array('style' => 'width: 500px'),
+                                                'location' => array('style' => 'width: 500px'),
                                             )),
                                             
 	/* ------ Experience Sharing Section ------ */  
@@ -376,6 +380,20 @@ $config['layouts']['jobs'] = $jobs_layout; // !!! IMPORTANT ... NOW ASSIGN THIS 
 
 /* ------------------------------------------------------------------------------- */
 
+
+/* ------------------------------    Contact  Layout   ------------------------------ */
+/* ------------------------------------------------------------------------------- */
+
+$contact_layout = new Fuel_layout('contact');
+$contact_layout->set_description('This is the contact layout used for the contact page.');
+$contact_layout->set_label('contact');
+$contact_layout->add_fields($common_meta);
+$contact_layout->add_fields($common_sections);
+/*$contact_layout->add_fields($contact_sections);*/
+$contact_layout->add_fields($common_footer);
+$config['layouts']['contact'] = $contact_layout; // !!! IMPORTANT ... NOW ASSIGN THIS TO THE contact "layouts"
+
+/* ------------------------------------------------------------------------------- */
 
 
 /* End of file MY_fuel_layouts.php */

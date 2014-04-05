@@ -3,7 +3,7 @@
 <?php $this->load->view('_blocks/header') ?>
 
 
-		<link rel="stylesheet" type="text/css" href="assets/css/jobs.css">  		
+		<link rel="stylesheet" type="text/css" href="assets/css/jobs.css">
 		
 		<!-- nav scroll -->
 		<div id="navscroll" class="pageScrollerNav standardNav right dark">
@@ -25,15 +25,59 @@
 		        	<h1><?=fuel_var('top_heading', 'Top')?></h1>
 		        	<p><?=fuel_var('top_description', '')?></p>
 					<p><?=fuel_var('top_sections')?></p>
-				</div>
+				</div> <!-- End of section -->
 
 				
 				<!-- Job Opportunity -->
 				<div class="section">
-			        <h1><?=fuel_var('opportunity_heading', 'Job Opportunity')?></h1>
-			        <p><?=fuel_var('opportunity_description', '')?></p>	
-				</div>
-			
+					<h1><?=fuel_var('opportunity_heading', 'Job Opportunity')?></h1>
+					<p><?=fuel_var('opportunity_description', '')?></p>	
+		
+					<table id="job_table">
+    					<tr>
+    						<th class="first_head">Job Title/Description</th>
+				    		<th class="second_head">Company</th>
+				    		<th class="third_head">Location</th>
+				    	</tr>	
+					</table>
+					
+					<div class="scrollbar" id="ex3">
+				    	<div class="content">
+
+							<table id="job_table">
+							
+						       	<!-- Accordion -->
+						        <?php foreach($opportunity_sections as $section){ ?>
+						        	<tr class="table_row">
+						        		<td class="first_col">
+						        			<p class="job_title">
+						        				<a href='<?=$section['link']?>' >
+													<?=$section['title']?>
+												</a>
+											</p>
+						        			<p class="job_type"><?= $section['job_type'] ?></p>
+							        		<p class="job_description"><?= $section['job_description'] ?>
+							        			<a href='<?=$section['link']?>' >more...</a>
+							        		</p>
+							        	</td>
+							        	<td class="second_col">
+							       			<p><?= $section['company'] ?></p>
+							       		</td>
+							       		<td class="third_col">
+							       			<p><?= $section['location'] ?></p>
+							       		</td>
+							       	</tr>
+							       	<tr>
+							       		<td class="divider" colspan="3"></td>
+							       	</tr>
+								<?php } ?>	
+								
+							</table>
+						</div>   
+					</div>
+					
+				</div> <!-- End of section -->
+
 				
 				<!-- Experience Sharing -->
 				<div class="section">
@@ -66,6 +110,7 @@
 				$(document).ready(function(){
 					$('body').pageScroller({navigation: '#navscroll'});
 				});	
+				
 			</script>			
 		
 			
