@@ -28,7 +28,7 @@ class facebook_posts extends Module {
     public function analyze() {
         
         $str = '大家快來看看USC TSA年度最大活動的第一支宣傳片!!! 大家知道是什麼活動嗎? 接下來的幾天USC TSA還會陸續公布新的宣傳片! 請大家隨時關注我們USC TSA 的Facebook! ';
-        /*$ckip = new CKIP();
+        $ckip = new CKIP();
         $ckip->username = 'hses83081';
         $ckip->password = 'usctsa';
         $ckip->serverIP = '140.109.19.104';
@@ -39,9 +39,9 @@ class facebook_posts extends Module {
         foreach($ckip->term as $term){
             echo $term->term.':'.$term->tag.'<br/>';
         }
-        */
         
         
+        /*
         $br = (php_sapi_name() == "cli")? "":"<br>";
 
         $module = 'opencc';
@@ -68,7 +68,7 @@ class facebook_posts extends Module {
             //多元切分
             $do_multi = empty($_POST['do_multi']) ? false : true;
             //词性标注
-            $do_prop = empty($_POST['do_prop']) ? false : true;
+            $do_prop = empty($_POST['do_prop']) ? true : true;
             //是否预载全部词条
             $pri_dict = empty($_POST['pri_dict']) ? false : true;
 
@@ -94,5 +94,7 @@ class facebook_posts extends Module {
             
             echo var_dump(explode(' ', $okresult));
         }
+         * 
+         */
     }
 }

@@ -3,12 +3,12 @@
 <div id="wrapper">
     <?php
     require_once(FUEL_FOLDER . '/FacebookSDK/facebook.php');
-    $APP_ID = '258287400999278';
+    $APP_ID = '445984512214350';
     $GROUP_ID = '12171823426';
 
     $facebook = new Facebook(array(
         'appId' => $APP_ID,
-        'secret' => 'a993a2c7a87605ed6efa9877e6641112',
+        'secret' => '650f341095028ad446dafd7c57c258f2',
     ));
     $TOKEN = $facebook->getApplicationAccessToken();
     ?>
@@ -130,7 +130,10 @@
                 data[index]['end_time'] = new Date(data[index]['end_time']);
                 var time = data[index]['start_time'];
                 if (time.getMonth() === currentDate.getMonth() && time.getFullYear() === currentDate.getFullYear()) {
-                    var newDiv = $('<div>').attr('class', 'event').html(data[index]['name'].substring(0, 30));
+                    var text = data[index]['name'].trim();
+                    if(data[index]['name'].length > 31)
+                        text = text.substring(0,28)+'...';
+                    var newDiv = $('<div>').attr('class', 'event').html(text);
                     $("#cell" + (time.getDate() + firstDay)).find('.events').append(newDiv);
                     newDiv.click(function(id) {
                         return function() {
@@ -152,29 +155,35 @@
                 $("#centerMessage .text").text("");
             }
         }
-
+        var dialogs = [];
         function showEvent(id) {
+            if(dialogs.indexOf(id) >= 0)
+                return;
+            
             FB.api('/' + id + '?access_token=' + ACCESS_TOKEN, function(response) {
                 if (!response || response.error) {
                     fbError(response);
                     return;
                 }
-                $('<div>').html(response.description).css({width: '600px', height: '400px'}).dialog({
+                $('<div>').html(response.description).css({width: '600px', height: '400px', overflow:'scroll'}).dialog({
                     dialogClass: "no-close",
                     maxHeight: 400,
                     width: 600,
-                    resizable: false,
-                    modal: true,
+                    title: response.name,
                     buttons: [
                         {
-                            text: "OK",
+                            text: "Close",
                             click: function() {
                                 $(this).dialog("close");
                             }
                         }
-                    ]
+                    ],
+                    close:function(){
+                        var index = dialogs.indexOf(id);
+                        dialogs.splice(index, 1);
+                    }
                 });
-
+                dialogs[dialogs.length] = id;
             });
         }
 
@@ -213,6 +222,9 @@
     </script>
 
     <style>
+        html{
+            font-family:Tahoma Geogria San-serif;
+        }
         .button{
             display: inline;
             cursor:pointer;
@@ -295,6 +307,7 @@
             margin-left:3px;
         }
         .event{
+            font-size: 12px;
             display:block;
             overflow-x:hidden;
             border-width:1px;
@@ -304,6 +317,8 @@
             background-color: peachpuff;
             border-radius: 4px;
             cursor: pointer;
+            font-family:monospace;
+            word-wrap:break-word;
         }
         #centerMessage{
             font-size: 40px;
