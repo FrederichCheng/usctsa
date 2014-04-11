@@ -9,7 +9,6 @@ body{ margin: 0; font-family: arial, sans-serif; background: #eee;}
 ====================================*/
 #main
 { 
-	width: 960px;
 	margin: 0 auto;
 	background: #fff;
 	border-left: 1px solid #ccc;

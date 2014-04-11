@@ -8,6 +8,7 @@
                 </div>
             </footer>
             
-        </div> <!-- [END] #wrappter -->
+            </div> <!-- [END] #wrappter -->
+        </div>
     </body>
 </html>

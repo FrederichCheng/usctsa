@@ -19,7 +19,7 @@
 
     </head>
     <body>
-        <header>
+            <div id="middle-frame">
             <div id="header">
 
                 <!-- Title -->
@@ -54,4 +54,4 @@
                     </nav>
                 </div>
             </div>
-        </header>
+            <div id="outer-wrapper">

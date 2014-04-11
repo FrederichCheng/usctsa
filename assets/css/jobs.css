@@ -9,7 +9,6 @@ body{ margin: 0; font-family: arial, sans-serif; background: #eee;}
 ====================================*/
 #main
 { 
-	width: 960px;
 	margin: 0 auto;
 	background: #fff;
 	border-left: 1px solid #ccc;
@@ -19,7 +18,7 @@ body{ margin: 0; font-family: arial, sans-serif; background: #eee;}
 .section
 { 
 	min-height: 500px;
-	padding: 40px;
+	padding: 18px;
 }
 
 .section_head
@@ -112,7 +111,6 @@ body{ margin: 0; font-family: arial, sans-serif; background: #eee;}
 ====================================*/
 
 .scrollbar{
-width:880px;
 height:340px;
 background-color:white;
 margin: 0 auto;
