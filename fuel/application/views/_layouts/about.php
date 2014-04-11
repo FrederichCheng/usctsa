@@ -87,8 +87,8 @@
 
 
 
-    </div>
-</div>  <!-- MEMBERS ends -->     
+    </div> <!-- MEMBERS ends -->   
+<!-- </div> -->   
 
 <script type="text/javascript">
     $(document).ready(function() {

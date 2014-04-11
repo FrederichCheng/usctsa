@@ -76,8 +76,7 @@ $about_layout->add_fields($common_footer);
 $config['layouts']['about'] = $about_layout;
 
 $cars_sections = array(
-	
-       
+	 
 	'heading' => array('label' => lang('layout_field_heading')),
 	'sections' => array( 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
            'fields' => array(
@@ -114,6 +113,36 @@ $cars_layout->add_fields($cars_sections);
 $cars_layout->add_fields($common_footer);
 
 $config['layouts']['cars'] = $cars_layout;
+
+
+$housing_sections = array(
+	 
+	'heading' => array('label' => lang('layout_field_heading')),
+	'sections' => array( 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
+        'fields' => array(
+                'sections' => array('type' => 'section', 'label' => 'Housing Information'),
+                'house_img_left' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                'location_left' => array('label' => 'Location'), 
+                'price_left' => array('label' => 'Price'),
+                'description_left' => array('type' => 'textarea','label' => 'Description'),
+            
+                'house_img_right' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                'location_right' => array('label' => 'Location'), 
+                'price_right' => array('label' => 'Price'),
+                'description_right' => array('type' => 'textarea','label' => 'Description'),
+                        
+                ))
+);
+
+$housing_layout = new Fuel_layout('housing');
+$housing_layout->set_description('This is the housing layout');
+$housing_layout->set_label('housing');
+$housing_layout->add_fields($common_meta);
+$housing_layout->add_fields($common_sections);
+$housing_layout->add_fields($housing_sections);
+$housing_layout->add_fields($common_footer);
+
+$config['layouts']['housing'] = $housing_layout;
 //$config['layouts']['about'] = array(
 //	//'file' 		=> $config['layouts_path'].'main',
 //	// 'class'		=> 'Main_layout',
