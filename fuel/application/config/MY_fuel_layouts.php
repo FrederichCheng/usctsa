@@ -208,6 +208,20 @@ $config['layouts']['events'] = array(
 );
 
 
+$config['layouts']['market'] = array(
+	//'file' 		=> $config['layouts_path'].'main',
+	// 'class'		=> 'Main_layout',
+	// 'filepath' => 'libraries',
+	// 'filename' => 'Main_layout.php',
+	
+	
+	'fields'=> array(
+		'page_title' => array('label' => lang('layout_field_page_title')),
+		'meta_description' => array('label' => lang('layout_field_meta_description')),
+		'meta_keywords' => array('label' => lang('layout_field_meta_keywords')),
+            )
+);
+
 
 
 
