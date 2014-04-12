@@ -49,19 +49,12 @@ $about_sections = array(
 	'sections' => array( 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
            'fields' => array(
                 'sections' => array('type' => 'section', 'label' => '{__title__}'),
-                'title_left' => array('label' => 'title_left'), 
-                'president_img' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'president'),
-                'president_name' => array('label' => 'president name'),
-                'president_major' => array('label' => 'president major'),
-                'president_email' => array('label' => 'president email'),
-                'president_intro' => array('type' => 'textarea','label' => 'president intro'),
-                
-                'title_right' => array('label' => 'title_right'),
-                'vice_president_img' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;','label' => 'vice president'),
-                'vice_president_name' => array('label' => 'vice president name'),
-                'vice_president_major' => array('label' => 'vice president major'),
-                'vice_president_email' => array('label' => 'vice president email'),
-                'vice_president_intro' => array('type' => 'textarea','label' => 'vice president intro'),
+                'name' => array('label' => 'Name'),
+                'title' => array('label' => 'Title', 'required'=> true), 
+                'photo' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Photo'),
+                'major' => array('label' => 'Major'),
+                'email' => array('label' => 'Email'),
+                'message' => array('type' => 'textarea','label' => 'Message'),
                 ))
 );
 
