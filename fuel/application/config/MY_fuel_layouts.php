@@ -48,20 +48,20 @@ $about_sections = array(
 	'heading' => array('label' => lang('layout_field_heading')),
 	'sections' => array( 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
            'fields' => array(
-                'sections' => array('type' => 'section', 'label' => '{__title__}'),
-                'title_left' => array('label' => 'title_left'), 
-                'president_img' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'president'),
-                'president_name' => array('label' => 'president name'),
-                'president_major' => array('label' => 'president major'),
-                'president_email' => array('label' => 'president email'),
-                'president_intro' => array('type' => 'textarea','label' => 'president intro'),
+                'sections' => array('type' => 'section', 'label' => 'Members'),
+                'title_left' => array('label' => 'Title'), 
+                'img_left' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Picture'),
+                'name_left' => array('label' => 'Name'),
+                'major_left' => array('label' => 'Major'),
+                'email_left' => array('label' => 'Email'),
+                'intro_left' => array('type' => 'textarea','label' => 'Introduction'),
                 
-                'title_right' => array('label' => 'title_right'),
-                'vice_president_img' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;','label' => 'vice president'),
-                'vice_president_name' => array('label' => 'vice president name'),
-                'vice_president_major' => array('label' => 'vice president major'),
-                'vice_president_email' => array('label' => 'vice president email'),
-                'vice_president_intro' => array('type' => 'textarea','label' => 'vice president intro'),
+                'title_right' => array('label' => 'Title'),
+                'img_right' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;','label' => 'Picture'),
+                'name_right' => array('label' => 'Name'),
+                'major_right' => array('label' => 'Major'),
+                'email_right' => array('label' => 'Email'),
+                'intro_right' => array('type' => 'textarea','label' => 'Introduction'),
                 ))
 );
 

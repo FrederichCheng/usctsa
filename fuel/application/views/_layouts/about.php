@@ -33,20 +33,20 @@
                         <table class="member">  
                             <tr>
 
-                                <td><img src="assets/images/<?= $value['president_img'] ?>" alt="image_left" class="profile_pic"></td>
+                                <td><img src="assets/images/<?= $value['img_left'] ?>" alt="image_left" class="profile_pic"></td>
                                 <td>
                                     <table class="member_des">
                                         <tr>
                                             <td class="des">
                                                 <h3><?= $value['title_left'] ?></h3>
 
-                                                <h4>Name: <?= $value['president_name'] ?></h4>   
+                                                <h4>Name: <?= $value['name_left'] ?></h4>   
 
-                                                <h4>Major: <?= $value['president_major'] ?></h4> 
+                                                <h4>Major: <?= $value['major_left'] ?></h4> 
 
-                                                <h4>Email: <?= $value['president_email'] ?></h4>
+                                                <h4>Email: <?= $value['email_left'] ?></h4>
 
-                                                <p class="self_intro"><?= $value['president_intro'] ?></p>
+                                                <p class="self_intro"><?= $value['intro_left'] ?></p>
                                             </td>
                                         </tr>
                                     </table>
@@ -59,20 +59,20 @@
                         <table class="member">  
                             <tr>
 
-                                <td><img src="assets/images/<?= $value['vice_president_img'] ?>" alt="image right" class="profile_pic"></td>
+                                <td><img src="assets/images/<?= $value['img_right'] ?>" alt="image right" class="profile_pic"></td>
 
                                 <td>
                                     <table class="member_des">
                                         <td class="des">
                                             <h3><?= $value['title_right'] ?></h3>
 
-                                            <h4>Name:<?= $value['vice_president_name'] ?></h4>   
+                                            <h4>Name:<?= $value['name_right'] ?></h4>   
 
-                                            <h4>Major:<?= $value['vice_president_major'] ?></h4>  
+                                            <h4>Major:<?= $value['major_right'] ?></h4>  
 
-                                            <h4>Email:<?= $value['vice_president_email'] ?></h4>
+                                            <h4>Email:<?= $value['email_right'] ?></h4>
 
-                                            <p class="self_intro"><?= $value['vice_president_intro'] ?></p>
+                                            <p class="self_intro"><?= $value['intro_right'] ?></p>
                                         </td>
                                     </table>
                                 </td>

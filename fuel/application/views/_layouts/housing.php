@@ -23,7 +23,7 @@
             <table class="housing" border="2" cellpadding="" cellspacing="">
                 <tr>
                     <td>
-                        <A href="#" onclick="window.open('housePicDetail.html', '', 'scrollbar=yes,width=700px, height=600px')" target="_blank"><img src="assets/images/<?= $value['house_img_left'] ?>" alt="House image" class="housing_pic">
+                        <A href="#" onclick="window.open('house_detail_left', '', 'scrollbar=yes,width=700px, height=600px')" target="_blank"><img src="assets/images/<?= $value['house_img_left'] ?>" alt="House image" class="housing_pic">
                         </A>
                     </td>
                     <td class="housing_descript" valign="top">
@@ -37,7 +37,7 @@
                     </td>
 
                     <td>
-                        <A href="#" onclick="window.open('housePicDetail.html', '', 'scrollbar=yes,width=700px, height=600px')" target="_blank"><img src="assets/images/<?= $value['house_img_right'] ?>" alt="House image" class="housing_pic">
+                        <A href="#" onclick="window.open('house_detail_right', '', 'scrollbar=yes,width=700px, height=600px')" target="_blank"><img src="assets/images/<?= $value['house_img_right'] ?>" alt="House image" class="housing_pic">
                         </A>
                     </td>
                     <td class="housing_descript" valign="top">
