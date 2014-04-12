@@ -7,12 +7,23 @@
             
             
             $(document).ready(function() {
+                var current = 0;
+                var previous = 0;
                 $(window).scroll(function() {
+                    previous = current;
+                    current = $(window).scrollTop();
                     if ($(window).scrollTop() > 138) {
                         $('#nav_bar').addClass('navbar-fixed');
+                        if(previous < current){
+                            $('#nav_bar').css("display","none");
+                        }
+                        else{
+                            $('#nav_bar').css("display","block");
+                        }
                     }
                     if ($(window).scrollTop() < 135) {
                         $('#nav_bar').removeClass('navbar-fixed');
+                        $('#nav_bar').css("display","block");
                     }
                 });
             });
