@@ -125,9 +125,6 @@ and open the template in the editor.
 
 .profile_pic{
   height:240px;
-  border-width:1px;
-  border-color: black;
-  border-style: solid;
 }
 
 .member_des{
@@ -135,6 +132,7 @@ and open the template in the editor.
     float:left;
     text-align:left;
     margin-left:15px;
+    width:145px;
 }
 
 .member_des span{
@@ -161,7 +159,6 @@ and open the template in the editor.
 }
 
 .member_title{
-    
     font-size:14px;
     font-weight:bold;
 }
@@ -186,11 +183,14 @@ and open the template in the editor.
     float:top;
     overflow: hidden;
     margin-bottom:5px;
+    border-width:1px;
+    border-color: black;
+    border-style: solid;
 }
 
 .member_photo img{
 }
 .member_name{
     font-weight:bold;
-    font-size:14px;
+    font-size:16px;
 }
