@@ -52,6 +52,7 @@
                         Description: <?= $value['description'] ?>
                         <br /> 
 
+ </div>
 
 
                     </td>                      

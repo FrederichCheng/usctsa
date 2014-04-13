@@ -24,68 +24,31 @@
 
     <!-- MEMBERS -->
     <div class="section">
-        <h1 id=members>Members</h1>
+        <h1 class="title">Members</h1>
         <!-- First row of members -->
+        <div id="members">
         <?php foreach ($sections as $value) { ?>
-            <table class="member_frame">
-                <tr>
-                    <td>
-                        <table class="member">  
-                            <tr>
+            <div class="member_frame">
+                    <div class="member_photo_frame">
+                        <div class="member_photo">
+                            <img src="assets/images/<?= $value['photo'] ?>" alt="<?=$value['title']."'s photo"?>" class="profile_pic">
+                        </div>
+                        <div class="member_title"><?= $value['title'] ?></div>
+                    </div>
+                    <div class="member_des">
+                        <span class="member_name"><?= $value['name'] ?></span>   
 
-                                <td><img src="assets/images/<?= $value['img_left'] ?>" alt="image_left" class="profile_pic"></td>
-                                <td>
-                                    <table class="member_des">
-                                        <tr>
-                                            <td class="des">
-                                                <h3><?= $value['title_left'] ?></h3>
+                        <span class="member_major">Major: <?= $value['major'] ?></span> 
 
-                                                <h4>Name: <?= $value['name_left'] ?></h4>   
+                        <span class="member_email">Email: <?= $value['email'] ?></span>
 
-                                                <h4>Major: <?= $value['major_left'] ?></h4> 
-
-                                                <h4>Email: <?= $value['email_left'] ?></h4>
-
-                                                <p class="self_intro"><?= $value['intro_left'] ?></p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                    <td>
-
-                        <table class="member">  
-                            <tr>
-
-                                <td><img src="assets/images/<?= $value['img_right'] ?>" alt="image right" class="profile_pic"></td>
-
-                                <td>
-                                    <table class="member_des">
-                                        <td class="des">
-                                            <h3><?= $value['title_right'] ?></h3>
-
-                                            <h4>Name:<?= $value['name_right'] ?></h4>   
-
-                                            <h4>Major:<?= $value['major_right'] ?></h4>  
-
-                                            <h4>Email:<?= $value['email_right'] ?></h4>
-
-                                            <p class="self_intro"><?= $value['intro_right'] ?></p>
-                                        </td>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-
-                </tr>
-            </table>
+                        <span class="member_message self_intro"><?= $value['message'] ?></span>
+                    </div>
+            </div>
 
         <?php } ?>
 
-
+        </div>
 
     </div> <!-- MEMBERS ends -->   
 <!-- </div> -->   
@@ -96,6 +59,5 @@
     });
 
 </script>
-
-
+</div>
 <?php $this->load->view('_blocks/footer') ?>

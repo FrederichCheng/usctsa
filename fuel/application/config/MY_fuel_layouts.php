@@ -48,20 +48,13 @@ $about_sections = array(
 	'heading' => array('label' => lang('layout_field_heading')),
 	'sections' => array( 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
            'fields' => array(
-                'sections' => array('type' => 'section', 'label' => 'Members'),
-                'title_left' => array('label' => 'Title'), 
-                'img_left' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Picture'),
-                'name_left' => array('label' => 'Name'),
-                'major_left' => array('label' => 'Major'),
-                'email_left' => array('label' => 'Email'),
-                'intro_left' => array('type' => 'textarea','label' => 'Introduction'),
-                
-                'title_right' => array('label' => 'Title'),
-                'img_right' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;','label' => 'Picture'),
-                'name_right' => array('label' => 'Name'),
-                'major_right' => array('label' => 'Major'),
-                'email_right' => array('label' => 'Email'),
-                'intro_right' => array('type' => 'textarea','label' => 'Introduction'),
+                'sections' => array('type' => 'section', 'label' => '{__title__}'),
+                'name' => array('label' => 'Name'),
+                'title' => array('label' => 'Title', 'required'=> true), 
+                'photo' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Photo'),
+                'major' => array('label' => 'Major'),
+                'email' => array('label' => 'Email'),
+                'message' => array('type' => 'textarea','label' => 'Message'),
                 ))
 );
 
