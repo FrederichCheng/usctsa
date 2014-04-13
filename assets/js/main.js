@@ -12,7 +12,7 @@
                 $(window).scroll(function() {
                     previous = current;
                     current = $(window).scrollTop();
-                    if ($(window).scrollTop() > 138) {
+                    if (current > 138) {
                         $('#nav_bar').addClass('navbar-fixed');
                         if(previous < current){
                             $('#nav_bar').css("display","none");
@@ -21,7 +21,7 @@
                             $('#nav_bar').css("display","block");
                         }
                     }
-                    if ($(window).scrollTop() < 135) {
+                    if (current < 135) {
                         $('#nav_bar').removeClass('navbar-fixed');
                         $('#nav_bar').css("display","block");
                     }
