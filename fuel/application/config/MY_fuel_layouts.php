@@ -113,7 +113,8 @@ $housing_sections = array(
 	'heading' => array('label' => lang('layout_field_heading')),
 	'sections' => array( 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
         'fields' => array(
-                'sections' => array('type' => 'section', 'label' => 'Housing Information'),
+                'sections' => array('type' => 'section', 'label' => '{__title__}'),
+                'title' => array('label' => 'Title', 'required'=> true), 
                 'house_img_left' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
                 'location_left' => array('label' => 'Location'), 
                 'price_left' => array('label' => 'Price'),
@@ -136,55 +137,7 @@ $housing_layout->add_fields($housing_sections);
 $housing_layout->add_fields($common_footer);
 
 $config['layouts']['housing'] = $housing_layout;
-//$config['layouts']['about'] = array(
-//	//'file' 		=> $config['layouts_path'].'main',
-//	// 'class'		=> 'Main_layout',
-//	// 'filepath' => 'libraries',
-//	// 'filename' => 'Main_layout.php',
-//	
-//	
-//	'fields'	=> array(
-//		'Header' => array('type' => 'fieldset', 'label' => 'Header', 'class' => 'tab'),
-//		'page_title' => array('label' => lang('layout_field_page_title')),
-//		'meta_description' => array('label' => lang('layout_field_meta_description')),
-//		'meta_keywords' => array('label' => lang('layout_field_meta_keywords')),
-//		'Body' => array('type' => 'fieldset', 'label' => 'Body', 'class' => 'tab'),
-//		'heading' => array('label' => lang('layout_field_heading')),
-//		'body' => array('label' => lang('layout_field_body'), 'type' => 'textarea', 'description' => lang('layout_field_body_description')),
-//		'body_class' => array('label' => lang('layout_field_body_class')),
-//              
-//                //'president_img' => array('label' => 'president'),
-//                
-//            
-//            //$fields['file_example'] = array('type' => 'file', 'overwrite' => TRUE, 'display_overwrite' => TRUE, 'multiple' => FALSE, 'file_name' => 'my_file_{id}');
-//                'title_left' => array('label' => 'title_left'), 
-//                'president_img' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'president'),
-//                'president_name' => array('label' => 'president name'),
-//                'president_major' => array('label' => 'president major'),
-//                'president_email' => array('label' => 'president email'),
-//                'president_intro' => array('type' => 'textarea','label' => 'president intro'),
-//                
-//                'title_right' => array('label' => 'title_right'),
-//                'vice_president_img' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;','label' => 'vice president'),
-//                'vice_president_name' => array('label' => 'vice president name'),
-//                'vice_president_major' => array('label' => 'vice president major'),
-//                'vice_president_email' => array('label' => 'vice president email'),
-//                'vice_president_intro' => array('type' => 'textarea','label' => 'vice president intro'),
-//            
-//            
-//                'public_relation_img' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;','label' => 'public relation'),
-//                'public_relation_name' => array('label' => 'public relation name'),
-//                'public_relation_major' => array('label' => 'public relation major'),
-//                'public_relation_email' => array('label' => 'public relation email'),
-//                'public_relation_intro' => array('type' => 'textarea','label' => 'public relation intro'),
-//                'web_technician_img' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;','label' => 'web technician'),
-//                'web_technician_name' => array('label' => 'web technician name'),
-//                'web_technician_major' => array('label' => 'web technician major'),
-//                'web_technician_email' => array('label' => 'web technician email'),
-//                'web_technician_intro' => array('type' => 'textarea','label' => 'web technician intro'),
-//	)
-//    
-//);
+
 
 $config['layouts']['events'] = array(
 	//'file' 		=> $config['layouts_path'].'main',
