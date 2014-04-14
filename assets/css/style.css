@@ -216,8 +216,8 @@ nav ul li a
 
 nav ul li a:hover
 {
-	//background: rgb(153,29,32);
-	color: rgb(245,245,215);
+	/*background: rgb(153,29,32);*/
+	color: rgb(245,245,245);
 }			
 
 
@@ -243,10 +243,10 @@ nav ul ul
 	display: none;
 	background: rgb(130,0,5);
 	border-radius: 0px; 
-	padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 5px;
-        padding-bottom: 5px;
+	padding-left: 1px;
+        padding-right: 1px;
+        /*padding-top: 5px;
+        padding-bottom: 5px;*/
 	position: absolute;
 	z-index: 100;
         box-shadow:0px 1px 4px rgba(0, 0, 0, 0.4);
@@ -257,7 +257,7 @@ nav ul li:hover > ul
 {
 	display: block;
 	z-index: 100;
-        margin-left: 5px;
+    margin-left: 1px;
         
 }
 
@@ -274,7 +274,7 @@ nav ul ul li
 
 nav ul ul li a
 {
-	padding: 5px 10px;
+	padding: 5px 31px;
 	color: rgb(255,204,68);
         
 	z-index: 100;
@@ -282,8 +282,8 @@ nav ul ul li a
 
 nav ul ul li a:hover 
 {
-	//background: rgb(153,29,32);
-	color: rgb(255,255,255);
+	/*background: rgb(153,29,32);*/
+	color: rgb(245,245,245);
 	z-index: 100;
 }
 
@@ -308,7 +308,7 @@ nav ul ul li a:hover
 
 #navscroll ul li a:hover
 {
-	background: rgb(255,204,68);
+	/*background: rgb(143,19,22);*/
 	color: rgb(255,255,255);
 	font: 18px Arial, sans-serif;
 }
