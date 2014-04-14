@@ -2,15 +2,8 @@
 
 <div id="wrapper">
     <?php
-    require_once(FUEL_FOLDER . '/FacebookSDK/facebook.php');
     $APP_ID = '445984512214350';
     $GROUP_ID = '12171823426';
-
-    $facebook = new Facebook(array(
-        'appId' => $APP_ID,
-        'secret' => '650f341095028ad446dafd7c57c258f2',
-    ));
-    $TOKEN = $facebook->getApplicationAccessToken();
     ?>
     <script>
         var DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -282,15 +275,21 @@
             font-size: 18px;
             border-width: 0px;
             text-align: right;
-            vertical-align:bottom;
+            vertical-align:middle;
             height:30px;
             font-family: monospace, Tahoma,Georgia,Serif;
         }
 
+        #jump_to_today_wrapper{
+            width:600px;
+            display: table-cell;
+            text-align:left;
+            vertical-align:middle;
+        }
         #jump_to_today{
             font-size: 16px;
-            color: grey;
-            float:left;
+            color: white;
+            width:110px;
             display:none;
         }
 
@@ -299,6 +298,8 @@
             font-size:12px;
             margin-right:4px;
             color: grey;
+            
+            
         }
         .events{
             height:80%;
@@ -342,6 +343,35 @@
             margin-bottom: 10px;
         }
         
+        #calendar_banner thread .button span{
+            height:40px;
+        }
+        
+        .date_panel .glyphicon{
+            font-size: 20px;
+        }
+        
+         .date_panel_wrapper{
+             display:table-cell;
+         }
+        
+        .date_panel{
+            display:table;
+            vertical-align: middle;
+            text-align:right;
+            -webkit-user-select: none; /* Chrome/Safari */        
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE10+ */
+        }
+        
+        .date_panel div{
+            display:table-cell;
+        }
+        
+        .date_display{
+            vertical-align: middle;
+        }
+        
     </style>
 
     <section id="main_inner">
@@ -352,12 +382,17 @@
         <table id="calendar_banner">
             <thead>
                 <tr>
-                    <td> 
-                        <div id="jump_to_today" class="button">Jump to Today</div>
-                        <div class="errorMessage">  </div>
-                        <div class="button" id="prev_button"> &lt;&lt; </div> 
-                        <span id="month"></span> <span id="year"></span> 
-                        <div class="button" id="next_button">&gt;&gt;</div>
+                    <td>
+                        <div id="jump_to_today_wrapper">
+                            <div id="jump_to_today" class="button btn btn-danger">&rarr; Today</div>
+                        </div>
+                        <div class="date_panel_wrapper">
+                            <div class="date_panel">
+                                <div class="button btn-lg" id="prev_button"><span class="glyphicon glyphicon-circle-arrow-left"></span> </div> 
+                                <div class="date_display"> <span id="month"> </span> <span id="year"></span> </div>
+                                <div class="button btn-lg" id="next_button"><span class="glyphicon glyphicon-circle-arrow-right"></span></div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             </thead>

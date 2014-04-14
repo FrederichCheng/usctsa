@@ -174,8 +174,8 @@ and open the template in the editor.
     padding:10px;
     background: #fff;
     border: 1px solid #eee;
-    -moz-box-shadow: 0px 2px 15px #333;
-    box-shadow: 0px 2px 15px #333;
+    -moz-box-shadow: 0px 2px 15px #999;
+    box-shadow: 0px 2px 15px #999;
     z-index: 1;
 }
 
@@ -193,4 +193,25 @@ and open the template in the editor.
 .member_name{
     font-weight:bold;
     font-size:16px;
+}
+
+.rotate1
+{
+transform:rotate(5deg);
+-ms-transform:rotate(5deg); /* IE 9 */
+-webkit-transform:rotate(5deg); /* Opera, Chrome, and Safari */
+}
+
+.rotate2
+{
+transform:rotate(-5deg);
+-ms-transform:rotate(-5deg); /* IE 9 */
+-webkit-transform:rotate(-5deg); /* Opera, Chrome, and Safari */
+}
+
+.rotate1:hover, .rotate2:hover
+{
+transform:rotate(0deg);
+-ms-transform:rotate(0deg); /* IE 9 */
+-webkit-transform:rotate(0deg); /* Opera, Chrome, and Safari */
 }
