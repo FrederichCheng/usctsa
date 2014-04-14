@@ -158,21 +158,21 @@ border-bottom: 2px solid #ccc;
 
 #job_table .first_head
 {
-	width: 400px;
+	width: 550px;
 	padding: 5px;
 	font: 20px arial, sans-serif;
 }
 
 #job_table .second_head
 {
-	width: 300px;
+	width: 230px;
 	padding: 5px;
 	font: 20px arial, sans-serif;
 }
 
 #job_table .third_head
 {
-	width: 100px;
+	width: 150px;
 	padding: 5px;
 	font: 20px arial, sans-serif;
 }
@@ -211,7 +211,7 @@ border-bottom: 2px solid #ccc;
 	width: 300px;
 	padding: 10px;
 	text-align: center;
-	font: 18px arial, sans-serif;
+	font: 14px arial, sans-serif;
 }
 
 #job_table .third_col
@@ -219,7 +219,7 @@ border-bottom: 2px solid #ccc;
 	width: 100px;
 	padding: 10px;
 	text-align: center;
-	font: 13px arial, sans-serif;
+	font: 14px arial, sans-serif;
 }
 
 #job_table .divider

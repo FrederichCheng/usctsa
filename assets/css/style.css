@@ -241,7 +241,7 @@ nav ul li a:hover
 nav ul ul 
 {
 	display: none;
-	background: rgb(130,0,5);
+	background: rgb(153,29,32);
 	border-radius: 0px; 
 	padding-left: 1px;
         padding-right: 1px;
@@ -265,8 +265,8 @@ nav ul li:hover > ul
 nav ul ul li 
 {
 	float: none; 
-	border-top: 1px solid rgb(130,0,5);
-	border-bottom: 1px solid rgb(130,0,5);
+	border-top: 1px solid rgb(153,29,32);
+	border-bottom: 1px solid rgb(153,29,32);
 	position: relative;
 	z-index: 100;
         list-style:none;
@@ -309,7 +309,7 @@ nav ul ul li a:hover
 #navscroll ul li a:hover
 {
 	/*background: rgb(143,19,22);*/
-	color: rgb(255,255,255);
+	color: rgb(245,245,245);
 	font: 18px Arial, sans-serif;
 }
 
