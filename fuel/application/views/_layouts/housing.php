@@ -19,7 +19,7 @@
 
     <div class="section">
         <h2>Long Term Contract</h2>
-        <?php foreach ($sections as $value) { ?>
+          <?php foreach ($sections as $value) { ?>
             <table class="housing" border="2" cellpadding="" cellspacing="">
                 <tr>
                     <td>
@@ -54,37 +54,7 @@
             <br /> <br />
         <?php } ?>    
 
-        <table class="housing" border="2" cellpadding="" cellspacing="">
-            <tr>
-                <td class="housing_pic" align="left" valign="top">
-                    <A href="images/house_pic5.jpg" target="_blank"><img src="images/house_pic5.jpg" alt="House image" width="160" height="150">
-                    </A>
-                </td>
-                <td class="housing_descript" valign="top">
-                    <br />
-                    Description:
-                    This is a cozy apartment locating near USC campus.
-                    There are 1 bedroom and 1 bathroom. 
-                    House owner is very nice...<br /> <br />
-                    Location: 2423 W 23rd St.<br /> <br />
-                    Price: 800/month<br/>
-
-                </td>
-                <td class="housing_pic" align="left" valign="top">
-                    <A href="images/house_pic6.jpg" target="_blank"><img src="images/house_pic6.jpg" alt="House image" width="160" height="150">
-                    </A>
-                </td>
-                <td class="housing_descript" valign="top">
-                    <br />
-                    This is a cozy apartment about 10mins walking distance to USC campus.
-                    There are 1 bedroom and 1 bathroom. 
-                    House owner is very nice...<br /><br />
-                    Location: 2423 W 23rd St.<br /> <br />
-                    Price: 750/month<br/>
-                </td>
-            </tr>
-        </table>
-    </div>
+     
 
     <br/><br/>
     <!-- For sublease -->
