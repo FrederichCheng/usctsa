@@ -57,10 +57,13 @@ and open the template in the editor.
 		border:solid 1px #eee;
 	}
 	//#list ul li.on{border:solid 2px #ccc;}  /*選到的圖有外筐	
-	#list ul li img {display: inline-block;	/* 水平內顯示為區塊 */}
+	#list ul li img {
+            display: inline-block;	
+            /* 水平內顯示為區塊 */
+        }
  
 	/* 秀大圖 */
-	#imgB{
+	.imgB{
              border: solid 10px #FFF; 
               height: 300px; 
               width: 350px; 

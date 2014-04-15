@@ -115,7 +115,7 @@ $housing_sections = array(
         'fields' => array(
                 'sections' => array('type' => 'section', 'label' => '{__title__}'),
                 'title' => array('label' => 'Title', 'required'=> true), 
-                'house_img_left' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                'house_img_left' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image First'),
                 'location_left' => array('label' => 'Location'), 
                 'style_left' => array('label' => 'Style'), 
                 'price_left' => array('label' => 'Price'),
@@ -127,11 +127,18 @@ $housing_sections = array(
                 'sImg5_l' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
                 'sImg6_l' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
 
-            
-                'house_img_right' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                
+                'house_img_right' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image First'),
                 'location_right' => array('label' => 'Location'), 
+                'style_right' => array('label' => 'Style'), 
                 'price_right' => array('label' => 'Price'),
                 'description_right' => array('type' => 'textarea','label' => 'Description'),
+                'sImg1_r' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image Big'),
+                'sImg2_r' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                'sImg3_r' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                'sImg4_r' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                'sImg5_r' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                'sImg6_r' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
                         
                 ))
 );

@@ -12,6 +12,8 @@
         </ul>
     </div>
     <link rel="stylesheet" type="text/css" href="assets/css/about.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    
     <div class="section">
         <h1>About Us </h1>
         <p class="about_us">
@@ -43,6 +45,12 @@
                         <span class="member_email">Email: <?= $value['email'] ?></span>
 
                         <span class="member_message self_intro"><?= $value['message'] ?></span>
+                        
+                        <span class="member_fb_icons">
+                            <ul>
+                                <li class="facebook"><a href="https://www.facebook.com/groups/usctsa/" title='Join us'>Facebook</a></li>
+                            </ul>
+                        </span>
                     </div>
             </div>
 

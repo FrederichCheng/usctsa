@@ -215,3 +215,49 @@ transform:rotate(0deg);
 -ms-transform:rotate(0deg); /* IE 9 */
 -webkit-transform:rotate(0deg); /* Opera, Chrome, and Safari */
 }
+
+
+.member_fb_icons
+{
+	/* margin: 75px 150px 0 0; */
+	/* height: 100%; */
+	//margin-right: 10px;
+	//margin-top: 100px;
+	 float: right; 
+	/* display: inline; */
+
+	/*border: 1px solid rgb(130,0,5);*/
+}
+
+.member_fb_icons li
+{
+	display: inline;
+	list-style: none;
+	text-indent: -9999px;
+	/*margin-left: 5px;*/
+	float: left;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+		
+.member_fb_icons li a
+{
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	display: block;
+	height: 28px;
+	width: 28px;
+}
+
+.member_fb_icons li:hover
+{
+	background-position: 0 -38px;
+}
+
+.facebook
+{
+	background: url(../images/facebook.png) no-repeat;
+}

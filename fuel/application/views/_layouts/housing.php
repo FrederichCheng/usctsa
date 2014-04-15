@@ -35,7 +35,7 @@
                                     <table>
                                         <tr>
                                             <td align="center" valign="center">
-                                                <img src="assets/images/<?= $value['house_img_left'] ?>" id="imgB" width="350" height="300"/>
+                                                <img src="assets/images/<?= $value['house_img_left'] ?>"  class="imgB img-thumbnail"/>
                                             </td>
                                         </tr>
                                     </table>
@@ -82,6 +82,8 @@
                         <br /> <br />
 
                     </td>
+                    
+<!-- Right one house -->
 
                     <td width="200" text-align="center">
                         <img src="assets/images/<?= $value['house_img_right'] ?>" alt="House image" no="2" class="housing_pic img-thumbnail ">
@@ -94,7 +96,7 @@
                                     <table>
                                         <tr>
                                             <td align="center" valign="center">
-                                                <img src="assets/images/b/<?= $value['house_img_left'] ?>"  />
+                                                <img src="assets/images/b/<?= $value['house_img_right'] ?>" class="imgB img-thumbnail" />
                                             </td>
                                         </tr>
                                     </table>
@@ -103,12 +105,12 @@
                                     <span id="prv"><a href="#"><img src="assets/images/left_arrow.gif" border="0"/></a></span>           
                                     <div id="list">
                                         <ul>
-                                            <li class="on"><img src="assets/images/<?= $value['sImg1_l'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg2_l'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg3_l'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg4_l'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg5_l'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg6_l'] ?>" /></li>
+                                            <li class="on"><img src="assets/images/<?= $value['sImg1_r'] ?>" /></li>
+                                            <li><img src="assets/images/<?= $value['sImg2_r'] ?>" /></li>
+                                            <li><img src="assets/images/<?= $value['sImg3_r'] ?>" /></li>
+                                            <li><img src="assets/images/<?= $value['sImg4_r'] ?>" /></li>
+                                            <li><img src="assets/images/<?= $value['sImg5_r'] ?>" /></li>
+                                            <li><img src="assets/images/<?= $value['sImg6_r'] ?>" /></li>
 
                                         </ul>
                                     </div>
@@ -118,13 +120,13 @@
 
 
                             <div id="description">
-                                <strong>Description:</strong><?= $value['description_left'] ?><br />
+                                <strong>Description:</strong><?= $value['description_right'] ?><br />
                                 <br />
-                                <strong>Location:</strong><?= $value['location_left'] ?><br/>
+                                <strong>Location:</strong><?= $value['location_right'] ?><br/>
                                 <br />
-                                <strong>Style:</strong><?= $value['style_left'] ?><br />
+                                <strong>Style:</strong><?= $value['style_right'] ?><br />
                                 <br />
-                                <h4 id="price">Price: <?= $value['price_left'] ?> </h4>
+                                <h4 id="price">Price: <?= $value['price_right'] ?> </h4>
                                 <br /> 
                                 <iframe src="http://www.dr2ooo.com/tools/maps/maps.php?zoom=15&width=300&height=225&ll=34.029076,-118.281919&ctrl=true&cp=true&" width="300" height="225"></iframe>
                             </div>
