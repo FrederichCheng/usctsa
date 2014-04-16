@@ -50,6 +50,9 @@
                                             <li><img src="assets/images/<?= $value['sImg4_l'] ?>" /></li>
                                             <li><img src="assets/images/<?= $value['sImg5_l'] ?>" /></li>
                                             <li><img src="assets/images/<?= $value['sImg6_l'] ?>" /></li>
+                                            <li><img src="assets/images/<?= $value['sImg7_l'] ?>" /></li>
+                                            <li><img src="assets/images/<?= $value['sImg8_l'] ?>" /></li>
+                                          
 
                                         </ul>
                                     </div>
@@ -58,26 +61,28 @@
                             </div>
 
 
-                            <div id="description">
+                            <div class="description">
                                 <strong>Description:</strong><?= $value['description_left'] ?><br />
-                                <br />
+                                
                                 <strong>Location:</strong><?= $value['location_left'] ?><br/>
-                                <br />
                                 <strong>Style:</strong><?= $value['style_left'] ?><br />
+                                <strong>Parking:</strong><?= $value['parking_left'] ?><br/>
+                                <strong>Tel:</strong><?= $value['phone_left'] ?><br />
+                                <strong>Email:</strong><?= $value['email_left'] ?><br />
                                 <br />
                                 <h4 id="price">Price: <?= $value['price_left'] ?> </h4>
-                                <br /> 
-                                <iframe src="http://www.dr2ooo.com/tools/maps/maps.php?zoom=15&width=300&height=225&ll=34.029076,-118.281919&ctrl=true&cp=true&" width="300" height="225"></iframe>
+                                
+                                <?= $value['house_map'] ?>
                             </div>
 
                         </div>
                     </td>
 
                     <td class="housing_descript" valign="top">
-                        Location: <?= $value['location_left'] ?> <br /> <br />
-                        Price: <?= $value['price_left'] ?>/month<br/><br />
+                        <strong>Location:</strong> <?= $value['location_left'] ?> <br /> 
+                        <strong>Price:</strong> <?= $value['price_left'] ?>/month<br/><br />
 
-                        Description:
+                        <strong>Description:</strong>
                         <?= $value['description_left'] ?>
                         <br /> <br />
 
@@ -134,10 +139,10 @@
                         </div>
                     </td>
                     <td class="housing_descript" valign="top">
-                        Location: <?= $value['location_right'] ?> <br /> <br />
-                        Price: <?= $value['price_right'] ?>/month<br/><br />
+                        <strong>Location:</strong> <?= $value['location_right'] ?> <br /> 
+                        <strong>Price:</strong> <?= $value['price_right'] ?>/month<br/><br />
 
-                        Description:
+                        <strong>Description:</strong> 
                         <?= $value['description_right'] ?>
                         <br /> <br />
 
@@ -194,10 +199,10 @@
                         function() {
                             $("#dialog"+$(this).attr('no')).dialog({ //找到attribute為no的值，附加到dialog的id之後
                                 
-                                maxHeight: 550,
-                                maxWidth: 750,
-                                height: 550,
-                                width: 750,
+                                maxHeight: 600,
+                                maxWidth: 800,
+                                height: 600,
+                                width: 800,
                                 show: {
                                     effect: "blind",
                                     duration: 1000,

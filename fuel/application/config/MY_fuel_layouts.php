@@ -88,6 +88,7 @@ $cars_sections = array(
                 'email' => array('label' => 'Email'), 
                 'price' => array('label' => 'Price'), 
                 'description' => array('type' => 'textarea','label' => 'Description'),
+                
                 'sImg_1' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Small Image 1'),
                 'sImg_2' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Small Image 2'),
                 'sImg_3' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Small Image 3'),
@@ -119,8 +120,11 @@ $housing_sections = array(
                 'sections' => array('type' => 'section', 'label' => '{__title__}'),
                 'title' => array('label' => 'Title', 'required'=> true), 
                 'house_img_left' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image First'),
-                'location_left' => array('label' => 'Location'), 
+                'location_left' => array('label' => 'Location'),
+                'parking_left' => array('label' => 'Parking'),
                 'style_left' => array('label' => 'Style'), 
+                'phone_left' => array('label' => 'Telephone'), 
+                'email_left' => array('label' => 'Email'), 
                 'price_left' => array('label' => 'Price'),
                 'description_left' => array('type' => 'textarea','label' => 'Description'),
                 'sImg1_l' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image Big'),
@@ -129,7 +133,9 @@ $housing_sections = array(
                 'sImg4_l' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
                 'sImg5_l' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
                 'sImg6_l' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
-
+                'sImg7_l' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                'sImg8_l' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                'house_map' => array('label' => 'House Map iframe', 'style' => 'width: 500px'),
                 
                 'house_img_right' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image First'),
                 'location_right' => array('label' => 'Location'), 
