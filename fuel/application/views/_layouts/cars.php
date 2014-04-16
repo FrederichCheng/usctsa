@@ -33,24 +33,29 @@
 
                     </td>
                     <td class="car_descript" valign="top">
-                        Model: <?= $value['model'] ?><br /><br/>
+                        <span>   <strong>Model:</strong> <?= $value['model'] ?> <br /></span> 
+                        
+                        <span>   <strong>Type:</strong> <?= $value['type'] ?> <br /></span> 
+                        
+                        <span>   <strong>Color:</strong> <?= $value['color'] ?> <br /></span> 
+                        
+                        <span>   <strong>Year:</strong> <?= $value['year'] ?> <br /></span> 
 
-                        Year: <?= $value['year'] ?> <br/><br/>
+                        <span>   <strong>Miles:</strong> <?= $value['miles'] ?> <br /></span> 
 
-                        Miles: <?= $value['miles'] ?> <br/><br/>
+                        <span>   <strong>Location:</strong> <?= $value['location'] ?><br /></span> 
 
-                        Location: <?= $value['location'] ?><br /> <br />
+                        <span>   <strong>Saler:</strong> <?= $value['saler'] ?> <br/></span>
 
-                        Saler: <?= $value['saler'] ?> <br/><br/>
+                        <span>   <strong>Mobile:</strong> <?= $value['mobile'] ?> <br /></span>
 
-                        Mobile: <?= $value['mobile'] ?> <br /><br/>
+                        <span>   <strong>Email:</strong> <?= $value['email'] ?> <br/></span>
 
-                        Email: <?= $value['email'] ?> <br/><br/>
+                        <span><strong>Price:</strong> <?= $value['price'] ?><br/></span>
+                        <br/><br/>
 
-                        Price: <?= $value['price'] ?><br/><br />
-
-                        Description: <?= $value['description'] ?>
-                        <br /> 
+                        <span><strong>Description:</strong> <?= $value['description'] ?> <br /></span>
+                        
 
  </div>
 

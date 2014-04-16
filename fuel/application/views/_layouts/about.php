@@ -48,7 +48,7 @@
                         
                         <span class="member_fb_icons">
                             <ul>
-                                <li class="facebook"><a href="https://www.facebook.com/groups/usctsa/" title='Join us'>Facebook</a></li>
+                                <li class="facebook"><a href="<?= $value['facebook_link'] ?>" title='Join us'>Facebook</a></li>
                             </ul>
                         </span>
                     </div>

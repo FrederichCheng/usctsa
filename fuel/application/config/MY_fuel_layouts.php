@@ -55,6 +55,7 @@ $about_sections = array(
                 'major' => array('label' => 'Major'),
                 'email' => array('label' => 'Email'),
                 'message' => array('type' => 'textarea','label' => 'Message'),
+                'facebook_link' => array('label' => 'Facebook'),
                 ))
 );
 
@@ -71,12 +72,14 @@ $config['layouts']['about'] = $about_layout;
 $cars_sections = array(
 	 
 	'heading' => array('label' => lang('layout_field_heading')),
-	'sections' => array( 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
+	'sections' => array( 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'model',
            'fields' => array(
-                'sections' => array('type' => 'section', 'label' => 'Car Information'),
+                'sections' => array('type' => 'section', 'label' => '{__title__}'),
                
                 'car_BigImg' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Car Big Image'),
-                'model' => array('label' => 'Car Model'), 
+                'model' => array('label' => 'Car Model', 'required' => true), 
+                'type' => array('label' => 'Type'),
+                'color' => array('label' => 'Color'),
                 'year' => array('label' => 'Year'),
                 'miles' => array('label' => 'Miles'), 
                 'location' => array('label' => 'Location'), 
