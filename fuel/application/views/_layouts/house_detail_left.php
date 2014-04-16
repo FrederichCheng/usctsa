@@ -5,8 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" type="text/css" href="assets/css/housePicDetail.css">
-        <script type="text/javascript" src="assets/js/jquery.js"></script>
-        <script type="text/javascript" src="assets/js/slidepics.js"></script>
+       <link rel="stylesheet" type="text/css" href="assets/css/housing.css">
     </head>
 
 

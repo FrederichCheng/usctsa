@@ -46,8 +46,8 @@ $about_sections = array(
 	
         'about_content' => array('type' => 'textarea', 'label' => 'Content of About'),
 	'heading' => array('label' => lang('layout_field_heading')),
-	'sections' => array( 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
-           'fields' => array(
+	'sections' => array( 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Member sections', 'title_field' => 'title',
+        'fields' => array(
                 'sections' => array('type' => 'section', 'label' => '{__title__}'),
                 'name' => array('label' => 'Name'),
                 'title' => array('label' => 'Title', 'required'=> true), 
@@ -55,6 +55,7 @@ $about_sections = array(
                 'major' => array('label' => 'Major'),
                 'email' => array('label' => 'Email'),
                 'message' => array('type' => 'textarea','label' => 'Message'),
+                'facebook_link' => array('label' => 'Facebook'),
                 ))
 );
 
@@ -71,12 +72,14 @@ $config['layouts']['about'] = $about_layout;
 $cars_sections = array(
 	 
 	'heading' => array('label' => lang('layout_field_heading')),
-	'sections' => array( 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
+	'sections' => array( 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'model',
            'fields' => array(
-                'sections' => array('type' => 'section', 'label' => 'Car Information'),
+                'sections' => array('type' => 'section', 'label' => '{__title__}'),
                
                 'car_BigImg' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Car Big Image'),
-                'model' => array('label' => 'Car Model'), 
+                'model' => array('label' => 'Car Model', 'required' => true), 
+                'type' => array('label' => 'Type'),
+                'color' => array('label' => 'Color'),
                 'year' => array('label' => 'Year'),
                 'miles' => array('label' => 'Miles'), 
                 'location' => array('label' => 'Location'), 
@@ -115,15 +118,30 @@ $housing_sections = array(
         'fields' => array(
                 'sections' => array('type' => 'section', 'label' => '{__title__}'),
                 'title' => array('label' => 'Title', 'required'=> true), 
-                'house_img_left' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                'house_img_left' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image First'),
                 'location_left' => array('label' => 'Location'), 
+                'style_left' => array('label' => 'Style'), 
                 'price_left' => array('label' => 'Price'),
                 'description_left' => array('type' => 'textarea','label' => 'Description'),
-            
-                'house_img_right' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                'sImg1_l' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image Big'),
+                'sImg2_l' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                'sImg3_l' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                'sImg4_l' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                'sImg5_l' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                'sImg6_l' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+
+                
+                'house_img_right' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image First'),
                 'location_right' => array('label' => 'Location'), 
+                'style_right' => array('label' => 'Style'), 
                 'price_right' => array('label' => 'Price'),
                 'description_right' => array('type' => 'textarea','label' => 'Description'),
+                'sImg1_r' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image Big'),
+                'sImg2_r' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                'sImg3_r' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                'sImg4_r' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                'sImg5_r' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
+                'sImg6_r' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'House Image'),
                         
                 ))
 );
