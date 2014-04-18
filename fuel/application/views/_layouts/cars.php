@@ -17,14 +17,12 @@
 
                             <div id="list">
                                 <ul>
-                                    <li><img src="assets/images/<?= $value['sImg_1'] ?>" /></li>
-                                    <li><img src="assets/images/<?= $value['sImg_2'] ?>" /></li>
-                                    <li><img src="assets/images/<?= $value['sImg_3'] ?>" /></li>
-                                    <li><img src="assets/images/<?= $value['sImg_4'] ?>" /></li>
-                                    <li><img src="assets/images/<?= $value['sImg_5'] ?>" /></li>
-                                    <li><img src="assets/images/<?= $value['sImg_6'] ?>" /></li>
-                                    <li><img src="assets/images/<?= $value['sImg_7'] ?>" /></li>
-                                    <li><img src="assets/images/<?= $value['sImg_8'] ?>" /></li>
+                                    <?php foreach ($value['photos'] as $image) { ?>
+                                    
+                                    <li><img src="assets/images/<?= $image['photo'] ?>" /></li>
+                                        
+                                    <?php } ?>
+                                    
 
                                 </ul>
                             </div>

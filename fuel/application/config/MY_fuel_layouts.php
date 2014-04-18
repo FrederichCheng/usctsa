@@ -80,10 +80,17 @@ $config['layouts']['about'] = $about_layout;
 
 $cars_sections = array(
     'heading' => array('label' => lang('layout_field_heading')),
-    'sections' => array('add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'model',
+    'sections' => array('add_extra' => FALSE, 
+                        'init_display' => 'none', 
+                        'dblclick' => 'accordian', 
+                        'repeatable' => TRUE, 
+                        'style' => 'width: 950px;', 
+                        'type' => 'template', 
+                        'label' => 'Cars sections', 
+                        'title_field' => 'model',
         'fields' => array(
-            'sections' => array('type' => 'section', 'label' => '{__title__}'),
-            'car_BigImg' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Car Big Image'),
+            'car_section' => array('type' => 'section', 'label' => '{__title__}'),
+            'car_BigImg' => array('type' => 'asset', 'label' => 'Car Big Image'),
             'model' => array('label' => 'Car Model', 'required' => true),
             'type' => array('label' => 'Type'),
             'color' => array('label' => 'Color'),
@@ -95,16 +102,21 @@ $cars_sections = array(
             'email' => array('label' => 'Email'),
             'price' => array('label' => 'Price'),
             'description' => array('type' => 'textarea', 'label' => 'Description'),
-            'sImg_1' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Small Image 1'),
-            'sImg_2' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Small Image 2'),
-            'sImg_3' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Small Image 3'),
-            'sImg_4' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Small Image 4'),
-            'sImg_5' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Small Image 5'),
-            'sImg_6' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Small Image 6'),
-            'sImg_7' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Small Image 7'),
-            'sImg_8' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Small Image 8'),
+            'photos' => array('add_extra' => FALSE, 
+                              'init_display' => 'none', 
+                              'dblclick' => 'accordian', 
+                              'repeatable' => TRUE, 
+                              'style' => 'width: 950px;', 
+                              'type' => 'template', 
+                              'label' => 'Cars sections', 
+                              'title_field' => 'photo',
+                              'fields' => array(
+                                  'car_photo' => array('type' => 'section', 'label' => '{__title__}'),
+                                  'photo' => array('type' => 'asset', 'label' => 'Car Photo')
+                              ),
+           
         ))
-);
+));
 
 $cars_layout = new Fuel_layout('cars');
 $cars_layout->set_description('This is the cars layout');
@@ -148,7 +160,7 @@ $housing_sections = array(
                                                    'label' => 'Photos', 
                                                    'title_field' => 'photo',
                                                    'fields' => array(
-                                                           'photos' => array('type' => 'section', 'label' => '{__title__}'),
+                                                           'house_photo' => array('type' => 'section', 'label' => '{__title__}'),
                                                            'photo' => array('type' => 'asset','label' => 'Photo'),
                                                     )
                                   ),

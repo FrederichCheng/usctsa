@@ -148,7 +148,7 @@
                                 },
                                 hide: {
                                     effect: "explode",
-                                    duration: 1000
+                                    duration: 500
                                 }
                             });
                         }
