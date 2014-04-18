@@ -55,5 +55,5 @@
 		    
 		</div><!-- [END] #main -->
 
-
+        </div>
 <?php $this->load->view('_blocks/footer') ?>

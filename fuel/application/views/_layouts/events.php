@@ -53,7 +53,8 @@
             var firstDay = date % 7;
             var lastD = new Date(year, month, 28);
             var lastDate = lastD.getDate();
-
+            
+            
 
 
             while (lastD.getMonth() === currentDate.getMonth()) {
@@ -65,6 +66,7 @@
             for (var i = firstDay; i > 0; i--) {
                 $("#cell" + i).find(".date").html(day(i));
             }
+            
             for (var i = firstDay + 1; i <= lastDate + firstDay; i++) {
                 if (i <= 7) {
                     $("#cell" + i).find(".date").html(day(i) + " " + (i - firstDay));
@@ -87,12 +89,14 @@
                     && currentDate.getMonth() >= TODAY.getMonth()) {
                 cached_events = null;   //clear cached event.
             }
-
+            
             loadGroupEvents(firstDay);
         }
 
         function fbError(response) {
-            $(".errorMessage").text("Unable to retrieve data from Facebook");
+            $("#calendar").css("opacity", "0.4");
+            $("#centerMessage").css("display", "table");
+            $("#centerMessage .text").text("Unable to retrieve data from Facebook");
             console.log("unable to retrieve data from Facebook: " + JSON.stringify(response.error));
         }
 
@@ -113,14 +117,18 @@
             }
         }
 
+        function makeDate(fbDate){
+            if(typeof(fbDate))
+            var a = fbDate.split(/[^0-9]/);
+            return new Date (a[0],a[1]-1,a[2],a[3],a[4],a[5]);
+        }
+
         function showEvents(data, firstDay) {
-
             $('.events').html('');
-
             var itemCount = 0;
             for (var index in data) {
-                data[index]['start_time'] = new Date(data[index]['start_time']);
-                data[index]['end_time'] = new Date(data[index]['end_time']);
+                data[index]['start_time'] = makeDate(data[index]['start_time']);
+                data[index]['end_time'] = makeDate(data[index]['end_time']);
                 var time = data[index]['start_time'];
                 if (time.getMonth() === currentDate.getMonth() && time.getFullYear() === currentDate.getFullYear()) {
                     var text = data[index]['name'].trim();
@@ -143,7 +151,7 @@
                 $("#centerMessage .text").text("No Events in This Month");
             }
             else {
-                $("#calendar").css({opacity: 1});
+                $("#calendar").css("opacity", "1.0");
                 $("#centerMessage").css("display", "none");
                 $("#centerMessage .text").text("");
             }
@@ -158,12 +166,18 @@
                     fbError(response);
                     return;
                 }
-                $('<div>').html(response.description).css({width: '600px', height: '400px', overflow:'scroll'}).dialog({
+                $('<div>').html('').css({width: '640px', height: '480px', overflow:'scroll'}).dialog({
                     dialogClass: "no-close",
-                    maxHeight: 400,
-                    width: 600,
+                    height: 480,
+                    width: 640,
                     title: response.name,
                     buttons: [
+                        {
+                            text: "Save to Favorites",
+                            click: function() {
+                                $(this).dialog("close");
+                            }
+                        },
                         {
                             text: "Close",
                             click: function() {
