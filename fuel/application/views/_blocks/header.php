@@ -26,7 +26,7 @@
                 <div id="title">
                     <!-- Logo -->
                     <div id="logo">
-                        <a href="http://www.usc.edu/" target="_blank" title="Go to USC"><img src="<?=  assets_path('images/usc_logo.png') ?>" alt="USC Logo" width="130" height="130" /></a>
+                        <a href="http://www.usc.edu/" target="_blank" title="University of Southern California"><img src="<?=  assets_path('images/usc_logo.png') ?>" alt="USC Logo" width="130" height="130" /></a>
                         <div id="tagline">USC Taiwanese Student Association<br>南加大台灣同學會</div>
                     </div>
 
@@ -34,7 +34,7 @@
                     <div id="contact">
                         <div class="social-icons">
                             <ul>
-                                <li class="facebook"><a href="https://www.facebook.com/groups/usctsa/" target="_blank" title='Join us'>Facebook</a></li>
+                                <li class="facebook"><a href="https://www.facebook.com/groups/usctsa/" target="_blank" title='Facebook'>Facebook</a></li>
                             </ul>
                         </div>
 

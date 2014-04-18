@@ -22,20 +22,22 @@
 
     <div class="section">
         <h2>Long Term Contract</h2>
+        
+        <div id="long_term">
         <?php foreach ($sections as $value) { ?>
-            <table class="housing" border="2" cellpadding="" cellspacing="">
+            <table class="housing" border="2">
                 <tr>
-                    <td width="200" text-align="center">
-                        <img src="assets/images/<?= $value['house_img_left'] ?>" alt="House image" no="1" class="housing_pic img-thumbnail" />
+                    <td >
+                        <img src="assets/images/<?= $value['house_img'] ?>" alt="House image" no="1" class="housing_pic img-thumbnail" />
 
-                        <!-- House Details -->
+                        <!-- House Details show in dialog-->
                         <div id="dialog1" class="dialog" title="House Details:">
                             <div id="showbox">
                                 <div id="showImg">
                                     <table>
                                         <tr>
-                                            <td align="center" valign="center">
-                                                <img src="assets/images/<?= $value['house_img_left'] ?>"  class="imgB img-thumbnail"/>
+                                            <td >
+                                                <img src="assets/images/<?= $value['house_img'] ?>"  class="imgB img-thumbnail"/>
                                             </td>
                                         </tr>
                                     </table>
@@ -44,12 +46,15 @@
                                     <span id="prv"><a href="#"><img src="assets/images/left_arrow.gif" border="0"/></a></span>           
                                     <div id="list">
                                         <ul>
-                                            <li class="on"><img src="assets/images/<?= $value['sImg1_l'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg2_l'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg3_l'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg4_l'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg5_l'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg6_l'] ?>" /></li>
+                                            <li class="on"><img src="assets/images/<?= $value['sImg1'] ?>" /></li>
+                                            <li><img src="assets/images/<?= $value['sImg2'] ?>" /></li>
+                                            <li><img src="assets/images/<?= $value['sImg3'] ?>" /></li>
+                                            <li><img src="assets/images/<?= $value['sImg4'] ?>" /></li>
+                                            <li><img src="assets/images/<?= $value['sImg5'] ?>" /></li>
+                                            <li><img src="assets/images/<?= $value['sImg6'] ?>" /></li>
+                                            <li><img src="assets/images/<?= $value['sImg7'] ?>" /></li>
+                                            <li><img src="assets/images/<?= $value['sImg8'] ?>" /></li>
+                                          
 
                                         </ul>
                                     </div>
@@ -58,95 +63,37 @@
                             </div>
 
 
-                            <div id="description">
-                                <strong>Description:</strong><?= $value['description_left'] ?><br />
+                            <div class="description">
+                                <strong>Description:</strong><?= $value['description'] ?><br />
+                                
+                                <strong>Location:</strong><?= $value['location'] ?><br/>
+                                <strong>Style:</strong><?= $value['style'] ?><br />
+                                <strong>Parking:</strong><?= $value['parking'] ?><br/>
+                                <strong>Tel:</strong><?= $value['phone'] ?><br />
+                                <strong>Email:</strong><?= $value['email'] ?><br />
                                 <br />
-                                <strong>Location:</strong><?= $value['location_left'] ?><br/>
-                                <br />
-                                <strong>Style:</strong><?= $value['style_left'] ?><br />
-                                <br />
-                                <h4 id="price">Price: <?= $value['price_left'] ?> </h4>
-                                <br /> 
-                                <iframe src="http://www.dr2ooo.com/tools/maps/maps.php?zoom=15&width=300&height=225&ll=34.029076,-118.281919&ctrl=true&cp=true&" width="300" height="225"></iframe>
+                                <h4 id="price">Price: <?= $value['price'] ?> </h4>
+                                
+                                <?= $value['house_map'] ?>
                             </div>
 
                         </div>
                     </td>
 
                     <td class="housing_descript" valign="top">
-                        Location: <?= $value['location_left'] ?> <br /> <br />
-                        Price: <?= $value['price_left'] ?>/month<br/><br />
+                        <strong>Location:</strong> <?= $value['location'] ?> <br /> 
+                        <strong>Price:</strong> <?= $value['price'] ?>/month<br/><br />
 
-                        Description:
-                        <?= $value['description_left'] ?>
+                        <strong>Description:</strong>
+                        <?= $value['description'] ?>
                         <br /> <br />
 
                     </td>
-                    
-<!-- Right one house -->
-
-                    <td width="200" text-align="center">
-                        <img src="assets/images/<?= $value['house_img_right'] ?>" alt="House image" no="2" class="housing_pic img-thumbnail ">
-                        
-
-                        <!-- House Details -->
-                        <div id="dialog2" class="dialog" title="House Details:">
-                            <div id="showbox">
-                                <div id="showImg">
-                                    <table>
-                                        <tr>
-                                            <td align="center" valign="center">
-                                                <img src="assets/images/b/<?= $value['house_img_right'] ?>" class="imgB img-thumbnail" />
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div id="imgList">    	
-                                    <span id="prv"><a href="#"><img src="assets/images/left_arrow.gif" border="0"/></a></span>           
-                                    <div id="list">
-                                        <ul>
-                                            <li class="on"><img src="assets/images/<?= $value['sImg1_r'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg2_r'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg3_r'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg4_r'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg5_r'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg6_r'] ?>" /></li>
-
-                                        </ul>
-                                    </div>
-                                    <span id="next"><a href="#"><img src="assets/images/right_arrow.gif" border="0"/></a></span>    
-                                </div>
-                            </div>
-
-
-                            <div id="description">
-                                <strong>Description:</strong><?= $value['description_right'] ?><br />
-                                <br />
-                                <strong>Location:</strong><?= $value['location_right'] ?><br/>
-                                <br />
-                                <strong>Style:</strong><?= $value['style_right'] ?><br />
-                                <br />
-                                <h4 id="price">Price: <?= $value['price_right'] ?> </h4>
-                                <br /> 
-                                <iframe src="http://www.dr2ooo.com/tools/maps/maps.php?zoom=15&width=300&height=225&ll=34.029076,-118.281919&ctrl=true&cp=true&" width="300" height="225"></iframe>
-                            </div>
-
-                        </div>
-                    </td>
-                    <td class="housing_descript" valign="top">
-                        Location: <?= $value['location_right'] ?> <br /> <br />
-                        Price: <?= $value['price_right'] ?>/month<br/><br />
-
-                        Description:
-                        <?= $value['description_right'] ?>
-                        <br /> <br />
-
-                    </td>
-
-            </table>
-            <br /> <br />
-        <?php } ?>    
-
+                   </table>
+           
+        <?php } ?>   
+            
+            </div>
 
 
         <br/><br/>
@@ -194,10 +141,10 @@
                         function() {
                             $("#dialog"+$(this).attr('no')).dialog({ //找到attribute為no的值，附加到dialog的id之後
                                 
-                                maxHeight: 550,
-                                maxWidth: 750,
-                                height: 550,
-                                width: 750,
+                                maxHeight: 600,
+                                maxWidth: 800,
+                                height: 600,
+                                width: 800,
                                 show: {
                                     effect: "blind",
                                     duration: 1000,

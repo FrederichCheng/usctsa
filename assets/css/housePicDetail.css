@@ -26,9 +26,10 @@ and open the template in the editor.
             border: solid 1px #eee;
             
         }
-        #description{
+        .description{
             float:left;
-            width:300px;
+            width:330px;
+            margin-left: 20px;
             text-align:justify;
         }
         
