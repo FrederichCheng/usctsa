@@ -118,18 +118,20 @@
         }
 
         function makeDate(fbDate){
-            if(typeof(fbDate))
+            try{
             var a = fbDate.split(/[^0-9]/);
             return new Date (a[0],a[1]-1,a[2],a[3],a[4],a[5]);
+            }
+            catch(e){
+                alert(typeof fbDate);
+            }
         }
 
         function showEvents(data, firstDay) {
             $('.events').html('');
             var itemCount = 0;
             for (var index in data) {
-                data[index]['start_time'] = makeDate(data[index]['start_time']);
-                data[index]['end_time'] = makeDate(data[index]['end_time']);
-                var time = data[index]['start_time'];
+                var time = makeDate(data[index]['start_time']);
                 if (time.getMonth() === currentDate.getMonth() && time.getFullYear() === currentDate.getFullYear()) {
                     var text = data[index]['name'].trim();
                     if(data[index]['name'].length > 31)
@@ -240,8 +242,7 @@
             font-weight: bold;
         }
         .today{
-            background-color:wheat;
-            opacity: 0.4;
+            background-color:lightpink;
         }
         .errorMessage{
             color:red;
