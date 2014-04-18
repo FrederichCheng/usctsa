@@ -64,7 +64,7 @@ and open the template in the editor.
         }
  
 	/* 秀大圖 */
-	.imgB{
+	#imgB{
              border: solid 10px #FFF; 
               height: 300px; 
               width: 350px; 

@@ -37,7 +37,7 @@
                                     <table>
                                         <tr>
                                             <td >
-                                                <img src="assets/images/<?= $value['house_img'] ?>"  class="imgB img-thumbnail"/>
+                                                <img src="assets/images/<?= $value['house_img'] ?>"  class="img-thumbnail" id="imgB"/>
                                             </td>
                                         </tr>
                                     </table>
@@ -46,14 +46,11 @@
                                     <span id="prv"><a href="#"><img src="assets/images/left_arrow.gif" border="0"/></a></span>           
                                     <div id="list">
                                         <ul>
-                                            <li class="on"><img src="assets/images/<?= $value['sImg1'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg2'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg3'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg4'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg5'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg6'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg7'] ?>" /></li>
-                                            <li><img src="assets/images/<?= $value['sImg8'] ?>" /></li>
+                       <?php foreach ($value['photos'] as $image) {   ?>
+                              
+                                                <li> <img src="assets/images/<?=$image['photo']  ?>" />
+                                                </li>  
+                                                    <?php } ?>              
                                           
 
                                         </ul>
