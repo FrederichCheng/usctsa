@@ -25,17 +25,18 @@
         
         <div id="long_term">
         
-        <?php $num="1"; ?>
+        <?php $num=1; ?>
         <?php $id="id='imgB"; ?>
+        <?php $id_dialog="id='dialog" ?>
         <?php $no="no='"; ?>    
         <?php foreach ($sections as $value) { ?>
             <table class="housing" border="2">
                 <tr>
                     <td >
-                        <img src="assets/images/<?= $value['house_img'] ?>" alt="House image"  class="housing_pic img-thumbnail" />
+                        <img src="assets/images/<?= $value['house_img'] ?>" alt="House image" <?php echo $no.$num."'"; ?> class="housing_pic img-thumbnail" />
 
                         <!-- House Details show in dialog-->
-                        <div id="dialog1" class="dialog" title="House Details:">
+                        <div <?php echo $id_dialog.$num."'";?>  class="dialog" title="House Details:">
                             <div id="showbox">
                                 <div id="showImg">
                                     <table>
@@ -139,7 +140,7 @@
                 $('body').pageScroller({navigation: '#navscroll'});
                 $(".housing_pic").click(
                         function() {
-                            $("#dialog"+$(this).attr('no')).dialog({ //找到attribute為no的值，附加到dialog的id之後
+                            $("#dialog"+$(this).attr('no')).dialog({ //找到點選.housing_pic的attribute為no的值，附加到dialog的id之後
                                 
                                 maxHeight: 600,
                                 maxWidth: 800,

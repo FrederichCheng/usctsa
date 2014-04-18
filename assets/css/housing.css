@@ -172,5 +172,5 @@ list-style: none;
 }
 
 .dialog{
-    display: none;
+    display: none;  //讓dialog預設不顯示
 }

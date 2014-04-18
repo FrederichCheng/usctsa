@@ -23,7 +23,7 @@ $(function(){
  
 	var ImgObj=$("#list ul li img");
 	ImgObj.click(function(){
-                var num = $(this).attr("no");
+                var num = $(this).attr("no");   //從點小圖抓出attribute no的值
 		$("#imgB"+num).css("opacity", 0);
 		var img=this.src.replace("images/s","images/b");
 		$("#imgB"+num).attr("src",img);
