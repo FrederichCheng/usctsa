@@ -51,13 +51,13 @@
 						        	<tr class="table_row">
 						        		<td class="first_col">
 						        			<p class="job_title">
-						        				<a href='<?=$section['link']?>' >
+						        				<a href='<?=$section['link']?>' target="_blank">
 													<?=$section['title']?>
 												</a>
 											</p>
 						        			<p class="job_type"><?= $section['job_type'] ?></p>
 							        		<p class="job_description"><?= $section['job_description'] ?>
-							        			<a href='<?=$section['link']?>' >more...</a>
+							        			<a href='<?=$section['link']?>' target="_blank">more...</a>
 							        		</p>
 							        	</td>
 							        	<td class="second_col">
@@ -112,6 +112,6 @@
 				});	
 				
 			</script>			
-		
+                </div>
 			
 <?php $this->load->view('_blocks/footer') ?>

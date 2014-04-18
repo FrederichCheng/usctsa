@@ -184,5 +184,6 @@
         </script>
 
     </div>
+</div>
     <?php $this->load->view('_blocks/footer') ?>
    

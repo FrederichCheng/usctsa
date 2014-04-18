@@ -13,9 +13,9 @@
  */
 
 
-function image($src){
+function image($src,$class=""){
             if(isset($src) || strlen($src) == 0){
-                return sprintf('<img src="%s"/>', $src);
+                return sprintf('<img class="%s" src="%s"/>', $class, $src);
             }
             return '';
         }

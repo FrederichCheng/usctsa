@@ -102,6 +102,6 @@
 					$('body').pageScroller({navigation: '#navscroll'});
 				});	
 			</script>
-	
+                </div>
 			
 <?php $this->load->view('_blocks/footer') ?>
