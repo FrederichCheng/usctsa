@@ -19,17 +19,22 @@ $(function(){
 	var maxpage=Math.floor(ulWidth/360);	
 	$("#pagenum").html(page+"/"+maxpage);
  
-	$("#imgB").css("opacity", 0);
-	$("#imgB").fadeTo(1000, 1.0);
+//	$("#imgB"+num).css("opacity", 0);
+//	$("#imgB"+num).fadeTo(1000, 1.0);
  
 	var ImgObj=$("#list ul li img");
+        
+       
 	ImgObj.click(function(){
-		$("#imgB").css("opacity", 0);
+                var num = $(this).attr("no"); //num變數為attribute "no"的值
+           
+            
+		$("#imgB"+num).css("opacity", 0);
 		var img=this.src.replace("images/s_car","images/b_car");
-		$("#imgB").attr("src",img);
+		$("#imgB"+num).attr("src",img);
  
-		$("#imgB").stop();
-		$("#imgB").fadeTo(1000, 1.0);
+		$("#imgB"+num).stop();
+		$("#imgB"+num).fadeTo(1000, 1.0);
 		//移除li上的on Class
 		ImgObj.parents("li").removeClass("on");
 		//將目前點到的加入on Class

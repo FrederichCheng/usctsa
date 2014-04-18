@@ -24,11 +24,15 @@
         <h2>Long Term Contract</h2>
         
         <div id="long_term">
+        
+        <?php $num="1"; ?>
+        <?php $id="id='imgB"; ?>
+        <?php $no="no='"; ?>    
         <?php foreach ($sections as $value) { ?>
             <table class="housing" border="2">
                 <tr>
                     <td >
-                        <img src="assets/images/<?= $value['house_img'] ?>" alt="House image" no="1" class="housing_pic img-thumbnail" />
+                        <img src="assets/images/<?= $value['house_img'] ?>" alt="House image"  class="housing_pic img-thumbnail" />
 
                         <!-- House Details show in dialog-->
                         <div id="dialog1" class="dialog" title="House Details:">
@@ -37,7 +41,7 @@
                                     <table>
                                         <tr>
                                             <td >
-                                                <img src="assets/images/<?= $value['house_img'] ?>"  class="img-thumbnail" id="imgB"/>
+                                                <img src="assets/images/<?= $value['house_img'] ?>"  class="img-thumbnail" <?php echo $id.$num."'"; ?>/>
                                             </td>
                                         </tr>
                                     </table>
@@ -48,11 +52,10 @@
                                         <ul>
                        <?php foreach ($value['photos'] as $image) {   ?>
                               
-                                                <li> <img src="assets/images/<?=$image['photo']  ?>" />
+                                                <li> <img src="assets/images/<?=$image['photo']  ?>" <?php echo $no.$num."'"; ?> />
                                                 </li>  
                                                     <?php } ?>              
                                           
-
                                         </ul>
                                     </div>
                                     <span id="next"><a href="#"><img src="assets/images/right_arrow.gif" border="0"/></a></span>    
@@ -87,7 +90,7 @@
 
                     </td>
                    </table>
-           
+           <?php $num++; ?>
         <?php } ?>   
             
             </div>

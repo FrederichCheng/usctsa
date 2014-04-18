@@ -7,19 +7,23 @@
 
     <div class="section">
         <h2>Used Cars Selling</h2>
+        
+        <?php $num=1; ?>
+        <?php $id="id='imgB"; ?>
+        <?php $no="no='"; ?>
         <?php foreach ($sections as $value) { ?>
             <table class="car" border="2">
                 <tr>
                     <td valign='top'>
 
-                        <img src="assets/images/<?= $value['car_BigImg'] ?>" alt="car_1 image" class="car_pic" id="imgB">
+                        <img src="assets/images/<?= $value['car_BigImg'] ?>" alt="car image" class="car_pic" <?php echo $id.$num."'"; ?>  >
                         <div id="imgList">    	
 
                             <div id="list">
                                 <ul>
                                     <?php foreach ($value['photos'] as $image) { ?>
                                     
-                                    <li><img src="assets/images/<?= $image['photo'] ?>" /></li>
+                                    <li><img src="assets/images/<?= $image['photo'] ?>"  <?php echo $no.$num."'";?> /></li>
                                         
                                     <?php } ?>
                                     
@@ -62,6 +66,7 @@
                 </tr>
             </table>
             <br /> <br />
+            <?php $num++ ?>
         <?php } ?>
 
 
