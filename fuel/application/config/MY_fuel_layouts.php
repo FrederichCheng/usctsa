@@ -59,7 +59,7 @@ $about_sections = array(
                                 'sections' => array('type' => 'section', 'label' => '{__title__}'),
                                 'name' => array('label' => 'Name'),
                                 'title' => array('label' => 'Title', 'required' => true),
-                                'photo' => array('type' => 'asset', 'style' => 'width: 200px; height: 200px;', 'label' => 'Photo'),
+                                'photo' => array('type' => 'asset', 'label' => 'Photo'),
                                 'major' => array('label' => 'Major'),
                                 'email' => array('label' => 'Email'),
                                 'message' => array('type' => 'textarea', 'label' => 'Message'),
