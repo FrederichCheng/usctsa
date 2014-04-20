@@ -1,5 +1,7 @@
 <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
 require_once(FUEL_PATH.'models/base_module_model.php');
+require_once(FACEBOOK_PATH . 'libraries/HTMLhelper.php');
+require_once(FACEBOOK_PATH . 'models/facebook_categories_model.php');
 /*
  *  Copyright 2014 Shao-yen(Frederich) Cheng .
  *  All rights reserved.
@@ -23,16 +25,59 @@ class Facebook_posts_model extends Base_module_model {
         
     function _common_query($display_unpublished_if_logged_in = NULL) {
         parent::_common_query($display_unpublished_if_logged_in);
-        
+    }
+    
+    function ajax_change_post_category($params){
+        $query = $this->db->get_where('facebook_categories', array('id' => $params['category']));
+        $count= $query->num_rows();
+        if($count > 0){
+            $this->db->where('id', $params['post_id']);
+            $this->db->update('facebook_posts', array('category'=>$params['category']));
+            $rows = $this->db->affected_rows();
+            $this->output->set_content_type('application/json');
+            return json_encode(array(
+                'status' => $rows === 0? 'fail':'success'
+            ));
+        }
+        else{
+            return json_encode(array(
+                'status' => 'Illegal Value'
+            ));
+        }
     }
     
     function list_items($limit = NULL, $offset = 0, $col = 'id', $order = 'asc', $just_count = FALSE) {
         $this->db->join('facebook_categories','facebook_categories.id = category', 'left');
-        $this->db->select('facebook_posts.*,facebook_categories.name as name');
+        $this->db->select('facebook_posts.*,facebook_categories.name as category, facebook_categories.id as category_id');
         $data = parent::list_items($limit, $offset, $col, $order, $just_count);
-        //var_dump($d);
+        
+        
         if(is_array($data)){
+            $this->load->model('facebook_categories_model');
+            
             foreach($data as &$_record){
+                $categories = $this->facebook_categories_model->find_all_array();
+                
+                $options = '';
+                foreach($categories as $cat){
+                    $selected = '';
+                    if($cat['id'] === $_record['category_id']){
+                        $selected = 'selected';
+                    }
+                    $options.= sprintf('<option value="%s" %s>%s</option>', $cat['id'], $selected, $cat['name']);
+                }
+                
+                $_record['category'] = sprintf('<select id="%s" class="category">%s</select>', $_record['id'], $options);
+                $js = sprintf('<script> 
+                        (function(){
+                            $("#%s").change(
+                                changePostCategory("%s")
+                            );
+                        })();
+                        </script> ', $_record['id'], $_record['category_id']);
+                
+                $_record['category'].=$js;
+                
                 if(isset($_record['link'])){
                     $link = $_record['link'];
                     $_record['link'] = sprintf('<a href="%s" target="_blank">', $link);

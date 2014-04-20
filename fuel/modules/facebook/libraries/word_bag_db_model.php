@@ -11,7 +11,8 @@
  *
  * @author Shao-yen(Frederich) Cheng 
  */
-class word_bag_db_model implements word_bag_model{
+
+class word_bag_db_model{
 //    
 //    private final Connection conn;
 //
@@ -168,5 +169,33 @@ class word_bag_db_model implements word_bag_model{
 //    }
 //    
 //}
+    
+    public function getCategories() {
+        
+    }
+
+    public function getCategory($name) {
+        
+    }
+
+    public function getCategoryCount() {
+        
+    }
+
+    public function getCategoryOccurence($category) {
+        
+    }
+
+    public function getTotalSampleCount() {
+        
+    }
+
+    public function getTotalWords() {
+        
+    }
+
+    public function getVocabularySize() {
+        
+    }
 
 }

@@ -11,6 +11,7 @@
  *
  * @author Shao-yen(Frederich) Cheng 
  */
+
 class category_impl extends Category{
     private $totalWords;
     
