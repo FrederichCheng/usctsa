@@ -303,7 +303,7 @@ nav ul ul li a:hover
 	color: rgb(255,204,68);
 	text-decoration: none;
 	/*font: 12px Arial, sans-serif;*/
-	font: 12px;
+	font-size: 14px;
 }	
 
 #navscroll ul li a:hover
