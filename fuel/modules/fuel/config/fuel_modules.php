@@ -285,8 +285,5 @@ $config['modules']['logs'] = array(
 		'type' => array('type' => 'select', 'label' => 'Type:', 'options' => array('info' => 'info', 'debug' => 'debug'), 'first_option' => lang('label_select_one')),
 		),
 );
-
-include(MODULES_PATH.'facebook/config/facebook_modules.php');
-
 /* End of file fuel_modules.php */
 /* Location: ./modules/fuel/config/fuel_modules.php */
