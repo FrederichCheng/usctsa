@@ -217,7 +217,7 @@ transform:rotate(0deg);
 }
 
 
-.member_fb_icons
+.member_icons
 {
 	/* margin: 75px 150px 0 0; */
 	/* height: 100%; */
@@ -229,7 +229,7 @@ transform:rotate(0deg);
 	/*border: 1px solid rgb(130,0,5);*/
 }
 
-.member_fb_icons li
+.member_icons li
 {
 	display: inline;
 	list-style: none;
@@ -243,7 +243,7 @@ transform:rotate(0deg);
 	transition: all 0.3s ease-in-out;
 }
 		
-.member_fb_icons li a
+.member_icons li a
 {
 	background-repeat: no-repeat;
 	background-position: 0 0;
@@ -252,12 +252,12 @@ transform:rotate(0deg);
 	width: 28px;
 }
 
-.member_fb_icons li:hover
+.member_icons li:hover
 {
 	background-position: 0 -38px;
 }
 
-.facebook
+.member_icons .facebook
 {
 	background: url(../images/facebook.png) no-repeat;
 }
