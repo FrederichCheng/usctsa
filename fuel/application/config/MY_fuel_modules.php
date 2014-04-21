@@ -30,4 +30,9 @@ $config['modules']['projects'] = array(
 $config['module_overwrites']['categories']['hidden'] = TRUE; // change to FALSE if you want to use the generic categories module
 $config['module_overwrites']['tags']['hidden'] = TRUE; // change to FALSE if you want to use the generic tags module
 
+include(MODULES_PATH.'facebook/config/facebook_modules.php');
+
+$config['modules']['facebook_posts']['hidden'] = TRUE;
+$config['modules']['facebook_categories']['hidden'] = TRUE;
+
 /*********************** /OVERWRITES ************************************/

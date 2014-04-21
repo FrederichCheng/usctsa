@@ -13,18 +13,30 @@
  */
 
 
-function image($src,$class=""){
+function image($src, $attrs = array()){
             if(isset($src) || strlen($src) == 0){
-                return sprintf('<img class="%s" src="%s"/>', $class, $src);
+                return sprintf('<img src="%s" %s/>', $src, makeAttrStr($attrs));
             }
             return '';
         }
         
-function text($message, $description, $class="message", $limit=150){
-    $text = isset($message)? $message : $description;
-    if(isset($text)){
-        return sprintf('<span class="%s">%s</span>', $class, mb_substr($text,0,20));
+function text($message, $limit=30, $attrs = array()){
+    if(isset($message)){
+        return sprintf('<span %s>%s</span>', makeAttrStr($attrs), mb_substr($message,0,$limit));
     }
     return '';
 }
 
+function alink($href, $text, $attrs=array()){
+    if(isset($href)){
+        return sprintf('<a href="%s" %s>%s</a>', $href, makeAttrStr($attrs), $text);
+    }
+}
+
+function makeAttrStr($attrs){
+    $attrStr = '';
+    foreach($attrs as $key=>$value){
+        $attrStr = $key.'="'.urlencode($value).'" ';
+    }
+    return $attrStr;
+}
