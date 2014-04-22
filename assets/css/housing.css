@@ -40,7 +40,7 @@ and open the template in the editor.
     width: 230px;
     height: 300px;
     text-align: justify;
-    overflow: auto;
+    overflow-y: auto;
     
 }
 

@@ -7,12 +7,12 @@
 
 <div id="wrapper">   <!--nav scrollbar on the left-->
 
-    <div id="navscroll" class="PageScrollerNav standardNav right dark">
+<!--    <div id="navscroll" class="PageScrollerNav standardNav right dark">
         <ul>
             <li><A href="#">Long Term Contract</A></li>
             <li><A href="#">Sublease</A></li>
         </ul>
-    </div>
+    </div>-->
 
     <div>
         <h1>Housing</h1>
@@ -21,7 +21,7 @@
     </div>
 
     <div class="section">
-        <h2>Long Term Contract</h2>
+<!--        <h2>Long Term Contract</h2>-->
         
         <div id="long_term">
         
@@ -65,29 +65,30 @@
 
 
                             <div class="description">
-                                <strong>Description:</strong><?= $value['description'] ?><br />
+                                <span><strong>Description:</strong><?= $value['description'] ?><br /> </span>
                                 
-                                <strong>Location:</strong><?= $value['location'] ?><br/>
-                                <strong>Style:</strong><?= $value['style'] ?><br />
-                                <strong>Parking:</strong><?= $value['parking'] ?><br/>
-                                <strong>Tel:</strong><?= $value['phone'] ?><br />
-                                <strong>Email:</strong><?= $value['email'] ?><br />
+                                <span><strong>Location:</strong><?= $value['location'] ?><br/> </span>
+                                <span><strong>Style:</strong><?= $value['style'] ?><br /> </span>
+                                <span><strong>Parking:</strong><?= $value['parking'] ?><br/> </span>
+                                <span><strong>Tel:</strong><?= $value['phone'] ?><br /> </span>
+                                <span><strong>Email:</strong><?= $value['email'] ?><br /> </span>
                                 <br />
-                                <h4 id="price">Price: <?= $value['price'] ?> </h4>
-                                
+                                <span><h4 id="price">Price: <?= $value['price'] ?> </h4> </span>
+                                <span>
                                 <?= $value['house_map'] ?>
+                                </span>
                             </div>
 
                         </div>
                     </td>
 
                     <td class="housing_descript" valign="top">
-                        <strong>Location:</strong> <?= $value['location'] ?> <br /> 
-                        <strong>Price:</strong> <?= $value['price'] ?>/month<br/><br />
+                        <span><strong>Location:</strong> <?= $value['location'] ?> <br /> </span> 
+                        <span><strong>Price:</strong> <?= $value['price'] ?>/month<br/><br /></span>
 
-                        <strong>Description:</strong>
+                        <span><strong>Description:</strong>
                         <?= $value['description'] ?>
-                        <br /> <br />
+                        </span>
 
                     </td>
                    </table>
@@ -98,42 +99,7 @@
 
 
         <br/><br/>
-        <!-- For sublease -->
-        <div class="section">
-            <h2>Sublease</h2>
-
-            <table class="housing" border="2" cellpadding="" cellspacing="">
-                <tr>
-                    <td class="housing_pic" align="left" valign="top">
-                        <A href="images/house_pic3.jpg" target="_blank"><img src="images/house_pic3.jpg" alt="House image" width="160" height="150">
-                        </A>   
-                    </td>
-                    <td class="housing_descript" valign="top">
-                        <br />
-                        Description:
-                        This is a cozy apartment locating near USC campus.
-                        There are 1 bedroom and 1 bathroom. 
-                        House owner is very nice...<br /> <br />
-                        Location: 2423 W 23rd St.<br /> <br />
-                        Price: 800/month<br/>
-
-                    </td>
-                    <td class="housing_pic" align="left" valign="top">
-                        <A href="images/house_pic4.jpg" target="_blank"><img src="images/house_pic4.jpg" alt="House image" width="160" height="150">
-                        </A> 
-                    </td>
-                    <td class="housing_descript" valign="top">
-                        <br />
-                        This is a cozy apartment about 10mins walking distance to USC campus.
-                        There are 1 bedroom and 1 bathroom. 
-                        House owner is very nice...<br /><br />
-                        Location: 2423 W 23rd St.<br /> <br />
-                        Price: 750/month<br/>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <!--      </div>  -->
+       
 
         <script type="text/javascript">
             $(document).ready(function() {

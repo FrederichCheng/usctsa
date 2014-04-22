@@ -122,7 +122,7 @@
                         <?php if(!empty($value['facebook_link']) && 0 !== strlen(trim($value['facebook_link']))){ ?>
                         <span class="member_fb_icons">
                             <ul>
-                                <li class="facebook"><a href="<?= $value['facebook_link'] ?>" title='Join us'>Facebook</a></li>
+                                <li class="facebook"><a href="<?= $value['facebook_link'] ?>" >Facebook</a></li>
                             </ul>
                         </span>
                         <?php }?>
