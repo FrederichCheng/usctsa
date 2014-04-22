@@ -21,7 +21,7 @@
     </div>
 
     <div class="section">
-        <h2>Long Term Contract</h2>
+<!--        <h2>Long Term Contract</h2>-->
         
         <div id="long_term">
         
