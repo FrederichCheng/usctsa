@@ -65,29 +65,30 @@
 
 
                             <div class="description">
-                                <strong>Description:</strong><?= $value['description'] ?><br />
+                                <span><strong>Description:</strong><?= $value['description'] ?><br /> </span>
                                 
-                                <strong>Location:</strong><?= $value['location'] ?><br/>
-                                <strong>Style:</strong><?= $value['style'] ?><br />
-                                <strong>Parking:</strong><?= $value['parking'] ?><br/>
-                                <strong>Tel:</strong><?= $value['phone'] ?><br />
-                                <strong>Email:</strong><?= $value['email'] ?><br />
+                                <span><strong>Location:</strong><?= $value['location'] ?><br/> </span>
+                                <span><strong>Style:</strong><?= $value['style'] ?><br /> </span>
+                                <span><strong>Parking:</strong><?= $value['parking'] ?><br/> </span>
+                                <span><strong>Tel:</strong><?= $value['phone'] ?><br /> </span>
+                                <span><strong>Email:</strong><?= $value['email'] ?><br /> </span>
                                 <br />
-                                <h4 id="price">Price: <?= $value['price'] ?> </h4>
-                                
+                                <span><h4 id="price">Price: <?= $value['price'] ?> </h4> </span>
+                                <span>
                                 <?= $value['house_map'] ?>
+                                </span>
                             </div>
 
                         </div>
                     </td>
 
                     <td class="housing_descript" valign="top">
-                        <strong>Location:</strong> <?= $value['location'] ?> <br /> 
-                        <strong>Price:</strong> <?= $value['price'] ?>/month<br/><br />
+                        <span><strong>Location:</strong> <?= $value['location'] ?> <br /> </span> 
+                        <span><strong>Price:</strong> <?= $value['price'] ?>/month<br/><br /></span>
 
-                        <strong>Description:</strong>
+                        <span><strong>Description:</strong>
                         <?= $value['description'] ?>
-                        <br /> <br />
+                        </span>
 
                     </td>
                    </table>
