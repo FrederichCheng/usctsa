@@ -309,18 +309,18 @@ $newstudents_sections = array(
     'fifth_heading' => array('label' => 'Heading'),
     'fifth_description' => array('style' => 'width: 520px', 'label' => 'Description'),
     'fifth_sections' => array('label' => 'Content', 'type' => 'textarea'),
-    /* ------ Sixth Section ----- */
-    'sixth_title' => array('type' => 'copy', 'label' => 'Sixth Section Setting'),
-    'sixth_scroller' => array('label' => 'Pagescroller'),
-    'sixth_heading' => array('label' => 'Heading'),
-    'sixth_description' => array('style' => 'width: 520px', 'label' => 'Description'),
-    'sixth_sections' => array('label' => 'Content', 'type' => 'textarea'),
-    /* ------ Seventh Section ----- */
-    'seventh_title' => array('type' => 'copy', 'label' => 'Seventh Section Setting'),
-    'seventh_scroller' => array('label' => 'Pagescroller'),
-    'seventh_heading' => array('label' => 'Heading'),
-    'seventh_description' => array('style' => 'width: 520px', 'label' => 'Description'),
-    'seventh_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    // /* ------ Sixth Section ----- */
+    // 'sixth_title' => array('type' => 'copy', 'label' => 'Sixth Section Setting'),
+    // 'sixth_scroller' => array('label' => 'Pagescroller'),
+    // 'sixth_heading' => array('label' => 'Heading'),
+    // 'sixth_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    // 'sixth_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    // /* ------ Seventh Section ----- */
+    // 'seventh_title' => array('type' => 'copy', 'label' => 'Seventh Section Setting'),
+    // 'seventh_scroller' => array('label' => 'Pagescroller'),
+    // 'seventh_heading' => array('label' => 'Heading'),
+    // 'seventh_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    // 'seventh_sections' => array('label' => 'Content', 'type' => 'textarea'),
 	
     /* ------ Third Section ------ */
     // 'recv_title' => array('type' => 'copy', 'label' => 'Materials Receiving Section Setting'),

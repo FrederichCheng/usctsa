@@ -15,8 +15,8 @@
 				<li><a href="#"><?=fuel_var('third_scroller', 'Third')?></a></li>
 				<li><a href="#"><?=fuel_var('fourth_scroller', 'Fourth')?></a></li>
 				<li><a href="#"><?=fuel_var('fifth_scroller', 'Fifth')?></a></li>                              
-                <li><a href="#"><?=fuel_var('sixth_scroller', 'Sixth')?></a></li>
-                <li><a href="#"><?=fuel_var('seventh_scroller', 'Seventh')?></a></li>
+                <!-- <li><a href="#"><?=fuel_var('sixth_scroller', 'Sixth')?></a></li>
+                <li><a href="#"><?=fuel_var('seventh_scroller', 'Seventh')?></a></li> -->
             	<!-- <li><a href="#"><?= lang('tsa_housing_apartment') ?></a></li> -->
 			</ul>
 		</div>
@@ -61,18 +61,18 @@
 				</div> <!-- End of section -->	
 				
 				<!-- Sixth -->
-				<div class="section">
+				<!-- <div class="section">
 					<h1><?=fuel_var('sixth_heading', 'Sixth')?></h1>
 					<p><?=fuel_var('sixth_description', '')?></p>
 					<p><?=fuel_var('sixth_sections')?></p>
-				</div> <!-- End of section -->  
+				</div>  --><!-- End of section -->  
 				
 				<!-- Seventh -->
-				<div class="section">
+				<!-- <div class="section">
 					<h1><?=fuel_var('seventh_heading', 'Seventh')?></h1>
 					<p><?=fuel_var('seventh_description', '')?></p>
 					<p><?=fuel_var('seventh_sections')?></p>
-				</div> <!-- End of section -->
+				</div>  --><!-- End of section -->
 				
 				<!-- Third -->
 				<!-- <div class="section">
