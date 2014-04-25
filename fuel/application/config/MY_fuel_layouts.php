@@ -141,7 +141,7 @@ $housing_sections = array(
                      'label' => 'House sections', 
                      'title_field' => 'title',
     
-                     
+    
                      'fields' => array(
                                  'house_section' => array('type' => 'section', 'label' => '{__title__}'),
                                  'title' => array('label' => 'Title', 'required' => true),
