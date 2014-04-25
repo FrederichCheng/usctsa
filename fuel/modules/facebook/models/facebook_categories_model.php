@@ -25,8 +25,12 @@ class Facebook_categories_model extends Base_module_model {
         return parent::list_items($limit, $offset, $col, $order, $just_count);
     }
     
-    function exists($id){
-        $query = $this->db->get_where('facebook_categories', array('id' => $id));
+    function _common_query($display_unpublished_if_logged_in = NULL) {
+        parent::_common_query($display_unpublished_if_logged_in);
+    }
+    
+    function isAvailable($id){
+        $query = $this->db->get_where('facebook_categories', array('id' => $id, 'published' => 'yes'));
         $count= $query->num_rows();
         return $count > 0;
     }

@@ -25,7 +25,7 @@ if(!isset($category) || !is_numeric($category) || $category<=0){
     $category = 0;
 }
 
-if($category > 0 && $CI->facebook_categories_model->exists($category)){
+if($category > 0 && $CI->facebook_categories_model->isAvailable($category)){
     $records = $CI->facebook_posts_model->find_all_array(array('category'=>$category), 'created_time desc', $limit, $first_page? NULL:($page-1)*$limit);
 }
 else{
@@ -404,7 +404,7 @@ else{
             left: 50%;
             padding: 5px;
             margin: -100px 0 0 -630px;
-            width: 150px;
+            width: 140px;
             z-index: 9999;
             text-transform:capitalize;
             opacity: 0.90;
@@ -450,8 +450,13 @@ else{
             color: #000;
     }	
     
+    #navscroll ul li.active{
+        background-color:transparent;
+    }
+    
     #navscroll ul li.active a{
         background-color: #b92c28;
+        border-radius: 6px;
     }
 
 </style>
@@ -459,7 +464,7 @@ else{
     <div id="navscroll" class=" standardNav pageScrollerNav right dark">
         <ul>
             <?php 
-            $result = $CI->facebook_categories_model->find_all_array('id > 0');
+            $result = $CI->facebook_categories_model->find_all_array("id > 0 && published='yes'");
             foreach ($result as $record){ ?>
             <li class='<?= $record['id'] == $category? 'active' :'' ?>' ><a href="<?='market?category='.$record['id']?>"><?=$record['name']?></a></li>
             <?php }?>
