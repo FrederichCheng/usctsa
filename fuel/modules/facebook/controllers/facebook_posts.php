@@ -30,6 +30,16 @@ class facebook_posts extends Module {
         $this->load->model('facebook_posts_model','posts');
     }
     
+    function sql(){
+        $result = $this->posts->find_all_array();
+        foreach($result as $record){
+            if($record['category'] != 0){
+                echo sprintf("Update facebook_posts set category=%d, manual_set=%d where facebook_id='%s';" , $record['category'], $record['manual_set'], $record['facebook_id']);
+                echo '<br />';
+            }
+        }
+    }
+    
     function partition($str){
         
         $do_fork = $do_unit = true;

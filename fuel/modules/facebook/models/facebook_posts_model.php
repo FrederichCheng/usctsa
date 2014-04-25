@@ -22,17 +22,13 @@ class Facebook_posts_model extends Base_module_model {
     {
         parent::__construct('facebook_posts');
     }
-        
-    function _common_query($display_unpublished_if_logged_in = NULL) {
-        parent::_common_query($display_unpublished_if_logged_in);
-    }
-    
+
     function ajax_change_post_category($params){
         $query = $this->db->get_where('facebook_categories', array('id' => $params['category']));
         $count= $query->num_rows();
         if($count > 0){
             $this->db->where('id', $params['post_id']);
-            $this->db->update('facebook_posts', array('category'=>$params['category'], 'manual_set'=>true));
+            $this->db->update('facebook_posts', array('category'=>$params['category'], 'manual_set'=> $params['category'] > 0));
             $rows = $this->db->affected_rows();
             $this->output->set_content_type('application/json');
             return json_encode(array(
@@ -46,22 +42,28 @@ class Facebook_posts_model extends Base_module_model {
         }
     }
     
-    function list_items($limit = NULL, $offset = 0, $col = 'id', $order = 'asc', $just_count = FALSE) {
+    public function find_all_published_array($where = array(), $order_by = NULL, $limit = NULL, $offset = NULL) {
         $this->db->join('facebook_categories','facebook_categories.id = category', 'left');
-        $this->db->select('facebook_posts.*,facebook_categories.name as category, facebook_categories.id as category_id');
+        $this->db->where('category != 0');
+        $this->db->where(array('published'=>'yes'));
+        return parent::find_all_array($where, $order_by, $limit, $offset);
+    }
+    
+    function find_published_post_array(){
+    }
+    
+    function list_items($limit = NULL, $offset = 0, $col = 'id', $order = 'asc', $just_count = FALSE) {
         $data = parent::list_items($limit, $offset, $col, $order, $just_count);
-        
-        
+
         if(is_array($data)){
             $this->load->model('facebook_categories_model');
-            
             foreach($data as &$_record){
                 $categories = $this->facebook_categories_model->find_all_array();
                 
                 $options = '';
                 foreach($categories as $cat){
                     $selected = '';
-                    if($cat['id'] === $_record['category_id']){
+                    if($cat['id'] === $_record['category']){
                         $selected = 'selected';
                     }
                     $options.= sprintf('<option value="%s" %s>%s</option>', $cat['id'], $selected, $cat['name']);
@@ -71,10 +73,10 @@ class Facebook_posts_model extends Base_module_model {
                 $js = sprintf('<script> 
                         (function(){
                             $("#%s").change(
-                                changePostCategory("%s")
+                                changePostCategory("%d")
                             );
                         })();
-                        </script> ', $_record['id'], $_record['category_id']);
+                        </script> ', $_record['id'], $_record['category']);
                 
                 
                 $_record['category'].=$js;
@@ -83,10 +85,10 @@ class Facebook_posts_model extends Base_module_model {
                     $link = $_record['link'];
                     $_record['link'] = sprintf('<a href="%s" target="_blank">', $link);
                     if(isset($_record['picture'])){
-                        $_record['link'] .= sprintf('<img src="%s" alt="%s" />', $_record['picture'], isset($_record['description'])? $_record['description']: '');
+                        $_record['link'] .= sprintf('<img src="%s" alt="%s" />', $_record['picture'], isset($_record['description'])? urlencode($_record['description']): '');
                     }
                     else{
-                        $_record['link'] .= $link;
+                        $_record['link'] .= urlencode($link);
                     }
                     $_record['link'] .= '</a>';
                 }
@@ -96,7 +98,7 @@ class Facebook_posts_model extends Base_module_model {
                 else{
                     $matched = preg_match('!(http|ftp|scp)(s)?:\/\/[a-zA-Z0-9.?&_/]+!', $_record['message'], $matches);
                     //var_dump($mathes);
-                    if($matches){
+                    if($matched){
                         $newStr = $matches[0];
                         if(isset($newStr) && strlen($newStr) > 0){
                             $_record['link'] = sprintf('<a href="%s" target="_blank"> %s </a>', $newStr, $newStr);

@@ -26,11 +26,11 @@ if(!isset($category) || !is_numeric($category) || $category<=0){
 }
 
 if($category > 0 && $CI->facebook_categories_model->isAvailable($category)){
-    $records = $CI->facebook_posts_model->find_all_array(array('category'=>$category), 'created_time desc', $limit, $first_page? NULL:($page-1)*$limit);
+    $records = $CI->facebook_posts_model->find_all_published_array(array('category'=>$category), 'created_time desc', $limit, $first_page? NULL:($page-1)*$limit);
 }
 else{
     $category = 0;
-    $records = $CI->facebook_posts_model->find_all_array(array(), 'created_time desc', $limit,$first_page? NULL: ($page-1)*$limit);
+    $records = $CI->facebook_posts_model->find_all_published_array(array(), 'created_time desc', $limit,$first_page? NULL: ($page-1)*$limit);
 }
 
 
@@ -463,6 +463,7 @@ else{
 <div id="wrapper">
     <div id="navscroll" class=" standardNav pageScrollerNav right dark">
         <ul>
+            <li class='<?= 0 == $category? 'active' :'' ?>' ><a href="market">all</a></li>
             <?php 
             $result = $CI->facebook_categories_model->find_all_array("id > 0 && published='yes'");
             foreach ($result as $record){ ?>
@@ -513,9 +514,9 @@ else{
 
                                 <?php
                                 if (isset($feed['message'])) {
-                                    $cut = strrpos($feed['message'], '\n');
+                                    $cut = strrpos($feed['message'], '\\n');
                                 } else {
-                                    $feed['message'] = '';
+                                    $feed['message'] = isset($feed['description'])? $feed['description'] : '';
                                 }
                                 ?>
                                 <div class="text"><?= isset($cut) && $cut > 0 ? mb_substr($feed['message'], 0, $cut) : mb_substr($feed['message'], 0, 80) ?></div>

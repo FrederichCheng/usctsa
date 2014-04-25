@@ -31,6 +31,11 @@
 </div>
 <script>
 
+
+    function confirmLeaving(){
+        return 'Are you sure you want to leave?';
+    }
+
     function FBState() {
         var _this = this;
         this.init = function(){
@@ -75,7 +80,7 @@
                     (function(state, callback) {
                         return function(response){
                             if (!response || response.error) {
-                                alert(response.error);
+                                alert("Error happens!");
                                 return;
                             }
 
@@ -178,6 +183,7 @@
                     state.running = false;
                     $("#update").css('display', 'block');
                     $(this).css('display', 'none');
+                    $(window).off('beforeunload', confirmLeaving);
                 });
 
                 $('#status').bind("imported", function(){
@@ -200,7 +206,9 @@
                     $('#stop').css('display', 'block');
                     $('#completed').css('display','none');
                     $('#status').html('');
+                    $(window).on('beforeunload', confirmLeaving);
                 });
+                
             }
         );
     })();
