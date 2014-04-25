@@ -212,7 +212,7 @@ $config['layouts']['market'] = array(
     // 'class'		=> 'Main_layout',
     // 'filepath' => 'libraries',
     // 'filename' => 'Main_layout.php',
-
+    'module'=>'facebook',
 
     'fields' => array(
         'page_title' => array('label' => lang('layout_field_page_title')),

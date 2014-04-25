@@ -14,11 +14,13 @@ $config['modules']['facebook_posts'] = array(
 	'model_location' => 'facebook',
 	'model_name' => 'facebook_posts_model',
         'rows_selectable' => FALSE,
+        'nav_selected' => 'facebook/facebook_posts',
         'table_actions' => array('EDIT','DELETE'),
 	'display_field' => 'id',
 	'table_headers' => array(
                 'id',
                 'category',
+                'post_link',
                 'message',
                 'link',
 		'created_time', 
@@ -40,7 +42,7 @@ $config['modules']['facebook_categories'] = array(
         'module_uri' => 'facebook/facebook_categories',
 	'module_name' => 'Post Categories',
 	'model_location' => 'facebook',
-    
+        'nav_selected' => 'facebook/facebook_categories',
 	'model_name' => 'facebook_categories_model',
         'rows_selectable' => FALSE,
         'table_actions' => array('EDIT','DELETE'),

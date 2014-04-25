@@ -16,7 +16,6 @@ require_once(FUEL_PATH.'models/base_module_model.php');
 class Facebook_categories_model extends Base_module_model {
 
     function __construct(){
-        
         parent::__construct('facebook_categories');
         $this->hidden_fields = array('count');
     }
@@ -25,6 +24,13 @@ class Facebook_categories_model extends Base_module_model {
         $this->db->where('id > 0');
         return parent::list_items($limit, $offset, $col, $order, $just_count);
     }
+    
+    function exists($id){
+        $query = $this->db->get_where('facebook_categories', array('id' => $id));
+        $count= $query->num_rows();
+        return $count > 0;
+    }
+    
 }
  
 class Facebook_category_model extends Base_module_record {

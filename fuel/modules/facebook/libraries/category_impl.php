@@ -6,6 +6,7 @@
  *
  */
 
+require_once ( FACEBOOK_PATH.'libraries/category.php');
 /**
  * Description of category_impl
  *
@@ -13,26 +14,37 @@
  */
 
 class category_impl extends Category{
-    private $totalWords;
+    private $totalWords = NULL;
+    private $wordModel;
     
-    public function __construct($name, $totalWords) {
-        parent::__construct($name);
-        $this->totalWords = $totalWords;
+    public function __construct($id, $name, $postModel) {
+        parent::__construct($id,$name);
+        $this->wordModel = $postModel;
     }
 
-    public function getWordOccurence($word) {       
-        $sql = sprintf("select count from facebook_words where "
-                . "word='%s' and "
-                . "category='%s' ",
-                $word, $this->name);    //might have SQL injection issue.
+    public function getWordOccurence($word) { 
         
-        $result = mysql_query($sql) or die('MySQL query error');
-        $row = mysql_fetch_array($result);
-
-        return $row['count'];
+        $this->wordModel->db->select('count');
+        $this->wordModel->db->from('facebook_words');
+        $this->wordModel->db->where(array('word'=> $word, 'category'=> $this->id));
+        $query = $this->wordModel->db->get();
+        $occ = $query->result()[0]->count;
+        return $occ;
     }
 
     public function getTotalWords() {
+        
+        if(NULL === $this->totalWords){
+            $sql = sprintf("select sum(facebook_words.count) as sum "
+                    . "from facebook_words, facebook_categories"
+                    . " where facebook_categories.name='%s' and facebook_categories.id = category group by category", $this->name);
+
+            $this->wordModel->db->select($sql);
+            $query = $this->wordModel->db->get();
+            $this->totalWords = $query->result()[0]->sum;
+            $query->free_result();
+        }
+        
         return $this->totalWords;
     }
 }

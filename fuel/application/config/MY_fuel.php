@@ -9,7 +9,7 @@
 $config['fuel_path'] = 'fuel/';
 
 // the name to be displayed on the top left of the admin
-$config['site_name'] = 'My Website';
+$config['site_name'] = 'TSA Website';
 
 // whether the admin backend is enabled or not
 $config['admin_enabled'] = TRUE;
@@ -23,8 +23,10 @@ $config['fuel_mode'] = 'auto';
 
 // specifies which modules are allowed to be used in the fuel admin
 $config['modules_allowed'] = array(
-	'user_guide',
-        'facebook',
+		'user_guide',
+		'facebook',
+		'examples',
+		'cronjobs',
 );
 
 // used for system emails

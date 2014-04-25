@@ -1,4 +1,5 @@
 <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
+require_once 'Fuel_base_library.php';
 /**
  * FUEL CMS
  * http://www.getfuelcms.com

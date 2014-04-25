@@ -36,7 +36,7 @@ function alink($href, $text, $attrs=array()){
 function makeAttrStr($attrs){
     $attrStr = '';
     foreach($attrs as $key=>$value){
-        $attrStr = $key.'="'.urlencode($value).'" ';
+        $attrStr .= $key.'="'.urlencode($value).'" ';
     }
     return $attrStr;
 }

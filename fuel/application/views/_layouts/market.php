@@ -1,48 +1,75 @@
-<?php require_once(APPPATH . 'models/facebook_posts_model.php'); ?>
-<?php require_once(FACEBOOK_PATH . 'libraries/HTMLhelper.php'); ?>
+<?php 
+      require_once(FACEBOOK_PATH . 'models/facebook_posts_model.php');
+      require_once(FACEBOOK_PATH . 'models/facebook_categories_model.php');
+      require_once(FACEBOOK_PATH . 'libraries/HTMLhelper.php'); 
+      require_once(FUEL_FOLDER . '/FacebookSDK/facebook.php');
+?>
+
 <?php $this->load->view('_blocks/header') ?>
+
 <?php
-$this->load->model('facebook_posts_model');
-$arr = [];
-$arr['limits'] = 25;
-//$feeds = $CI->facebook_posts_model->find_all_array(array(), 'created_time desc', 16, 0);
+$CI->load->model('facebook/facebook_posts_model','facebook_posts_model');
+$CI->load->model('facebook/facebook_categories_model','facebook_categories_model');
+$category = $this->input->get('category');
 
-$APP_ID = '445984512214350';
-$GROUP_ID = '12171823426';
-require_once(FUEL_FOLDER . '/FacebookSDK/facebook.php');
-$facebook = new Facebook(array(
-    'appId' => $APP_ID,
-    'secret' => '650f341095028ad446dafd7c57c258f2',
-        ));
+$limit = 15;
+$page = $this->input->get('page');
 
-$prev_uri = null;
-$uri = '/' . $GROUP_ID . '/feed?limit=17';
-$page = 1;
-$feeds = array();
-$fields = array('description', 'message', 'created_time', 'updated_time', 'link', 'picture');
-
-$response = $facebook->api($uri);
-$records = array();
-
-foreach ($response['data'] as $feed) {
-    $record = array();
-    $record['facebook_id'] = $feed['id'];
-    $record['user_id'] = $feed['from']['id'];
-    $record['username'] = $feed['from']['name'];
-    $record['post_link'] = $feed['actions'][0]['link'];
-    foreach ($fields as $field) {
-        if (array_key_exists($field, $feed)) {
-            $record[$field] = $feed[$field];
-        }
-    }
-
-    $user_response = $facebook->api('/' . $record['user_id'] . '?fields=picture,link,gender,cover&limits=15');
-    $record['user_picture'] = isset($user_response['picture']) ? $user_response['picture']['data']['url'] : NULL;
-    $record['cover'] = isset($user_response['cover']) ? $user_response['cover']['source'] : NULL;
-    $record['gender'] = isset($user_response['gender']) ? $user_response['gender'] : 'Unknown';
-    $record['user_link'] = 'http://www.facebook.com/' . $record['user_id'];
-    $records[] = $record;
+$first_page = false;
+if(!isset($page) || !is_numeric($page) || $page<=1){
+    $page = 1;
+    $first_page = true;
 }
+
+if(!isset($category) || !is_numeric($category) || $category<=0){
+    $category = 0;
+}
+
+if($category > 0 && $CI->facebook_categories_model->exists($category)){
+    $records = $CI->facebook_posts_model->find_all_array(array('category'=>$category), 'created_time desc', $limit, $first_page? NULL:($page-1)*$limit);
+}
+else{
+    $category = 0;
+    $records = $CI->facebook_posts_model->find_all_array(array(), 'created_time desc', $limit,$first_page? NULL: ($page-1)*$limit);
+}
+
+
+//$APP_ID = '445984512214350';
+//$GROUP_ID = '12171823426';
+//
+//$facebook = new Facebook(array(
+//    'appId' => $APP_ID,
+//    'secret' => '650f341095028ad446dafd7c57c258f2',
+//        ));
+//
+//$prev_uri = null;
+//$uri = '/' . $GROUP_ID . '/feed?limit=17';
+//$page = 1;
+//$feeds = array();
+//$fields = array('description', 'message', 'created_time', 'updated_time', 'link', 'picture');
+//
+//$response = $facebook->api($uri);
+//$records = array();
+//
+//foreach ($response['data'] as $feed) {
+//    $record = array();
+//    $record['facebook_id'] = $feed['id'];
+//    $record['user_id'] = $feed['from']['id'];
+//    $record['username'] = $feed['from']['name'];
+//    $record['post_link'] = $feed['actions'][0]['link'];
+//    foreach ($fields as $field) {
+//        if (array_key_exists($field, $feed)) {
+//            $record[$field] = $feed[$field];
+//        }
+//    }
+//
+//    $user_response = $facebook->api('/' . $record['user_id'] . '?fields=picture,link,gender,cover&limits=15');
+//    $record['user_picture'] = isset($user_response['picture']) ? $user_response['picture']['data']['url'] : NULL;
+//    $record['user_cover'] = isset($user_response['user_cover']) ? $user_response['cover']['source'] : NULL;
+//    $record['gender'] = isset($user_response['gender']) ? $user_response['gender'] : 'Unknown';
+//    $record['user_link'] = 'http://www.facebook.com/' . $record['user_id'];
+//    $records[] = $record;
+//}
 ?>
 
 <script>
@@ -125,26 +152,28 @@ foreach ($response['data'] as $feed) {
 
         });
         $(".imageFrame").click(function() {
-            $('<div>').html('').css({width: '640px', height: '480px', overflow: 'scroll', display: 'block'}).dialog({
-                dialogClass: "no-close",
-                height: 480,
-                width: 640,
-                title: $(this).siblings('.info').find('.text').html(),
-                buttons: [
-                    {
-                        text: "Save to Favorites",
-                        click: function() {
-                            $(this).dialog("close");
-                        }
-                    },
-                    {
-                        text: "Close",
-                        click: function() {
-                            $(this).dialog("close");
-                        }
-                    }
-                ]
-            });
+            window.open($(this).attr('link'),'_blank');
+            window.open(url,'_blank');
+//            $('<div>').html('').css({width: '640px', height: '480px', overflow: 'scroll', display: 'block'}).dialog({
+//                dialogClass: "no-close",
+//                height: 480,
+//                width: 640,
+//                title: $(this).siblings('.info').find('.text').html(),
+//                buttons: [
+//                    {
+//                        text: "Save to Favorites",
+//                        click: function() {
+//                            $(this).dialog("close");
+//                        }
+//                    },
+//                    {
+//                        text: "Close",
+//                        click: function() {
+//                            $(this).dialog("close");
+//                        }
+//                    }
+//                ]
+//            });
         })
     });
 
@@ -368,21 +397,77 @@ foreach ($response['data'] as $feed) {
         right:400px;
     }
 
+    .standardNav{
+            position: fixed !important;
+            overflow: visible;
+            top: 50%;
+            left: 50%;
+            padding: 5px;
+            margin: -100px 0 0 -630px;
+            width: 125px;
+            z-index: 9999;
+
+            opacity: 0.90;
+    }
+
+    .standardNav ul{
+            display: block;
+            margin: 0;
+            padding: 6px;
+            list-style: none;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            border-radius: 15px;
+            background: #fff;
+            -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .3);
+            -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .3);
+            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .3);
+    }
+
+    .standardNav.left{
+            margin-left: -45px;
+    }
+
+    .standardNav li{
+            display: block;
+    }
+
+    .standardNav li a{
+            display: block;	
+            font-weight: normal;
+            padding: 8px 10px;
+            text-decoration: none;
+            color: #666;
+            font-size: 12px;
+    }	
+
+    .standardNav li a:hover{
+            color: #333;
+    }
+
+    .standardNav li.active a{
+            font-weight: bold;
+            color: #000;
+    }	
+
 </style>
 <div id="wrapper">
+    <div id="navscroll" class=" standardNav pageScrollerNav right dark">
+        <ul>
+            <?php 
+            $result = $CI->facebook_categories_model->find_all_array('id > 0');
+            foreach ($result as $record){ ?>
+            <li><a href="<?='market?category='.$record['id']?>"><?=$record['name']?></a></li>
+            <?php }?>
+        </ul>
+    </div>
     <div class="pagewidth">
         <div id="postWrapper">
-
-
             <div class="posts">
-                <?php
-                foreach ($records as $feed) {
-                    if (!isset($feed['username']))
-                        continue;
-                    ?>
+                <?php foreach ($records as $feed) { ?>
                     <div class="post">
                         <?php //if (isset($feed['picture'])) {  ?>
-                        <div class="imageFrame">
+                        <div class="imageFrame" link="<?=$feed['post_link']?>">
                             <div class="image">
                                 <?=
                                 isset($feed['picture']) ?
@@ -398,7 +483,7 @@ foreach ($response['data'] as $feed) {
                                             image(img_path('no-available-cover.png'), array('class' => 'picture')) 
                                     ?>
                                     <div class="userProfile">
-                                        <div class="cover"> <?= isset($feed['cover']) ? image($feed['cover'], array('class' => 'picture')) : '' ?> </div>
+                                        <div class="cover"> <?= isset($feed['user_cover']) ? image($feed['user_cover'], array('class' => 'picture')) : '' ?> </div>
                                         <div class="personal" >
                                             <div class="picture"> 
                                                 <?= isset($feed['user_picture']) ? 
@@ -442,17 +527,24 @@ foreach ($response['data'] as $feed) {
                 }
                 ?>
 
+                <?php
+                    $page_count = 5;
+                    $where = $category > 0 ? array('category'=>$category) : array();
+                    $total = $CI->facebook_posts_model->record_count($where);
+                    $total_pages =  ceil($total/$page_count);
+                    $current_start = floor($page/$page_count)*$page_count;
+                ?>
 
             </div>
             <div class="paging">
                 <ul class="pagination">
-                    <li class="disabled"><a href="#">&laquo;</a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
+                    <li class="<?=$page < $page_count? 'disabled' : ''?>"><a href="<?='market?page='.($current_start-1).'&category='.$category?>">&laquo;</a></li>
+                    
+                    <?php for($i = $current_start+1; $i < $current_start+1+$page_count && $i < $total_pages; $i++){ ?>
+                    <li class="<?= $i == $page? 'active':'' ?>"><a href="<?='market?page='.$i.'&category='.$category?>"><?=$i?></a></li>
+                    
+                    <?php }?>
+                    <li class="<?=$current_start+$page_count+1 >= $total_pages? 'disabled' : ''?>"><a href="<?='market?page='.($current_start+$page_count).'&category='.$category?>">&raquo;</a></li>
                 </ul>
             </div>
         </div>

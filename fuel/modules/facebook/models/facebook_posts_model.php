@@ -32,7 +32,7 @@ class Facebook_posts_model extends Base_module_model {
         $count= $query->num_rows();
         if($count > 0){
             $this->db->where('id', $params['post_id']);
-            $this->db->update('facebook_posts', array('category'=>$params['category']));
+            $this->db->update('facebook_posts', array('category'=>$params['category'], 'manual_set'=>true));
             $rows = $this->db->affected_rows();
             $this->output->set_content_type('application/json');
             return json_encode(array(
@@ -76,6 +76,7 @@ class Facebook_posts_model extends Base_module_model {
                         })();
                         </script> ', $_record['id'], $_record['category_id']);
                 
+                
                 $_record['category'].=$js;
                 
                 if(isset($_record['link'])){
@@ -102,6 +103,7 @@ class Facebook_posts_model extends Base_module_model {
                         }
                     }
                 }
+                $_record['post_link'] = alink($_record['post_link'], 'link', array('target'=>'_blank'));
             }
         }
         return $data;

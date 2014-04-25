@@ -34,6 +34,7 @@
 
 
 require_once(FUEL_PATH.'libraries/Validator.php');
+require_once(BASEPATH.'core/Model.php');
 
 class MY_Model extends CI_Model {
 	
