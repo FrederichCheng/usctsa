@@ -404,9 +404,9 @@ else{
             left: 50%;
             padding: 5px;
             margin: -100px 0 0 -630px;
-            width: 125px;
+            width: 150px;
             z-index: 9999;
-
+            text-transform:capitalize;
             opacity: 0.90;
     }
 
@@ -449,6 +449,10 @@ else{
             font-weight: bold;
             color: #000;
     }	
+    
+    #navscroll ul li.active a{
+        background-color: #b92c28;
+    }
 
 </style>
 <div id="wrapper">
@@ -457,7 +461,7 @@ else{
             <?php 
             $result = $CI->facebook_categories_model->find_all_array('id > 0');
             foreach ($result as $record){ ?>
-            <li><a href="<?='market?category='.$record['id']?>"><?=$record['name']?></a></li>
+            <li class='<?= $record['id'] == $category? 'active' :'' ?>' ><a href="<?='market?category='.$record['id']?>"><?=$record['name']?></a></li>
             <?php }?>
         </ul>
     </div>
@@ -531,20 +535,28 @@ else{
                     $page_count = 5;
                     $where = $category > 0 ? array('category'=>$category) : array();
                     $total = $CI->facebook_posts_model->record_count($where);
-                    $total_pages =  ceil($total/$page_count);
+                    $total_pages =  ceil($total/$limit);
                     $current_start = floor($page/$page_count)*$page_count;
                 ?>
 
             </div>
             <div class="paging">
                 <ul class="pagination">
-                    <li class="<?=$page < $page_count? 'disabled' : ''?>"><a href="<?='market?page='.($current_start-1).'&category='.$category?>">&laquo;</a></li>
+                    <li class="<?=$page < $page_count? 'disabled' : ''?>">
+                        <a href="<?= $page < $page_count ? '#':'market?page='.($current_start-1).'&category='.$category?>">&laquo;</a>
+                    </li>
                     
-                    <?php for($i = $current_start+1; $i < $current_start+1+$page_count && $i < $total_pages; $i++){ ?>
+                    <?php for($i = $current_start; $i <= $current_start+$page_count && $i <= $total_pages; $i++){ 
+                        if($i > 0){
+                    ?>
+                    
                     <li class="<?= $i == $page? 'active':'' ?>"><a href="<?='market?page='.$i.'&category='.$category?>"><?=$i?></a></li>
                     
-                    <?php }?>
-                    <li class="<?=$current_start+$page_count+1 >= $total_pages? 'disabled' : ''?>"><a href="<?='market?page='.($current_start+$page_count).'&category='.$category?>">&raquo;</a></li>
+                        <?php }
+                    }?>
+                    <li class="<?=$current_start+$page_count+1 >= $total_pages? 'disabled' : ''?>">
+                        <a href="<?= $current_start+$page_count+1 >= $total_pages? '#' : 'market?page='.($current_start+$page_count).'&category='.$category?>">&raquo;</a>
+                    </li>
                 </ul>
             </div>
         </div>
