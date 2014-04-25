@@ -44,7 +44,7 @@ $config['modules']['facebook_categories'] = array(
 	'model_location' => 'facebook',
         'nav_selected' => 'facebook/facebook_categories',
 	'model_name' => 'facebook_categories_model',
-        'rows_selectable' => FALSE,
+        'rows_selectable' => TRUE,
         'table_actions' => array('EDIT','DELETE'),
 	'display_field' => 'name',
 	'default_col' => 'name',
@@ -57,5 +57,5 @@ $config['modules']['facebook_categories'] = array(
 //	'archivable' => TRUE,
 	'sanitize_input' => array('template','php'),
 	'list_actions' => array(),
-//	'item_actions' => array('save', 'view', 'publish', 'delete', 'duplicate', 'replace', 'create', 'others' => array('pages/upload' => lang('btn_upload'))),
+	//'item_actions' => array('delete','create'),
 );

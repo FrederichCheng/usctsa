@@ -20,7 +20,7 @@ class Facebook_categories_model extends Base_module_model {
         $this->hidden_fields = array('count');
     }
     function list_items($limit = NULL, $offset = 0, $col = 'id', $order = 'asc', $just_count = FALSE) {
-        $this->db->select('id, name ,count as sample_count');
+        $this->db->select('id, name ,count as sample_count, published');
         $this->db->where('id > 0');
         return parent::list_items($limit, $offset, $col, $order, $just_count);
     }
