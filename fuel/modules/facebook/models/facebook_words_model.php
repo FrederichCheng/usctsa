@@ -41,10 +41,8 @@ class facebook_words_model extends Base_module_model{
     }
 
     public function hasWord($word, $category){
-        $query = $this->db->get_where('facebook_words', array('word' => $word, 'category'=> $category));
-        $result = !empty($query->result());
-        $query->free_result();
-        return $result;
+        $num = $this->record_count(array('word' => $word, 'category' => $category));
+        return $num != 0;
     }
     
     public function getCategoryOccurence($category) {
