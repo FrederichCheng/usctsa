@@ -117,7 +117,8 @@
                                     duration: 1000,
                                 },
                                 hide: {
-                                    effect: "explode",
+                                    effect: "slide",
+                                    direction: "up",
                                     duration: 500
                                 }
                             });
