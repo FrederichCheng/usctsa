@@ -25,7 +25,17 @@ if(!isset($category) || !is_numeric($category) || $category<=0){
     $category = 0;
 }
 
-if($category > 0 && $CI->facebook_categories_model->isAvailable($category)){
+$categories = $CI->facebook_categories_model->find_all_published_array();
+
+$exists = FALSE;
+foreach($categories as $cat){
+    if($cat['id'] == $category){
+        $exists = TRUE;
+        break;
+    }
+}
+
+if($category > 0 && $exists){
     $records = $CI->facebook_posts_model->find_all_published_array(array('category'=>$category), 'created_time desc', $limit, $first_page? NULL:($page-1)*$limit);
 }
 else{
@@ -465,8 +475,7 @@ else{
         <ul>
             <li class='<?= 0 == $category? 'active' :'' ?>' ><a href="market">all</a></li>
             <?php 
-            $result = $CI->facebook_categories_model->find_all_array("id > 0 && published='yes'");
-            foreach ($result as $record){ ?>
+            foreach ($categories as $record){ ?>
             <li class='<?= $record['id'] == $category? 'active' :'' ?>' ><a href="<?='market?category='.$record['id']?>"><?=$record['name']?></a></li>
             <?php }?>
         </ul>

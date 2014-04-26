@@ -39,20 +39,21 @@
                     </div>
                     <div class="member_des">
                         <span class="member_name"><?= $value['name'] ?></span>   
-                        <?php if(!empty($value['major']) && 0 !== strlen(trim($value['major']))){ ?>
+                        <?php if(!empty($value['major']) && 0 != strlen(trim($value['major']))){ ?>
                         <span class="member_major"><?= $value['major'] ?></span> 
                         <?php } ?>
-                        <?php if(!empty($value['email']) && 0 !== strlen(trim($value['email']))){ ?>
-                        <span class="member_email">Email: <?= $value['email'] ?></span>
-                        <?php }?>
                         <span class="member_message self_intro"><?= $value['message'] ?></span>
-                        <?php if(!empty($value['facebook_link']) && 0 !== strlen(trim($value['facebook_link']))){ ?>
+                        
                         <span class="member_icons">
                             <ul>
-                                <li class="facebook"><a href="<?= $value['facebook_link'] ?>" title='Join us'>Facebook</a></li>
+                                <?php if(!empty($value['email']) && 0 != strlen(trim($value['email']))){ ?>
+                                <li class="email"><?= mailto($value['email'], 'Contact TSA', array('target'=>'_blank')) ?></li>
+                                <?php }?>
+                                <?php if(!empty($value['facebook_link']) && 0 != strlen(trim($value['facebook_link']))){ ?>
+                                <li class="facebook"><a href="<?= $value['facebook_link'] ?>">Facebook</a></li>
+                                <?php }?>
                             </ul>
                         </span>
-                        <?php }?>
                     </div>
             </div>
 
