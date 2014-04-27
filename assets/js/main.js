@@ -1,3 +1,10 @@
+function isExternal(url) {
+    var match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/);
+    if (typeof match[1] === "string" && match[1].length > 0 && match[1].toLowerCase() !== location.protocol) return true;
+    if (typeof match[2] === "string" && match[2].length > 0 && match[2].replace(new RegExp(":("+{"http:":80,"https:":443}[location.protocol]+")?$"), "") !== location.host) return true;
+    return false;
+}
+
 (
         function initialize($) {
             $("#nav").ready(
@@ -43,6 +50,34 @@
 	              	 	$(this).children().css("background", "url(assets/images/accordion-plus.png) no-repeat right 55%");
 	              	}
                 });
+                
+                $("nav ul li a").click(
+                        function(){
+                            var link = $(this).attr('href');
+                            if(isExternal(link)){
+                                var div = $('<div>').html('You are leaving this website, are you sure ?');
+                                div.dialog({
+                                      title:'Are you leaving now?',
+                                      resizable: false,
+                                      height:200,
+                                      modal: true,
+                                      buttons: {
+                                        "Leave": function() {
+                                          window.location.href = link;
+                                        },
+                                        "Stay here": function() {
+                                          $( this ).dialog( "close" );
+                                        }
+                                      }
+                                    });
+                                return false;
+                            }
+                            else{
+                                return true;
+                            }
+                        }
+                );
+                
             });
             
               
