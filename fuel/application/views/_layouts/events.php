@@ -46,27 +46,36 @@
             });
         }
 
-        function resetDate(year, month, date) {
-            $("#month").text(MONTHES[month]);
-            $("#year").text(year);
-            currentDate = new Date(year, month, date);
-            var firstDay = date % 7;
-            var lastD = new Date(year, month, 28);
+
+        function getFirstDay() {
+            var firstDay = currentDate.getDate() % 7;
+            firstDay = ((currentDate.getDay() + 8) - firstDay) % 7;
+            return firstDay;
+        }
+
+        function getLastDate() {
+            var lastD = new Date(currentDate.getFullYear(), currentDate.getMonth(), 28);
             var lastDate = lastD.getDate();
-            
-            
-
-
             while (lastD.getMonth() === currentDate.getMonth()) {
                 lastDate = lastD.getDate();
                 lastD.setDate(lastD.getDate() + 1);
             }
+            return lastDate;
+        }
 
-            firstDay = ((currentDate.getDay() + 8) - firstDay) % 7;
+        function displayCalendar() {
+            var year = currentDate.getFullYear();
+            var month = currentDate.getMonth();
+            $("#month").text(MONTHES[month]);
+            $("#year").text(year);
+
+            var firstDay = getFirstDay();
+            var lastDate = getLastDate();
+
             for (var i = firstDay; i > 0; i--) {
                 $("#cell" + i).find(".date").html(day(i));
             }
-            
+
             for (var i = firstDay + 1; i <= lastDate + firstDay; i++) {
                 if (i <= 7) {
                     $("#cell" + i).find(".date").html(day(i) + " " + (i - firstDay));
@@ -84,24 +93,43 @@
                 $(".today").removeClass("today");
                 $("#jump_to_today").css('display', 'block');
             }
+        }
+
+        function hideMessage() {
+            $("#calendar").css("opacity", "1.0");
+            $("#centerMessage").css("display", "none");
+            $("#centerMessage .text").text("");
+        }
+
+        function displayMessage(msg) {
+            $("#calendar").css("opacity", "0.4");
+            $("#centerMessage").css("display", "table");
+            $("#centerMessage .text").text(msg);
+        }
+
+        function resetDate(year, month, date) {
+            currentDate = new Date(year, month, date);
+            displayCalendar();
 
             if (currentDate.getFullYear() >= TODAY.getFullYear()
                     && currentDate.getMonth() >= TODAY.getMonth()) {
                 cached_events = null;   //clear cached event.
             }
-            
-            loadGroupEvents(firstDay);
+
+            loadGroupEvents(getFirstDay());
         }
 
         function fbError(response) {
-            $("#calendar").css("opacity", "0.4");
-            $("#centerMessage").css("display", "table");
-            $("#centerMessage .text").text("Unable to retrieve data from Facebook");
+            displayMessage("Unable to retrieve data from Facebook");
             console.log("unable to retrieve data from Facebook: " + JSON.stringify(response.error));
         }
 
         function loadGroupEvents(firstDay) {
             if (null === cached_events) {
+                displayMessage("");
+                var spinner = $('<img>').attr('src', '<?= img_path('spinner.gif') ?>');
+                $("#centerMessage .text").append(spinner);
+
                 FB.api('/' + GROUP_ID + '/events?access_token=' + ACCESS_TOKEN, function(response) {
                     if (!response || response.error) {
                         fbError(response);
@@ -117,12 +145,23 @@
             }
         }
 
-        function makeDate(fbDate){
-            try{
-            var a = fbDate.split(/[^0-9]/);
-            return new Date (a[0],a[1]-1,a[2],a[3],a[4],a[5]);
+        function formatTime(date) {
+            var str = date.getHours() % 13 + ":" + (date.getMinutes() === 0 ? "00" : date.getMinutes());
+            str += date.getHours() > 11 ? " pm" : " am";
+            return str;
+        }
+        function formatDate(date) {
+            var str = MONTHES[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear();
+            return str;
+        }
+
+
+        function makeDate(fbDate) {
+            try {
+                var a = fbDate.split(/[^0-9]/);
+                return new Date(a[0], a[1] - 1, a[2], a[3], a[4], a[5]);
             }
-            catch(e){
+            catch (e) {
                 alert(typeof fbDate);
             }
         }
@@ -134,8 +173,8 @@
                 var time = makeDate(data[index]['start_time']);
                 if (time.getMonth() === currentDate.getMonth() && time.getFullYear() === currentDate.getFullYear()) {
                     var text = data[index]['name'].trim();
-                    if(data[index]['name'].length > 31)
-                        text = text.substring(0,28)+'...';
+                    if (data[index]['name'].length > 31)
+                        text = text.substring(0, 28) + '...';
                     var newDiv = $('<div>').attr('class', 'event').html(text);
                     $("#cell" + (time.getDate() + firstDay)).find('.events').append(newDiv);
                     newDiv.click(function(id) {
@@ -148,50 +187,114 @@
             }
 
             if (itemCount === 0) {
-                $("#calendar").css("opacity", "0.4");
-                $("#centerMessage").css("display", "table");
-                $("#centerMessage .text").text("No Events in This Month");
+                displayMessage("No Events in This Month");
             }
             else {
-                $("#calendar").css("opacity", "1.0");
-                $("#centerMessage").css("display", "none");
-                $("#centerMessage .text").text("");
+                hideMessage();
             }
         }
         var dialogs = [];
+
         function showEvent(id) {
-            if(dialogs.indexOf(id) >= 0)
+            if (dialogs.indexOf(id) >= 0)
                 return;
-            
+
             FB.api('/' + id + '?access_token=' + ACCESS_TOKEN, function(response) {
                 if (!response || response.error) {
                     fbError(response);
                     return;
                 }
-                $('<div>').html('').css({width: '640px', height: '480px', overflow:'scroll'}).dialog({
-                    dialogClass: "no-close",
-                    height: 480,
-                    width: 640,
-                    title: response.name,
-                    buttons: [
-                        {
-                            text: "Save to Favorites",
-                            click: function() {
-                                $(this).dialog("close");
+                var dialog = $("#dialog").clone(false);
+                dialog.addClass("copy");
+                dialog.removeAttr('id');
+
+                var userLink = 'http://www.facebook.com/' + response.owner.id;
+                var postLink = 'http://www.facebook.com/events/' + response.id;
+                $('<a>').attr('class', 'text').attr('href', userLink).attr('target', '_blank').text(response.owner.name).appendTo(dialog.find('span.host'));
+                var date = makeDate(response['start_time']);
+                dialog.find('span.time').html(formatTime(date));
+                dialog.find('span.date').html(formatDate(date));
+                dialog.find('span.location').html(response.location);
+                dialog.find('.description .panel-body').html(response.description.replace(/\n/g, '<br/>'));
+                dialog.find('.description .link a').attr('href', postLink).attr('target', '_blank');
+
+                if (typeof (response.venue.street) !== 'undefined') {
+                    var address = response.venue.street + ', ' + response.venue.city;
+                    +', ' + response.venue.state + ' ' + response.venue.zip;
+                    dialog.find('span.address').html(address);
+                    var button = dialog.find('.map-button');
+                    button.find('.glyphicon').removeClass('glyphicon-collapse-up').addClass('glyphicon-collapse-down');
+                    button.find('.map-label').html('Show map');
+
+                    button.click((function(dialog) {
+                        var mapToggle = false;
+                        var canva = null;
+                        return function() {
+                            if (mapToggle === null) {
+                                return;
                             }
-                        },
-                        {
-                            text: "Close",
-                            click: function() {
-                                $(this).dialog("close");
+                            var mapDiv = dialog.find(".map");
+                            var button = dialog.find('.map-button');
+
+                            if (!mapToggle) {
+                                mapDiv.css("display", "block");
+                                mapToggle = null;
+                                mapDiv.animate({height: 200}, 800,
+                                        function() {
+                                            button.find('.glyphicon').removeClass('glyphicon-collapse-down').addClass('glyphicon-collapse-up');
+                                            button.find('.map-label').html('Hide map');
+                                            mapToggle = true;
+                                        });
+                                if (canva === null) {
+                                    canva = $('<div>').attr('class', 'map-canva').css({height: 200, 'z-index': '0'});
+                                    mapDiv.append(canva);
+                                    var latlng = new google.maps.LatLng(response.venue.latitude, response.venue.longitude);
+                                    var mapOptions = {
+                                        zoom: 12,
+                                        center: latlng
+                                    };
+                                    var map = new google.maps.Map(canva.get(0), mapOptions);
+                                    var marker = new google.maps.Marker({
+                                        position: latlng,
+                                        map: map,
+                                        title: response.location
+                                    });
+                                }
                             }
-                        }
-                    ],
-                    close:function(){
+                            else {
+                                mapToggle = null;
+                                mapDiv.animate({height: 0}, 500, function() {
+                                    mapDiv.css("display", "none");
+                                    mapDiv.remove(".map-canva");
+                                    button.find('.glyphicon').removeClass('glyphicon-collapse-up').addClass('glyphicon-collapse-down');
+                                    button.find('.map-label').html('Show map');
+                                    mapToggle = false;
+                                });
+                            }
+                        };
+                    })(dialog));
+                }
+
+                function closeHandle(id, dialog) {
+                    return function() {
                         var index = dialogs.indexOf(id);
                         dialogs.splice(index, 1);
-                    }
+                        dialog.dialog("close");
+                    };
+                }
+
+                var closeHandler = closeHandle(id, dialog);
+
+                dialog.find("#close_btn").click(closeHandler);
+
+                dialog.dialog({
+                    dialogClass: "no-close",
+                    height: 500,
+                    width: 640,
+                    title: response.name,
+                    close: closeHandler
                 });
+
                 dialogs[dialogs.length] = id;
             });
         }
@@ -201,6 +304,7 @@
                     var today = new Date();
                     $("#month").text(MONTHES[today.getMonth()]);
                     $("#year").text(today.getFullYear());
+                    displayCalendar(today.getFullYear(), today.getMonth(), today.getDate());
 
                     FB.init({
                         appId: APP_ID, // App ID
@@ -208,22 +312,23 @@
                         cookie: true, // enable cookies to allow the server to access the session
                         xfbml: true  // parse XFBML
                     });
-                    
+
+                    $("#centerMessage").css("display", "table");
                     FB.getLoginStatus(function(response) {
                         if (response.status !== 'connected') {
-                          // the user isn't logged in to Facebook.
-                          $("#centerMessage").css("display","table");
+                            // the user isn't logged in to Facebook.
+                            $("#centerMessage").css("display", "table");
                         }
-                       });
-                    
+                    });
+
                     FB.Event.subscribe('auth.authResponseChange', function(response) {
                         if (response.status === 'connected') {
                             ACCESS_TOKEN = response['authResponse']['accessToken'];
-                            if(!initialized){
+                            if (!initialized) {
                                 initializeEvents();
                                 initialized = true;
                             }
-                        } else{
+                        } else {
                             FB.login();
                         }
                     });
@@ -308,13 +413,11 @@
             display:none;
         }
 
-        .date{
+        #calendar .date{
             text-align: right;
             font-size:12px;
             margin-right:4px;
             color: grey;
-            
-            
         }
         .events{
             height:80%;
@@ -353,23 +456,23 @@
             display:table-cell;
             text-align:center;
         }
-        
+
         #fbButton{
             margin-bottom: 10px;
         }
-        
+
         #calendar_banner thread .button span{
             height:40px;
         }
-        
+
         .date_panel .glyphicon{
             font-size: 20px;
         }
-        
-         .date_panel_wrapper{
-             display:table-cell;
-         }
-        
+
+        .date_panel_wrapper{
+            display:table-cell;
+        }
+
         .date_panel{
             display:table;
             vertical-align: middle;
@@ -378,15 +481,140 @@
             -moz-user-select: none; /* Firefox */
             -ms-user-select: none; /* IE10+ */
         }
-        
+
         .date_panel div{
             display:table-cell;
         }
-        
+
         .date_display{
             vertical-align: middle;
         }
+
+        #dialog{
+            display:none;
+        }
+
+        .dialog{
+            width: 90%;
+            height:90%;
+            overflow:hidden;
+            margin:0 auto;
+        }
+
+        .content{
+            height:88%;
+            overflow:scroll;
+        }
+
+        .description{
+            //overflow:scroll;
+            margin-top:4px;
+            background-color: white;
+            margin-bottom: 4px;
+            height:60%;
+
+        }
+
+        .description .panel-body{
+            overflow:scroll;
+            height:80%;
+        }
+
+        .dialog ul{
+            margin-bottom: 0px;
+        }
+
+        .dialog .info-list span, .dialog .panel-heading span{
+            font-size:14px;
+            display:table-cell;
+            vertical-align: middle;
+            margin-right:5px;
+        }
+
+        .info-list span.glyphicon, .panel-heading span.glyphicon{
+            font-size:18px;
+            color: darkred;
+            width:30px;
+        }
+
+        span.time{
+            width: 80px;
+        }
+
+        div.place-wrapper{
+            display:table-cell;
+            width:auto;
+        }
+
+        div.place{
+            display:table;
+            width:auto
+        }
+
+        .place>span.locaton,.place>span.address{
+            display:table-row;
+        }
+
+        .place>span.address{
+            font-size:12px;
+            color:grey;
+        }
+
+        .link span.glyphicon{
+            font-size: 14px;
+            width: 80px;
+            color:#0E3E7E ;
+        }
         
+        .panel-heading>.link{
+            width: 50px; 
+        }
+
+        .panel-heading .description-header{
+            width: auto;
+        }
+
+        .panel-heading{
+            display:table;
+            width:100%;
+        }
+
+        button span{
+            color:darkred;
+        }
+
+        .buttons{
+            float:right;
+            margin: 4px;
+        }
+
+        .location-info>.map-button{
+            width: 120px;
+            display:table-cell;
+            cursor: pointer;
+        }
+
+        .info-list li{
+            display:table;
+            width:100%;
+        }
+
+        li.location>.map-outer{
+            display:table-row;
+        }
+
+        .location-info{
+            display: table-row;
+        }
+
+        .map-outer>.map-wrapper{
+            display:block;
+        }
+
+        .map-item{
+            display:none;
+        }
+
     </style>
 
     <section id="main_inner">
@@ -683,6 +911,9 @@
     </div>	
 </div>
 <script src="http://connect.facebook.net/en_US/all.js"></script>
-
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<div id="dialog" class="dialog">
+    <?php $this->load->view('_blocks/dialog_content') ?>
+</div>
 
 <?php $this->load->view('_blocks/footer') ?>
