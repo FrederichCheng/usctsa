@@ -1,4 +1,6 @@
-<?php $this->load->view('_blocks/header') ?>
+<?php 
+require_once(FACEBOOK_PATH . 'libraries/HTMLhelper.php');
+$this->load->view('_blocks/header') ?>
 
 <div id="wrapper">
     <?php
@@ -207,7 +209,8 @@
                 var dialog = $("#dialog").clone(false);
                 dialog.addClass("copy");
                 dialog.removeAttr('id');
-
+                dialog.find('.center-message').remove();
+                
                 var userLink = 'http://www.facebook.com/' + response.owner.id;
                 var postLink = 'http://www.facebook.com/events/' + response.id;
                 $('<a>').attr('class', 'text').attr('href', userLink).attr('target', '_blank').text(response.owner.name).appendTo(dialog.find('span.host'));
@@ -458,6 +461,21 @@
             text-align:center;
         }
 
+        .dialog .center-message{
+            font-size: 40px;
+            position: absolute;
+            width: 98%;
+            height: 50%;
+            z-index: 10;
+            text-align: center;
+        }
+        
+        .dialog .center-message .message{
+            position:relative;
+            height:50%;
+            top:80%;
+        }
+        
         #fbButton{
             margin-bottom: 10px;
         }

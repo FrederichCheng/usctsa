@@ -54,15 +54,17 @@ function isExternal(url) {
                 $("nav ul li a").click(
                         function(){
                             var link = $(this).attr('href');
+                            var alink = '<span style="color:blue">'+link+'</span>';
                             if(isExternal(link)){
-                                var div = $('<div>').html('You are leaving this website, are you sure ?');
+                                var div = $('<div>').html('You will be redirected to <br/> '+alink+' <br/> Continue?');
                                 div.dialog({
                                       title:'Are you leaving now?',
                                       resizable: false,
                                       height:200,
+                                      width:400,
                                       modal: true,
                                       buttons: {
-                                        "Leave": function() {
+                                        "Go to the website": function() {
                                           $( this ).dialog( "close" );
                                           window.location.href = link;
                                         },

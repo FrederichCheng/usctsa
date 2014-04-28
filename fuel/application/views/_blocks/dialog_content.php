@@ -5,7 +5,9 @@
  *
  */
 ?>
-
+<div class="center-message">
+    <div class="message"> <?= image(img_path('spinner.gif'))?> </div>
+</div>
 <div class="content">
     <ul class="info-list list-group">
         <li class="host list-group-item">
@@ -44,7 +46,7 @@
 </div>
 <div class="buttons">
     <button id="save_btn" type="button" class="btn btn-default btn-lg">
-        <span class="glyphicon glyphicon-star"></span> Save
+        <span class="glyphicon glyphicon-star-empty"></span> Save
     </button>
     <button id="close_btn" type="button" class="btn btn-default btn-lg">
         <span class="glyphicon glyphicon-remove-circle"></span> Close
