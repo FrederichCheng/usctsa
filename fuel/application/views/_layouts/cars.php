@@ -1,10 +1,7 @@
 <?php $this->load->view('_blocks/header') ?>
-
+<link rel="stylesheet" type="text/css" href="assets/css/car.css">
 <div id="wrapper">
-
-    <link rel="stylesheet" type="text/css" href="assets/css/car.css">
-    <script type="text/javascript" src="assets/js/slidepics_car.js"></script>
-
+    <?= fuel_block(array('view' => 'market_nav', 'vars' => array('categoryName' =>'car'))); ?>
     <div class="section">
         <h2>Used Cars Selling</h2>
         
@@ -73,13 +70,6 @@
     </div>
     <!-- </div> -->
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('body').pageScroller({navigation: '#navscroll'});
-        });
-
-    </script>
-    
 </div>
 
 

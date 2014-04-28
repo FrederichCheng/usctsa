@@ -418,80 +418,9 @@ else{
         top:200px;
         right:400px;
     }
-
-    .standardNav{
-            position: fixed !important;
-            overflow: visible;
-            top: 50%;
-            left: 50%;
-            padding: 5px;
-            margin: -100px 0 0 -630px;
-            width: 140px;
-            z-index: 9999;
-            text-transform:capitalize;
-            opacity: 0.90;
-    }
-
-    .standardNav ul{
-            display: block;
-            margin: 0;
-            padding: 6px;
-            list-style: none;
-            -webkit-border-radius: 15px;
-            -moz-border-radius: 15px;
-            border-radius: 15px;
-            background: #fff;
-            -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .3);
-            -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .3);
-            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .3);
-    }
-
-    .standardNav.left{
-            margin-left: -45px;
-    }
-
-    .standardNav li{
-            display: block;
-    }
-
-    .standardNav li a{
-            display: block;	
-            font-weight: normal;
-            padding: 8px 10px;
-            text-decoration: none;
-            color: #666;
-            font-size: 12px;
-    }	
-
-    .standardNav li a:hover{
-            color: #333;
-    }
-
-    .standardNav li.active a{
-            font-weight: bold;
-            color: #000;
-    }	
-    
-    #navscroll ul li.active{
-        background-color:transparent;
-    }
-    
-    #navscroll ul li.active a{
-        background-color: #b92c28;
-        border-radius: 6px;
-    }
-
 </style>
 <div id="wrapper">
-    <div id="navscroll" class=" standardNav pageScrollerNav right dark">
-        <ul>
-            <li class='<?= 0 == $category? 'active' :'' ?>' ><a href="market">all</a></li>
-            <?php 
-            foreach ($categories as $record){ ?>
-            <li class='<?= $record['id'] == $category? 'active' :'' ?>' ><a href="<?='market?category='.$record['id']?>"><?=$record['name']?></a></li>
-            <?php }?>
-        </ul>
-    </div>
+    <?= fuel_block(array('view' => 'market_nav', 'vars' => array('categories' => $categories, 'category' => $category))); ?>
     <div class="pagewidth">
         <div id="postWrapper">
             <div class="posts">

@@ -2,7 +2,6 @@
 
 <link rel="stylesheet" type="text/css" href="assets/css/housing.css">
 <link rel="stylesheet" type="text/css" href="assets/css/housePicDetail.css">
-<script type="text/javascript" src="assets/js/slidepics.js"></script>
 
 
 <div id="wrapper">   <!--nav scrollbar on the left-->
@@ -13,7 +12,7 @@
             <li><A href="#">Sublease</A></li>
         </ul>
     </div>-->
-
+    <?= fuel_block(array('view' => 'market_nav', 'vars' => array('categoryName' =>'housing'))); ?>
     <div>
         <h1>Housing</h1>
         <br />
@@ -103,7 +102,6 @@
 
         <script type="text/javascript">
             $(document).ready(function() {
-                $('body').pageScroller({navigation: '#navscroll'});
                 $(".housing_pic").click(
                         function() {
                             $("#dialog"+$(this).attr('no')).dialog({ //找到點選.housing_pic的attribute為no的值，附加到dialog的id之後
