@@ -137,9 +137,16 @@
         $(".text").each(function(){
             var msg = makeAllLinksA($(this).html()).replace('\n','<br/>');
             var pos = msg.indexOf('<br/>');
-            var title = '<b>'+msg.substring(0,pos)+'</b>';
-            msg = msg.substring(pos, msg.length);
-            $(this).html(title+msg);
+            if(pos < 0)
+                pos = msg.search(/([.?!。！]|[<]br\/[>])/i);
+            if(pos >= 0){
+                var title = '<b>'+msg.substring(0,pos)+'</b>';
+                msg = msg.substring(pos, msg.length);
+                $(this).html(title+msg);
+            }
+            else{
+                $(this).html(msg);
+            }
         });
         
         $(".imageFrame").click(function() {
@@ -456,7 +463,7 @@
                 <?php
                     $page_count = 5;
                     $where = $category > 0 ? array('category'=>$category) : array();
-                    $total = $CI->facebook_posts_model->record_count($where);
+                    $total = $CI->facebook_posts_model->publushed_record_count($where);
                     $total_pages =  ceil($total/$limit);
                     $current_start = floor($page/$page_count)*$page_count;
                 ?>
