@@ -63,6 +63,7 @@ function isExternal(url) {
                                       modal: true,
                                       buttons: {
                                         "Leave": function() {
+                                          $( this ).dialog( "close" );
                                           window.location.href = link;
                                         },
                                         "Stay here": function() {
