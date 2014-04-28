@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" type="text/css" href="assets/css/housing.css">
 <link rel="stylesheet" type="text/css" href="assets/css/housePicDetail.css">
-
+<script type="text/javascript" src="assets/js/slidepics.js"></script>
 
 <div id="wrapper">   <!--nav scrollbar on the left-->
 
