@@ -1,4 +1,5 @@
 <?php $this->load->view('_blocks/header') ?>
+<script type="text/javascript" src="assets/js/slidepics_car.js"></script>
 <link rel="stylesheet" type="text/css" href="assets/css/car.css">
 <div id="wrapper">
     <?= fuel_block(array('view' => 'market_nav', 'vars' => array('categoryName' =>'car'))); ?>
