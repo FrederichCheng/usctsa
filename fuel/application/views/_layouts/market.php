@@ -9,7 +9,7 @@
     $CI->load->model('facebook/facebook_categories_model','facebook_categories_model');
     $category = $this->input->get('category');
 
-    $limit = 12;
+    $limit = $post_per_page;
     
     $page = $this->input->get('page');
     $first_page = false;
@@ -138,7 +138,7 @@
             var msg = makeAllLinksA($(this).html()).replace('\n','<br/>');
             var pos = msg.indexOf('<br/>');
             if(pos < 0)
-                pos = msg.search(/([.?!。！]|[<]br\/[>])/i);
+                pos = msg.search(/([.?!。！]|[<]br\/[>])|$/i);
             if(pos >= 0){
                 var title = '<b>'+msg.substring(0,pos)+'</b>';
                 msg = msg.substring(pos, msg.length);
@@ -221,6 +221,7 @@
         height:120px;
         overflow: auto;
         margin-left:30px;
+        text-align:left;
 /*        transform:rotate(-3deg);
         -webkit-transform:rotate(-3deg);*/
     }
@@ -398,6 +399,12 @@
     h2{
         text-transform:capitalize;
     }
+    
+    .post-link{
+        width:25px;
+        float:left;
+        margin-left:20px;
+    }
 </style>
 <div id="wrapper">
     <?= fuel_block(array('view' => 'market_nav', 'vars' => array('categories' => $categories, 'category' => $category))); ?>
@@ -416,7 +423,11 @@
                         <?php //if (isset($feed['picture'])) {  ?>
                         
                         <div class="info">
+                            
                             <div class="content">
+                                <a href="<?=$feed['post_link']?>" target="_blank">
+                                <img src='<?=img_path('fb_icon.gif')?>' class="fb_icon post-link" />
+                                </a>
                                 <div class="posted">
                                     <?= isset($feed['user_picture']) ? 
                                         image($feed['user_picture'], array('class' => 'picture')) : 

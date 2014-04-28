@@ -206,6 +206,11 @@ $config['layouts']['events'] = array(
 );
 
 
+$options = array();
+for($i = 3; $i <= 90; $i+=3){
+    $options[$i] = $i;
+}
+
 $config['layouts']['market'] = array(
     //'file' 		=> $config['layouts_path'].'main',
     // 'class'		=> 'Main_layout',
@@ -217,6 +222,7 @@ $config['layouts']['market'] = array(
         'page_title' => array('label' => lang('layout_field_page_title')),
         'meta_description' => array('label' => lang('layout_field_meta_description')),
         'meta_keywords' => array('label' => lang('layout_field_meta_keywords')),
+        'post_per_page' => array('label' => 'Post Per Page', 'type' => 'select', 'options'=> $options, 'first_option' => 'Select one...')
     )
 );
 
