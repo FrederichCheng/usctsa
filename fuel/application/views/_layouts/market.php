@@ -9,7 +9,7 @@
     $CI->load->model('facebook/facebook_categories_model','facebook_categories_model');
     $category = $this->input->get('category');
 
-    $limit = 15;
+    $limit = 12;
     
     $page = $this->input->get('page');
     $first_page = false;

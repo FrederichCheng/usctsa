@@ -382,7 +382,7 @@ $this->load->view('_blocks/header') ?>
             width:56px;
             height:97px;
             border-style:solid;
-            border-color: gray;
+            border-color: #CCC;
             border-width:1px;
             
         }
@@ -393,7 +393,7 @@ $this->load->view('_blocks/header') ?>
 
         #calendar{
             height: 500px;
-            margin-bottom: 50px;
+            margin-bottom: 70px;
             z-index: 1;
             //border-width: 1px;
             //border-style: solid;

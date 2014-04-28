@@ -20,21 +20,32 @@ function makeAllLinksA(str){
             $(document).ready(function() {
                 var current = 0;
                 var previous = 0;
+                var top = $('#nav_bar').position().top;
+                var nav = $('#nav_bar');
+                var fixedNav = nav.clone(false);
+                fixedNav.addClass('navbar-fixed');
+                fixedNav.css('display','none');
+                fixedNav.appendTo(nav);
+                var animating = false;
+                var height = fixedNav.height();
                 $(window).scroll(function() {
                     previous = current;
                     current = $(window).scrollTop();
-                    if (current > 138) {
-                        $('#nav_bar').addClass('navbar-fixed');
-                        if(previous < current){
-                            $('#nav_bar').css("display","none");
+                    
+                    if (current-height > top) {
+                        //nav.css('display','none');
+                        fixedNav.css('display','block');
+                        if(previous < current && !animating){
+                            fixedNav.animate({top:-height}, 300, function(){animating = false;});
+                            animating = true;
                         }
-                        else{
-                            $('#nav_bar').css("display","block");
+                        else if (previous > current && !animating){
+                            fixedNav.animate({top:0}, 300, function(){animating = false;});
+                            animating = true;
                         }
                     }
-                    if (current < 135) {
-                        $('#nav_bar').removeClass('navbar-fixed');
-                        $('#nav_bar').css("display","block");
+                    if (current < top ) {
+                        fixedNav.css("display","none");
                     }
                 });
             });
