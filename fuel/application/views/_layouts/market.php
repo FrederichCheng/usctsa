@@ -421,20 +421,30 @@
         font-size:19px;
     }
     
-    .post-buttons .glyphicon:hover .picture{
+    .post-buttons .glyphicon:hover .thumbnail{
         display:block;
+    }
+    
+    .thumbnail>.picture{
+        width: 140px;
+    }
+    
+       
+    .post-buttons .glyphicon .thumbnail:hover{
+        opacity:1;
+    }
+    
+    .post-buttons .glyphicon .thumbnail{
+        display: none;
+        width: 140px;
+        max-height:130px;
+        overflow:scroll;
         position:absolute;
         float:right;
-    }
-    
-    .post-buttons .glyphicon .picture{
-        display: none;
+        margin-left: -50px;
         opacity:0.6;
     }
-    
-    .post-buttons .glyphicon .picture:hover{
-        opacity:1.0;
-    }
+
 </style>
 <div id="wrapper">
     <?= fuel_block(array('view' => 'market_nav', 'vars' => array('categories' => $categories, 'category' => $category))); ?>
@@ -463,7 +473,9 @@
                                         <a href="<?=$feed['link']?>" target="_blank"><span class="glyphicon glyphicon-link"></span></a>
                                     <?php endif; ?>
                                     <?php if(isset($feed['picture']) && endsWith($feed['picture'], '.jpg')): ?>
-                                        <span class="glyphicon glyphicon-picture"><?= image($feed['picture'], array('class' => 'picture'))?></span>
+                                        <span class="glyphicon glyphicon-picture">
+                                            <span class="thumbnail"><?= image($feed['picture'], array('class' => 'picture'))?> </span>
+                                        </span>
                                     <?php endif; ?>
                                 </div>
                                 <div class="posted">
