@@ -40,3 +40,7 @@ function makeAttrStr($attrs){
     }
     return $attrStr;
 }
+
+function endsWith($haystack, $needle){
+    return $needle === "" || substr($haystack, - strlen($needle)) === $needle;
+}

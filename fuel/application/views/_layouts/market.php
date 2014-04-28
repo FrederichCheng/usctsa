@@ -401,9 +401,39 @@
     }
     
     .post-link{
-        width:25px;
+        margin-top:2px;
+        width:20px;
+        float:left;
+        margin-right:4px;
+    }
+    
+    .post-buttons{
         float:left;
         margin-left:20px;
+    }
+    .post-buttons .glyphicon{
+        font-size:20px;
+        color:#4679bd;
+        margin-left:0px;
+    }
+    
+    .post-buttons .glyphicon-link{
+        font-size:19px;
+    }
+    
+    .post-buttons .glyphicon:hover .picture{
+        display:block;
+        position:absolute;
+        float:right;
+    }
+    
+    .post-buttons .glyphicon .picture{
+        display: none;
+        opacity:0.6;
+    }
+    
+    .post-buttons .glyphicon .picture:hover{
+        opacity:1.0;
     }
 </style>
 <div id="wrapper">
@@ -425,9 +455,17 @@
                         <div class="info">
                             
                             <div class="content">
-                                <a href="<?=$feed['post_link']?>" target="_blank">
-                                <img src='<?=img_path('fb_icon.gif')?>' class="fb_icon post-link" />
-                                </a>
+                                <div class="post-buttons">
+                                    <a href="<?=$feed['post_link']?>" target="_blank">
+                                    <img src='<?=img_path('fb_icon.gif')?>' class="fb_icon post-link" />
+                                    </a>
+                                    <?php if(isset($feed['link'])): ?>
+                                        <a href="<?=$feed['link']?>" target="_blank"><span class="glyphicon glyphicon-link"></span></a>
+                                    <?php endif; ?>
+                                    <?php if(isset($feed['picture']) && endsWith($feed['picture'], '.jpg')): ?>
+                                        <span class="glyphicon glyphicon-picture"><?= image($feed['picture'], array('class' => 'picture'))?></span>
+                                    <?php endif; ?>
+                                </div>
                                 <div class="posted">
                                     <?= isset($feed['user_picture']) ? 
                                         image($feed['user_picture'], array('class' => 'picture')) : 

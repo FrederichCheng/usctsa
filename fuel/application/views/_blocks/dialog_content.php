@@ -45,9 +45,9 @@
     </div>
 </div>
 <div class="buttons">
-    <button id="save_btn" type="button" class="btn btn-default btn-lg">
+<!--    <button id="save_btn" type="button" class="btn btn-default btn-lg">
         <span class="glyphicon glyphicon-star-empty"></span> Save
-    </button>
+    </button>-->
     <button id="close_btn" type="button" class="btn btn-default btn-lg">
         <span class="glyphicon glyphicon-remove-circle"></span> Close
     </button>
