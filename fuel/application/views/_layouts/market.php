@@ -31,6 +31,7 @@ $exists = FALSE;
 foreach($categories as $cat){
     if($cat['id'] == $category){
         $exists = TRUE;
+        $categoryName = $cat['name'];
         break;
     }
 }
@@ -422,6 +423,9 @@ else{
 <div id="wrapper">
     <?= fuel_block(array('view' => 'market_nav', 'vars' => array('categories' => $categories, 'category' => $category))); ?>
     <div class="pagewidth">
+        <?php if (isset($categoryName)) : ?>
+        <h2><?=$categoryName?></h2>
+        <?php endif; ?>
         <div id="postWrapper">
             <div class="posts">
                 <?php foreach ($records as $feed) { ?>
