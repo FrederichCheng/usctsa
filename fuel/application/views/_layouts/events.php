@@ -215,7 +215,8 @@
                 dialog.find('span.time').html(formatTime(date));
                 dialog.find('span.date').html(formatDate(date));
                 dialog.find('span.location').html(response.location);
-                dialog.find('.description .panel-body').html(response.description.replace(/\n/g, '<br/>'));
+                var desc = response.description.replace(/(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#-]*[\w@?^=%&amp;/~+#-])?/g,'<a href="$&" target="_blank">$&</a>').replace(/\n/g, '<br/>');
+                dialog.find('.description .panel-body').html(desc);
                 dialog.find('.description .link a').attr('href', postLink).attr('target', '_blank');
 
                 if (typeof (response.venue.street) !== 'undefined') {
