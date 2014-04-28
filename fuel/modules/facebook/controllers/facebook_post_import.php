@@ -33,7 +33,7 @@ class Facebook_post_import extends Fuel_base_controller {
                 $record['username'] = $feed['from']['name'];
                 $record['post_link'] = $feed['actions'][0]['link'];
                 foreach ($fields as $field) {
-                    if (array_key_exists($field, $feed) && !empty($feed[$field])) {
+                    if (array_key_exists($field, $feed) && !empty($feed[$field]) && $feed[$field] !== 'null') {
                         $record[$field] = $feed[$field];
                     }
                 }

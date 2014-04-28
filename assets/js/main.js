@@ -5,6 +5,10 @@ function isExternal(url) {
     return false;
 }
 
+function makeAllLinksA(str){
+    return str.replace(/(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#-]*[\w@?^=%&amp;/~+#-])?/g,'<a href="$&" target="_blank">$&</a>');
+}
+
 (
         function initialize($) {
             $("#nav").ready(

@@ -1,86 +1,46 @@
 <?php 
-      require_once(FACEBOOK_PATH . 'models/facebook_posts_model.php');
-      require_once(FACEBOOK_PATH . 'models/facebook_categories_model.php');
-      require_once(FACEBOOK_PATH . 'libraries/HTMLhelper.php'); 
-      require_once(FUEL_FOLDER . '/FacebookSDK/facebook.php');
-?>
+    require_once(FACEBOOK_PATH . 'models/facebook_posts_model.php');
+    require_once(FACEBOOK_PATH . 'models/facebook_categories_model.php');
+    require_once(FACEBOOK_PATH . 'libraries/HTMLhelper.php'); 
+    require_once(FUEL_FOLDER . '/FacebookSDK/facebook.php');
 
-<?php $this->load->view('_blocks/header') ?>
+    $this->load->view('_blocks/header');
+    $CI->load->model('facebook/facebook_posts_model','facebook_posts_model');
+    $CI->load->model('facebook/facebook_categories_model','facebook_categories_model');
+    $category = $this->input->get('category');
 
-<?php
-$CI->load->model('facebook/facebook_posts_model','facebook_posts_model');
-$CI->load->model('facebook/facebook_categories_model','facebook_categories_model');
-$category = $this->input->get('category');
-
-$limit = 15;
-$page = $this->input->get('page');
-
-$first_page = false;
-if(!isset($page) || !is_numeric($page) || $page<=1){
-    $page = 1;
-    $first_page = true;
-}
-
-if(!isset($category) || !is_numeric($category) || $category<=0){
-    $category = 0;
-}
-
-$categories = $CI->facebook_categories_model->find_all_published_array();
-
-$exists = FALSE;
-foreach($categories as $cat){
-    if($cat['id'] == $category){
-        $exists = TRUE;
-        $categoryName = $cat['name'];
-        break;
+    $limit = 15;
+    
+    $page = $this->input->get('page');
+    $first_page = false;
+    if(!isset($page) || !is_numeric($page) || $page<=1){
+        $page = 1;
+        $first_page = true;
     }
-}
 
-if($category > 0 && $exists){
-    $records = $CI->facebook_posts_model->find_all_published_array(array('category'=>$category), 'created_time desc', $limit, $first_page? NULL:($page-1)*$limit);
-}
-else{
-    $category = 0;
-    $records = $CI->facebook_posts_model->find_all_published_array(array(), 'created_time desc', $limit,$first_page? NULL: ($page-1)*$limit);
-}
+    if(!isset($category) || !is_numeric($category) || $category<=0){
+        $category = 0;
+    }
 
+    $categories = $CI->facebook_categories_model->find_all_published_array();
 
-//$APP_ID = '445984512214350';
-//$GROUP_ID = '12171823426';
-//
-//$facebook = new Facebook(array(
-//    'appId' => $APP_ID,
-//    'secret' => '650f341095028ad446dafd7c57c258f2',
-//        ));
-//
-//$prev_uri = null;
-//$uri = '/' . $GROUP_ID . '/feed?limit=17';
-//$page = 1;
-//$feeds = array();
-//$fields = array('description', 'message', 'created_time', 'updated_time', 'link', 'picture');
-//
-//$response = $facebook->api($uri);
-//$records = array();
-//
-//foreach ($response['data'] as $feed) {
-//    $record = array();
-//    $record['facebook_id'] = $feed['id'];
-//    $record['user_id'] = $feed['from']['id'];
-//    $record['username'] = $feed['from']['name'];
-//    $record['post_link'] = $feed['actions'][0]['link'];
-//    foreach ($fields as $field) {
-//        if (array_key_exists($field, $feed)) {
-//            $record[$field] = $feed[$field];
-//        }
-//    }
-//
-//    $user_response = $facebook->api('/' . $record['user_id'] . '?fields=picture,link,gender,cover&limits=15');
-//    $record['user_picture'] = isset($user_response['picture']) ? $user_response['picture']['data']['url'] : NULL;
-//    $record['user_cover'] = isset($user_response['user_cover']) ? $user_response['cover']['source'] : NULL;
-//    $record['gender'] = isset($user_response['gender']) ? $user_response['gender'] : 'Unknown';
-//    $record['user_link'] = 'http://www.facebook.com/' . $record['user_id'];
-//    $records[] = $record;
-//}
+    $exists = FALSE;
+    foreach($categories as $cat){
+        if($cat['id'] == $category){
+            $exists = TRUE;
+            $categoryName = $cat['name'];
+            break;
+        }
+    }
+
+    if($category > 0 && $exists){
+        $records = $CI->facebook_posts_model->find_all_published_array(array('category'=>$category), 'created_time desc', $limit, $first_page? NULL:($page-1)*$limit);
+    }
+    else{
+        $category = 0;
+        $records = $CI->facebook_posts_model->find_all_published_array(array(), 'created_time desc', $limit,$first_page? NULL: ($page-1)*$limit);
+    }
+
 ?>
 
 <script>
@@ -173,6 +133,15 @@ else{
             theImage.src = img.attr("src");
 
         });
+        
+        $(".text").each(function(){
+            var msg = makeAllLinksA($(this).html()).replace('\n','<br/>');
+            var pos = msg.indexOf('<br/>');
+            var title = '<b>'+msg.substring(0,pos)+'</b>';
+            msg = msg.substring(pos, msg.length);
+            $(this).html(title+msg);
+        });
+        
         $(".imageFrame").click(function() {
             //showPostDialog($(this).parent('.post').attr('id'));
             window.open($(this).attr('link'),'_blank');
@@ -197,7 +166,7 @@ else{
 //                    }
 //                ]
 //            });
-        })
+        });
     });
 
 </script>
@@ -211,45 +180,42 @@ else{
         text-align: center;
         display:table;
         margin:0 auto;
+        background-image: url('<?= img_path('white-wall.png')?>');
+        box-shadow: 0px 0px 20px 1px #ddd ;
+        border-radius: 5px;
     }
+   
     .posts{
         width:840px;
         margin: 0 auto;
-        //border-width: 1px;
-        //border-style: solid;
         padding: 10px;
         display:table-cell;
-        border-radius: 10px;
         text-align: center;
-        /*        border-style: solid;
-                border-width:1px;
-                border-color: #999;*/
     }
 
     .post{
-        margin:37px;
-        height:240px;
-        width:198px;
+        background-image: url('<?= img_path('postit.png')?>');
+        width:250px;
+        height:235px;
         float:left;
         overflow:hidden;
-        border-width: 1px;
-        border-style: solid;
-        border-color: #999;
-        background-color: white;
-        box-shadow: 0px 1px 3px 1px #eee;
-        border-radius: 6px;
+        margin: 10px;
+        
     }
-
+/*
     .post:hover{
         border-color: #e38d13;
         box-shadow: 0px 1px 3px 5px #eee;
-    }
+    }*/
 
     .text{
-        float:right;
-        width:124px;
-        height:60px;
-        overflow: hidden;
+        float:left;
+        width:180px;
+        height:120px;
+        overflow: auto;
+        margin-left:30px;
+/*        transform:rotate(-3deg);
+        -webkit-transform:rotate(-3deg);*/
     }
 
 
@@ -271,6 +237,7 @@ else{
         word-break:break-all;
         margin: 0 auto;
         display: table;
+        margin-top:30px;
     }
 
     .image img{
@@ -315,8 +282,9 @@ else{
     }
 
     .posted{
-        float:left;
+        float:right;
         cursor:default;
+        margin-bottom:10px;
     }
 
     .posted>img:hover{
@@ -350,7 +318,7 @@ else{
         background-color: white;
         padding: 4px 4px 0px 4px;
         box-shadow: 0px 0px 2px 1px #333;
-        z-index:100;
+        z-index:9999;
         height:200px;
         margin-left:-330px;
         margin-top:-30px;
@@ -419,26 +387,27 @@ else{
         top:200px;
         right:400px;
     }
+    
+    h2{
+        text-transform:capitalize;
+    }
 </style>
 <div id="wrapper">
     <?= fuel_block(array('view' => 'market_nav', 'vars' => array('categories' => $categories, 'category' => $category))); ?>
     <div class="pagewidth">
-        <?php if (isset($categoryName)) : ?>
-        <h2><?=$categoryName?></h2>
-        <?php endif; ?>
+        
+        <h2>
+            <?php if (isset($categoryName)) : ?>
+            <?=$categoryName?>
+            <?php endif; ?>
+        </h2>
+        
         <div id="postWrapper">
             <div class="posts">
                 <?php foreach ($records as $feed) { ?>
                     <div class="post" id="<?=$feed['facebook_id']?>">
                         <?php //if (isset($feed['picture'])) {  ?>
-                        <div class="imageFrame" link="<?=$feed['post_link']?>">
-                            <div class="image">
-                                <?=
-                                isset($feed['picture']) ?
-                                        image($feed['picture'], array('class' => 'picture')) :
-                                        image(img_path('no_image_thumb.gif'), array('class' => 'picture'))
-                                ?></div>
-                        </div>
+                        
                         <div class="info">
                             <div class="content">
                                 <div class="posted">
@@ -446,34 +415,27 @@ else{
                                         image($feed['user_picture'], array('class' => 'picture')) : 
                                             image(img_path('no-available-cover.png'), array('class' => 'picture')) 
                                     ?>
-                                    <div class="userProfile">
-                                        <div class="cover"> <?= isset($feed['user_cover']) ? image($feed['user_cover'], array('class' => 'picture')) : '' ?> </div>
-                                        <div class="personal" >
-                                            <div class="picture"> 
-                                                <?= isset($feed['user_picture']) ? 
-                                                    image('https://graph.facebook.com/' . $feed['user_id'] . '/picture?width=120&height=120',array('class' => 'img-thumbnail')) : 
-                                                        image(img_path('no_image_thumb.gif'),array('class' => 'img-thumbnail')) 
-                                                ?> 
-                                            </div>
-                                            <div class="info">
-                                                <?= $feed['gender'] === 'male' ? image(img_path('male.gif'), array('class' => 'gender')) : image(img_path('female.gif'), array('class' => 'gender')) ?>
-                                                <span class="name"><?= $feed['username'] ?></span>
-                                                <?= alink($feed['user_link'], 
-                                                        image(img_path('fb_icon.gif'), array('class' => 'fb_icon')),
-                                                        array('target'=>'_blank', 'id'=>$feed['user_id'])) ?>
+                                    <a href='<?=$feed['user_link']?>' target='_blank' id="<?=$feed['user_id']?>">
+                                        <div class="userProfile">
+                                            <div class="cover"> <?= isset($feed['user_cover']) && $feed['user_cover']!== NULL  ? image($feed['user_cover'], array('class' => 'picture')) : '' ?> </div>
+                                            <div class="personal" >
+                                                <div class="picture"> 
+                                                    <?= isset($feed['user_picture']) ? 
+                                                        image('https://graph.facebook.com/' . $feed['user_id'] . '/picture?width=120&height=120',array('class' => 'img-thumbnail')) : 
+                                                            image(img_path('no_image_thumb.gif'),array('class' => 'img-thumbnail')) 
+                                                    ?> 
+                                                </div>
+                                                <div class="info">
+                                                    <?= $feed['gender'] === 'male' ? image(img_path('male.gif'), array('class' => 'gender')) : image(img_path('female.gif'), array('class' => 'gender')) ?>
+                                                    <span class="name"><?= $feed['username'] ?></span>
+                                                    <img src='<?=img_path('fb_icon.gif')?>' class="fb_icon" />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
 
-                                <?php
-                                if (isset($feed['message'])) {
-                                    $cut = strrpos($feed['message'], '\\n');
-                                } else {
-                                    $feed['message'] = isset($feed['description'])? $feed['description'] : '';
-                                }
-                                ?>
-                                <div class="text"><?= isset($cut) && $cut > 0 ? mb_substr($feed['message'], 0, $cut) : mb_substr($feed['message'], 0, 80) ?></div>
+                                <div class="text"> <?= $feed['message'] ?> </div>
                             </div>
                             <div class="time"><?= isset($feed['updated_time']) ? $feed['updated_time'] : $feed['created_time'] ?></div>
                         </div>

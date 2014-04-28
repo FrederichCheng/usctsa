@@ -218,7 +218,7 @@ $this->load->view('_blocks/header') ?>
                 dialog.find('span.time').html(formatTime(date));
                 dialog.find('span.date').html(formatDate(date));
                 dialog.find('span.location').html(response.location);
-                var desc = response.description.replace(/(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#-]*[\w@?^=%&amp;/~+#-])?/g,'<a href="$&" target="_blank">$&</a>').replace(/\n/g, '<br/>');
+                var desc = makeAllLinksA(response.description).replace(/\n/g, '<br/>');
                 dialog.find('.description .panel-body').html(desc);
                 dialog.find('.description .link a').attr('href', postLink).attr('target', '_blank');
 
@@ -359,6 +359,7 @@ $this->load->view('_blocks/header') ?>
             font-size:12px;
             display:inline;
         }
+        
         table{
             width: 800.5px;
             margin:0 auto;
@@ -369,12 +370,21 @@ $this->load->view('_blocks/header') ?>
 
 
         }
+        
         table, td{
 
+        }
+        
+        table#calendar td:first-child,  table#calendar td:last-child{
+            background-color: rgba(254,250,240,0.8);
         }
         table td{
             width:56px;
             height:97px;
+            border-style:solid;
+            border-color: gray;
+            border-width:1px;
+            
         }
 
         table#calendar td:hover{
@@ -383,11 +393,6 @@ $this->load->view('_blocks/header') ?>
 
         #calendar{
             height: 500px;
-            background-image: url('<?= assets_path('images/calendar.gif') ?>'); 
-            background-size: 800px 504px;
-            background-position-y:-2px;
-            background-position-x:-2px;
-            background-repeat: no-repeat;
             margin-bottom: 50px;
             z-index: 1;
             //border-width: 1px;
