@@ -84,61 +84,72 @@ else{
 
 <script>
 
-    function showPostDialog($id) {
-        FB.api('/' + $id, function(response) {
-            if (!response || response.error) {
-                alert(response.error);
-                return;
-            }
+    function showPostDialog(id) {
+        //id = id.substring(id.indexOf("_")+1);
+            FB.api({
+                method: 'fql.query',
+                query: 'SELECT attachment FROM stream WHERE post_id="'+id+'"',
+                return_ssl_resources: 1
+            }, function(response){
 
-            var post = new Array();
-            post['id'] = response['id'];
-            post['user_id'] = response['from']['id'];
-            post['username'] = response['from']['name'];
-            post['message'] = response['message'];
-            post['link'] = response['link'];
-            post['type'] = response['type'];
-            post['comments'] = new Array();
-            var comments = response['comments']['data'];
-            for (var index in comments) {
-                var arr = new Array();
-                post['comments'].push(arr);
-                arr['user_id'] = comments[index]['from']['id'];
-                arr['username'] = comments[index]['from']['name'];
-                arr['message'] = comments[index]['message'];
-                arr['created_time'] = comments[index]['created_time'];
-            }
+                alert(JSON.stringify(response));
 
-//                FB.api({
-//                    method: 'fql.query',
-//                    query: 'SELECT attachment FROM stream WHERE post_id='+post['id']+"'",
-//                    return_ssl_resources: 1
-//                }, function(response){
-//                    
-//                    
-//                    
-//                });
-
-            $('<div>').html(response.description).css({width: '600px', height: '400px', overflow: 'scroll'}).dialog({
-                dialogClass: "no-close",
-                maxHeight: 400,
-                width: 600,
-                title: response.name,
-                buttons: [
-                    {
-                        text: "Close",
-                        click: function() {
-                            $(this).dialog("close");
-                        }
-                    }
-                ],
-                close: function() {
-                    var index = dialogs.indexOf(id);
-                    dialogs.splice(index, 1);
-                }
             });
-            dialogs[dialogs.length] = id;
-        });
+            
+//        FB.api(id, function(response) {
+//            if (!response || response.error) {
+//                alert(JSON.stringify(response.error));
+//                return;
+//            }
+//
+//            var post = new Array();
+//            post['id'] = response['id'];
+//            post['user_id'] = response['from']['id'];
+//            post['username'] = response['from']['name'];
+//            post['message'] = response['message'];
+//            post['link'] = response['link'];
+//            post['type'] = response['type'];
+//            post['comments'] = new Array();
+//            var comments = response['comments']['data'];
+//            for (var index in comments) {
+//                var arr = new Array();
+//                post['comments'].push(arr);
+//                arr['user_id'] = comments[index]['from']['id'];
+//                arr['username'] = comments[index]['from']['name'];
+//                arr['message'] = comments[index]['message'];
+//                arr['created_time'] = comments[index]['created_time'];
+//            }
+//
+////                FB.api({
+////                    method: 'fql.query',
+////                    query: 'SELECT attachment FROM stream WHERE post_id='+post['id']+"'",
+////                    return_ssl_resources: 1
+////                }, function(response){
+////                    
+////                    
+////                    
+////                });
+//
+//            $('<div>').html(JSON.stringify(response)).css({width: '600px', height: '400px', overflow: 'scroll'}).dialog({
+//                dialogClass: "no-close",
+//                maxHeight: 400,
+//                width: 600,
+//                title: response.name,
+//                buttons: [
+//                    {
+//                        text: "Close",
+//                        click: function() {
+//                            $(this).dialog("close");
+//                        }
+//                    }
+//                ],
+//                close: function() {
+//                    var index = dialogs.indexOf(id);
+//                    dialogs.splice(index, 1);
+//                }
+//            });
+//            dialogs[dialogs.length] = id;
+//        });
     }
 
 
@@ -162,8 +173,9 @@ else{
 
         });
         $(".imageFrame").click(function() {
+            //showPostDialog($(this).parent('.post').attr('id'));
             window.open($(this).attr('link'),'_blank');
-            window.open(url,'_blank');
+            //window.open(url,'_blank');
 //            $('<div>').html('').css({width: '640px', height: '480px', overflow: 'scroll', display: 'block'}).dialog({
 //                dialogClass: "no-close",
 //                height: 480,
@@ -484,7 +496,7 @@ else{
         <div id="postWrapper">
             <div class="posts">
                 <?php foreach ($records as $feed) { ?>
-                    <div class="post">
+                    <div class="post" id="<?=$feed['facebook_id']?>">
                         <?php //if (isset($feed['picture'])) {  ?>
                         <div class="imageFrame" link="<?=$feed['post_link']?>">
                             <div class="image">

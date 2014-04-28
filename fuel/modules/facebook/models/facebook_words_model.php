@@ -22,7 +22,7 @@ class facebook_words_model extends Base_module_model{
         parent::__construct('facebook_words');
         $query = $this->db->get('facebook_categories');
         foreach ($query->result() as $row){
-            $c = new category_impl($row->id,$row->name,$this);
+            $c = new category_impl($row->id,$row->name, $row->published ,$this);
             $this->categories[$row->name] = $c;
         }
         $query->free_result();

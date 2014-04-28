@@ -35,6 +35,12 @@ class Facebook_categories_model extends Base_module_model {
         return $count > 0;
     }
     
+    function find_all_published_array($where = array(), $order_by = NULL, $limit = NULL, $offset = NULL) {
+        $this->db->where('id != 0');
+        $this->db->where(array('published' => 'yes'));
+        return parent::find_all_array($where, $order_by, $limit, $offset);
+    }
+    
 }
  
 class Facebook_category_model extends Base_module_record {

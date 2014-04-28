@@ -16,10 +16,12 @@ require_once ( FACEBOOK_PATH.'libraries/category.php');
 class category_impl extends Category{
     private $totalWords = NULL;
     private $wordModel;
+    private $published;
     
-    public function __construct($id, $name, $postModel) {
+    public function __construct($id, $name, $published, $postModel) {
         parent::__construct($id,$name);
         $this->wordModel = $postModel;
+        $this->published = $published;
     }
 
     public function getWordOccurence($word) { 
@@ -46,5 +48,9 @@ class category_impl extends Category{
         }
         
         return $this->totalWords;
+    }
+    
+    public function isPublished(){
+        return $this->published;
     }
 }
