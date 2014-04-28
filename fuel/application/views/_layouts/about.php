@@ -49,8 +49,8 @@
                                 <?php if(!empty($value['email']) && 0 != strlen(trim($value['email']))){ ?>
                                 <li class="email"><?= mailto($value['email'], 'Contact TSA', array('target'=>'_blank')) ?></li>
                                 <?php }?>
-                                <?php if(!empty($value['facebook_link']) && 0 != strlen(trim($value['facebook_link']))){ ?>
-                                <li class="facebook"><a href="<?= $value['facebook_link'] ?>">Facebook</a></li>
+                                <?php if(!empty($value['facebook']) && 0 != strlen(trim($value['facebook']))){ ?>
+                                <li class="facebook"><a href="<?= $value['facebook'] ?>" target="_blank">Facebook</a></li>
                                 <?php }?>
                             </ul>
                         </span>

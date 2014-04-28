@@ -55,7 +55,6 @@ $about_sections = array(
                         'label' => 'Member sections', 
                         'title_field' => 'title',
                         'fields' => array(
-                               
                                 'sections' => array('type' => 'section', 'label' => '{__title__}'),
                                 'name' => array('label' => 'Name'),
                                 'title' => array('label' => 'Title', 'required' => true),
@@ -63,7 +62,7 @@ $about_sections = array(
                                 'major' => array('label' => 'Major'),
                                 'email' => array('label' => 'Email'),
                                 'message' => array('type' => 'textarea', 'label' => 'Message'),
-                                'facebook_link' => array('label' => 'Facebook'),
+                                'facebook' => array('label' => 'Facebook'),
                                 )
                         )
     );
