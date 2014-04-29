@@ -52,7 +52,13 @@ class Facebook_post_import extends Fuel_base_controller {
                     ));
                 }
                 else{
-                    //$record['category'] = rand(3,5);
+                    $r  = rand(3,8);
+                    if($r >= 6 && $r <= 7){
+                        $r = 3;
+                    }
+                    
+                    $record['category'] = $r;
+                    
                     $where = array('facebook_id'=> $record['facebook_id']);
                     if($this->facebook_posts_model->record_exists($where)){
                         
