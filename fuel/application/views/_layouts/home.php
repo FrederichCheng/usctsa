@@ -30,7 +30,7 @@
 	            <div class="ws_shadow"></div>
 	        </div>
 	        <script type="text/javascript" src="<?=assets_path('js/engine1/wowslider.js')?>"></script>
-	        <script type="text/javascript" src="<?=assets_path('assets/js/engine1/script.js')?>"></script>
+	        <script type="text/javascript" src="<?=assets_path('js/engine1/script.js')?>"></script>
 	        <!-- End WOWSlider.com BODY section -->
 	
 	    </div>
