@@ -40,7 +40,7 @@
 		    <!-- Announcements -->
 		    <div class="section">
 				<!-- Headline -->
-		        <h1><?=fuel_var('heading', 'Announcements')?></h1>
+		        <h1><?=fuel_var('heading', lang('tsa_default_announcement_heading'))?></h1>
 		
 		        <!-- Accordion -->
 		        <?php foreach($sections as $section){ ?>

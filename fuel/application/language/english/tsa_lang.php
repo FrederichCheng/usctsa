@@ -11,6 +11,8 @@ $lang['tsa_change_language_label'] = '中文版';
 
 $lang['tsa_dialog_close'] = 'Close';
 
+$lang['tsa_default_announcement_heading'] = 'Announcement';
+
 $lang['tsa_about'] = 'About';
 $lang['tsa_members'] = 'Members';
 

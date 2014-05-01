@@ -8,6 +8,7 @@
 
 $lang['tsa_change_language_link'] = 'english';
 $lang['tsa_change_language_label'] = 'English Version';
+$lang['tsa_default_announcement_heading'] = '公佈欄';
 
 $lang['tsa_dialog_close'] = '關閉';
 $lang['tsa_about'] = '關於我們';
