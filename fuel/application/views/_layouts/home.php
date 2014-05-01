@@ -14,23 +14,23 @@
 	        <!-- Start WOWSlider.com BODY section id=wowslider-container1 -->
 	        <div id="wowslider-container1">
 	            <div class="ws_images"><ul>
-	                    <li><img src='<?='assets/images/'.fuel_var('cover_photo_1', 'cover_photo_1.jpg')?>' id="wows1_0"/></li>
-	                    <li><img src='<?='assets/images/'.fuel_var('cover_photo_2', 'cover_photo_2.jpg')?>' id="wows1_1"/></li>
-	                    <li><img src='<?='assets/images/'.fuel_var('cover_photo_3', 'cover_photo_3.jpg')?>' id="wows1_2"/></li>
-	                    <li><img src='<?='assets/images/'.fuel_var('cover_photo_4', 'cover_photo_4.jpg')?>' id="wows1_3"/></li>
+                            <li><img src='<?=img_path(fuel_var('cover_photo_1', 'cover_photo_1.jpg'))?>' id="wows1_0"/></li>
+	                    <li><img src='<?=img_path(fuel_var('cover_photo_2', 'cover_photo_2.jpg'))?>' id="wows1_1"/></li>
+	                    <li><img src='<?=img_path(fuel_var('cover_photo_3', 'cover_photo_3.jpg'))?>' id="wows1_2"/></li>
+	                    <li><img src='<?=img_path(fuel_var('cover_photo_4', 'cover_photo_4.jpg'))?>' id="wows1_3"/></li>
 	                </ul></div>
 	            <div class="ws_bullets"><div>
-	                    <a href="#wows1_0" ><img src='<?='assets/data1/tooltips/'.fuel_var('cover_photo_1', 'cover_photo_1.jpg')?>' />1</a>
-	                    <a href="#wows1_1" ><img src='<?='assets/data1/tooltips/'.fuel_var('cover_photo_2', 'cover_photo_2.jpg')?>' />2</a>
-	                    <a href="#wows1_2" ><img src='<?='assets/data1/tooltips/'.fuel_var('cover_photo_3', 'cover_photo_3.jpg')?>' />3</a>
-	                    <a href="#wows1_3" ><img src='<?='assets/data1/tooltips/'.fuel_var('cover_photo_4', 'cover_photo_4.jpg')?>' />4</a>
+                            <a href="#wows1_0" ><img src='<?=assets_path('data1/tooltips/'.fuel_var('cover_photo_1', 'cover_photo_1.jpg'))?>' />1</a>
+	                    <a href="#wows1_1" ><img src='<?=assets_path('data1/tooltips/'.fuel_var('cover_photo_2', 'cover_photo_2.jpg'))?>' />2</a>
+	                    <a href="#wows1_2" ><img src='<?=assets_path('data1/tooltips/'.fuel_var('cover_photo_3', 'cover_photo_3.jpg'))?>' />3</a>
+	                    <a href="#wows1_3" ><img src='<?=assets_path('data1/tooltips/'.fuel_var('cover_photo_4', 'cover_photo_4.jpg'))?>' />4</a>
 	                </div></div>
 	            <!-- <span class="wsl"><a href="http://wowslider.com">Slideshow CSS3</a> by WOWSlider.com v5.0m</span> -->
 	            <a href="#" class="ws_frame"></a>
 	            <div class="ws_shadow"></div>
 	        </div>
-	        <script type="text/javascript" src="assets/js/engine1/wowslider.js"></script>
-	        <script type="text/javascript" src="assets/js/engine1/script.js"></script>
+	        <script type="text/javascript" src="<?=assets_path('js/engine1/wowslider.js')?>"></script>
+	        <script type="text/javascript" src="<?=assets_path('assets/js/engine1/script.js')?>"></script>
 	        <!-- End WOWSlider.com BODY section -->
 	
 	    </div>
