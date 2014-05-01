@@ -1,6 +1,6 @@
 <?php $this->load->view('_blocks/header') ?>
-<script type="text/javascript" src="assets/js/slidepics_car.js"></script>
-<link rel="stylesheet" type="text/css" href="assets/css/car.css">
+<?=js('slidepics_car.js')?>
+<?=css('car.css')?>
 <div id="wrapper">
     <?= fuel_block(array('view' => 'market_nav', 'vars' => array('categoryName' =>'car'))); ?>
     <div class="section">
@@ -14,14 +14,14 @@
                 <tr>
                     <td valign='top'>
 
-                        <img src="assets/images/<?= $value['car_BigImg'] ?>" alt="car image" class="car_pic" <?php echo $id.$num."'"; ?>  >
+                        <img src="<?= img_path($value['car_BigImg']) ?>" alt="car image" class="car_pic" <?php echo $id.$num."'"; ?>  >
                         <div id="imgList">    	
 
                             <div id="list">
                                 <ul>
                                     <?php foreach ($value['photos'] as $image) { ?>
                                     
-                                    <li><img src="assets/images/<?= $image['photo'] ?>"  <?php echo $no.$num."'";?> /></li>
+                                    <li><img src="<?= img_path($image['photo']) ?>"  <?php echo $no.$num."'";?> /></li>
                                         
                                     <?php } ?>
                                     

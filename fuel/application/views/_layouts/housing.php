@@ -1,8 +1,8 @@
 <?php $this->load->view('_blocks/header') ?>
 
-<link rel="stylesheet" type="text/css" href="assets/css/housing.css">
-<link rel="stylesheet" type="text/css" href="assets/css/housePicDetail.css">
-<script type="text/javascript" src="assets/js/slidepics.js"></script>
+<?=css('housing.css')?>
+<?=css('housePicDetail.css')?>
+<?=js('slidepics_car.js')?>
 
 <div id="wrapper">   <!--nav scrollbar on the left-->
 
@@ -32,7 +32,7 @@
             <table class="housing" border="2">
                 <tr>
                     <td >
-                        <img src="assets/images/<?= $value['house_img'] ?>" alt="House image" <?php echo $no.$num."'"; ?> class="housing_pic img-thumbnail" />
+                        <img src="<?= img_path($value['house_img']) ?>" alt="House image" <?php echo $no.$num."'"; ?> class="housing_pic img-thumbnail" />
 
                         <!-- House Details show in dialog-->
                         <div <?php echo $id_dialog.$num."'";?>  class="dialog" title="House Details:">
@@ -41,24 +41,24 @@
                                     <table>
                                         <tr>
                                             <td >
-                                                <img src="assets/images/<?= $value['house_img'] ?>"  class="img-thumbnail" <?php echo $id.$num."'"; ?>/>
+                                                <img src="<?= img_path($value['house_img']) ?>"  class="img-thumbnail" <?php echo $id.$num."'"; ?>/>
                                             </td>
                                         </tr>
                                     </table>
                                 </div>
                                 <div id="imgList">    	
-                                    <span id="prv"><a href="#"><img src="assets/images/left_arrow.gif" border="0"/></a></span>           
+                                    <span id="prv"><a href="#"><img src="<?=img_path('left_arrow.gif')?>" border="0"/></a></span>           
                                     <div id="list">
                                         <ul>
                        <?php foreach ($value['photos'] as $image) {   ?>
                               
-                                                <li> <img src="assets/images/<?=$image['photo']  ?>" <?php echo $no.$num."'"; ?> />
+                                                <li> <img src="<?=img_path($image['photo'])  ?>" <?php echo $no.$num."'"; ?> />
                                                 </li>  
                                                     <?php } ?>              
                                           
                                         </ul>
                                     </div>
-                                    <span id="next"><a href="#"><img src="assets/images/right_arrow.gif" border="0"/></a></span>    
+                                    <span id="next"><a href="#"><img src="<?=img_path('right_arrow.gif')?>" border="0"/></a></span>    
                                 </div>
                             </div>
 

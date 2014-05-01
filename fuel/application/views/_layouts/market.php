@@ -327,7 +327,7 @@
         padding: 4px 4px 0px 4px;
         box-shadow: 0px 0px 2px 1px #333;
         z-index:9999;
-        height:200px;
+        height:220px;
         margin-left:-330px;
         margin-top:-30px;
         opacity: 0.6;
