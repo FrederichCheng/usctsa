@@ -14,9 +14,7 @@
     </div>-->
     <?= fuel_block(array('view' => 'market_nav', 'vars' => array('categoryName' =>'housing'))); ?>
     <div>
-        <h1>Housing</h1>
-        <br />
-
+        <h1><?= lang('tsa_housing') ?></h1>
     </div>
 
     <div class="section">

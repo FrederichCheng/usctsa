@@ -43,3 +43,5 @@ $lang['tsa_calendar_fb_connection_fail'] = "Unable to retrieve data from Faceboo
 $lang['tsa_calendar_show_map'] = 'Show Map';
 $lang['tsa_calendar_hide_map'] = 'Hide Map';
 $lang['tsa_calendar_information'] = 'Information';
+
+$lang['tsa_housing'] = 'Housing Information';

@@ -41,3 +41,5 @@ $lang['tsa_calendar_fb_connection_fail'] = "無法與 Facebook 連線";
 $lang['tsa_calendar_show_map'] = '顯示地圖';
 $lang['tsa_calendar_hide_map'] = '隱藏地圖';
 $lang['tsa_calendar_information'] = '資訊';
+
+$lang['tsa_housing'] = '租屋資訊';
