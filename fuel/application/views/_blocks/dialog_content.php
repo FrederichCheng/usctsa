@@ -38,7 +38,7 @@
     </ul>
     <div class="description panel panel-default">
         <div class="panel-heading"> 
-            <span class="glyphicon glyphicon-info-sign"></span> <span class="description-header">Information</span> 
+            <span class="glyphicon glyphicon-info-sign"></span> <span class="description-header"><?=lang('tsa_calendar_information')?></span> 
             <span class="link"><a href="#"><span class="glyphicon glyphicon-new-window"></span><span> Facebook </span></a></span>
         </div>
         <div class="panel-body"></div>
@@ -49,6 +49,6 @@
         <span class="glyphicon glyphicon-star-empty"></span> Save
     </button>-->
     <button id="close_btn" type="button" class="btn btn-default btn-lg">
-        <span class="glyphicon glyphicon-remove-circle"></span> Close
+        <span class="glyphicon glyphicon-remove-circle"></span> <?=lang('tsa_dialog_close')?>
     </button>
 </div>

@@ -1,9 +1,7 @@
 <!-- last modified date: Apr 3, 2014 by sky -->
 
 <?php $this->load->view('_blocks/header') ?>
-
-
-		<link rel="stylesheet" type="text/css" href="<?= assets_path('css/newstudents.css') ?>">
+<?= css('newstudents.css') ?>
 		
 		<!-- nav scroll -->
 		<div id="navscroll" class="pageScrollerNav standardNav right dark">

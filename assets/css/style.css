@@ -107,12 +107,25 @@ body
 {
     float:right;
     height: 100%;
+    margin-right:5px;
+}
+
+#contact .links{
+    display: table;
+    text-align:right;
+}
+
+#contact .lang-links{
+    display: table-row;
+    height: 35px;
 }
 
 .social-icons
 {
-	/* margin: 75px 150px 0 0; */
-	/* height: 100%; */
+    
+    display:table-row;
+    height: 95px;
+	/* margin: 75px 150px 0 0; *
 	margin-right: 10px;
 	margin-top: 100px;
 	/* float: right; */
@@ -121,13 +134,18 @@ body
 	/*border: 1px solid rgb(130,0,5);*/
 }
 
+.social-icons ul{
+    vertical-align: bottom;
+    display:table-cell;
+}
+
 .social-icons li
 {
 	display: inline;
 	list-style: none;
 	text-indent: -9999px;
 	/*margin-left: 5px;*/
-	float: left;
+	float: right;
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
@@ -151,6 +169,7 @@ body
 
 .facebook
 {
+        text-align: left;
 	background: url(../images/facebook.png) no-repeat;
 }
 

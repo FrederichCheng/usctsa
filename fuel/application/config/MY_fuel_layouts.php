@@ -67,6 +67,7 @@ $about_sections = array(
                         )
     );
 
+
 $about_layout = new Fuel_layout('about');
 $about_layout->set_description('This is the about layout');
 $about_layout->set_label('about');

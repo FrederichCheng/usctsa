@@ -83,6 +83,9 @@ $config['ck_editor_settings'] = "{
 	removePlugins: 'link,image'
 	}";
 
+$config['languages'] = array('english' => 'English', 'chinese' => '中文');
+$config['add_language_to_site_url'] = TRUE;
+
 /* Uncomment if you want to control FUEL settings in the CMS. Below are a couple examples of ones you can configure
 $config['settings'] = array();
 $config['settings']['site_name'] = array();

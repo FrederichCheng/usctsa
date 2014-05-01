@@ -8,8 +8,29 @@ $this->load->view('_blocks/header') ?>
     $GROUP_ID = '12171823426';
     ?>
     <script>
-        var DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-        var MONTHES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        var DAYS = [
+            "<?=lang('tsa_calendar_sun')?>",
+            "<?=lang('tsa_calendar_mon')?>", 
+            "<?=lang('tsa_calendar_tue')?>", 
+            "<?=lang('tsa_calendar_wed')?>",
+            "<?=lang('tsa_calendar_thu')?>", 
+            "<?=lang('tsa_calendar_fri')?>",
+            "<?=lang('tsa_calendar_sat')?>"
+        ];
+        var MONTHES = [
+            "<?=lang('tsa_calendar_jan')?>",
+            "<?=lang('tsa_calendar_feb')?>", 
+            "<?=lang('tsa_calendar_mar')?>", 
+            "<?=lang('tsa_calendar_apr')?>",
+            "<?=lang('tsa_calendar_may')?>", 
+            "<?=lang('tsa_calendar_jun')?>",
+            "<?=lang('tsa_calendar_jul')?>",
+            "<?=lang('tsa_calendar_aug')?>", 
+            "<?=lang('tsa_calendar_sep')?>",
+            "<?=lang('tsa_calendar_oct')?>", 
+            "<?=lang('tsa_calendar_nov')?>",
+            "<?=lang('tsa_calendar_dec')?>"
+        ];
         var GROUP_ID = '<?= $GROUP_ID ?>';
         var APP_ID = '<?= $APP_ID ?>';
         var ACCESS_TOKEN = '';
@@ -122,7 +143,7 @@ $this->load->view('_blocks/header') ?>
         }
 
         function fbError(response) {
-            displayMessage("Unable to retrieve data from Facebook");
+            displayMessage("<?=lang('tsa_calendar_fb_connection_fail')?>");
             console.log("unable to retrieve data from Facebook: " + JSON.stringify(response.error));
         }
 
@@ -189,7 +210,7 @@ $this->load->view('_blocks/header') ?>
             }
 
             if (itemCount === 0) {
-                displayMessage("No Events in This Month");
+                displayMessage("<?=lang('tsa_calendar_no_event')?>");
             }
             else {
                 hideMessage();
@@ -201,7 +222,7 @@ $this->load->view('_blocks/header') ?>
             if (dialogs.indexOf(id) >= 0)
                 return;
 
-            FB.api('/' + id + '?access_token=' + ACCESS_TOKEN, function(response) {
+            FB.api('/' + id + '?fields=description,start_time,location,venue,owner,id,name,picture,cover&access_token=' + ACCESS_TOKEN, function(response) {
                 if (!response || response.error) {
                     fbError(response);
                     return;
@@ -211,79 +232,101 @@ $this->load->view('_blocks/header') ?>
                 dialog.removeAttr('id');
                 dialog.find('.center-message').remove();
                 
-                var userLink = 'http://www.facebook.com/' + response.owner.id;
+                
                 var postLink = 'http://www.facebook.com/events/' + response.id;
-                $('<a>').attr('class', 'text').attr('href', userLink).attr('target', '_blank').text(response.owner.name).appendTo(dialog.find('span.host'));
+                
+                if(typeof(response.owner) !== 'undefined'){
+                    var userLink = 'http://www.facebook.com/' + response.owner.id;
+                    $('<a>').attr('class', 'text').attr('href', userLink).attr('target', '_blank').text(response.owner.name).appendTo(dialog.find('span.host'));
+                }
+                else{
+                    $('<span>').attr('class', 'text').text('Unknown').appendTo(dialog.find('span.host'));
+                }
+                
                 var date = makeDate(response['start_time']);
                 dialog.find('span.time').html(formatTime(date));
                 dialog.find('span.date').html(formatDate(date));
                 dialog.find('span.location').html(response.location);
                 var desc = makeAllLinksA(response.description).replace(/\n/g, '<br/>');
-                dialog.find('.description .panel-body').html(desc);
+                var descSpan = $('<span>').addClass('description-text').html(desc);
+                var descBody = dialog.find('.description .panel-body');
+                if(typeof(response.picture) !== 'undefined' && typeof(response.picture.data) !== 'undefined'){
+                    var container = $('<span>').addClass('cover-container');
+                    var eventPic = $('<img>').attr('src',response.picture.data.url).css({float:'left', padding:'5px'}).appendTo(container);
+                    if(typeof(response.cover) !== 'undefined'){
+                        var zoom = $('<span>').addClass('glyphicon glyphicon-zoom-in').appendTo(container);
+                        eventPic.addClass('event-picture');
+                        $('<img>').addClass('event-cover').attr('src',response.cover.source).css({float:'left',height:100}).appendTo(container);
+                    }
+                    container.appendTo(descBody);
+                }
+                
+                descBody.append(descSpan);
                 dialog.find('.description .link a').attr('href', postLink).attr('target', '_blank');
+                if(typeof(response.venue) !== 'undefined'){
+                    if (typeof (response.venue.street) !== 'undefined') {
+                        var address = response.venue.street + ', ' + response.venue.city;
+                        +', ' + response.venue.state + ' ' + response.venue.zip;
+                        dialog.find('span.address').html(address);
+                        var button = dialog.find('.map-button');
+                        button.find('.glyphicon').removeClass('glyphicon-collapse-up').addClass('glyphicon-collapse-down');
+                        button.find('.map-label').html("<?=lang('tsa_calendar_show_map')?>");
 
-                if (typeof (response.venue.street) !== 'undefined') {
-                    var address = response.venue.street + ', ' + response.venue.city;
-                    +', ' + response.venue.state + ' ' + response.venue.zip;
-                    dialog.find('span.address').html(address);
-                    var button = dialog.find('.map-button');
-                    button.find('.glyphicon').removeClass('glyphicon-collapse-up').addClass('glyphicon-collapse-down');
-                    button.find('.map-label').html('Show map');
+                        button.click((function(dialog) {
+                            var mapToggle = false;
+                            var canva = null;
+                            return function() {
+                                if (mapToggle === null) {
+                                    return;
+                                }
+                                var mapDiv = dialog.find(".map");
+                                var button = dialog.find('.map-button');
 
-                    button.click((function(dialog) {
-                        var mapToggle = false;
-                        var canva = null;
-                        return function() {
-                            if (mapToggle === null) {
-                                return;
-                            }
-                            var mapDiv = dialog.find(".map");
-                            var button = dialog.find('.map-button');
-
-                            if (!mapToggle) {
-                                mapDiv.css("display", "block");
-                                mapToggle = null;
-                                mapDiv.animate({height: 200}, 800,
-                                        function() {
-                                            button.find('.glyphicon').removeClass('glyphicon-collapse-down').addClass('glyphicon-collapse-up');
-                                            button.find('.map-label').html('Hide map');
-                                            mapToggle = true;
+                                if (!mapToggle) {
+                                    mapDiv.css("display", "block");
+                                    mapToggle = null;
+                                    mapDiv.animate({height: 200}, 800,
+                                            function() {
+                                                button.find('.glyphicon').removeClass('glyphicon-collapse-down').addClass('glyphicon-collapse-up');
+                                                button.find('.map-label').html("<?=lang('tsa_calendar_hide_map')?>");
+                                                mapToggle = true;
+                                            });
+                                    if (canva === null) {
+                                        canva = $('<div>').attr('class', 'map-canva').css({height: 200, 'z-index': '0'});
+                                        mapDiv.append(canva);
+                                        var latlng = new google.maps.LatLng(response.venue.latitude, response.venue.longitude);
+                                        var mapOptions = {
+                                            zoom: 12,
+                                            center: latlng
+                                        };
+                                        var map = new google.maps.Map(canva.get(0), mapOptions);
+                                        var marker = new google.maps.Marker({
+                                            position: latlng,
+                                            map: map,
+                                            title: response.location
                                         });
-                                if (canva === null) {
-                                    canva = $('<div>').attr('class', 'map-canva').css({height: 200, 'z-index': '0'});
-                                    mapDiv.append(canva);
-                                    var latlng = new google.maps.LatLng(response.venue.latitude, response.venue.longitude);
-                                    var mapOptions = {
-                                        zoom: 12,
-                                        center: latlng
-                                    };
-                                    var map = new google.maps.Map(canva.get(0), mapOptions);
-                                    var marker = new google.maps.Marker({
-                                        position: latlng,
-                                        map: map,
-                                        title: response.location
+                                    }
+                                }
+                                else {
+                                    mapToggle = null;
+                                    mapDiv.animate({height: 0}, 500, function() {
+                                        mapDiv.css("display", "none");
+                                        mapDiv.remove(".map-canva");
+                                        button.find('.glyphicon').removeClass('glyphicon-collapse-up').addClass('glyphicon-collapse-down');
+                                        button.find('.map-label').html("<?=lang('tsa_calendar_show_map')?>");
+                                        mapToggle = false;
                                     });
                                 }
-                            }
-                            else {
-                                mapToggle = null;
-                                mapDiv.animate({height: 0}, 500, function() {
-                                    mapDiv.css("display", "none");
-                                    mapDiv.remove(".map-canva");
-                                    button.find('.glyphicon').removeClass('glyphicon-collapse-up').addClass('glyphicon-collapse-down');
-                                    button.find('.map-label').html('Show map');
-                                    mapToggle = false;
-                                });
-                            }
-                        };
-                    })(dialog));
+                            };
+                        })(dialog));
+                    }
                 }
-
+                
                 function closeHandle(id, dialog) {
                     return function() {
                         var index = dialogs.indexOf(id);
                         dialogs.splice(index, 1);
-                        dialog.dialog("close");
+                        dialog.dialog("<?=lang('tsa_dialog_close')?>");
                     };
                 }
 
@@ -410,7 +453,7 @@ $this->load->view('_blocks/header') ?>
         }
 
         #jump_to_today_wrapper{
-            width:600px;
+            width:580px;
             display: table-cell;
             text-align:left;
             vertical-align:middle;
@@ -495,6 +538,7 @@ $this->load->view('_blocks/header') ?>
 
         .date_panel_wrapper{
             display:table-cell;
+            width: auto;
         }
 
         .date_panel{
@@ -638,6 +682,34 @@ $this->load->view('_blocks/header') ?>
         .map-item{
             display:none;
         }
+        
+        .cover-container:hover .event-cover{
+            display:inline-block;
+            padding:5px;
+        }
+        
+        .cover-container{
+            float:right;
+        }
+        
+        .cover-container:hover .event-picture{
+            display:none;
+        }
+        .event-cover{
+            display:none;
+        }
+        
+        .cover-container:hover .glyphicon-zoom-in{
+            display:none;
+        } 
+        
+        .cover-container .glyphicon-zoom-in{
+            float:left;
+            font-size: 20px;
+            margin-left:-28px;
+            margin-top:32px;
+            color:white;
+        }
 
     </style>
 
@@ -668,7 +740,7 @@ $this->load->view('_blocks/header') ?>
             <div id="centerMessage">
                 <div class="text">
                     <div id="fbButton"><fb:login-button size="xlarge" onlogin="initializeEvents();"></fb:login-button></div>
-                    <div id="loginMessage">Please login to view</div>
+                    <div id="loginMessage"><?=lang('tsa_calendar_login')?></div>
                 </div>
             </div>
             <table id="calendar">

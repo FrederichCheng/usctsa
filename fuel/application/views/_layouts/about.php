@@ -1,4 +1,5 @@
 <?php $this->load->view('_blocks/header') ?>
+<?=css('about.css')?>
 
 <!-- ABOUT -->
 <div id="wrapper">
@@ -6,18 +7,16 @@
     <!-- nav scroll -->
     <div id="navscroll" class="pageScrollerNav standardNav right dark">
         <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Members</a></li>
+            <li><a href="#"><?= lang('tsa_about') ?></a></li>
+            <li><a href="#"><?= lang('tsa_members') ?></a></li>
 
         </ul>
     </div>
-    <link rel="stylesheet" type="text/css" href="assets/css/about.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     
     <div class="section">
-        <h1>About Us </h1>
+        <h1 class="scroll-headline"> <?= lang('tsa_about') ?> </h1>
         <p class="about_us">
-            <?= fuel_var('about_content') ?>             
+            <?= fuel_var('about_content','') ?>             
         </p>
     </div>
     <!-- ABOUT ends -->
@@ -26,14 +25,14 @@
 
     <!-- MEMBERS -->
     <div class="section">
-        <h1 class="title">Members</h1>
+        <h1 class="title"><?= lang('tsa_members') ?></h1>
         <!-- First row of members -->
         <div id="members">
         <?php foreach ($sections as $value) { ?>
             <div class="member_frame">
                     <div class="member_photo_frame">
                         <div class="member_photo">
-                            <img src="assets/images/<?= $value['photo'] ?>" alt="<?=$value['title']."'s photo"?>" class="profile_pic">
+                            <img src="<?= img_path($value['photo']) ?>" alt="<?=$value['title']."'s photo"?>" class="profile_pic">
                         </div>
                         <div class="member_title"><?= $value['title'] ?></div>
                     </div>

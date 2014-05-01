@@ -1,3 +1,7 @@
+<?php 
+    $CI->lang->load('tsa', detect_lang());
+?>
+
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
@@ -13,10 +17,10 @@
         <script type="text/javascript" src="<?= assets_path('js/jquery.js') ?>"></script>
         <script type="text/javascript" src="<?= assets_path('js/main.js') ?>"></script>
         <script type="text/javascript" src="<?= assets_path('js/json2.js') ?>"></script>
+        <script type="text/javascript" src="<?= assets_path('js/bootstrap-3.1.1/js/bootstrap.min.js')?>"></script>
         <script type="text/javascript" src="<?= assets_path('js/jquery-ui/js/jquery-ui-1.10.4.custom.min.js') ?>"></script>
         <script type="text/javascript" src="<?= assets_path('js/jquery.pagescroller.lite.js') ?>"></script>
-        <script type="text/javascript" src="<?= assets_path('js/bootstrap-3.1.1/js/bootstrap.min.js')?>"></script>
-
+        
     </head>
     <body>
             <div id="middle-frame">
@@ -32,10 +36,17 @@
 
                     <!-- Social Icons -->
                     <div id="contact">
-                        <div class="social-icons">
-                            <ul>
-                                <li class="facebook"><a href="https://www.facebook.com/groups/usctsa/" target="_blank" title='Facebook'>Facebook</a></li>
-                            </ul>
+                        <div class="links">
+                            <div class="lang-links">
+                                <a href="<?= site_url('/',FALSE, lang('tsa_change_language_link'))?>"> 
+                                    <?=lang('tsa_change_language_label')?> 
+                                </a>
+                            </div>
+                            <div class="social-icons">
+                                <ul>
+                                    <li class="facebook"><a href="https://www.facebook.com/groups/usctsa/" target="_blank" title='Facebook'>Facebook</a></li>
+                                </ul>
+                            </div>
                         </div>
 
                         <!-- Contact Details -->
@@ -50,7 +61,7 @@
                 </div>
                 <div id="nav_bar">
                     <nav>
-                        <?= fuel_nav(array('render_type' => 'basic')); ?>
+                        <?= fuel_nav(array('render_type' => 'basic', 'language' => detect_lang())); ?>
                     </nav>
                 </div>
             </div>
