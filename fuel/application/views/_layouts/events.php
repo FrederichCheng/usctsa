@@ -326,7 +326,7 @@ $this->load->view('_blocks/header') ?>
                     return function() {
                         var index = dialogs.indexOf(id);
                         dialogs.splice(index, 1);
-                        dialog.dialog("<?=lang('tsa_dialog_close')?>");
+                        dialog.dialog("close");
                     };
                 }
 
