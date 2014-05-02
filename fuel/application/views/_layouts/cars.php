@@ -3,9 +3,12 @@
 <?=css('car.css')?>
 <div id="wrapper">
     <?= fuel_block(array('view' => 'market_nav', 'vars' => array('categoryName' =>'car'))); ?>
+    <div>
+         <h1><?= lang('tsa_cars') ?></h1>
+    </div>
+   
     <div class="section">
-        <h2>Used Cars Selling</h2>
-        
+            
         <?php $num=1; ?>
         <?php $id="id='imgB"; ?>
         <?php $no="no='"; ?>
@@ -33,28 +36,28 @@
 
                     </td>
                     <td class="car_descript" valign="top">
-                        <span>   <strong>Model:</strong> <?= $value['model'] ?> <br /></span> 
+                        <span>   <strong><?= lang('tsa_cars_model') ?>:</strong> <?= $value['model'] ?> <br /></span> 
                         
-                        <span>   <strong>Type:</strong> <?= $value['type'] ?> <br /></span> 
+                        <span>   <strong><?= lang('tsa_cars_type') ?>:</strong> <?= $value['type'] ?> <br /></span> 
                         
-                        <span>   <strong>Color:</strong> <?= $value['color'] ?> <br /></span> 
+                        <span>   <strong><?= lang('tsa_cars_color') ?>:</strong> <?= $value['color'] ?> <br /></span> 
                         
-                        <span>   <strong>Year:</strong> <?= $value['year'] ?> <br /></span> 
+                        <span>   <strong><?= lang('tsa_cars_year') ?>:</strong> <?= $value['year'] ?> <br /></span> 
 
-                        <span>   <strong>Miles:</strong> <?= $value['miles'] ?> <br /></span> 
+                        <span>   <strong><?= lang('tsa_cars_mile') ?>:</strong> <?= $value['miles'] ?> <br /></span> 
 
-                        <span>   <strong>Location:</strong> <?= $value['location'] ?><br /></span> 
+                        <span>   <strong><?= lang('tsa_cars_loc') ?>:</strong> <?= $value['location'] ?><br /></span> 
 
-                        <span>   <strong>Saler:</strong> <?= $value['saler'] ?> <br/></span>
+                        <span>   <strong><?= lang('tsa_cars_seller') ?>:</strong> <?= $value['saler'] ?> <br/></span>
 
-                        <span>   <strong>Mobile:</strong> <?= $value['mobile'] ?> <br /></span>
+                        <span>   <strong><?= lang('tsa_cars_mobile') ?>:</strong> <?= $value['mobile'] ?> <br /></span>
 
-                        <span>   <strong>Email:</strong> <?= $value['email'] ?> <br/></span>
+                        <span>   <strong><?= lang('tsa_cars_email') ?>:</strong> <?= $value['email'] ?> <br/></span>
 
-                        <span><strong>Price:</strong> <?= $value['price'] ?><br/></span>
+                        <span><strong><?= lang('tsa_cars_price') ?>:</strong> <?= $value['price'] ?><br/></span>
                         <br/><br/>
 
-                        <span><strong>Description:</strong> <?= $value['description'] ?> <br /></span>
+                        <span><strong><?= lang('tsa_cars_des') ?>:</strong> <?= $value['description'] ?> <br /></span>
                         
 
  </div>

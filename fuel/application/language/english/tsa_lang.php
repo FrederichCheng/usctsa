@@ -45,3 +45,23 @@ $lang['tsa_calendar_hide_map'] = 'Hide Map';
 $lang['tsa_calendar_information'] = 'Information';
 
 $lang['tsa_housing'] = 'Housing Information';
+$lang['tsa_housing_loc'] = 'Location';
+$lang['tsa_housing_price'] = 'Price';
+$lang['tsa_housing_des'] = 'Description';
+$lang['tsa_housing_style'] = 'Style';
+$lang['tsa_housing_park'] = 'Parking';
+$lang['tsa_housing_tel'] = 'Tel';
+$lang['tsa_housing_email'] = 'Email';
+
+$lang['tsa_cars'] = 'Used Cars Selling';
+$lang['tsa_cars_model'] = 'Model';
+$lang['tsa_cars_type'] = 'Type';
+$lang['tsa_cars_color'] = 'Color';
+$lang['tsa_cars_year'] = 'Year';
+$lang['tsa_cars_mile'] = 'Miles';
+$lang['tsa_cars_loc'] = 'Location';
+$lang['tsa_cars_seller'] = 'Seller';
+$lang['tsa_cars_mobile'] = 'Mobile';
+$lang['tsa_cars_email'] = 'Email';
+$lang['tsa_cars_price'] = 'Price';
+$lang['tsa_cars_des'] = 'Description';

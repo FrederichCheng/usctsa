@@ -43,3 +43,24 @@ $lang['tsa_calendar_hide_map'] = '隱藏地圖';
 $lang['tsa_calendar_information'] = '資訊';
 
 $lang['tsa_housing'] = '租屋資訊';
+$lang['tsa_housing_loc'] = '地址';
+$lang['tsa_housing_price'] = '租金';
+$lang['tsa_housing_des'] = '屋況描述';
+$lang['tsa_housing_style'] = '房型';
+$lang['tsa_housing_park'] = '停車位';
+$lang['tsa_housing_tel'] = '電話';
+$lang['tsa_housing_email'] = '電子信箱';
+
+
+$lang['tsa_cars'] = '二手車買賣';
+$lang['tsa_cars_model'] = '車款';
+$lang['tsa_cars_type'] = '車型';
+$lang['tsa_cars_color'] = '顏色';
+$lang['tsa_cars_year'] = '年份';
+$lang['tsa_cars_mile'] = '里程數';
+$lang['tsa_cars_loc'] = '地點';
+$lang['tsa_cars_seller'] = '賣家';
+$lang['tsa_cars_mobile'] = '電話';
+$lang['tsa_cars_email'] = '電子郵件';
+$lang['tsa_cars_price'] = '開價';
+$lang['tsa_cars_des'] = '車況描述';

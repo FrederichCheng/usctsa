@@ -20,7 +20,7 @@
     <div class="section">
 <!--        <h2>Long Term Contract</h2>-->
         
-        <div id="long_term">
+ 
         
         <?php $num=1; ?>
         <?php $id="id='imgB"; ?>
@@ -62,15 +62,15 @@
 
 
                             <div class="description">
-                                <span><strong>Description:</strong><?= $value['description'] ?><br /> </span>
+                                <span><strong><?= lang('tsa_housing_des') ?>:</strong><?= $value['description'] ?><br /> </span>
                                 
-                                <span><strong>Location:</strong><?= $value['location'] ?><br/> </span>
-                                <span><strong>Style:</strong><?= $value['style'] ?><br /> </span>
-                                <span><strong>Parking:</strong><?= $value['parking'] ?><br/> </span>
-                                <span><strong>Tel:</strong><?= $value['phone'] ?><br /> </span>
-                                <span><strong>Email:</strong><?= $value['email'] ?><br /> </span>
+                                <span><strong><?= lang('tsa_housing_loc') ?>:</strong><?= $value['location'] ?><br/> </span>
+                                <span><strong><?= lang('tsa_housing_style') ?>:</strong><?= $value['style'] ?><br /> </span>
+                                <span><strong><?= lang('tsa_housing_park') ?>:</strong><?= $value['parking'] ?><br/> </span>
+                                <span><strong><?= lang('tsa_housing_tel') ?>:</strong><?= $value['phone'] ?><br /> </span>
+                                <span><strong><?= lang('tsa_housing_email') ?>:</strong><?= $value['email'] ?><br /> </span>
                                 <br />
-                                <span><h4 id="price">Price: <?= $value['price'] ?> </h4> </span>
+                                <span><h4 id="price"><?= lang('tsa_housing_price') ?>: <?= $value['price'] ?> </h4> </span>
                                 <span>
                                 <?= $value['house_map'] ?>
                                 </span>
@@ -80,10 +80,10 @@
                     </td>
 
                     <td class="housing_descript" valign="top">
-                        <span><strong>Location:</strong> <?= $value['location'] ?> <br /> </span> 
-                        <span><strong>Price:</strong> <?= $value['price'] ?>/month<br/><br /></span>
+                        <span><strong><?= lang('tsa_housing_loc') ?>:</strong> <?= $value['location'] ?> <br /> </span> 
+                        <span><strong><?= lang('tsa_housing_price') ?>:</strong> <?= $value['price'] ?>/month<br/><br /></span>
 
-                        <span><strong>Description:</strong>
+                        <span><strong><?= lang('tsa_housing_des') ?>:</strong>
                         <?= $value['description'] ?>
                         </span>
 
@@ -92,8 +92,6 @@
            <?php $num++; ?>
         <?php } ?>   
             
-            </div>
-
 
         <br/><br/>
        
