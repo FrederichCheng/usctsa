@@ -23,11 +23,10 @@
         $category = 0;
     }
 
-    $categories = $CI->facebook_categories_model->find_all_published_array();
-
+    $categories = $CI->facebook_categories_model->find_all_array();
     $exists = FALSE;
     foreach($categories as $cat){
-        if($cat['id'] == $category){
+        if($cat['id'] == $category && $category != 0){
             $exists = TRUE;
             $categoryName = $cat['name'];
             if($language === 'chinese' && !empty($cat['chinese_name'])){
@@ -40,11 +39,11 @@
     }
 
     if($category > 0 && $exists){
-        $records = $CI->facebook_posts_model->find_all_published_array(array('category'=>$category), 'created_time desc', $limit, $first_page? NULL:($page-1)*$limit);
+        $records = $CI->facebook_posts_model->find_all_array(array('category'=>$category), 'created_time desc', $limit, $first_page? NULL:($page-1)*$limit);
     }
     else{
         $category = 0;
-        $records = $CI->facebook_posts_model->find_all_published_array(array(), 'created_time desc', $limit,$first_page? NULL: ($page-1)*$limit);
+        $records = $CI->facebook_posts_model->find_all_array(array(), 'created_time desc', $limit,$first_page? NULL: ($page-1)*$limit);
     }
 
 ?>
@@ -530,7 +529,7 @@
                 <?php
                     $page_count = 5;
                     $where = $category > 0 ? array('category'=>$category) : array();
-                    $total = $CI->facebook_posts_model->publushed_record_count($where);
+                    $total = $CI->facebook_posts_model->record_count($where);
                     $total_pages =  ceil($total/$limit);
                     $current_start = floor($page/$page_count)*$page_count;
                 ?>

@@ -1,12 +1,19 @@
 <?php $this->load->view('_blocks/header') ?>
 <?=js('slidepics_car.js')?>
 <?=css('car.css')?>
+<style>
+    #prototype_message{
+    }
+</style>
 <div id="wrapper">
     <?= fuel_block(array('view' => 'market_nav', 'vars' => array('categoryTag' =>'car'))); ?>
     <div>
          <h1><?= lang('tsa_cars') ?></h1>
     </div>
-   
+    <div id="prototype_message" class="alert alert-warning">
+        Since the entity recognition module is still under development, the data below is not from Facebook.
+        Checkout Cars posts from Facebook, click <a href="market?category=4"> link </a>.
+    </div>
     <div class="section">
             
         <?php $num=1; ?>

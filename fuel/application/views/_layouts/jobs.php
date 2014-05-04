@@ -29,6 +29,10 @@
 				<!-- Job Opportunity -->
 				<div class="section">
 					<h1><?=fuel_var('opportunity_heading', 'Job Opportunity')?></h1>
+                                            <div id="prototype_message" class="alert alert-warning">
+                                                Since the entity recognition module is still under development, the data below is not from Facebook.
+                                                Checkout Job posts from Facebook, click <a href="market?category=7"> link </a>.
+                                            </div>
 					<p><?=fuel_var('opportunity_description', '')?></p>	
 		
 					<table id="job_table">

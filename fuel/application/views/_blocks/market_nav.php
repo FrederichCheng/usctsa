@@ -8,7 +8,7 @@
 if(!isset($categories)){
     require_once(FACEBOOK_PATH . 'models/facebook_categories_model.php');
     $CI->load->model('facebook/facebook_categories_model','facebook_categories_model');
-    $categories = $CI->facebook_categories_model->find_all_published_array();
+    $categories = $CI->facebook_categories_model->find_all_array();
 }
 
 if(!isset($category)){
@@ -123,6 +123,7 @@ if(empty($language)){
             <li class='<?= 0 == $category? 'active' :'' ?>' ><a href="market"><?=lang('tsa_market_all')?></a></li>
             <?php 
             foreach ($categories as $record): ?>
+            <?php if($record['id'] < 1 || $record['published'] == 'no') continue; ?>
             <li class='<?= $record['id'] == $category? 'active' :'' ?>'>
                 <?php 
                     $name = $language == 'chinese' && !empty($record['chinese_name']) ? $record['chinese_name'] : $record['name'];
