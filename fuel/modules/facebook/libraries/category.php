@@ -17,9 +17,11 @@ abstract class Category {
     
     protected $id;
     protected $name;
-    public function __construct($id,$name){
+    protected $tag;
+    public function __construct($id,$name,$tag){
         $this->id = $id;
         $this->name = $name;
+        $this->tag = $tag;
     }
     
     public function getName(){
@@ -30,5 +32,10 @@ abstract class Category {
     public function getId(){
         return $this->id;
     }
+    
+    public function getTag(){
+        return $this->tag;
+    }
+    
 }
 

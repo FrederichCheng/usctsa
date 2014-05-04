@@ -56,6 +56,6 @@ $config['modules']['facebook_categories'] = array(
 //	'instructions' => lang('pages_instructions'),
 //	'archivable' => TRUE,
 	'sanitize_input' => array('template','php'),
-	'list_actions' => array(),
+	'list_actions' => array('facebook/facebook_categories/upload' => 'Upload Training Data'),
 	//'item_actions' => array('delete','create'),
 );

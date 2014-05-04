@@ -18,9 +18,11 @@ class Facebook_categories_model extends Base_module_model {
     function __construct(){
         parent::__construct('facebook_categories');
         $this->hidden_fields = array('count');
+        $this->db->save_queries = false;
     }
+    
     function list_items($limit = NULL, $offset = 0, $col = 'id', $order = 'asc', $just_count = FALSE) {
-        $this->db->select('id, name ,count as sample_count, redirect, published');
+        $this->db->select('id, name, tag, chinese_name ,count as sample_count, redirect, published');
         $this->db->where('id > 0');
         return parent::list_items($limit, $offset, $col, $order, $just_count);
     }
@@ -33,6 +35,13 @@ class Facebook_categories_model extends Base_module_model {
         $query = $this->db->get_where('facebook_categories', array('id' => $id, 'published' => 'yes'));
         $count= $query->num_rows();
         return $count > 0;
+    }
+    
+    function incrementCategory($tag){
+        $db = $this->db;
+        $db->set('count', 'count+1', FALSE);
+        $db->where('tag', $tag);
+        $db->update('facebook_categories');
     }
     
     function find_all_published_array($where = array(), $order_by = NULL, $limit = NULL, $offset = NULL) {

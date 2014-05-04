@@ -18,8 +18,8 @@ class category_impl extends Category{
     private $wordModel;
     private $published;
     
-    public function __construct($id, $name, $published, $postModel) {
-        parent::__construct($id,$name);
+    public function __construct($id, $name, $tag, $published, $postModel) {
+        parent::__construct($id,$name,$tag);
         $this->wordModel = $postModel;
         $this->published = $published;
     }
@@ -30,20 +30,37 @@ class category_impl extends Category{
         $this->wordModel->db->from('facebook_words');
         $this->wordModel->db->where(array('word'=> $word, 'category'=> $this->id));
         $query = $this->wordModel->db->get();
-        $occ = $query->result()[0]->count;
+        $rows = $query->num_rows();
+        if($rows == 0){
+            return 0;
+        }
+        
+        foreach ($query->result() as $row)
+        {
+            $occ = $row->count;
+            break;
+        }
+
+        $query->free_result();
         return $occ;
     }
 
     public function getTotalWords() {
         
         if(NULL === $this->totalWords){
-            $sql = sprintf("select sum(facebook_words.count) as sum "
-                    . "from facebook_words, facebook_categories"
-                    . " where facebook_categories.name='%s' and facebook_categories.id = category group by category", $this->name);
-
-            $this->wordModel->db->select($sql);
-            $query = $this->wordModel->db->get();
-            $this->totalWords = $query->result()[0]->sum;
+            $this->wordModel->db->where(array('category'=> $this->id));
+            $this->wordModel->db->select_sum('count');
+            $query = $this->wordModel->db->get('facebook_words');
+            $rows = $query->num_rows();
+            if($rows == 0){
+                return 0;
+            }
+            foreach ($query->result() as $row)
+            {
+                $this->totalWords = $row->count;
+                break;
+            }
+            
             $query->free_result();
         }
         

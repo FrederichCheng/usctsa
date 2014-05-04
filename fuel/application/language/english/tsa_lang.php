@@ -44,6 +44,8 @@ $lang['tsa_calendar_show_map'] = 'Show Map';
 $lang['tsa_calendar_hide_map'] = 'Hide Map';
 $lang['tsa_calendar_information'] = 'Information';
 
+$lang['tsa_market_all'] = 'All';
+
 $lang['tsa_housing'] = 'Housing Information';
 $lang['tsa_housing_loc'] = 'Location';
 $lang['tsa_housing_price'] = 'Price';

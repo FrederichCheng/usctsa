@@ -2,7 +2,10 @@
 
 require_once(FUEL_PATH . '/libraries/Fuel_base_controller.php');
 require_once(FACEBOOK_PATH . 'libraries/HTMLhelper.php');
+require_once(FACEBOOK_PATH . 'helpers/classifier_helper.php');
+require_once(FACEBOOK_PATH . 'libraries/naive_bayes_classifier.php');
 require_once(FACEBOOK_PATH . 'models/facebook_posts_model.php');
+require_once(FACEBOOK_PATH . 'models/facebook_words_model.php');
 require_once(FUEL_FOLDER . '/FacebookSDK/facebook.php');
 
 class Facebook_post_import extends Fuel_base_controller {
@@ -10,10 +13,13 @@ class Facebook_post_import extends Fuel_base_controller {
     public $nav_selected = 'facebook/facebook_post_import';
     private $APP_ID = '445984512214350';
     private $GROUP_ID = '12171823426';
+    private $classifier = NULL;
     
     function __construct() {
         parent::__construct();
         $this->load->model('facebook_posts_model');
+        $this->load->model('facebook_words_model', 'words');
+        $this->classifier = new Naive_Bayes_Classifier($this->words);
     }
 
     function index() {
@@ -52,14 +58,19 @@ class Facebook_post_import extends Fuel_base_controller {
                     ));
                 }
                 else{
-                    $r  = rand(3,8);
-                    if($r >= 6 && $r <= 7){
-                        $r = 3;
+                    $str = '';
+                    if(!(empty($record['message']) || empty($record['description']))){
+                        $str = $record['message'].' '.$record['description'];
                     }
-                    
-                    $record['category'] = $r;
+                    else if(!empty($record['message'])){
+                        $str = $record['message'];
+                    }
+                    else if(!empty($record['description'])){
+                        $str = $record['description'];
+                    }                    
                     
                     $where = array('facebook_id'=> $record['facebook_id']);
+                    
                     if($this->facebook_posts_model->record_exists($where)){
                         
                         $this->facebook_posts_model->update($record, $where);     
@@ -69,7 +80,10 @@ class Facebook_post_import extends Fuel_base_controller {
                         ));
                     }
                     else{
+                        $segments = getSegments($str);
+                        $record['category'] = $this->classifier->classify($segments);
                         $this->facebook_posts_model->insert($record);
+                        
                         echo json_encode(array(
                             'status' => 'insert',
                             "msg" => "post is inserted"

@@ -7,10 +7,11 @@
     $this->load->view('_blocks/header');
     $CI->load->model('facebook/facebook_posts_model','facebook_posts_model');
     $CI->load->model('facebook/facebook_categories_model','facebook_categories_model');
+    
+    $language = detect_lang();
     $category = $this->input->get('category');
 
     $limit = $post_per_page;
-    
     $page = $this->input->get('page');
     $first_page = false;
     if(!isset($page) || !is_numeric($page) || $page<=1){
@@ -29,6 +30,11 @@
         if($cat['id'] == $category){
             $exists = TRUE;
             $categoryName = $cat['name'];
+            if($language === 'chinese' && !empty($cat['chinese_name'])){
+                $categoryName = $cat['chinese_name'];
+            }
+            
+            $categoryTag = $cat['tag'];
             break;
         }
     }
@@ -447,7 +453,7 @@
 
 </style>
 <div id="wrapper">
-    <?= fuel_block(array('view' => 'market_nav', 'vars' => array('categories' => $categories, 'category' => $category))); ?>
+    <?= fuel_block(array('view' => 'market_nav', 'vars' => array('categories' => $categories, 'category' => $category, 'language' => $language))); ?>
     <div class="pagewidth">
         
         <h2>

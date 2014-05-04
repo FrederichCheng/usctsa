@@ -14,9 +14,9 @@ if(!isset($categories)){
 if(!isset($category)){
     $category = 0;
     
-    if(isset($categoryName)){
+    if(isset($categoryTag)){
         foreach($categories as $cat){
-            if( strtolower($cat['name']) === strtolower($categoryName)){
+            if( strtolower($cat['tag']) === strtolower($categoryTag)){
                 $category = $cat['id'];
                 break;
             }
@@ -116,16 +116,19 @@ if(!isset($category)){
 
 <div class=" standardNav pageScrollerNav right dark">
         <ul>
-            <li class='<?= 0 == $category? 'active' :'' ?>' ><a href="market">all</a></li>
+            <li class='<?= 0 == $category? 'active' :'' ?>' ><a href="market"><?=lang('tsa_market_all')?></a></li>
             <?php 
-            foreach ($categories as $record){ ?>
-            <li class='<?= $record['id'] == $category? 'active' :'' ?>' >
-                <?php if($record['redirect'] === NULL){ ?>
-                <a href="<?='market?category='.$record['id']?>"><?=$record['name']?></a>
-                <?php }else{ ?>
-                <a href="<?=$record['redirect']?>"><?=$record['name']?></a>
-                <?php }?>
+            foreach ($categories as $record): ?>
+            <li class='<?= $record['id'] == $category? 'active' :'' ?>'>
+                <?php 
+                    $name = $language == 'chinese' && !empty($record['chinese_name']) ? $record['chinese_name'] : $record['name'];
+                ?>
+                <?php if($record['redirect'] === NULL || strlen(trim($record['redirect'])) == 0): ?>
+                <a href="<?='market?category='.$record['id']?>"><?=$name?></a>
+                <?php else: ?>
+                <a href="<?=$record['redirect']?>"><?=$name?></a>
+                <?php endif;?>
             </li>
-            <?php }?>
+            <?php endforeach;?>
         </ul>
 </div>
