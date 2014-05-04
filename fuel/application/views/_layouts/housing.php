@@ -12,7 +12,7 @@
             <li><A href="#">Sublease</A></li>
         </ul>
     </div>-->
-    <?= fuel_block(array('view' => 'market_nav', 'vars' => array('categoryName' =>'housing'))); ?>
+    <?= fuel_block(array('view' => 'market_nav', 'vars' => array('categoryTag' =>'housing'))); ?>
     <div>
         <h1><?= lang('tsa_housing') ?></h1>
     </div>

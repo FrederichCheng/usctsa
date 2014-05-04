@@ -2,7 +2,7 @@
 <?=js('slidepics_car.js')?>
 <?=css('car.css')?>
 <div id="wrapper">
-    <?= fuel_block(array('view' => 'market_nav', 'vars' => array('categoryName' =>'car'))); ?>
+    <?= fuel_block(array('view' => 'market_nav', 'vars' => array('categoryTag' =>'car'))); ?>
     <div>
          <h1><?= lang('tsa_cars') ?></h1>
     </div>
