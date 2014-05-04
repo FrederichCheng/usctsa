@@ -43,7 +43,7 @@
     }
     else{
         $category = 0;
-        $records = $CI->facebook_posts_model->find_all_array(array(), 'created_time desc', $limit,$first_page? NULL: ($page-1)*$limit);
+        $records = $CI->facebook_posts_model->find_all_published_array(array(), 'created_time desc', $limit,$first_page? NULL: ($page-1)*$limit);
     }
 
 ?>
@@ -508,7 +508,7 @@
                                     </a>
                                 </div>
 
-                                <div class="text"> <?= $feed['message'] ?> </div>
+                                <div class="text"> <?= empty($feed['message'])? $feed['description'] : $feed['message'] ?> </div>
                             </div>
                             <div class="time"><?= isset($feed['updated_time']) ? $feed['updated_time'] : $feed['created_time'] ?></div>
                         </div>
@@ -528,7 +528,7 @@
 
                 <?php
                     $page_count = 5;
-                    $where = $category > 0 ? array('category'=>$category) : array();
+                    $where = $category > 0 ? array('category'=>$category) : 'category > 0';
                     $total = $CI->facebook_posts_model->record_count($where);
                     $total_pages =  ceil($total/$limit);
                     $current_start = floor($page/$page_count)*$page_count;

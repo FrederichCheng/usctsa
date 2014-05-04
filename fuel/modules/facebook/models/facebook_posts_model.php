@@ -43,13 +43,6 @@ class Facebook_posts_model extends Base_module_model {
         }
     }
     
-    public function record_count($where = array()) {
-        $this->db->join('facebook_categories', 'facebook_categories.id = category', 'left');
-        $this->db->where('category != 0');
-        //$this->db->where(array('published' => 'yes'));
-        return parent::record_count($where);
-    }
-
     public function find_all_published_array($where = array(), $order_by = NULL, $limit = NULL, $offset = NULL) {
         $this->db->join('facebook_categories', 'facebook_categories.id = category', 'left');
         $this->db->where('category != 0');
