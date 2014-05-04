@@ -24,6 +24,10 @@ if(!isset($category)){
     }
 }
 
+if(empty($language)){
+    $language = detect_lang();
+}
+
 ?>
 
 <style>
