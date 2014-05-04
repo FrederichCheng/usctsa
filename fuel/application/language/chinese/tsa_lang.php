@@ -43,6 +43,8 @@ $lang['tsa_calendar_hide_map'] = '隱藏地圖';
 $lang['tsa_calendar_information'] = '資訊';
 
 $lang['tsa_market_all'] = '全部分類';
+$lang['tsa_market_prototype_message'] = '由於資料截取器尚在開發中, 以下資料並非來自 Facebook.
+        請點選 %2$s 看 Facebook 的 %1$s 訊息。';
 
 $lang['tsa_housing'] = '租屋資訊';
 $lang['tsa_housing_loc'] = '地址';

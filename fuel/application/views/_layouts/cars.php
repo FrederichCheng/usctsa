@@ -11,8 +11,7 @@
          <h1><?= lang('tsa_cars') ?></h1>
     </div>
     <div id="prototype_message" class="alert alert-warning">
-        Since the entity recognition module is still under development, the data below is not from Facebook.
-        Checkout Cars posts from Facebook, click <a href="market?category=4"> link </a>.
+        <?= lang('tsa_market_prototype_message','Car', ' <a href="market?category=4"> link </a>')?>
     </div>
     <div class="section">
             

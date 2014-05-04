@@ -45,6 +45,8 @@ $lang['tsa_calendar_hide_map'] = 'Hide Map';
 $lang['tsa_calendar_information'] = 'Information';
 
 $lang['tsa_market_all'] = 'All';
+$lang['tsa_market_prototype_message'] = 'Since the entity recognition module is still under development, the data below is not from Facebook.
+        Checkout %1$s posts from Facebook, click %2$s.';
 
 $lang['tsa_housing'] = 'Housing Information';
 $lang['tsa_housing_loc'] = 'Location';

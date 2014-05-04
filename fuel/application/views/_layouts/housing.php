@@ -17,8 +17,7 @@
         <h1><?= lang('tsa_housing') ?></h1>
     </div>
     <div id="prototype_message" class="alert alert-warning">
-        Since the entity recognition module is still under development, the data below is not from Facebook.
-        Checkout Housing posts from Facebook, click <a href="market?category=3"> link </a>.
+        <?= lang('tsa_market_prototype_message','Housing', ' <a href="market?category=3"> link </a>')?>
     </div>
     <div class="section">
 <!--        <h2>Long Term Contract</h2>-->
