@@ -77,3 +77,17 @@ function getSegments($str){
     $segments = array_merge($eng, $chi);
     return $segments;
 }
+
+function printStructure($arr, $depth = 0){
+    echo sprintf('<div style="margin-left: %dpx" >', $depth*10);
+    if(is_array($arr)){
+        foreach($arr as $key => $elem){
+            echo $key.'=>';
+            printStructure($elem, $depth+1);
+        }
+    }
+    else{
+        echo $arr;
+    }
+    echo '</div>';
+}

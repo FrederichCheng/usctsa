@@ -1,7 +1,6 @@
 <?php
 
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+if (!defined('BASEPATH')) exit('No direct script access allowed');
 require_once(FUEL_PATH . 'models/base_module_model.php');
 require_once(FACEBOOK_PATH . 'libraries/HTMLhelper.php');
 require_once(FACEBOOK_PATH . 'models/facebook_categories_model.php');
@@ -28,6 +27,7 @@ class Facebook_posts_model extends Base_module_model {
     function ajax_change_post_category($params) {
         $query = $this->db->get_where('facebook_categories', array('id' => $params['category']));
         $count = $query->num_rows();
+        $query->free_result();
         if ($count > 0) {
             $this->db->where('id', $params['post_id']);
             $this->db->update('facebook_posts', array('category' => $params['category'], 'manual_set' => $params['category'] > 0));

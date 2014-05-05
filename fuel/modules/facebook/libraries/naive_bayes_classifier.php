@@ -33,18 +33,11 @@ class Naive_Bayes_Classifier{
         $probs = array();
         $last = NULL;
         foreach ($categories as $c) {
-            echo $this->wordModel->getCategoryOccurence($c);
-            echo '/'. $this->wordModel->getTotalSampleCount();
-            echo '<br>';
             $pc = $this->wordModel->getTotalSampleCount() > 0 ? log($this->wordModel->getCategoryOccurence($c) / $this->wordModel->getTotalSampleCount()) : 0; // P(c)
             
             foreach ($tokens as $token) {
                 $wordProb = // P(wi|c) with add-one smoothing
                         ($c->getWordOccurence($token) + 1) / ($c->getTotalWords() + $this->wordModel->getVocabularySize());
-                echo $token.':';
-                echo $c->getWordOccurence($token);
-                echo '/'. ($c->getTotalWords() + $this->wordModel->getVocabularySize());
-                echo '<br>';
                 $pc += log($wordProb); // P(c) * P(d|c)
             }
             
@@ -52,7 +45,7 @@ class Naive_Bayes_Classifier{
             $index++;
             $last = $c;
         }
-        var_dump($probs);
+
         $max = $last->getTag();
         foreach ($probs as $tag => $prob) {
             if ($prob > $probs[$max]) {
