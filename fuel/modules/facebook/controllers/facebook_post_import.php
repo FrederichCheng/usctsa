@@ -23,7 +23,7 @@ class Facebook_post_import extends Fuel_base_controller {
         $this->load->model('facebook_words_model', 'words');
         $this->facebook = new Facebook(array(
             'appId' => $this->APP_ID,
-            'secret' => $this->SECRET,
+            'secret' => $this->SECRET
         ));
         $this->classifier = new Naive_Bayes_Classifier($this->words);
     }
@@ -37,7 +37,8 @@ class Facebook_post_import extends Fuel_base_controller {
 
             $response = $this->facebook->api($uri);
             $records = array();
-
+            $users = array();
+            
             foreach ($response['data'] as $feed) {
 
                 $record = array();
@@ -53,10 +54,35 @@ class Facebook_post_import extends Fuel_base_controller {
                 }
 
                 if(!empty($fetchUser)){
-                    $record = array_merge($record, $this->fetchUser($record['user_id']));
+                    $users[] = $record['user_id'];
                 }
 
                 $records[] = $record;
+            }
+            
+            if(!empty($users)){
+                $queries = array();
+                foreach($users as $user){
+                    $queries[$user] = sprintf("SELECT pic_big , pic_cover, sex, uid from user where uid='%s'", $user);
+                }
+                
+                $param = array(
+                    'method' => 'fql.multiquery',
+                    'queries' => $queries
+                );
+                
+                $user_response = $this->facebook->api($param);
+                $user_records = array();
+                
+                foreach($user_response as $user){
+                    $user_records[$user['name']] = $user['fql_result_set'][0];
+                }
+                
+                foreach($records as &$record){
+                    $user_record = $user_records[$record['user_id']];
+                    $record = array_merge($record,$this->formatUserResponse($user_record));
+                }
+                
             }
             
             $result = array();
@@ -65,18 +91,19 @@ class Facebook_post_import extends Fuel_base_controller {
                 $result['nextPage'] = str_replace('https://graph.facebook.com/','', $response['paging']['next']);
             }
             $result['data'] = $records;
+            //printStructure($result);
+            $this->output->set_content_type('application/json');
             echo json_encode($result);
         }
 
     }
     
-    private function fetchUser($userId){
+    private function formatUserResponse($user_feed){
         $record = array();
-        $user_feed = $this->facebook->api('/'.$userId.'?fields=picture,link,gender,cover');
-        $record['user_picture'] = isset($user_feed['picture']) ? $user_feed['picture']['data']['url'] : NULL;
-        $record['user_cover'] = isset($user_feed['cover']) ? $user_feed['cover']['source'] : NULL;
-        $record['gender'] = isset($user_feed['gender']) ? $user_feed['gender'] : NULL;
-        $record['user_link'] = 'http://www.facebook.com/' . $userId;
+        $record['user_picture'] = isset($user_feed['pic_big']) ? $user_feed['pic_big']: NULL;
+        $record['user_cover'] = isset($user_feed['pic_cover']) ? $user_feed['pic_cover']['source'] : NULL;
+        $record['gender'] = isset($user_feed['sex']) ? $user_feed['sex'] : NULL;
+        $record['user_link'] = 'http://www.facebook.com/' . $user_feed['uid'];
         return $record;
     }
     

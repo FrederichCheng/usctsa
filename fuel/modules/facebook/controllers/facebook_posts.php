@@ -445,12 +445,86 @@ class facebook_posts extends Module {
     }
     
     public function analyze() {
-        $str = '日期：anytime-七月31日 地址：2660 Magnolia Ave, Los Angeles, CA 90007 '
-                . '房子出租 現有一位女室友 跟學校距離很近 步行至學校只需5-7分鐘 已有床 衣櫥 跟各種傢俱 '
-                . '廚具 電器 剛剛有housekeeper大掃除 可以馬上入住 $800/一個月 （一個房間）$1600/一個月'
-                . '（整個房子） 全包！ 男女均可 急租 價錢可商議 請inbox/短信8186813200 謝謝';
+
+
+        $APP_ID = '445984512214350';
+        $GROUP_ID = '12171823426';
+
+        $facebook = new Facebook(array(
+            'appId' => $APP_ID,
+            'secret' => '650f341095028ad446dafd7c57c258f2',
+        ));
+        $uri = $GROUP_ID.'/feed';
         
-        echo $this->classifier->classify($str);
+        $response = $facebook->api($uri);
+        $users = array();
+
+        foreach ($response['data'] as $feed) {
+                $users[] = $feed['from']['id'];
+        }
+
+        //if(!empty($users)){
+            $queries = array();
+            $count = 1;
+            foreach($users as $user){
+                $queries[$user] = sprintf("SELECT pic_big , pic_cover, sex from user where uid='%s'", $user);
+                $count++;
+            }
+
+            $param = array(
+                'method' => 'fql.multiquery',
+                'queries' => $queries
+            );
+
+            $user_response = $facebook->api($param);
+            printStructure($user_response);
+        //}
+
+        return ;
+        $params = array('method' => 'fql.query',
+                    'query' => sprintf('SELECT attachment FROM stream WHERE post_id="%s"', '12171823426_10152368107943427'));
+        $response = $facebook->api($params);
+        printStructure($response);
+//        foreach($response[0] as $attachment){
+//            foreach($attachment as $media){
+//                if(is_array($media)){
+//                    foreach($media as $element){
+//                        var_dump($element);
+//                        echo '<br>';
+//                    }
+//                }
+//                else{
+//                    var_dump($media);
+//                }
+//                echo '<br>';
+//            }
+//            echo '<br>';
+//        }
+        
+        return;
+        
+        $records = array();
+
+        foreach ($response['data'] as $feed) {
+            $record = array();
+            $record['facebook_id'] = $feed['id'];
+            $record['user_id'] = $feed['from']['id'];
+            $record['username'] = $feed['from']['name'];
+            $record['post_link'] = $feed['actions'][0]['link'];
+            foreach ($fields as $field) {
+                if (array_key_exists($field, $feed)) {
+                    $record[$field] = $feed[$field];
+                }
+            }
+            $user_feed = $facebook->api('/'.$record['user_id'].'?fields=picture,link,gender,cover');
+            $record['user_picture'] = isset($user_feed['picture']) ? $user_feed['picture']['data']['url'] : NULL;
+            $record['user_cover'] = isset($user_feed['cover']) ? $user_feed['cover']['source'] : NULL;
+            $record['gender'] = isset($user_feed['gender']) ? $user_feed['gender'] : NULL;
+            $record['user_link'] = 'http://www.facebook.com/' . $record['user_id'];
+            
+            $records[] = $record;
+        }
+        var_dump($records);
     }
     
 }
