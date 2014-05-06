@@ -21,17 +21,20 @@ class Facebook_post_import extends Fuel_base_controller {
         parent::__construct();
         $this->load->model('facebook_posts_model');
         $this->load->model('facebook_words_model', 'words');
+        
         $this->facebook = new Facebook(array(
             'appId' => $this->APP_ID,
             'secret' => $this->SECRET
         ));
+        
+        $this->facebook->setAccessToken($this->APP_ID.'|'.$this->SECRET);   //PREVENT app access token from expiration. Facebook API sucks!
         $this->classifier = new Naive_Bayes_Classifier($this->words);
     }
 
     function fetchPosts(){
         if(is_ajax()&& !empty($_POST)){
-            $uri = $this->input->post('uri');
-            $fetchUser = $this->input->post('uri');
+            $uri = $this->GROUP_ID.'/feed'; //$this->input->post('uri');
+            $fetchUser = TRUE;//$this->input->post('uri');
             
             $fields = array('description', 'message', 'created_time', 'updated_time', 'link', 'picture');
 
@@ -40,7 +43,18 @@ class Facebook_post_import extends Fuel_base_controller {
             $users = array();
             
             foreach ($response['data'] as $feed) {
-
+                
+                //if post from other group
+                if((!empty($feed['name']))&&
+                        (!empty($feed['link'])&&
+                        preg_match('/.+www\.facebook\.com\/groups.+/', $feed['link']))){
+                    $matches = array();
+                    if(preg_match('/\/[0-9]+\/$/', $feed['link'], $matches)){
+                        $feed = $this->facebook->api($matches[0]);
+                    }
+                    
+                }
+                
                 $record = array();
                 $record['facebook_id'] = $feed['id'];
                 $record['user_id'] = $feed['from']['id'];
