@@ -33,8 +33,8 @@ class Facebook_post_import extends Fuel_base_controller {
 
     function fetchPosts(){
         if(is_ajax()&& !empty($_POST)){
-            $uri = $this->GROUP_ID.'/feed'; //$this->input->post('uri');
-            $fetchUser = TRUE;//$this->input->post('uri');
+            $uri = $this->input->post('uri');
+            $fetchUser = $this->input->post('uri');
             
             $fields = array('description', 'message', 'created_time', 'updated_time', 'link', 'picture');
 
