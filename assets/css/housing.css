@@ -174,3 +174,7 @@ list-style: none;
 .dialog{
     display: none;  //讓dialog預設不顯示
 }
+
+.mouse_over{
+    cursor:pointer;
+}

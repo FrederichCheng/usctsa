@@ -32,7 +32,7 @@
             <table class="housing" border="2">
                 <tr>
                     <td >
-                        <img src="<?= img_path($value['house_img']) ?>" alt="House image" <?php echo $no.$num."'"; ?> class="housing_pic img-thumbnail" />
+                        <img src="<?= img_path($value['house_img']) ?>" alt="House image" <?php echo $no.$num."'"; ?> class="housing_pic img-thumbnail mouse_over" />
 
                         <!-- House Details show in dialog-->
                         <div <?php echo $id_dialog.$num."'";?>  class="dialog" title="House Details:">
@@ -52,7 +52,7 @@
                                         <ul>
                        <?php foreach ($value['photos'] as $image) {   ?>
                               
-                                                <li> <img src="<?=img_path($image['photo'])  ?>" <?php echo $no.$num."'"; ?> />
+                                                <li> <img src="<?=img_path($image['photo'])  ?>" <?php echo $no.$num."'"; ?> class="mouse_over"/>
                                                 </li>  
                                                     <?php } ?>              
                                           
