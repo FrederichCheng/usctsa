@@ -55,6 +55,9 @@ class Facebook_post_import extends Fuel_base_controller {
                     
                 }
                 
+                if(empty($feed['from']))
+                    continue;
+                
                 $record = array();
                 $record['facebook_id'] = $feed['id'];
                 $record['user_id'] = $feed['from']['id'];
