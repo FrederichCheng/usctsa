@@ -87,7 +87,7 @@ list-style: none;
 .section
 { 
 	min-height: 500px;
-	padding: 0px 40px 0px 40px;
+	padding:40px;
 }
 
 .section_head
@@ -95,7 +95,6 @@ list-style: none;
 	min-height: 300px; 
 	padding: 40px; 
 }
-
 
 /* NAVIGATION STYLES */
 .standardNav{

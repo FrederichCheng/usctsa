@@ -68,3 +68,5 @@ $lang['tsa_cars_mobile'] = '電話';
 $lang['tsa_cars_email'] = '電子郵件';
 $lang['tsa_cars_price'] = '開價';
 $lang['tsa_cars_des'] = '車況描述';
+
+$lang['tsa_housing_apartment'] = '學校附近公寓參考';

@@ -69,3 +69,5 @@ $lang['tsa_cars_mobile'] = 'Mobile';
 $lang['tsa_cars_email'] = 'Email';
 $lang['tsa_cars_price'] = 'Price';
 $lang['tsa_cars_des'] = 'Description';
+
+$lang['tsa_housing_apartment'] = 'Apartments Nearby USC';

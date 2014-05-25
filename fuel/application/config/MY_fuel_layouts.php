@@ -166,16 +166,7 @@ $housing_sections = array(
                                                            'photo' => array('type' => 'asset','label' => 'Photo'),
                                                     )
                                   ),
-//         'fields' => array(
-//            'sections' => array('type' => 'section', 'label' => '{__title__}'),
-//             'sImg1' => array('type' => 'asset', 'label' => 'House Image Big'),
-//             'sImg2' => array('type' => 'asset', 'label' => 'House Image'),
-//             'sImg3' => array('type' => 'asset', 'label' => 'House Image'),
-//             'sImg4' => array('type' => 'asset', 'label' => 'House Image'),
-//             'sImg5' => array('type' => 'asset', 'label' => 'House Image'),
-//             'sImg6' => array('type' => 'asset', 'label' => 'House Image'),
-//             'sImg7' => array('type' => 'asset', 'label' => 'House Image'),
-//             'sImg8' => array('type' => 'asset', 'label' => 'House Image'),
+
              'house_map' => array('label' => 'House Map iframe', 'style' => 'width: 500px'),
          )
     )
@@ -312,12 +303,53 @@ $newstudents_sections = array(
             'title' => array('style' => 'width: 850px'),
             'content' => array('type' => 'textarea', 'style' => 'width: 850px; height: 300px;'),
         )),
+    
+    /* ------ Housing Apartment Section ------ */
+    'apartment_sections' => array( 'add_extra' => FALSE, 
+                     'init_display' => 'none', 
+                     'dblclick' => 'accordian', 
+                     'repeatable' => TRUE, 
+                     'style' => 'width: 950px;', 
+                     'type' => 'template', 
+                     'label' => 'House sections', 
+                     'title_field' => 'title',  
+    
+                     'fields' => array(
+                                 'house_section' => array('type' => 'section', 'label' => '{__title__}'),
+                                 'title' => array('label' => 'Title', 'required' => true),
+                                 'house_img' => array('type' => 'asset', 'label' => 'Front Image'),
+                                 'location' => array('label' => 'Location'),
+                                 'parking' => array('label' => 'Parking'),
+                                 'style' => array('label' => 'Style'),
+                                 'phone' => array('label' => 'Telephone'),
+                                 'email' => array('label' => 'Email'),
+                                 'price' => array('label' => 'Price'),
+                                 'description' => array('type' => 'textarea', 'label' => 'Description'),
+                                 'photos' => array('add_extra' => FALSE, 
+                                                   'init_display' => 'none', 
+                                                   'dblclick' => 'accordian', 
+                                                   'repeatable' => TRUE, 
+                                                   'style' => 'width: 950px;', 
+                                                   'type' => 'template', 
+                                                   'label' => 'Photos', 
+                                                   'title_field' => 'photo',
+                                                   'fields' => array(
+                                                           'house_photo' => array('type' => 'section', 'label' => '{__title__}'),
+                                                           'photo' => array('type' => 'asset','label' => 'Photo'),
+                                                    )
+                                  ),
+
+             'house_map' => array('label' => 'House Map iframe', 'style' => 'width: 500px'),
+         )
+    ),
+    
     /* ------ Useful Website Section ------ */
     'useful_title' => array('type' => 'copy', 'label' => 'Useful Website Section Setting'),
     'useful_scroller' => array('label' => 'Useful Website Section Pagescroller'),
     'useful_heading' => array('label' => 'Useful Website Section Heading'),
     'useful_description' => array('style' => 'width: 520px', 'label' => 'Useful Website Section Description'),
     'useful_sections' => array('label' => 'Useful Website Section Content', 'type' => 'textarea'),
+   
 );
 
 $jobs_sections = array(
