@@ -39,11 +39,11 @@
     }
 
     if($category > 0 && $exists){
-        $records = $CI->facebook_posts_model->find_all_array(array('category'=>$category), 'created_time desc', $limit, $first_page? NULL:($page-1)*$limit);
+        $records = $CI->facebook_posts_model->find_all_array(array('category'=>$category), 'updated_time desc', $limit, $first_page? NULL:($page-1)*$limit);
     }
     else{
         $category = 0;
-        $records = $CI->facebook_posts_model->find_all_published_array(array(), 'created_time desc', $limit,$first_page? NULL: ($page-1)*$limit);
+        $records = $CI->facebook_posts_model->find_all_published_array(array(), 'updated_time desc', $limit,$first_page? NULL: ($page-1)*$limit);
     }
 
 ?>
@@ -223,7 +223,7 @@
     .text{
         float:left;
         width:180px;
-        height:120px;
+        height:110px;
         overflow: auto;
         margin-left:30px;
         text-align:left;
@@ -234,14 +234,14 @@
 
     .time{
         font-size: 12px;
-        display: table-cell;
         vertical-align: middle;
-        border-top-width: 1px;
-        border-top-style: dashed;
-        border-top-color: #999;
-        height:25px;
+/*        border-bottom-width: 1px;
+        border-bottom-style: dashed;
+        border-bottom-color: #999;*/
+        height: 16px;
         color: #666;
-        display:none;
+        display:block;
+        float:right;
     }
 
     .info{
