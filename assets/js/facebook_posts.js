@@ -18,11 +18,12 @@
     });
 })();
 
-function changePostCategory(oldCat){
+function changePostCategory(){
     return function(){
         var jEle = $(this);
         var post_id = jEle.attr("id");
         var cat = jEle.val();
+        var oldCat = jEle.attr("category");
         $('<img>').attr('src','/TSAWebsite/assets/images/spinner_sm.gif').appendTo(jEle.parent('td'));
         $.get("/TSAWebsite/fuel/facebook/facebook_posts/ajax/change_post_category", {
             post_id: post_id, 
@@ -40,7 +41,7 @@ function changePostCategory(oldCat){
                 
             }
             else{
-                
+                jEle.attr("category", cat);
             }
             jEle.siblings('img').remove();
         });

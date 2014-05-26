@@ -140,14 +140,14 @@ class Facebook_posts_model extends Base_module_model {
 
                 $cat_id = $_record['category'];
                 
-                $_record['category'] = sprintf('<select id="%s" class="category">%s</select>', $_record['id'], $options);
+                $_record['category'] = sprintf('<select id="%s" class="category" category="%d">%s</select>', $_record['id'], $cat_id, $options);
                 $js = sprintf('<script> 
                         (function(){
                             $("#%s").change(
-                                changePostCategory("%d")
+                                changePostCategory()
                             );
                         })();
-                        </script> ', $_record['id'], $cat_id);
+                        </script> ', $_record['id']);
                 $_record['category'].=$js;
 
                 if (isset($_record['link'])) {
