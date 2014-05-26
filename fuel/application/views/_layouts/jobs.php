@@ -1,6 +1,12 @@
 <!-- last modified date: Apr 3, 2014 by sky -->
 
-<?php $this->load->view('_blocks/header') ?>
+<?php
+    require_once(FACEBOOK_PATH . 'models/facebook_posts_model.php');
+    $this->load->view('_blocks/header');
+    $CI->load->model('facebook/facebook_posts_model','facebook_posts_model');
+    $limit = 20;
+    $records = $CI->facebook_posts_model->find_all_array(array('tag'=>'job'), 'updated_time desc', $limit);
+?>
 <?= css('jobs.css')?>
 		
 		<!-- nav scroll -->
@@ -29,18 +35,8 @@
 				<!-- Job Opportunity -->
 				<div class="section">
 					<h1><?=fuel_var('opportunity_heading', 'Job Opportunity')?></h1>
-                                            <div id="prototype_message" class="alert alert-warning">
-                                                <?= lang('tsa_market_prototype_message','Job', ' <a href="market?category=7"> link </a>.')?>
-                                            </div>
 					<p><?=fuel_var('opportunity_description', '')?></p>	
 		
-					<table id="job_table">
-    					<tr>
-    						<th class="first_head">Job Title/Description</th>
-				    		<th class="second_head">Company</th>
-				    		<th class="third_head">Location</th>
-				    	</tr>	
-					</table>
 					
 					<div class="scrollbar" id="ex3">
 				    	<div class="content">
@@ -48,28 +44,16 @@
 							<table id="job_table">
 							
 						       	<!-- Accordion -->
-						        <?php foreach($opportunity_sections as $section){ ?>
+						        <?php foreach($records as $section){ ?>
 						        	<tr class="table_row">
 						        		<td class="first_col">
-						        			<p class="job_title">
-						        				<a href='<?=$section['link']?>' target="_blank">
-													<?=$section['title']?>
-												</a>
-											</p>
-						        			<p class="job_type"><?= $section['job_type'] ?></p>
-							        		<p class="job_description"><?= $section['job_description'] ?>
-							        			<a href='<?=$section['link']?>' target="_blank">more...</a>
+                                                                            <p class="job_description"><?= mb_substr($section['message'], 0, 200) ?>
+							        			<a href='<?=$section['post_link']?>' target="_blank">more...</a>
 							        		</p>
 							        	</td>
-							        	<td class="second_col">
-							       			<p><?= $section['company'] ?></p>
-							       		</td>
-							       		<td class="third_col">
-							       			<p><?= $section['location'] ?></p>
-							       		</td>
 							       	</tr>
 							       	<tr>
-							       		<td class="divider" colspan="3"></td>
+							       		<td class="divider"></td>
 							       	</tr>
 								<?php } ?>	
 								

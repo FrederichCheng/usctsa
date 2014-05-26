@@ -44,12 +44,17 @@ class Facebook_posts_model extends Base_module_model {
     }
     
     public function find_all_published_array($where = array(), $order_by = NULL, $limit = NULL, $offset = NULL) {
-        $this->db->join('facebook_categories', 'facebook_categories.id = category', 'left');
         $this->db->where('category != 0');
         $this->db->where(array('published' => 'yes'));
         return parent::find_all_array($where, $order_by, $limit, $offset);
     }
 
+    public function _common_query($display_unpublished_if_logged_in = NULL) {
+        $this->db->join('facebook_categories', 'facebook_categories.id = category', 'left');
+        $this->db->select('facebook_posts.*,facebook_categories.*');
+        return parent::_common_query($display_unpublished_if_logged_in);
+    }
+    
     function list_items($limit = NULL, $offset = 0, $col = 'id', $order = 'asc', $just_count = FALSE) {
         $data = parent::list_items($limit, $offset, $col, $order, $just_count);
         
