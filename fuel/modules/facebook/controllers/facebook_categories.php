@@ -59,12 +59,12 @@ class facebook_categories extends Module {
 
                         $arr = explode(' ', $line);
 
-                        if(empty($arr)){
+                        if(empty($arr) || count($arr) < 2){
                             continue;
                         }
 
                         $tag = $arr[0];
-                        $words = array_slice($arr,1);
+                        $words = getSegments($arr[1]);
 
                         $category = $this->words->getCategory($tag);
                         $cat_id = $category->getId();

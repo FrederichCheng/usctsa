@@ -12,7 +12,7 @@ require_once( FACEBOOK_PATH . 'libraries/phpanalysis/phpanalysis.class.php');
  * @author Frederich
  */
 function retrieveEnglish($str){
-    $pattern = '/\[?[A-Za-z]+\]?/';
+    $pattern = '/(\[[A-Za-z]+\])|([A-Za-z]+)/';
     $result = [];
     $matches = [];
     preg_match_all($pattern, $str, $result, PREG_PATTERN_ORDER);

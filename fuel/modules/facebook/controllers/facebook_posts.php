@@ -205,15 +205,18 @@ class facebook_posts extends Module {
         foreach($categories as $cat){
             $cats[$cat->getId()] = $cat;
         }
-        $result = $this->posts->find_all_array(array('manual_set'=>TRUE));
+        
+        $result = $this->posts->find_all_array();
         
         foreach($result as $record){
+            if($record['category'] == 0)
+                continue;
             $str = '';
-            if($record['message'] !== NULL && $record['description'] != NULL)
+            if((!empty($record['message'])) && (!empty($record['description'])))
                 $str = $record['message'].' '.$record['description'];
-            else if($record['message'] !== NULL)
+            else if(!empty($record['message']))
                 $str = $record['message'];
-            else if($record['description'] !== NULL)
+            else if((!empty($record['description'])))
                 $str = $record['description'];
             
             //$str = $this->translate($str);
@@ -224,53 +227,10 @@ class facebook_posts extends Module {
             $str = str_replace('u\'', '', $str);
             $str = str_replace('\\t', '', $str);
             $str = str_replace('\\n', '', $str);
-//            $str = preg_replace('/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/','[link]',$str);
-//            $str = preg_replace('/\d{1,5}\s\w.\s(\b\w*\b\s){1,2}\w*\./','[address]',$str);
-//            $str = preg_replace('/[0-9\-\+]{9,15}/','[phone]',$str);
-            $eng = $this->retrieveEnglish($str);
-            $chi = $this->retrieveChinese($str);
-            
-            $words=[];
-            
-            if(is_array($eng)){
-                foreach($eng as &$part){
-                    $words[] = $part;
-                }
-                if(count($eng) > 200){
-                    $words[]= '[LONG_ENGLISH]';
-                }
-            }
-            
-            
-            if(is_array($chi)){
-                foreach($chi as &$part){
-                    $tokens = $this->partition2($part);
-                    if(is_array($tokens)){
-                        foreach($tokens as $token){
-                            $words[]=$token;
-                        }
-                    }
-                }
-                if(count($chi) > 100){
-                    $words[]= '[LONG_CHINESE]';
-                }
-            }
-            
-
-                //if(count($words) < 40){
-                
-                //}
-            
-            
-            //echo $str;
-            if(is_array($words)){
-                foreach($words as $word){
-                    if(strlen(trim($word)) == 0)
-                        continue;
-                    echo $word;
-                    echo ' ';
-                }
-            }
+            $str = preg_replace('/<[^>]*>/', '', $str);
+            echo $cats[$record['category']]->getTag();
+            echo ' ';
+            echo $str;
             echo '<br>';
         }
     }
