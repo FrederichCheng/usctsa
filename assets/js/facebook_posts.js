@@ -26,11 +26,21 @@ function changePostCategory(oldCat){
         $('<img>').attr('src','/TSAWebsite/assets/images/spinner_sm.gif').appendTo(jEle.parent('td'));
         $.get("/TSAWebsite/fuel/facebook/facebook_posts/ajax/change_post_category", {
             post_id: post_id, 
-            category: cat
+            category: cat,
+            old_category : oldCat
         }, function(html){
             if(!html || html["status"] !== "success"){
                 jEle.val(oldCat);
-                alert('Fail to change category of post '+post_id);
+                if(html['message']){
+                    alert('Fail to change category of post '+post_id+':' + html['message']);
+                }
+                else{
+                    alert('Fail to change category of post '+post_id+':'+html['status']);
+                }
+                
+            }
+            else{
+                
             }
             jEle.siblings('img').remove();
         });

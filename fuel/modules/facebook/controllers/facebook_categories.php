@@ -51,6 +51,7 @@ class facebook_categories extends Module {
                 if($this->check_format($upload_data['full_path'])){
                     $handle = fopen($upload_data['full_path'], "r");
                     $records = 0;
+                    $this->db->trans_start();
                     while (($line = fgets($handle)) !== false) {
                         if(strlen(trim($line)) == 0){
                             continue;
@@ -72,10 +73,10 @@ class facebook_categories extends Module {
                             $this->save_words($words, $cat_id);
                         }
 
-                        $this->categories->incrementCategory($tag);
+                        $this->categories->incrementCategory($cat_id);
                         $records++;
                     }
-
+                    $this->db->trans_complete();
                     fclose($handle);
 
                     if ($records == 0) {

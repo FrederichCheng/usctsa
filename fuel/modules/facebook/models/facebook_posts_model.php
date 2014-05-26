@@ -4,6 +4,8 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 require_once(FUEL_PATH . 'models/base_module_model.php');
 require_once(FACEBOOK_PATH . 'libraries/HTMLhelper.php');
 require_once(FACEBOOK_PATH . 'models/facebook_categories_model.php');
+require_once(FACEBOOK_PATH . 'models/facebook_words_model.php');
+require_once(FACEBOOK_PATH . 'helpers/classifier_helper.php');
 /*
  *  Copyright 2014 Shao-yen(Frederich) Cheng .
  *  All rights reserved.
@@ -25,20 +27,82 @@ class Facebook_posts_model extends Base_module_model {
     }
 
     function ajax_change_post_category($params) {
-        $query = $this->db->get_where('facebook_categories', array('id' => $params['category']));
-        $count = $query->num_rows();
-        $query->free_result();
-        if ($count > 0) {
-            $this->db->where('id', $params['post_id']);
-            $this->db->update('facebook_posts', array('category' => $params['category'], 'manual_set' => $params['category'] > 0));
-            $rows = $this->db->affected_rows();
-            $this->output->set_content_type('application/json');
+        $this->output->set_content_type('application/json');
+        
+        try{
+            $query = $this->db->get_where('facebook_categories', array('id' => $params['category']));
+            $count = $query->num_rows();
+            $query->free_result();
+            $query2 = $this->db->get_where('facebook_categories', array('id' => $params['old_category']));
+            $count2 = $query2->num_rows();
+            $query2->free_result();
+            
+            $result = $this->find_all_array(array('id'=> $params['post_id']));
+            $exist = !empty($result);
+
+            if($exist){
+                $record = NULL;
+                foreach($result as $rec){
+                    $record = $rec;
+                }
+            }
+            
+            if ($count > 0 && $count2 > 0 && $exist) {
+
+                $str = '';
+                if(!(empty($record['message']) || empty($record['description']))){
+                    $str = $record['message'].' '.$record['description'];
+                }
+                else if(!empty($record['message'])){
+                    $str = $record['message'];
+                }
+                else if(!empty($record['description'])){
+                    $str = $record['description'];
+                }
+
+                $words = getSegments($str);
+                
+                $manual_set = $record['manual_set'];
+                $this->load->model('facebook_words_model');
+                $this->load->model('facebook_categories_model');
+                
+                $this->db->trans_start();
+                
+                if($manual_set > 0 && $params['old_category'] > 0){
+                    $this->delete_words($words, $params['old_category']);
+                    $this->facebook_categories_model->decrementCategory($params['old_category']);
+                }
+
+                if($params['category'] > 0){
+                    $this->save_words($words, $params['category']);
+                    $this->facebook_categories_model->incrementCategory($params['category']);
+                }
+                $this->db->where('id', $params['post_id']);
+                
+                $this->db->update('facebook_posts', array('category' => $params['category'], 'manual_set' => $params['category'] > 0));
+                $rows = $this->db->affected_rows();
+                
+                $this->db->trans_complete();
+                
+                if($this->db->trans_status() === FALSE){
+                    return json_encode(array(
+                        'status' => 'fail: transaction fails'
+                    ));
+                }
+                
+                return json_encode(array(
+                    'status' => $rows === 0 ? 'fail' : 'success'
+                ));
+            } else {
+                return json_encode(array(
+                    'status' => 'Illegal Value'
+                ));
+            }
+        }
+        catch(Exception $e){
             return json_encode(array(
-                'status' => $rows === 0 ? 'fail' : 'success'
-            ));
-        } else {
-            return json_encode(array(
-                'status' => 'Illegal Value'
+                'status' => 'fail',
+                'message' => $e->getMessage()
             ));
         }
     }
@@ -74,6 +138,8 @@ class Facebook_posts_model extends Base_module_model {
                     $options.= sprintf('<option value="%s" %s>%s</option>', $cat['id'], $selected, $cat['name']);
                 }
 
+                $cat_id = $_record['category'];
+                
                 $_record['category'] = sprintf('<select id="%s" class="category">%s</select>', $_record['id'], $options);
                 $js = sprintf('<script> 
                         (function(){
@@ -81,7 +147,7 @@ class Facebook_posts_model extends Base_module_model {
                                 changePostCategory("%d")
                             );
                         })();
-                        </script> ', $_record['id'], $_record['category']);
+                        </script> ', $_record['id'], $cat_id);
                 $_record['category'].=$js;
 
                 if (isset($_record['link'])) {
@@ -110,7 +176,25 @@ class Facebook_posts_model extends Base_module_model {
         }
         return $data;
     }
+    
+    private function save_words($words, $cat_id){
+        foreach ($words as $word) {
+            if (strlen(trim($word)) == 0){
+                continue;
+            }
+            $this->facebook_words_model->addWord($word, $cat_id);
+        }
+    }
 
+    private function delete_words($words, $cat_id){
+        foreach ($words as $word) {
+            if (strlen(trim($word)) == 0){
+                continue;
+            }
+            $this->facebook_words_model->deleteWord($word, $cat_id);
+        }
+    }
+    
 }
 
 class Facebook_post_model extends Base_module_record {

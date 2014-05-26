@@ -5,7 +5,8 @@
  *  All rights reserved.
  *
  */
-require_once(FUEL_PATH.'models/base_module_model.php');
+
+require_once(FUEL_PATH.'core/MY_Model.php');
 require_once ( FACEBOOK_PATH.'libraries/category_impl.php');
 
 /**
@@ -13,8 +14,8 @@ require_once ( FACEBOOK_PATH.'libraries/category_impl.php');
  *
  * @author Shao-yen(Frederich) Cheng 
  */
-class facebook_words_model extends Base_module_model{
-    
+class facebook_words_model extends MY_Model{
+   
     private $categories = NULL;
     private $totalWords = NULL;
     private $totalSamples = NULL;
@@ -26,7 +27,7 @@ class facebook_words_model extends Base_module_model{
         parent::__construct('facebook_words');
         $this->db->save_queries = false;
     }
-
+    
     private function resetCache(){
         $this->totalWords = NULL;
         $this->totalSamples = NULL;
@@ -80,6 +81,24 @@ class facebook_words_model extends Base_module_model{
         $this->resetCache();
     }
     
+    public function deleteWord($word, $cat_id){
+        $db = $this->words->db;
+        $result = $this->find_all_array(array('word'=> $word, 'category'=>$cat_id));
+        
+        if(!empty($result)){
+            $record = NULL;
+            foreach($result as $rec) 
+                $record = $rec;
+            
+            if($record['count'] > 0){
+                $db->set('count', 'count-1', FALSE);
+                $db->where(array('category'=> $cat_id, 'word'=> $word));
+                $db->update('facebook_words');
+            }
+        }
+        $this->resetCache();
+    }    
+    
     public function getCategoryOccurence($category) {
         
         if(empty($category) || !in_array($category, $this->categories)){
@@ -127,9 +146,5 @@ class facebook_words_model extends Base_module_model{
         }
         return $this->vocSize;
     }
-}
- 
-class Facebook_word_model extends Base_module_record {
-
 }
 

@@ -30,11 +30,29 @@ class Facebook_categories_model extends Base_module_model {
     function _common_query($display_unpublished_if_logged_in = NULL) {
         
     }
+
+    function decrementCategory($cat_id){
+        $db = $this->db;
+        
+        $result = $this->find_all_array(array('id'=>$cat_id));
+        
+        if(!empty($result)){
+            $record = NULL;
+            foreach($result as $rec)
+                $record = $rec;
+            
+            if($record['count'] > 0){
+                $db->set('count', 'count-1', FALSE);
+                $db->where('id', $cat_id);
+                $db->update('facebook_categories');
+            }
+        }
+    }
     
-    function incrementCategory($tag){
+    function incrementCategory($cat_id){
         $db = $this->db;
         $db->set('count', 'count+1', FALSE);
-        $db->where('tag', $tag);
+        $db->where('id', $cat_id);
         $db->update('facebook_categories');
     }
     
