@@ -47,9 +47,12 @@
 						        <?php foreach($records as $section){ ?>
 						        	<tr class="table_row">
 						        		<td class="first_col">
-                                                                            <p class="job_description"><?= mb_substr($section['message'], 0, 200) ?>
+                                                                            <div class="post_time">
+                                                                                <?=$section['created_time']?>
+                                                                            </div>
+                                                                            <div class="job_description"><?= mb_substr($section['message'], 0, 200) ?>
 							        			<a href='<?=$section['post_link']?>' target="_blank">more...</a>
-							        		</p>
+                                                                            </div>
 							        	</td>
 							       	</tr>
 							       	<tr>
