@@ -106,7 +106,7 @@ class facebook_words_model extends MY_Model{
         }
         if(!isset($this->categoryOccur[$category->getTag()])){
             $query = $this->db->get_where('facebook_categories', array('id' => $category->getId()));
-            $count = $query->result()[0]->count;
+            $count = $this->retrieveCount($query);
             $query->free_result();
             $this->categoryOccur[$category->getTag()] = $count;
         }
@@ -117,7 +117,7 @@ class facebook_words_model extends MY_Model{
         if($this->totalSamples === NULL){
             $this->db->select_sum('count');
             $query = $this->db->get('facebook_categories');
-            $count = $query->result()[0]->count;
+            $count = $this->retrieveCount($query);
             $query->free_result();
             $this->totalSamples = $count;
         }
@@ -128,7 +128,7 @@ class facebook_words_model extends MY_Model{
         if($this->totalWords === NULL){
             $this->db->select_sum('count');
             $query = $this->db->get('facebook_words');
-            $count = $query->result()[0]->count;
+            $count = $this->retrieveCount($query);
             $query->free_result();
             $this->totalWords = $count;
         }
@@ -140,11 +140,22 @@ class facebook_words_model extends MY_Model{
         if($this->vocSize === NULL){
             $this->db->select('count(*) as `count` from (select `word` from `facebook_words` group by `word`) as t1');
             $query = $this->db->get();
-            $count = $query->result()[0]->count;
+            $count = $this->retrieveCount($query);
             $query->free_result();
             $this->vocSize = $count;
         }
         return $this->vocSize;
+    }
+    
+    private function retrieveCount($query){
+        $result = $query->result();
+        if(!empty($result)){
+            $count = NULL;
+            foreach($result as $record){
+                $count = $record->count;
+            }
+        }
+        return $count;
     }
 }
 
