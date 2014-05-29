@@ -70,11 +70,10 @@ class facebook_categories extends Module {
                         $cat_id = $category->getId();
                         
                         if(is_array($words)){
-                            $this->save_words($words, $cat_id);
+                            $this->words->addWords($words, $cat_id);
+                            $this->categories->incrementCategory($cat_id);
+                            $records++;
                         }
-
-                        $this->categories->incrementCategory($cat_id);
-                        $records++;
                     }
                     $this->db->trans_complete();
                     fclose($handle);
@@ -140,14 +139,5 @@ class facebook_categories extends Module {
         }
         fclose($handle);
         return !$has_error;
-    }
-    
-    private function save_words($words, $cat_id){
-        foreach ($words as $word) {
-            if (strlen(trim($word)) == 0){
-                continue;
-            }
-            $this->words->addWord($word, $cat_id);
-        }
     }
 }

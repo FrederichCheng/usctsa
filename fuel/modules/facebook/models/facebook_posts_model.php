@@ -69,12 +69,12 @@ class Facebook_posts_model extends Base_module_model {
                 $this->db->trans_start();
                 
                 if($manual_set > 0 && $params['old_category'] > 0){
-                    $this->delete_words($words, $params['old_category']);
+                    $this->facebook_words_model->deleteWords($words, $params['old_category']);
                     $this->facebook_categories_model->decrementCategory($params['old_category']);
                 }
 
                 if($params['category'] > 0){
-                    $this->save_words($words, $params['category']);
+                    $this->facebook_words_model->addWords($words, $params['category']);
                     $this->facebook_categories_model->incrementCategory($params['category']);
                 }
                 $this->db->where('id', $params['post_id']);
@@ -176,25 +176,6 @@ class Facebook_posts_model extends Base_module_model {
         }
         return $data;
     }
-    
-    private function save_words($words, $cat_id){
-        foreach ($words as $word) {
-            if (strlen(trim($word)) == 0){
-                continue;
-            }
-            $this->facebook_words_model->addWord($word, $cat_id);
-        }
-    }
-
-    private function delete_words($words, $cat_id){
-        foreach ($words as $word) {
-            if (strlen(trim($word)) == 0){
-                continue;
-            }
-            $this->facebook_words_model->deleteWord($word, $cat_id);
-        }
-    }
-    
 }
 
 class Facebook_post_model extends Base_module_record {

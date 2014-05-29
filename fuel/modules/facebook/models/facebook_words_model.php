@@ -68,6 +68,26 @@ class facebook_words_model extends MY_Model{
         return $num != 0;
     }
     
+    public function addWords($words, $cat_id){
+        if(is_array($words)){
+            $db = $this->words->db;
+            
+            foreach($words as $word){
+                if(!$this->hasWord($word, $cat_id)){
+                    $this->insert(array('word'=>$word, 'category' => $cat_id, 'count'=> 0));
+                }
+            }
+            $db->set('count', 'count+1', FALSE);
+            $db->where(array('category'=> $cat_id));
+            $db->where_in('word', $words);
+            $db->update('facebook_words');
+            $this->resetCache();
+        }
+        else{
+            $this->addWord($word, $cat_id);
+        }
+    }
+    
     public function addWord($word, $cat_id){
         $db = $this->words->db;
         if($this->hasWord($word, $cat_id)){
@@ -81,21 +101,25 @@ class facebook_words_model extends MY_Model{
         $this->resetCache();
     }
     
+    public function deleteWords($words, $cat_id){
+        $db = $this->words->db;
+        $db->set('count', 'count-1', FALSE);
+        $db->where(array('category'=> $cat_id));
+        $db->where('count >= 1');
+        $db->where_in('word',$words);
+        $db->update('facebook_words');
+
+        $this->resetCache();
+    }
+    
     public function deleteWord($word, $cat_id){
         $db = $this->words->db;
-        $result = $this->find_all_array(array('word'=> $word, 'category'=>$cat_id));
-        
-        if(!empty($result)){
-            $record = NULL;
-            foreach($result as $rec) 
-                $record = $rec;
-            
-            if($record['count'] > 0){
-                $db->set('count', 'count-1', FALSE);
-                $db->where(array('category'=> $cat_id, 'word'=> $word));
-                $db->update('facebook_words');
-            }
-        }
+
+        $db->set('count', 'count-1', FALSE);
+        $db->where(array('category'=> $cat_id, 'word'=> $word));
+        $db->where('count > 1');
+        $db->update('facebook_words');
+
         $this->resetCache();
     }    
     

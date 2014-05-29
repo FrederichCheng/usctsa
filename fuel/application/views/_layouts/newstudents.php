@@ -2,10 +2,10 @@
 
 <?php $this->load->view('_blocks/header') ?>
 <?= css('newstudents.css') ?>
-<?=css('housing.css')?>
 <?=css('housePicDetail.css')?>
 <?=js('slidepics.js')?>
-		
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<?=js('map.js')?>
 		<!-- nav scroll -->
 		<div id="navscroll" class="pageScrollerNav standardNav right dark">
 			<ul>
@@ -101,6 +101,29 @@
                                 
 <div class="section">
         <h1><?= lang('tsa_housing_apartment') ?></h1>
+        <div class="housing-map" style="height:500px;">
+            
+            
+            
+        </div>
+        
+        <script type="text/javascript">
+            (function(){
+                var canva = $('.housing-map').get(0);
+                var url = 'https://mapsengine.google.com/map/u/0/kml?mid=zYjzcxdR19fg.kvE0EHfKh8tc&cid=mp&cv=yCsoPjplrX0.zh_TW';
+                var mapOptions = {
+                };
+                var map = new google.maps.Map(canva, mapOptions);
+
+                var handler = mapJS.loadMarkersFromKMLAsync(url, map);
+                handler.addMarkersLoadedListener(function(){
+                    mapJS.fitMarkers(map, handler.markers);
+                    mapJS.attachInfoWindow(handler.markers);
+                });
+            })();
+            
+        </script>
+        
         <?php $num=1; ?>
         <?php $id="id='imgB"; ?>
         <?php $id_dialog="id='dialog" ?>
@@ -238,5 +261,5 @@
 				});	
 			</script>
                 </div>
-			
+
 <?php $this->load->view('_blocks/footer') ?>
