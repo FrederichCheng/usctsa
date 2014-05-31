@@ -122,10 +122,7 @@ class Facebook_posts_model extends Base_module_model {
     function list_items($limit = NULL, $offset = 0, $col = 'id', $order = 'asc', $just_count = FALSE) {
         $data = parent::list_items($limit, $offset, $col, $order, $just_count);
         
-        if ($this->categories === NULL) {
-            $this->load->model('facebook_categories_model');
-            $this->categories = $this->facebook_categories_model->find_all_array();
-        }
+        $this->resetCategories();
 
         if (is_array($data)) {
             foreach ($data as &$_record) {
@@ -175,6 +172,32 @@ class Facebook_posts_model extends Base_module_model {
             }
         }
         return $data;
+    }
+    
+    function filters($filters = array()){
+        $options = array();
+        
+        $this->resetCategories();
+        foreach($this->categories as $cat){
+            if($cat['id'] > 0){
+                $options[$cat['id']] = $cat['name'];
+            }
+        }
+        
+        $options[0] = 'Select a category...';
+        
+        $filters['category'] = array(
+        'label' => 'Category', 
+        'type' => 'select', 
+        'options' => $options
+        );
+        return $filters;
+    }
+    private function resetCategories(){
+        if ($this->categories === NULL) {
+            $this->load->model('facebook_categories_model');
+            $this->categories = $this->facebook_categories_model->find_all_array();
+        }
     }
 }
 

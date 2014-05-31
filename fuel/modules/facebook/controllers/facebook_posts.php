@@ -230,7 +230,11 @@ class facebook_posts extends Module {
             $str = preg_replace('/<[^>]*>/', '', $str);
             echo $cats[$record['category']]->getTag();
             echo ' ';
-            echo $str;
+            $words = getSegments($str);
+            foreach($words as $word){
+                echo $word;
+                echo ' ';
+            }
             echo '<br>';
         }
     }
