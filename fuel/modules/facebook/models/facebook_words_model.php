@@ -69,6 +69,8 @@ class facebook_words_model extends MY_Model{
     }
     
     public function addWords($words, $cat_id){
+        if(empty($words))
+            return;
         if(is_array($words)){
             $db = $this->words->db;
             
@@ -83,8 +85,8 @@ class facebook_words_model extends MY_Model{
             $db->update('facebook_words');
             $this->resetCache();
         }
-        else{
-            $this->addWord($word, $cat_id);
+        else if(is_string($words)){
+            $this->addWord($words, $cat_id);
         }
     }
     
@@ -102,14 +104,21 @@ class facebook_words_model extends MY_Model{
     }
     
     public function deleteWords($words, $cat_id){
-        $db = $this->words->db;
-        $db->set('count', 'count-1', FALSE);
-        $db->where(array('category'=> $cat_id));
-        $db->where('count >= 1');
-        $db->where_in('word',$words);
-        $db->update('facebook_words');
+        if(empty($words))
+            return;
+        if(is_array($words)){
+            $db = $this->words->db;
+            $db->set('count', 'count-1', FALSE);
+            $db->where(array('category'=> $cat_id));
+            $db->where('count >= 1');
+            $db->where_in('word',$words);
+            $db->update('facebook_words');
 
-        $this->resetCache();
+            $this->resetCache();
+        }
+        else if(is_string($words)){
+            $this->deleteWord($words, $cat_id);
+        }
     }
     
     public function deleteWord($word, $cat_id){

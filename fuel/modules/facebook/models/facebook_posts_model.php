@@ -178,13 +178,13 @@ class Facebook_posts_model extends Base_module_model {
         $options = array();
         
         $this->resetCategories();
+                
+        $options['0'] = 'Select a category...';
         foreach($this->categories as $cat){
             if($cat['id'] > 0){
                 $options[$cat['id']] = $cat['name'];
             }
         }
-        
-        $options[0] = 'Select a category...';
         
         $filters['category'] = array(
         'label' => 'Category', 
