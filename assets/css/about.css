@@ -116,7 +116,7 @@ and open the template in the editor.
     margin:0 auto;
     display:table;
     text-align: center;
-    width:800px;
+    width:840px;
 }
 
 .member_img{
@@ -124,26 +124,7 @@ and open the template in the editor.
 }
 
 .profile_pic{
-  height:240px;
-}
-
-.member_des{
-    display:block;
-    float:left;
-    text-align:left;
-    margin-left:15px;
-    width:145px;
-}
-
-.member_des span{
-    display:block;
-}
-
-.self_intro{
-    font:sans-serif;
-    text-align:justify;
-    text-indent:2em;
-    height:210px;
+  height:180px;
 }
 
 .member_frame{
@@ -152,7 +133,7 @@ and open the template in the editor.
     border-width:2px;
     margin: 10px;
     float:left;
-    width: 380px;
+    width: 260px;
     display:table;
     text-align:center;
     margin-bottom: 30px;
@@ -166,8 +147,8 @@ and open the template in the editor.
 .member_photo_frame{
 
     float:left;
-    width:200px;
-    height:280px;
+    width:260px;
+    height:200px;
     float:top;
     z-index: 1;
     position: relative;
@@ -182,17 +163,40 @@ and open the template in the editor.
 .member_photo{
     float:top;
     overflow: hidden;
-    margin-bottom:5px;
+    margin-bottom:10px;
     border-width:1px;
     border-color: rgb(200,200,200);
-    border-style: solid;
+   // border-style: solid;
 }
 
 .member_photo img{
 }
+
+
+.member_des span{
+    display:block;
+}
+
+.member_des{
+    display:block;
+    float:left;
+    text-align:left;
+    margin-top:25px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width:250px;
+}
+
 .member_name{
     font-weight:bold;
     font-size:16px;
+}
+
+.self_intro{
+    font:sans-serif;
+    text-align:justify;
+    text-indent:2em;
+    height:125px;
 }
 
 .rotate1
