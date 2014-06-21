@@ -64,6 +64,25 @@ $about_sections = array(
                                 'message' => array('type' => 'textarea', 'label' => 'Message'),
                                 'facebook' => array('label' => 'Facebook'),
                                 )
+                        ),
+    'founder_sections' => array('add_extra' => FALSE, 
+                        'init_display' => 'none', 
+                        'dblclick' => 'accordian',
+                        'repeatable' => TRUE, 
+                        'style' => 'width: 950px;', 
+                        'type' => 'template', 
+                        'label' => 'Founder sections', 
+                        'title_field' => 'title',
+                        'fields' => array(
+                                'sections' => array('type' => 'section', 'label' => '{__title__}'),
+                                'name' => array('label' => 'Name'),
+                                'title' => array('label' => 'Title', 'required' => true),
+                                'photo' => array('type' => 'asset', 'label' => 'Photo'),
+                                'major' => array('label' => 'Major'),
+                                'email' => array('label' => 'Email'),
+                                'message' => array('type' => 'textarea', 'label' => 'Message'),
+                                'facebook' => array('label' => 'Facebook'),
+                                )
                         )
     );
 
