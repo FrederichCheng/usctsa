@@ -117,7 +117,7 @@ and open the template in the editor.
     margin:0 auto;
     display:table;
     text-align: center;
-    width:840px;
+    width:800px;
 }
 
 .member_img{
@@ -134,7 +134,7 @@ and open the template in the editor.
     border-width:2px;
     margin: 10px;
     float:left;
-    width: 260px;
+    width: 246px;
     display:table;
     text-align:center;
     margin-bottom: 30px;
@@ -148,7 +148,7 @@ and open the template in the editor.
 .member_photo_frame{
 
     float:left;
-    width:260px;
+    width:246px;
     height:200px;
     float:top;
     z-index: 1;
@@ -185,7 +185,7 @@ and open the template in the editor.
     margin-top:25px;
     margin-left: 5px;
     margin-right: 5px;
-    width:250px;
+    width: 236px;
 }
 
 .member_name{
