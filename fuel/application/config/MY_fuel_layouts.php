@@ -277,97 +277,117 @@ $home_sections = array(
 );
 
 $newstudents_sections = array(
-    /* ----- Top Section ----- */
-    'top_title' => array('type' => 'copy', 'label' => 'Top Section Setting'),
-    'top_scroller' => array('label' => 'Top Section Pagescroller'),
-    'top_heading' => array('label' => 'Top Section Heading'),
-    'top_description' => array('style' => 'width: 520px', 'label' => 'Top Section Description'),
-    'top_sections' => array('label' => 'Top Section Content', 'type' => 'textarea'),
-    /* ------ Taiwan Office Section ----- */
-    'tw_office_title' => array('type' => 'copy', 'label' => 'Taiwan Office Section Setting'),
-    'tw_office_scroller' => array('label' => 'Taiwan Office Section Pagescroller'),
-    'tw_office_heading' => array('label' => 'Taiwan Office Section Heading'),
-    'tw_office_description' => array('style' => 'width: 520px', 'label' => 'Taiwan Office Section Description'),
-    'tw_office_sections' => array('label' => 'Taiwan Office Section Content', 'type' => 'textarea'),
-    /* ------ Materials Receiving Section ------ */
-    'recv_title' => array('type' => 'copy', 'label' => 'Materials Receiving Section Setting'),
-    'recv_scroller' => array('label' => 'Materials Receiving Section Pagescroller'),
-    'recv_heading' => array('label' => 'Materials Receiving Section Heading'),
-    'recv_description' => array('style' => 'width: 520px', 'label' => 'Materials Receiving Section Description'),
-    "recv_sections" => array('display_label' => FALSE, 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
-        'fields' => array(
-            'sections' => array('type' => 'section', 'label' => '{__title__}'),
-            'title' => array('style' => 'width: 850px'),
-            'content' => array('type' => 'textarea', 'style' => 'width: 850px; height: 300px;'),
-        )),
-    /* ------ Important Notes Section ------ */
-    'important_title' => array('type' => 'copy', 'label' => 'Important Notes Section Setting'),
-    'important_scroller' => array('label' => 'Important Notes Section Pagescroller'),
-    'important_heading' => array('label' => 'Important Notes Section Heading'),
-    'important_description' => array('style' => 'width: 520px', 'label' => 'Important Notes Section Description'),
-    "important_sections" => array('display_label' => FALSE, 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
-        'fields' => array(
-            'sections' => array('type' => 'section', 'label' => '{__title__}'),
-            'title' => array('style' => 'width: 850px'),
-            'content' => array('type' => 'textarea', 'style' => 'width: 850px; height: 300px;'),
-        )),
-    /* ------ Experience Sharing Section ------ */
-    'experience_title' => array('type' => 'copy', 'label' => 'Experience Sharing Section Setting'),
-    'experience_scroller' => array('label' => 'Experience Sharing Section Pagescroller'),
-    'experience_heading' => array('label' => 'Experience Sharing Section Heading'),
-    'experience_description' => array('style' => 'width: 520px', 'label' => 'Experience Sharing Section Description'),
-    "experience_sections" => array('display_label' => FALSE, 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
-        'fields' => array(
-            'sections' => array('type' => 'section', 'label' => '{__title__}'),
-            'title' => array('style' => 'width: 850px'),
-            'content' => array('type' => 'textarea', 'style' => 'width: 850px; height: 300px;'),
-        )),
+    /* ----- First Section ----- */
+    'first_title' => array('type' => 'copy', 'label' => 'First Section Setting'),
+    'first_scroller' => array('label' => 'Pagescroller'),
+    'first_heading' => array('label' => 'Heading'),
+    'first_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'first_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    /* ------ Second Section ----- */
+    'second_title' => array('type' => 'copy', 'label' => 'Second Section Setting'),
+    'second_scroller' => array('label' => 'Pagescroller'),
+    'second_heading' => array('label' => 'Heading'),
+    'second_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'second_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    /* ------ Third Section ----- */
+    'third_title' => array('type' => 'copy', 'label' => 'Third Section Setting'),
+    'third_scroller' => array('label' => 'Pagescroller'),
+    'third_heading' => array('label' => 'Heading'),
+    'third_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'third_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    /* ------ Fourth Section ----- */
+    'fourth_title' => array('type' => 'copy', 'label' => 'Fourth Section Setting'),
+    'fourth_scroller' => array('label' => 'Pagescroller'),
+    'fourth_heading' => array('label' => 'Heading'),
+    'fourth_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'fourth_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    /* ------ Fifth Section ----- */
+    'fifth_title' => array('type' => 'copy', 'label' => 'Fifth Section Setting'),
+    'fifth_scroller' => array('label' => 'Pagescroller'),
+    'fifth_heading' => array('label' => 'Heading'),
+    'fifth_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'fifth_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    /* ------ Sixth Section ----- */
+    'sixth_title' => array('type' => 'copy', 'label' => 'Sixth Section Setting'),
+    'sixth_scroller' => array('label' => 'Pagescroller'),
+    'sixth_heading' => array('label' => 'Heading'),
+    'sixth_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'sixth_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    /* ------ Seventh Section ----- */
+    'seventh_title' => array('type' => 'copy', 'label' => 'Seventh Section Setting'),
+    'seventh_scroller' => array('label' => 'Pagescroller'),
+    'seventh_heading' => array('label' => 'Heading'),
+    'seventh_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'seventh_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    /* ------ Eighth Section ----- */
+    'eighth_title' => array('type' => 'copy', 'label' => 'Eighth Section Setting'),
+    'eighth_scroller' => array('label' => 'Pagescroller'),
+    'eighth_heading' => array('label' => 'Heading'),
+    'eighth_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'eighth_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    /* ------ Ninth Section ----- */
+    'ninth_title' => array('type' => 'copy', 'label' => 'Ninth Section Setting'),
+    'ninth_scroller' => array('label' => 'Pagescroller'),
+    'ninth_heading' => array('label' => 'Heading'),
+    'ninth_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'ninth_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    /* ------ Tenth Section ----- */
+    'tenth_title' => array('type' => 'copy', 'label' => 'Tenth Section Setting'),
+    'tenth_scroller' => array('label' => 'Pagescroller'),
+    'tenth_heading' => array('label' => 'Heading'),
+    'tenth_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'tenth_sections' => array('label' => 'Content', 'type' => 'textarea'),
+	
+    /* ------ Third Section ------ */
+    // 'recv_title' => array('type' => 'copy', 'label' => 'Materials Receiving Section Setting'),
+    // 'recv_scroller' => array('label' => 'Materials Receiving Section Pagescroller'),
+    // 'recv_heading' => array('label' => 'Materials Receiving Section Heading'),
+    // 'recv_description' => array('style' => 'width: 520px', 'label' => 'Materials Receiving Section Description'),
+    // "recv_sections" => array('display_label' => FALSE, 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
+        // 'fields' => array(
+            // 'sections' => array('type' => 'section', 'label' => '{__title__}'),
+            // 'title' => array('style' => 'width: 850px'),
+            // 'content' => array('type' => 'textarea', 'style' => 'width: 850px; height: 300px;'),
+        // )),
     
     /* ------ Housing Apartment Section ------ */
-    'apartment_sections' => array( 'add_extra' => FALSE, 
-                     'init_display' => 'none', 
-                     'dblclick' => 'accordian', 
-                     'repeatable' => TRUE, 
-                     'style' => 'width: 950px;', 
-                     'type' => 'template', 
-                     'label' => 'House sections', 
-                     'title_field' => 'title',  
-    
-                     'fields' => array(
-                                 'house_section' => array('type' => 'section', 'label' => '{__title__}'),
-                                 'title' => array('label' => 'Title', 'required' => true),
-                                 'house_img' => array('type' => 'asset', 'label' => 'Front Image'),
-                                 'location' => array('label' => 'Location'),
-                                 'parking' => array('label' => 'Parking'),
-                                 'style' => array('label' => 'Style'),
-                                 'phone' => array('label' => 'Telephone'),
-                                 'email' => array('label' => 'Email'),
-                                 'price' => array('label' => 'Price'),
-                                 'description' => array('type' => 'textarea', 'label' => 'Description'),
-                                 'photos' => array('add_extra' => FALSE, 
-                                                   'init_display' => 'none', 
-                                                   'dblclick' => 'accordian', 
-                                                   'repeatable' => TRUE, 
-                                                   'style' => 'width: 950px;', 
-                                                   'type' => 'template', 
-                                                   'label' => 'Photos', 
-                                                   'title_field' => 'photo',
-                                                   'fields' => array(
-                                                           'house_photo' => array('type' => 'section', 'label' => '{__title__}'),
-                                                           'photo' => array('type' => 'asset','label' => 'Photo'),
-                                                    )
-                                  ),
-
-             'house_map' => array('label' => 'House Map iframe', 'style' => 'width: 500px'),
-         )
-    ),
-    
-    /* ------ Useful Website Section ------ */
-    'useful_title' => array('type' => 'copy', 'label' => 'Useful Website Section Setting'),
-    'useful_scroller' => array('label' => 'Useful Website Section Pagescroller'),
-    'useful_heading' => array('label' => 'Useful Website Section Heading'),
-    'useful_description' => array('style' => 'width: 520px', 'label' => 'Useful Website Section Description'),
-    'useful_sections' => array('label' => 'Useful Website Section Content', 'type' => 'textarea'),
+    // 'apartment_sections' => array( 'add_extra' => FALSE, 
+                     // 'init_display' => 'none', 
+                     // 'dblclick' => 'accordian', 
+                     // 'repeatable' => TRUE, 
+                     // 'style' => 'width: 950px;', 
+                     // 'type' => 'template', 
+                     // 'label' => 'House sections', 
+                     // 'title_field' => 'title',  
+//     
+                     // 'fields' => array(
+                                 // 'house_section' => array('type' => 'section', 'label' => '{__title__}'),
+                                 // 'title' => array('label' => 'Title', 'required' => true),
+                                 // 'house_img' => array('type' => 'asset', 'label' => 'Front Image'),
+                                 // 'location' => array('label' => 'Location'),
+                                 // 'parking' => array('label' => 'Parking'),
+                                 // 'style' => array('label' => 'Style'),
+                                 // 'phone' => array('label' => 'Telephone'),
+                                 // 'email' => array('label' => 'Email'),
+                                 // 'price' => array('label' => 'Price'),
+                                 // 'description' => array('type' => 'textarea', 'label' => 'Description'),
+                                 // 'photos' => array('add_extra' => FALSE, 
+                                                   // 'init_display' => 'none', 
+                                                   // 'dblclick' => 'accordian', 
+                                                   // 'repeatable' => TRUE, 
+                                                   // 'style' => 'width: 950px;', 
+                                                   // 'type' => 'template', 
+                                                   // 'label' => 'Photos', 
+                                                   // 'title_field' => 'photo',
+                                                   // 'fields' => array(
+                                                           // 'house_photo' => array('type' => 'section', 'label' => '{__title__}'),
+                                                           // 'photo' => array('type' => 'asset','label' => 'Photo'),
+                                                    // )
+                                  // ),
+// 
+             // 'house_map' => array('label' => 'House Map iframe', 'style' => 'width: 500px'),
+         // )
+    // ),
    
 );
 
