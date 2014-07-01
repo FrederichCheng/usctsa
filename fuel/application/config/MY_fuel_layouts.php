@@ -319,24 +319,6 @@ $newstudents_sections = array(
     'seventh_heading' => array('label' => 'Heading'),
     'seventh_description' => array('style' => 'width: 520px', 'label' => 'Description'),
     'seventh_sections' => array('label' => 'Content', 'type' => 'textarea'),
-    /* ------ Eighth Section ----- */
-    'eighth_title' => array('type' => 'copy', 'label' => 'Eighth Section Setting'),
-    'eighth_scroller' => array('label' => 'Pagescroller'),
-    'eighth_heading' => array('label' => 'Heading'),
-    'eighth_description' => array('style' => 'width: 520px', 'label' => 'Description'),
-    'eighth_sections' => array('label' => 'Content', 'type' => 'textarea'),
-    /* ------ Ninth Section ----- */
-    'ninth_title' => array('type' => 'copy', 'label' => 'Ninth Section Setting'),
-    'ninth_scroller' => array('label' => 'Pagescroller'),
-    'ninth_heading' => array('label' => 'Heading'),
-    'ninth_description' => array('style' => 'width: 520px', 'label' => 'Description'),
-    'ninth_sections' => array('label' => 'Content', 'type' => 'textarea'),
-    /* ------ Tenth Section ----- */
-    'tenth_title' => array('type' => 'copy', 'label' => 'Tenth Section Setting'),
-    'tenth_scroller' => array('label' => 'Pagescroller'),
-    'tenth_heading' => array('label' => 'Heading'),
-    'tenth_description' => array('style' => 'width: 520px', 'label' => 'Description'),
-    'tenth_sections' => array('label' => 'Content', 'type' => 'textarea'),
 	
     /* ------ Third Section ------ */
     // 'recv_title' => array('type' => 'copy', 'label' => 'Materials Receiving Section Setting'),
