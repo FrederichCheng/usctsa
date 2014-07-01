@@ -15,6 +15,8 @@
 				<li><a href="#"><?=fuel_var('top_scroller', 'Top')?></a></li>
 				<li><a href="#"><?=fuel_var('opportunity_scroller', 'Job Opportunity')?></a></li>
 				<li><a href="#"><?=fuel_var('experience_scroller', 'Experience Sharing')?></a></li>
+				<li><a href="#"><?=fuel_var('job_hunting_scroller', '求職及就業管道')?></a></li>
+				<li><a href="#"><?=fuel_var('job_law_scroller', '求職就業的法律問題')?></a></li>
 				<li><a href="#"><?=fuel_var('useful_scroller', 'Useful Websites')?></a></li>
 			</ul>
 		</div>
@@ -83,6 +85,19 @@
 					<?php } ?>						
 				</div> <!-- End of section -->	
 				
+				<!-- Job Hunting -->
+				<div class="section">
+		        	<h1><?=fuel_var('job_hunting_heading', '求職及就業管道 ')?></h1>
+		        	<p><?=fuel_var('job_hunting_description', '')?></p>
+					<p><?=fuel_var('job_hunting_sections')?></p>
+				</div> <!-- End of section -->
+				
+				<!-- Job Law -->
+				<div class="section">
+		        	<h1><?=fuel_var('job_law_heading', '求職就業的法律問題')?></h1>
+		        	<p><?=fuel_var('job_law_description', '')?></p>
+					<p><?=fuel_var('job_law_sections')?></p>
+				</div> <!-- End of section -->
 				
 				<!-- Useful Websites -->
 				<div class="section">

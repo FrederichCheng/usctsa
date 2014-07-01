@@ -376,15 +376,15 @@ $newstudents_sections = array(
 $jobs_sections = array(
     /* ----- Top Section ----- */
     'top_title' => array('type' => 'copy', 'label' => 'Top Section Setting'),
-    'top_scroller' => array('label' => 'Top Section Pagescroller'),
-    'top_heading' => array('label' => 'Top Section Heading'),
-    'top_description' => array('style' => 'width: 520px', 'label' => 'Top Section Description'),
-    'top_sections' => array('label' => 'Top Section Content', 'type' => 'textarea'),
+    'top_scroller' => array('label' => 'Pagescroller'),
+    'top_heading' => array('label' => 'Heading'),
+    'top_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'top_sections' => array('label' => 'Content', 'type' => 'textarea'),
     /* ------ Job Opportunity Section ------ */
     'opportunity_title' => array('type' => 'copy', 'label' => 'Job Opportunity Section Setting'),
-    'opportunity_scroller' => array('label' => 'Job Opportunity Section Pagescroller'),
-    'opportunity_heading' => array('label' => 'Job Opportunity Section Heading'),
-    'opportunity_description' => array('style' => 'width: 520px', 'label' => 'Job Opportunity Section Description'),
+    'opportunity_scroller' => array('label' => 'Pagescroller'),
+    'opportunity_heading' => array('label' => 'Heading'),
+    'opportunity_description' => array('style' => 'width: 520px', 'label' => 'Description'),
     "opportunity_sections" => array('display_label' => FALSE, 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 700px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
         'fields' => array(
             'sections' => array('type' => 'section', 'label' => '{__title__}'),
@@ -397,21 +397,33 @@ $jobs_sections = array(
         )),
     /* ------ Experience Sharing Section ------ */
     'experience_title' => array('type' => 'copy', 'label' => 'Experience Sharing Section Setting'),
-    'experience_scroller' => array('label' => 'Experience Sharing Section Pagescroller'),
-    'experience_heading' => array('label' => 'Experience Sharing Section Heading'),
-    'experience_description' => array('style' => 'width: 520px', 'label' => 'Experience Sharing Section Description'),
+    'experience_scroller' => array('label' => 'Pagescroller'),
+    'experience_heading' => array('label' => 'Heading'),
+    'experience_description' => array('style' => 'width: 520px', 'label' => 'Description'),
     "experience_sections" => array('display_label' => FALSE, 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
         'fields' => array(
             'sections' => array('type' => 'section', 'label' => '{__title__}'),
             'title' => array('style' => 'width: 850px'),
             'content' => array('type' => 'textarea', 'style' => 'width: 850px; height: 300px;'),
         )),
+    /* ----- Job Hunting Section ----- */
+    'job_hunting_title' => array('type' => 'copy', 'label' => 'Job Hunting Section Setting'),
+    'job_hunting_scroller' => array('label' => 'Pagescroller'),
+    'job_hunting_heading' => array('label' => 'Heading'),
+    'job_hunting_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'job_hunting_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    /* ----- Job Law Section ----- */
+    'job_law_title' => array('type' => 'copy', 'label' => 'Job Law Section Setting'),
+    'job_law_scroller' => array('label' => 'Pagescroller'),
+    'job_law_heading' => array('label' => 'Heading'),
+    'job_law_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'job_law_sections' => array('label' => 'Content', 'type' => 'textarea'),
     /* ------ Useful Website Section ------ */
     'useful_title' => array('type' => 'copy', 'label' => 'Useful Website Section Setting'),
-    'useful_scroller' => array('label' => 'Useful Website Section Pagescroller'),
-    'useful_heading' => array('label' => 'Useful Website Section Heading'),
-    'useful_description' => array('style' => 'width: 520px', 'label' => 'Useful Website Section Description'),
-    'useful_sections' => array('label' => 'Useful Website Section Content', 'type' => 'textarea'),
+    'useful_scroller' => array('label' => 'Pagescroller'),
+    'useful_heading' => array('label' => 'Heading'),
+    'useful_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'useful_sections' => array('label' => 'Content', 'type' => 'textarea'),
 );
 
 /* ------------------------------------------------------------------------------- */
