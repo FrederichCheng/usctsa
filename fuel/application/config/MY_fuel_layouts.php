@@ -272,6 +272,7 @@ $home_sections = array(
         'fields' => array(
             'sections' => array('type' => 'section', 'label' => '{__title__}'),
             'title' => array('style' => 'width: 850px'),
+            'post_time' => array('type' => 'date'),
             'content' => array('type' => 'textarea', 'style' => 'width: 850px; height: 300px;'),
         ))
 );
