@@ -26,8 +26,8 @@
 
     <!-- MEMBERS -->
     <div class="section">
-        <h1 class="title"><?= lang('tsa_members') ?></h1>
-        <h3><?= lang('tsa_staff') ?></h3>
+        <h1 class="title"><?= lang('tsa_staff') ?></h1>
+        
         <!-- TSA Staff -->
         <div id="members">
             <?php foreach ($sections as $value) { ?>
