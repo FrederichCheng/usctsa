@@ -13,6 +13,7 @@ $lang['tsa_dialog_close'] = 'Close';
 
 $lang['tsa_default_announcement_heading'] = 'Announcement';
 
+$lang['tsa_letter'] = 'Letter for New Students';
 $lang['tsa_about'] = 'About';
 $lang['tsa_members'] = 'Members';
 $lang['tsa_staff'] = 'Staff E-board';

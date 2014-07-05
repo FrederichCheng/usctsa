@@ -44,6 +44,7 @@ $config['layouts']['test'] = array(
 );
 
 $about_sections = array(
+    'newStudentLetter' => array('type' => 'textarea', 'label' => 'New Student Letter'),
     'about_content' => array('type' => 'textarea', 'label' => 'Content of About'),
     'heading' => array('label' => lang('layout_field_heading')),
     'sections' => array('add_extra' => FALSE, 

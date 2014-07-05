@@ -12,6 +12,7 @@ $lang['tsa_default_announcement_heading'] = '公佈欄';
 
 $lang['tsa_dialog_close'] = '關閉';
 
+$lang['tsa_letter'] = '新生歡迎信';
 $lang['tsa_about'] = '關於我們';
 $lang['tsa_members'] = '成員';
 $lang['tsa_staff'] = '幹部名單';
