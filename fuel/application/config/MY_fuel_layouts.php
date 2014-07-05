@@ -240,7 +240,7 @@ $config['layouts']['market'] = array(
 
 
 
-/* -------- Setting variables for home, newstudents and jobs pages (Sky)   ------- */
+/* -------- Setting variables for home, newstudents, studentlife and jobs pages (Sky)   ------- */
 /* ------------------------------------------------------------------------------- */
 
 $common_meta = array(
@@ -374,6 +374,51 @@ $newstudents_sections = array(
    
 );
 
+$studentlife_sections = array(
+    /* ----- First Section ----- */
+    'first_title' => array('type' => 'copy', 'label' => 'First Section Setting'),
+    'first_scroller' => array('label' => 'Pagescroller'),
+    'first_heading' => array('label' => 'Heading'),
+    'first_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'first_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    /* ------ Second Section ----- */
+    'second_title' => array('type' => 'copy', 'label' => 'Second Section Setting'),
+    'second_scroller' => array('label' => 'Pagescroller'),
+    'second_heading' => array('label' => 'Heading'),
+    'second_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'second_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    /* ------ Third Section ----- */
+    'third_title' => array('type' => 'copy', 'label' => 'Third Section Setting'),
+    'third_scroller' => array('label' => 'Pagescroller'),
+    'third_heading' => array('label' => 'Heading'),
+    'third_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'third_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    /* ------ Fourth Section ----- */
+    'fourth_title' => array('type' => 'copy', 'label' => 'Fourth Section Setting'),
+    'fourth_scroller' => array('label' => 'Pagescroller'),
+    'fourth_heading' => array('label' => 'Heading'),
+    'fourth_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'fourth_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    /* ------ Fifth Section ----- */
+    'fifth_title' => array('type' => 'copy', 'label' => 'Fifth Section Setting'),
+    'fifth_scroller' => array('label' => 'Pagescroller'),
+    'fifth_heading' => array('label' => 'Heading'),
+    'fifth_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'fifth_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    /* ------ Sixth Section ----- */
+    'sixth_title' => array('type' => 'copy', 'label' => 'Sixth Section Setting'),
+    'sixth_scroller' => array('label' => 'Pagescroller'),
+    'sixth_heading' => array('label' => 'Heading'),
+    'sixth_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'sixth_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    // /* ------ Seventh Section ----- */
+    // 'seventh_title' => array('type' => 'copy', 'label' => 'Seventh Section Setting'),
+    // 'seventh_scroller' => array('label' => 'Pagescroller'),
+    // 'seventh_heading' => array('label' => 'Heading'),
+    // 'seventh_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    // 'seventh_sections' => array('label' => 'Content', 'type' => 'textarea'),
+);
+
 $jobs_sections = array(
     /* ----- Top Section ----- */
     'top_title' => array('type' => 'copy', 'label' => 'Top Section Setting'),
@@ -454,7 +499,7 @@ $config['layouts']['home'] = $home_layout; // !!! IMPORTANT ... NOW ASSIGN THIS 
 /* ------------------------------------------------------------------------------- */
 
 
-/* ---------------------------    Newstudents  Layout   -------------------------- */
+/* ---------------------------    New Students  Layout   -------------------------- */
 /* ------------------------------------------------------------------------------- */
 
 $newstudents_layout = new Fuel_layout('newstudents');
@@ -465,6 +510,21 @@ $newstudents_layout->add_fields($common_sections);
 $newstudents_layout->add_fields($newstudents_sections);
 $newstudents_layout->add_fields($common_footer);
 $config['layouts']['newstudents'] = $newstudents_layout; // !!! IMPORTANT ... NOW ASSIGN THIS TO THE newstudents "layouts"
+
+/* ------------------------------------------------------------------------------- */
+
+
+/* ---------------------------    Student Life  Layout   -------------------------- */
+/* -------------------------------------------------------------------------------- */
+
+$studentlife_layout = new Fuel_layout('studentlife');
+$studentlife_layout->set_description('This is the studentlife layout used for the studentlife page.');
+$studentlife_layout->set_label('studentlife');
+$studentlife_layout->add_fields($common_meta);
+$studentlife_layout->add_fields($common_sections);
+$studentlife_layout->add_fields($studentlife_sections);
+$studentlife_layout->add_fields($common_footer);
+$config['layouts']['studentlife'] = $studentlife_layout; // !!! IMPORTANT ... NOW ASSIGN THIS TO THE studentlife "layouts"
 
 /* ------------------------------------------------------------------------------- */
 
