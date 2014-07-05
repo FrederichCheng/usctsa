@@ -420,12 +420,18 @@ $studentlife_sections = array(
 );
 
 $jobs_sections = array(
-    /* ----- Top Section ----- */
-    'top_title' => array('type' => 'copy', 'label' => 'Top Section Setting'),
-    'top_scroller' => array('label' => 'Pagescroller'),
-    'top_heading' => array('label' => 'Heading'),
-    'top_description' => array('style' => 'width: 520px', 'label' => 'Description'),
-    'top_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    /* ----- Experience Section ----- */
+    'experience_title' => array('type' => 'copy', 'label' => 'Experience Section Setting'),
+    'experience_scroller' => array('label' => 'Pagescroller'),
+    'experience_heading' => array('label' => 'Heading'),
+    'experience_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'experience_sections' => array('label' => 'Content', 'type' => 'textarea'),
+    /* ----- Seminar Section ----- */
+    'seminar_title' => array('type' => 'copy', 'label' => 'Seminar Section Setting'),
+    'seminar_scroller' => array('label' => 'Pagescroller'),
+    'seminar_heading' => array('label' => 'Heading'),
+    'seminar_description' => array('style' => 'width: 520px', 'label' => 'Description'),
+    'seminar_sections' => array('label' => 'Content', 'type' => 'textarea'),
     /* ------ Job Opportunity Section ------ */
     'opportunity_title' => array('type' => 'copy', 'label' => 'Job Opportunity Section Setting'),
     'opportunity_scroller' => array('label' => 'Pagescroller'),
@@ -441,29 +447,6 @@ $jobs_sections = array(
             'company' => array('style' => 'width: 500px'),
             'location' => array('style' => 'width: 500px'),
         )),
-    /* ------ Experience Sharing Section ------ */
-    'experience_title' => array('type' => 'copy', 'label' => 'Experience Sharing Section Setting'),
-    'experience_scroller' => array('label' => 'Pagescroller'),
-    'experience_heading' => array('label' => 'Heading'),
-    'experience_description' => array('style' => 'width: 520px', 'label' => 'Description'),
-    "experience_sections" => array('display_label' => FALSE, 'add_extra' => FALSE, 'init_display' => 'none', 'dblclick' => 'accordian', 'repeatable' => TRUE, 'style' => 'width: 950px;', 'type' => 'template', 'label' => 'Page sections', 'title_field' => 'title',
-        'fields' => array(
-            'sections' => array('type' => 'section', 'label' => '{__title__}'),
-            'title' => array('style' => 'width: 850px'),
-            'content' => array('type' => 'textarea', 'style' => 'width: 850px; height: 300px;'),
-        )),
-    /* ----- Job Hunting Section ----- */
-    'job_hunting_title' => array('type' => 'copy', 'label' => 'Job Hunting Section Setting'),
-    'job_hunting_scroller' => array('label' => 'Pagescroller'),
-    'job_hunting_heading' => array('label' => 'Heading'),
-    'job_hunting_description' => array('style' => 'width: 520px', 'label' => 'Description'),
-    'job_hunting_sections' => array('label' => 'Content', 'type' => 'textarea'),
-    /* ----- Job Law Section ----- */
-    'job_law_title' => array('type' => 'copy', 'label' => 'Job Law Section Setting'),
-    'job_law_scroller' => array('label' => 'Pagescroller'),
-    'job_law_heading' => array('label' => 'Heading'),
-    'job_law_description' => array('style' => 'width: 520px', 'label' => 'Description'),
-    'job_law_sections' => array('label' => 'Content', 'type' => 'textarea'),
     /* ------ Useful Website Section ------ */
     'useful_title' => array('type' => 'copy', 'label' => 'Useful Website Section Setting'),
     'useful_scroller' => array('label' => 'Pagescroller'),
