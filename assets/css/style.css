@@ -227,10 +227,11 @@ nav>ul>li
 nav ul li a
 {
 	display: block;
-	padding: 5px 10px;
+	padding: 5px 0px;
 	color: rgb(255,204,68);
 	text-decoration: none;
 	font: 18px Arial, sans-serif;
+        min-width: 80px;
 }	
 
 nav ul li a:hover
