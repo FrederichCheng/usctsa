@@ -1,4 +1,4 @@
-<!-- last modified date: Apr 3, 2014 by sky -->
+<!-- last modified date: July 5, 2014 by sky -->
 
 <?php $this->load->view('_blocks/header') ?>
 <?= css('newstudents.css') ?>
@@ -15,8 +15,8 @@
 				<li><a href="#"><?=fuel_var('third_scroller', 'Third')?></a></li>
 				<li><a href="#"><?=fuel_var('fourth_scroller', 'Fourth')?></a></li>
 				<li><a href="#"><?=fuel_var('fifth_scroller', 'Fifth')?></a></li>                              
-                <!-- <li><a href="#"><?=fuel_var('sixth_scroller', 'Sixth')?></a></li>
-                <li><a href="#"><?=fuel_var('seventh_scroller', 'Seventh')?></a></li> -->
+                <li><a href="#"><?=fuel_var('sixth_scroller', 'Sixth')?></a></li>
+                <!-- <li><a href="#"><?=fuel_var('seventh_scroller', 'Seventh')?></a></li> -->
             	<!-- <li><a href="#"><?= lang('tsa_housing_apartment') ?></a></li> -->
 			</ul>
 		</div>
@@ -61,34 +61,18 @@
 				</div> <!-- End of section -->	
 				
 				<!-- Sixth -->
-				<!-- <div class="section">
+				<div class="section">
 					<h1><?=fuel_var('sixth_heading', 'Sixth')?></h1>
 					<p><?=fuel_var('sixth_description', '')?></p>
 					<p><?=fuel_var('sixth_sections')?></p>
-				</div>  --><!-- End of section -->  
+				</div>  --><!-- End of section  
 				
 				<!-- Seventh -->
 				<!-- <div class="section">
 					<h1><?=fuel_var('seventh_heading', 'Seventh')?></h1>
 					<p><?=fuel_var('seventh_description', '')?></p>
 					<p><?=fuel_var('seventh_sections')?></p>
-				</div>  --><!-- End of section -->
-				
-				<!-- Third -->
-				<!-- <div class="section">
-			        <h1><?=fuel_var('recv_heading', '')?></h1>
-					<p><?=fuel_var('recv_description', '')?></p> -->
-			
-			        <!-- Accordion -->
-			        <!-- <?php foreach($recv_sections as $section){ ?>
-			        <div class="acc-container">
-			        	<span class="acc-trigger"><a href="#" onClick="return false;"><?=$section['title']?></a></span>
-			            <div class="content">
-			                <p><?= $section['content'] ?></p>
-			            </div>
-			 		</div>
-					<?php } ?> -->
-				<!-- </div> --> <!-- End of section -->				
+				</div>  --><!-- End of section -->		
 				
 			</div><!-- [END] #main -->
 			
