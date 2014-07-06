@@ -11,8 +11,11 @@ $lang['tsa_change_language_label'] = 'English Version';
 $lang['tsa_default_announcement_heading'] = '公佈欄';
 
 $lang['tsa_dialog_close'] = '關閉';
+
 $lang['tsa_about'] = '關於我們';
 $lang['tsa_members'] = '成員';
+$lang['tsa_staff'] = '幹部名單';
+$lang['tsa_founder'] = '網站創始者';
 
 $lang['tsa_calendar_jan'] = '一月';
 $lang['tsa_calendar_feb'] = '二月';

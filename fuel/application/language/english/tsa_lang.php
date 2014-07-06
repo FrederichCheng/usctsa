@@ -15,6 +15,8 @@ $lang['tsa_default_announcement_heading'] = 'Announcement';
 
 $lang['tsa_about'] = 'About';
 $lang['tsa_members'] = 'Members';
+$lang['tsa_staff'] = 'Staff E-board';
+$lang['tsa_founder'] = 'TSA Website Founders';
 
 $lang['tsa_calendar_jan'] = 'Jan';
 $lang['tsa_calendar_feb'] = 'Feb';

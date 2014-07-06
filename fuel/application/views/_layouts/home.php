@@ -45,7 +45,9 @@
 		        <!-- Accordion -->
 		        <?php foreach($sections as $section){ ?>
 		        <div class="acc-container">
-		        	<span class="acc-trigger"><a href="#" onClick="return false;"><?=$section['title']?></a></span>
+		        	<span class="acc-trigger">
+		        		<a href="#" onClick="return false;"><?=$section['title']?><p style="float:right;"><?=$section['post_time']?></p></a>
+		        	</span>
 		            <div class="content">
 		                <p><?= $section['content'] ?></p>
 		            </div>
