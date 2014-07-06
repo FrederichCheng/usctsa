@@ -14,6 +14,8 @@
         <link rel="stylesheet" type="text/css" href="<?= assets_path('js/engine1/style.css') ?>">
         <link rel="stylesheet" type="text/css" href="<?= assets_path('js/jquery-ui/css/custom-theme/jquery-ui-1.10.4.custom.min.css') ?>">
         <link rel="stylesheet" type="text/css" href="<?= assets_path('js/bootstrap-3.1.1/css/bootstrap.min.css') ?>">
+        <link rel="shortcut icon" type="image/png" href="<?= img_path('favicon.ico')?>"/>
+        <link rel="shortcut icon" type="image/png" href="<?= img_path('favicon.ico')?>"/>
         <script type="text/javascript" src="<?= assets_path('js/jquery.js') ?>"></script>
         <script type="text/javascript" src="<?= assets_path('js/main.js') ?>"></script>
         <script type="text/javascript" src="<?= assets_path('js/json2.js') ?>"></script>
