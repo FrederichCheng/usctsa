@@ -5,7 +5,7 @@
  *  All rights reserved.
  *
  */
-
+require_once(BASEPATH.'core/Model.php');
 require_once(FUEL_PATH.'core/MY_Model.php');
 require_once ( FACEBOOK_PATH.'libraries/category_impl.php');
 

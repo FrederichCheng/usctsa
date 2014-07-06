@@ -1,6 +1,7 @@
 <?php
 
 if (!defined('BASEPATH')) exit('No direct script access allowed');
+require_once(BASEPATH.'core/Model.php');
 require_once(FUEL_PATH . 'models/base_module_model.php');
 require_once(FACEBOOK_PATH . 'libraries/HTMLhelper.php');
 require_once(FACEBOOK_PATH . 'models/facebook_categories_model.php');

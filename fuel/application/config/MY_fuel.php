@@ -30,7 +30,7 @@ $config['modules_allowed'] = array(
 );
 
 // used for system emails
-$config['domain'] = '';
+$config['domain'] = 'usctsa.us';
 
 // shows an alert in the admin backend if this is the admin password
 $config['default_pwd'] = 'admin';

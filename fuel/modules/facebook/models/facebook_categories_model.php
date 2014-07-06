@@ -1,4 +1,5 @@
 <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
+require_once(BASEPATH.'core/Model.php');
 require_once(FUEL_PATH.'models/base_module_model.php');
 /*
  *  Copyright 2014 Shao-yen(Frederich) Cheng .
