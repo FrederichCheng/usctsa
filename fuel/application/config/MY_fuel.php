@@ -65,6 +65,8 @@ $config['ck_editor_settings'] = "{
 	toolbar:[
 			['Bold','Italic','Strike'],
 			['Format'],
+                        ['FontSize'],
+                        ['Font'],
 			['Image','HorizontalRule'],
 			['NumberedList','BulletedList'],
 			['Link','Unlink'],
@@ -79,7 +81,7 @@ $config['ck_editor_settings'] = "{
 	bodyClass: 'ckeditor',
 	protectedSource: [/\{fuel_\w+\(.+\)\}/g, /<\?[\s\S]*?\?>/g],
 	toolbarCanCollapse: false,
-	extraPlugins: 'fuellink,fuelimage',
+	extraPlugins: 'fuellink,fuelimage,font',
 	removePlugins: 'link,image'
 	}";
 
