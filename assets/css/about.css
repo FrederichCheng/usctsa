@@ -125,7 +125,8 @@ and open the template in the editor.
 }
 
 .profile_pic{
-  height:180px;
+  
+  width:224px;
 }
 
 .member_frame{
@@ -167,6 +168,8 @@ and open the template in the editor.
     margin-bottom:10px;
     border-width:1px;
     border-color: rgb(200,200,200);
+    width:224px;
+    height:180px;
    // border-style: solid;
 }
 
