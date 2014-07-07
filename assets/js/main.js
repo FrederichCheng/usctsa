@@ -25,11 +25,6 @@ function makeAllLinksA(str) {
 (
     function initialize($) {
         "use strict";
-        $("#nav").ready(
-            function () {
-                $("#nav").load('nav.html');
-            }
-        );
 
         /*global document */
         $(document).ready(function () {
@@ -84,35 +79,6 @@ function makeAllLinksA(str) {
                     $(this).children().css("background", "url(assets/images/accordion-plus.png) no-repeat right 55%");
                 }
             });
-
-            $("nav ul li a").click(
-                function () {
-                    var link = $(this).attr('href'),
-                        alink = '<span style="color:blue">' + link + '</span>',
-                        div;
-                    if (isExternal(link)) {
-                        div = $('<div>').html('You will be redirected to <br/> ' + alink + ' <br/> Continue?');
-                        div.dialog({
-                            title: 'Are you leaving now?',
-                            resizable: false,
-                            height: 200,
-                            width: 400,
-                            modal: true,
-                            buttons: {
-                                "Go to the website": function () {
-                                    $(this).dialog("close");
-                                    window.location.href = link;
-                                },
-                                "Stay here": function () {
-                                    $(this).dialog("close");
-                                }
-                            }
-                        });
-                        return false;
-                    }
-                }
-            );
-
         });
     }(jQuery)
 );
