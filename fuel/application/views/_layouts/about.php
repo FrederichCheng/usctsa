@@ -39,13 +39,9 @@
                         <div class="member_title"><?= $value['title'] ?></div>
                     </div>
                     <div class="member_des">
-                        <span class="member_name"><?= $value['name'] ?></span>   
-                        <?php if (!empty($value['major']) && 0 != strlen(trim($value['major']))) { ?>
-                            <span class="member_major"><?= $value['major'] ?></span> 
-                        <?php } ?>
-                        <span class="member_message self_intro"><?= $value['message'] ?></span>
-
-                        <span class="member_icons">
+                        <span class="member_name"><?= $value['name'] ?> 
+                            
+                         <span class="member_icons">
                             <ul>
                                 <?php if (!empty($value['email']) && 0 != strlen(trim($value['email']))) { ?>
                                     <li class="email"><?= mailto($value['email'], 'Contact TSA', array('target' => '_blank')) ?></li>
@@ -55,6 +51,14 @@
                                 <?php } ?>
                             </ul>
                         </span>
+                            
+                        </span>  
+                        <?php if (!empty($value['major']) && 0 != strlen(trim($value['major']))) { ?>
+                            <span class="member_major"><?= $value['major'] ?></span> 
+                        <?php } ?>
+                        <span class="member_message self_intro"><?= $value['message'] ?></span>
+
+                       
                     </div>
                 </div>
 
@@ -75,13 +79,8 @@
                         <div class="member_title"><?= $value['title'] ?></div>
                     </div>
                     <div class="member_des">
-                        <span class="member_name"><?= $value['name'] ?></span>   
-                        <?php if (!empty($value['major']) && 0 != strlen(trim($value['major']))) { ?>
-                            <span class="member_major"><?= $value['major'] ?></span> 
-                        <?php } ?>
-                        <span class="member_message self_intro"><?= $value['message'] ?></span>
-
-                        <span class="member_icons">
+                        <span class="member_name"><?= $value['name'] ?>
+                         <span class="member_icons">
                             <ul>
                                 <?php if (!empty($value['email']) && 0 != strlen(trim($value['email']))) { ?>
                                     <li class="email"><?= mailto($value['email'], 'Contact TSA', array('target' => '_blank')) ?></li>
@@ -91,6 +90,14 @@
                                     <?php } ?>
                             </ul>
                         </span>
+                        
+                        </span>   
+                        <?php if (!empty($value['major']) && 0 != strlen(trim($value['major']))) { ?>
+                            <span class="member_major"><?= $value['major'] ?></span> 
+                        <?php } ?>
+                        <span class="member_message self_intro"><?= $value['message'] ?></span>
+
+                       
                     </div>
                 </div>
 
