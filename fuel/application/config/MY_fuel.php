@@ -30,7 +30,7 @@ $config['modules_allowed'] = array(
 );
 
 // used for system emails
-$config['domain'] = '';
+$config['domain'] = 'usctsa.us';
 
 // shows an alert in the admin backend if this is the admin password
 $config['default_pwd'] = 'admin';
@@ -46,13 +46,13 @@ $config['max_page_params'] = 0;
 $config['auto_search_views'] = FALSE;
 
 // max upload files size for assets
-$config['assets_upload_max_size']	= 5000;
-
-// max width for asset images beign uploaded
-$config['assets_upload_max_width']  = 1024;
-
-// max height for asset images beign uploaded
-$config['assets_upload_max_height']  = 768;
+//$config['assets_upload_max_size']	= 5000;
+//
+//// max width for asset images beign uploaded
+//$config['assets_upload_max_width']  = 1024;
+//
+//// max height for asset images beign uploaded
+//$config['assets_upload_max_height']  = 768;
 
 
 // text editor settings  (options are markitup or ckeditor)
@@ -63,15 +63,20 @@ $config['text_editor'] = 'ckeditor';
 // ck editor specific settings... if you use a PHP array, it will use json_encode
 $config['ck_editor_settings'] = "{
 	toolbar:[
-			['Bold','Italic','Strike'],
-			['Format'],
-			['Image','HorizontalRule'],
-			['NumberedList','BulletedList'],
-			['Link','Unlink'],
-			['Undo','Redo','RemoveFormat'],
-			['PasteFromWord','PasteText'],
-			['Preview'],
-			['Maximize']
+                    { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+                    { name: 'colors', items: [ 'TextColor', 'BGColor' ] },
+                    { name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] },
+                    { name: 'others', items: [ '-' ] },
+                    { name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+                    { name: 'editing', groups: [ 'find', 'selection', 'spellchecker' ], items: [ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt' ] },
+                    { name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
+                    '/',
+                    { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] },
+                    { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
+                    { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+                    { name: 'insert', items: [ 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe' ] },
+                    '/',
+                    { name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates' ] }
 		],
 	contentsCss: '".WEB_PATH."assets/css/main.css',
 	htmlEncodeOutput: false,
@@ -79,7 +84,7 @@ $config['ck_editor_settings'] = "{
 	bodyClass: 'ckeditor',
 	protectedSource: [/\{fuel_\w+\(.+\)\}/g, /<\?[\s\S]*?\?>/g],
 	toolbarCanCollapse: false,
-	extraPlugins: 'fuellink,fuelimage',
+	extraPlugins: 'fuellink,fuelimage,font,justify',
 	removePlugins: 'link,image'
 	}";
 

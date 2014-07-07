@@ -1,4 +1,4 @@
-<!-- last modified date: Apr 3, 2014 by sky -->
+<!-- last modified date: July 5, 2014 by sky -->
 
 <?php
     require_once(FACEBOOK_PATH . 'models/facebook_posts_model.php');
@@ -12,11 +12,9 @@
 		<!-- nav scroll -->
 		<div id="navscroll" class="pageScrollerNav standardNav right dark">
 			<ul>
-				<li><a href="#"><?=fuel_var('top_scroller', 'Top')?></a></li>
-				<li><a href="#"><?=fuel_var('opportunity_scroller', 'Job Opportunity')?></a></li>
 				<li><a href="#"><?=fuel_var('experience_scroller', 'Experience Sharing')?></a></li>
-				<li><a href="#"><?=fuel_var('job_hunting_scroller', '求職及就業管道')?></a></li>
-				<li><a href="#"><?=fuel_var('job_law_scroller', '求職就業的法律問題')?></a></li>
+				<li><a href="#"><?=fuel_var('seminar_scroller', 'Career Seminar')?></a></li>
+				<li><a href="#"><?=fuel_var('opportunity_scroller', 'Job Opportunity')?></a></li>
 				<li><a href="#"><?=fuel_var('useful_scroller', 'Useful Websites')?></a></li>
 			</ul>
 		</div>
@@ -25,21 +23,25 @@
 		<div id="wrapper">
 		
 			<div id="main">
-			
-				<!-- Top -->
+				<!-- Experience -->
 				<div class="section">
-		        	<h1><?=fuel_var('top_heading', 'Top')?></h1>
-		        	<p><?=fuel_var('top_description', '')?></p>
-					<p><?=fuel_var('top_sections')?></p>
+			        <h1><?=fuel_var('experience_heading', 'Experience Sharing')?></h1>
+			        <p><?=fuel_var('experience_description', '')?></p>
+					<p><?=fuel_var('experience_sections')?></p>					
 				</div> <!-- End of section -->
-
+				
+				<!-- Seminar -->
+				<div class="section">
+		        	<h1><?=fuel_var('seminar_heading', 'Career Seminar')?></h1>
+		        	<p><?=fuel_var('seminar_description', '')?></p>
+					<p><?=fuel_var('seminar_sections')?></p>
+				</div> <!-- End of section -->
 				
 				<!-- Job Opportunity -->
 				<div class="section">
 					<h1><?=fuel_var('opportunity_heading', 'Job Opportunity')?></h1>
 					<p><?=fuel_var('opportunity_description', '')?></p>	
 		
-					
 					<div class="scrollbar" id="ex3">
 				    	<div class="content">
 
@@ -66,37 +68,6 @@
 						</div>   
 					</div>
 					
-				</div> <!-- End of section -->
-
-				
-				<!-- Experience Sharing -->
-				<div class="section">
-			        <h1><?=fuel_var('experience_heading', 'Experience Sharing')?></h1>
-			        <p><?=fuel_var('experience_description', '')?></p>			
-			
-			        <!-- Accordion -->
-			        <?php foreach($experience_sections as $section){ ?>
-			        <div class="acc-container">
-			        	<span class="acc-trigger"><a href="#" onClick="return false;"><?=$section['title']?></a></span>
-			            <div class="content">
-			                <p><?= $section['content'] ?></p>
-			            </div>
-			 		</div>
-					<?php } ?>						
-				</div> <!-- End of section -->	
-				
-				<!-- Job Hunting -->
-				<div class="section">
-		        	<h1><?=fuel_var('job_hunting_heading', '求職及就業管道 ')?></h1>
-		        	<p><?=fuel_var('job_hunting_description', '')?></p>
-					<p><?=fuel_var('job_hunting_sections')?></p>
-				</div> <!-- End of section -->
-				
-				<!-- Job Law -->
-				<div class="section">
-		        	<h1><?=fuel_var('job_law_heading', '求職就業的法律問題')?></h1>
-		        	<p><?=fuel_var('job_law_description', '')?></p>
-					<p><?=fuel_var('job_law_sections')?></p>
 				</div> <!-- End of section -->
 				
 				<!-- Useful Websites -->
