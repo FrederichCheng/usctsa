@@ -36,9 +36,9 @@
                         <div class="member_photo">
                             <img src="<?= img_path($value['photo']) ?>" alt="<?= $value['title'] . "'s photo" ?>" class="profile_pic">
                         </div>
-                        <div class="member_title"><?= $value['title'] ?></div>
                     </div>
                     <div class="member_des">
+                        <div class="member_title"><?= $value['title'] ?></div>
                         <span class="member_name"><?= $value['name'] ?> 
                             
                          <span class="member_icons">
@@ -76,9 +76,9 @@
                         <div class="member_photo">
                             <img src="<?= img_path($value['photo']) ?>" alt="<?= $value['title'] . "'s photo" ?>" class="profile_pic">
                         </div>
-                        <div class="member_title"><?= $value['title'] ?></div>
                     </div>
                     <div class="member_des">
+                        <div class="member_title"><?= $value['title'] ?></div>
                         <span class="member_name"><?= $value['name'] ?>
                          <span class="member_icons">
                             <ul>

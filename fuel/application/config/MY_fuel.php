@@ -84,8 +84,8 @@ $config['ck_editor_settings'] = "{
 	bodyClass: 'ckeditor',
 	protectedSource: [/\{fuel_\w+\(.+\)\}/g, /<\?[\s\S]*?\?>/g],
 	toolbarCanCollapse: false,
-	extraPlugins: 'fuellink,fuelimage,font,justify',
-	removePlugins: 'link,image'
+	extraPlugins: 'fuelimage,font,justify',
+	removePlugins: 'image'
 	}";
 
 $config['languages'] = array('english' => 'English', 'chinese' => '中文');

@@ -20,7 +20,7 @@ and open the template in the editor.
 
 .section
 { 
-	min-height: 500px;
+	min-height: 400px;
 	padding: 40px;
 }
 
@@ -116,7 +116,6 @@ and open the template in the editor.
 #members{
     margin:0 auto;
     display:table;
-    text-align: center;
     width:800px;
 }
 
@@ -134,16 +133,20 @@ and open the template in the editor.
     height: 300px;*/
     border-width:2px;
     margin: 10px;
-    float:left;
     width: 246px;
-    display:table;
+    min-height: 300px;
+    display:inline-block;
     text-align:center;
     margin-bottom: 30px;
+    vertical-align: top;
 }
 
 .member_title{
     font-size:14px;
     font-weight:bold;
+    padding: 8px;
+    color: #777;
+    text-align: center;
 }
 
 .member_photo_frame{
@@ -163,7 +166,6 @@ and open the template in the editor.
 }
 
 .member_photo{
-    float:top;
     overflow: hidden;
     margin-bottom:10px;
     border-width:1px;
@@ -178,29 +180,35 @@ and open the template in the editor.
 
 
 .member_des span{
-    display:block;
+
 }
 
 .member_des{
     display:block;
     float:left;
     text-align:left;
-    margin-top:25px;
     margin-left: 5px;
     margin-right: 5px;
-    width: 236px;
+    width: 100%;
+}
+
+.member_major{
+    display:block;
+    color:grey;
 }
 
 .member_name{
     font-weight:bold;
-    font-size:16px;
+    font-size:18px;
+    width:100%;
+    min-height: 30px;
+    display:inline-block;
 }
 
 .self_intro{
     font:sans-serif;
     text-align:justify;
     text-indent:2em;
-    height:125px;
 }
 
 .rotate1
