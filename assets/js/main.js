@@ -33,7 +33,6 @@ function makeAllLinksA(str) {
                 top = $('#nav_bar').position().top,
                 nav = $('#nav_bar'),
                 fixedNav = nav.clone(false),
-                animating = false,
                 height;
 
             fixedNav.addClass('navbar-fixed');
@@ -49,16 +48,10 @@ function makeAllLinksA(str) {
                 if (current - height > top) {
                     //nav.css('display','none');
                     fixedNav.css('display', 'block');
-                    if (previous < current && !animating) {
-                        fixedNav.animate({top: -height}, 300, function () {
-                            animating = false;
-                        });
-                        animating = true;
-                    } else if (previous > current && !animating) {
-                        fixedNav.animate({top: 0}, 300, function () {
-                            animating = false;
-                        });
-                        animating = true;
+                    if (previous < current ) {
+                        fixedNav.addClass('navbar-fixed-hidden');
+                    } else if (previous > current) {
+                        fixedNav.removeClass('navbar-fixed-hidden');
                     }
                 }
                 if (current < top) {
