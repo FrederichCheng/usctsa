@@ -34,6 +34,9 @@
                 <div class="member_frame">
                     <div class="member_photo_frame">
                         <div class="member_photo">
+                            <?php if(empty($value['photo']) || strlen(trim($value['photo'])) == 0){
+                                $value['photo'] = 'Members/default.jpg';
+                            }?>
                             <img src="<?= img_path($value['photo']) ?>" alt="<?= $value['title'] . "'s photo" ?>" class="profile_pic">
                         </div>
                     </div>
@@ -74,6 +77,9 @@
                 <div class="member_frame">
                     <div class="member_photo_frame">
                         <div class="member_photo">
+                            <?php if(empty($value['photo']) || strlen(trim($value['photo'])) == 0){
+                                $value['photo'] = 'Members/default.jpg';
+                            }?>
                             <img src="<?= img_path($value['photo']) ?>" alt="<?= $value['title'] . "'s photo" ?>" class="profile_pic">
                         </div>
                     </div>

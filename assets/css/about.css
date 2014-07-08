@@ -145,7 +145,7 @@ and open the template in the editor.
     font-size:14px;
     font-weight:bold;
     padding: 8px;
-    color: #777;
+    color: #b30;
     text-align: center;
 }
 
@@ -195,6 +195,7 @@ and open the template in the editor.
 .member_major{
     display:block;
     color:grey;
+    padding-bottom: 5px;
 }
 
 .member_name{
