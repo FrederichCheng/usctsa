@@ -23,7 +23,7 @@ class facebook_auto_import extends CI_Controller{
     
     private $APP_ID = '445984512214350';
     private $GROUP_ID = '12171823426';
-    private $SECRET = '650f341095028ad446dafd7c57c258f2';
+    private $SECRET = 'f2feee82fd2c8d25bd2d11f421e59347';
     private $classifier = NULL;
     private $facebook = NULL;
     

@@ -356,7 +356,7 @@ $this->load->view('_blocks/header') ?>
                     FB.init({
                         appId: APP_ID, // App ID
                         status: true, // check login status
-                        cookie: true, // enable cookies to allow the server to access the session
+                        cookie: false, // enable cookies to allow the server to access the session
                         xfbml: true  // parse XFBML
                     });
 
@@ -376,7 +376,7 @@ $this->load->view('_blocks/header') ?>
                                 initialized = true;
                             }
                         } else {
-                            FB.login();
+                            FB.login(function(){}, {'scope': 'user_events'});
                         }
                     });
                 });
@@ -739,7 +739,7 @@ $this->load->view('_blocks/header') ?>
         <div id="calendar_div">
             <div id="centerMessage">
                 <div class="text">
-                    <div id="fbButton"><fb:login-button size="xlarge" onlogin="initializeEvents();"></fb:login-button></div>
+                    <div id="fbButton"><fb:login-button size="xlarge" scope="user_events" onlogin="initializeEvents();"></fb:login-button></div>
                     <div id="loginMessage"><?=lang('tsa_calendar_login')?></div>
                 </div>
             </div>
